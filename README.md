@@ -1,13 +1,31 @@
-# Internet-Draft Template Repository
+<!-- regenerate: on (set to off if you edit this file) -->
 
-Use this repository as a template if you want to start working on
-[IETF](https://www.ietf.org/) documents. [Click here to create a new repository using the
-template](https://github.com/martinthomson/internet-draft-template/generate).
-Make sure to check "Include all branches", or you will need to enable GitHub Pages manually.
+# Use Cases and Properties for Integrating Remote Attestation with Secure Channel Protocols
 
-[Read the
-instructions](https://github.com/martinthomson/i-d-template/blob/main/doc/TEMPLATE.md)
-for more information.
+This is the working area for the individual Internet-Draft, "Use Cases and Properties for Integrating Remote Attestation with Secure Channel Protocols".
 
-Once you have created your own repository, start work by
-[renaming the `draft-todo-yourname-protocol.md` file](../../edit/main/draft-todo-yourname-protocol.md).
+* [Editor's Copy](https://tls-attestation.github.io/use-cases-and-properties/#go.draft-mihalcea-seat-use-cases.html)
+* [Datatracker Page](https://datatracker.ietf.org/doc/draft-mihalcea-seat-use-cases)
+* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-mihalcea-seat-use-cases)
+* [Compare Editor's Copy to Individual Draft](https://tls-attestation.github.io/use-cases-and-properties/#go.draft-mihalcea-seat-use-cases.diff)
+
+
+## Contributing
+
+See the
+[guidelines for contributions](https://github.com/tls-attestation/use-cases-and-properties/blob/main/CONTRIBUTING.md).
+
+The contributing file also has tips on how to make contributions, if you
+don't already know how to do that.
+
+## Command Line Usage
+
+Formatted text and HTML versions of the draft can be built using `make`.
+
+```sh
+$ make
+```
+
+Command line usage requires that you have the necessary software installed.  See
+[the instructions](https://github.com/martinthomson/i-d-template/blob/main/doc/SETUP.md).
+
