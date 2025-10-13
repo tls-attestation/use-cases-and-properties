@@ -3,7 +3,7 @@ title: "Use Cases and Properties for Integrating Remote Attestation with Secure 
 abbrev: "SEAT Use Cases"
 category: info
 
-docname: draft-...-latest
+docname: draft-mihalcea-seat-use-cases-latest
 submissiontype: IETF
 number:
 date:
@@ -11,16 +11,21 @@ consensus: true
 v: 3
 area: Security
 workgroup: Secure Evidence and Attestation Transport (SEAT) Working Group
-keyword: remote attestation, TLS, confidential computing, IoT, rats
+keyword:
+  - remote attestation
+  - TLS
+  - confidential computing
+  - IoT
+  - RATS
 venue:
 group: SEAT
 type: Working Group
 mail: seat@ietf.org
 
 author:
-fullname: Your Name Here
-organization: Your Organization Here
-email: your.email@example.com
+  - fullname: Ionuț Mihalcea
+    organization: Arm
+    email: ionut.mihalcea@arm.com
 
 normative:
 
