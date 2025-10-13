@@ -26,6 +26,12 @@ author:
   - fullname: Ionuț Mihalcea
     organization: Arm
     email: ionut.mihalcea@arm.com
+  - fullname: Muhammad Usama Sardar
+    organization: TU Dresden
+    email: muhammad_usama.sardar@tu-dresden.de
+  - fullname: Thomas Fossati
+    organization: Linaro
+    email: thomas.fossati@linaro.org
 
 normative:
 
@@ -54,6 +60,7 @@ of protocol solutions within the SEAT working group.
 --- middle
 
 # Introduction
+
 ## Establishing Trust in Secure Communications
 
 Traditional secure channel protocols, such as Transport Layer Security (TLS),
@@ -295,4 +302,7 @@ This document has no IANA actions.
 
 --- back
 
-Acknowledgments {:numbered="false"}
+# Acknowledgments
+{:numbered="false"}
+
+TODO
