@@ -216,9 +216,9 @@ and relay attacks where an attacker presents valid, but old or unrelated
 Evidence from a different connection or context. This binding is paramount for all
 use cases.
 
-## Cryptographic Binding to Provider Identity
+## Cryptographic Binding to Identifier of Infrastructure Provider
 
-Evidence should be cryptographically bound to the provider identity to prevent diversion attacks {{Meeting-122-TLS-Slides}}.
+Evidence should be cryptographically bound to the identifier of the infrastructure provider to prevent diversion attacks {{Meeting-122-TLS-Slides}}.
 
 ## Attestation Credential Freshness
 
