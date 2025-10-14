@@ -39,6 +39,17 @@ informative:
     RFC9334: rats-arch
     I-D.draft-ccc-wimse-twi-extensions: wimse-twi
     I-D.draft-ietf-rats-eat-measured-component: rats-measured
+  Meeting-122-TLS-Slides:
+       title: "Identity Crisis in Attested TLS for Confidential Computing"
+       date: 20 March 2025,
+       target: https://datatracker.ietf.org/meeting/122/materials/slides-122-tls-identity-crisis-00
+       author:
+       -
+         ins: M. U. Sardar
+       -
+         ins: M. Moustafa
+       -
+         ins: T. Aura
 
 --- abstract
 
@@ -200,13 +211,17 @@ This section provides a list of desirable properties for designs that integrate
 RA into secure channel protocols. Proposed integration protocols should make it
 clear which of these properties are fulfilled, and how.
 
-## Cryptographic Binding
+## Cryptographic Binding to Communication Channel
 
 The attestation Evidence or Attestation Result is cryptographically bound to the
 specific secure channel instance (e.g., the TLS connection). This prevents replay
 and relay attacks where an attacker presents valid, but old or unrelated
 Evidence from a different connection or context. This binding is paramount for all
 use cases.
+
+## Cryptographic Binding to Provider Identity
+
+Evidence should be cryptographically bound to the provider identity to prevent diversion attacks {{Meeting-122-TLS-Slides}}.
 
 ## Attestation Credential Freshness
 
