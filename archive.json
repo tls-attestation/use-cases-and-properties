@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-12T01:51:02.598547+00:00",
+  "timestamp": "2025-10-14T01:47:53.375800+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -50,5 +50,74 @@
     }
   ],
   "issues": [],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOP_9tTM6tdQ-K",
+      "title": "update CODEOWNERS",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/1",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Add Usama and Thomas to the CODEOWNERS\r\n\r\nThis should make it easier for any of us to submit via the release button.",
+      "createdAt": "2025-10-13T12:46:59Z",
+      "updatedAt": "2025-10-13T14:28:16Z",
+      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRefName": "main",
+      "baseRefOid": "60b0b83275daf225d204523527912b2bb8536756",
+      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRefName": "codeownerz",
+      "headRefOid": "d94b5bf3f22f480b35bcc08ac8d35ce7404003cb",
+      "closedAt": "2025-10-13T14:28:12Z",
+      "mergedAt": "2025-10-13T14:28:12Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "080e68a1f8ee3ff7d4a416091fe00952073286b7"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM7Glwyv",
+          "commit": {
+            "abbreviatedOid": "d94b5bf"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-13T14:05:52Z",
+          "updatedAt": "2025-10-13T14:05:52Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOP_9tTM6tiKkV",
+      "title": "minor terminology update",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/2",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "s/session/connection",
+      "createdAt": "2025-10-13T20:19:34Z",
+      "updatedAt": "2025-10-13T20:19:35Z",
+      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRefName": "main",
+      "baseRefOid": "080e68a1f8ee3ff7d4a416091fe00952073286b7",
+      "headRepository": "muhammad-usama-sardar/use-cases-and-properties",
+      "headRefName": "patch-1",
+      "headRefOid": "6f943d744ad29417bf364d2eb18f9f6123900545",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
