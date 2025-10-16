@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-14T01:47:53.375800+00:00",
+  "timestamp": "2025-10-16T01:49:26.412263+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -96,7 +96,7 @@
     {
       "number": 2,
       "id": "PR_kwDOP_9tTM6tiKkV",
-      "title": "minor terminology update",
+      "title": "Binding property + minor terminology update",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/2",
       "state": "OPEN",
       "author": "muhammad-usama-sardar",
@@ -105,19 +105,500 @@
       "labels": [],
       "body": "s/session/connection",
       "createdAt": "2025-10-13T20:19:34Z",
-      "updatedAt": "2025-10-13T20:19:35Z",
+      "updatedAt": "2025-10-15T13:52:46Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "080e68a1f8ee3ff7d4a416091fe00952073286b7",
       "headRepository": "muhammad-usama-sardar/use-cases-and-properties",
       "headRefName": "patch-1",
-      "headRefOid": "6f943d744ad29417bf364d2eb18f9f6123900545",
+      "headRefOid": "f238c49030cdab8f312102b17f931ce54d338642",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM7GwaUA",
+          "commit": {
+            "abbreviatedOid": "48b4eb7"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "LGTM.  I have left a suggestion inline to fix the broken YAML.",
+          "createdAt": "2025-10-14T08:55:03Z",
+          "updatedAt": "2025-10-14T08:56:04Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "```suggestion\r\n    Meeting-122-TLS-Slides:\r\n     title: \"Identity Crisis in Attested TLS for Confidential Computing\"\r\n     date: 20 March 2025,\r\n     target: https://datatracker.ietf.org/meeting/122/materials/slides-122-tls-identity-crisis-00\r\n     author:\r\n     - ins: M. U. Sardar\r\n     - ins: M. Moustafa\r\n     - ins: T. Aura\r\n```",
+              "createdAt": "2025-10-14T08:55:03Z",
+              "updatedAt": "2025-10-14T08:56:04Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7GwkcQ",
+          "commit": {
+            "abbreviatedOid": "48b4eb7"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-14T09:06:22Z",
+          "updatedAt": "2025-10-14T09:06:22Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "Thanks, it somehow worked as is [here](https://github.com/muhammad-usama-sardar/tls-fatt-extension/blob/main/draft-usama-tls-fatt-extension.md?plain=1). I just copied and pasted from there. Just for my knowledge, is there a difference of configuration that makes it work there?",
+              "createdAt": "2025-10-14T09:06:22Z",
+              "updatedAt": "2025-10-14T09:06:23Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7GwpEz",
+          "commit": {
+            "abbreviatedOid": "48b4eb7"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-14T09:11:21Z",
+          "updatedAt": "2025-10-14T09:11:21Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "It's not a matter of configuration; it's the context that matters.  You need to match the surrounding indentation pattern.",
+              "createdAt": "2025-10-14T09:11:21Z",
+              "updatedAt": "2025-10-14T09:11:21Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7Gwp12",
+          "commit": {
+            "abbreviatedOid": "e25abe7"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-14T09:12:14Z",
+          "updatedAt": "2025-10-14T09:12:24Z",
+          "comments": [
+            {
+              "originalPosition": 33,
+              "body": "Can you expand on `provider`?  One option below.\r\n\r\n```suggestion\r\n## Cryptographic Binding to Platform Provider Identity\r\n\r\nEvidence should be cryptographically bound to the platform provider identity to prevent diversion attacks {{Meeting-122-TLS-Slides}}.\r\n```\r\n\r\nI'm not convinced that's what you meant, though",
+              "createdAt": "2025-10-14T09:12:14Z",
+              "updatedAt": "2025-10-14T09:12:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7Gw3B2",
+          "commit": {
+            "abbreviatedOid": "48b4eb7"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-14T09:26:46Z",
+          "updatedAt": "2025-10-14T09:26:47Z",
+          "comments": [
+            {
+              "originalPosition": 33,
+              "body": "It could be a cloud provider if VM is running on the cloud, or otherwise some other infrastructure provider.\r\nWould 'infrastructure provider' be better? We can wordsmith it. ",
+              "createdAt": "2025-10-14T09:26:46Z",
+              "updatedAt": "2025-10-14T09:26:47Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7Gw_NR",
+          "commit": {
+            "abbreviatedOid": "48b4eb7"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-14T09:36:03Z",
+          "updatedAt": "2025-10-14T09:36:04Z",
+          "comments": [
+            {
+              "originalPosition": 33,
+              "body": "Sure, infrastructure provider is better, though is the entire phrase accurate? By which I mean, is it the \"infrastructure provider identity\" that is bound, or the \"infrastructure identity\"?",
+              "createdAt": "2025-10-14T09:36:03Z",
+              "updatedAt": "2025-10-14T09:36:04Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7GxCvo",
+          "commit": {
+            "abbreviatedOid": "48b4eb7"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-14T09:40:15Z",
+          "updatedAt": "2025-10-14T09:40:15Z",
+          "comments": [
+            {
+              "originalPosition": 33,
+              "body": "I understand the diversion being triggered by the lack of \"unique machine identity\u201d, regardless of who the identity provider is.\r\n\r\nP.S.: Using the word \u201cidentity\" tends to lead people down rabbit holes.",
+              "createdAt": "2025-10-14T09:40:15Z",
+              "updatedAt": "2025-10-14T09:40:15Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7GxODl",
+          "commit": {
+            "abbreviatedOid": "48b4eb7"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-14T09:52:54Z",
+          "updatedAt": "2025-10-14T09:52:54Z",
+          "comments": [
+            {
+              "originalPosition": 33,
+              "body": "Then maybe `Cryptographic binding to unique machine identifier` is better?",
+              "createdAt": "2025-10-14T09:52:54Z",
+              "updatedAt": "2025-10-14T09:52:54Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7GxR72",
+          "commit": {
+            "abbreviatedOid": "48b4eb7"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-14T09:57:24Z",
+          "updatedAt": "2025-10-14T09:57:24Z",
+          "comments": [
+            {
+              "originalPosition": 33,
+              "body": "How about \"identifier of infrastructure provider\"?\r\n\r\n> I understand the diversion being triggered by the lack of \"unique machine identity\u201d, regardless of who the identity provider is.\r\n\r\nI don't expect cloud providers to reveal unique machine identifiers. I think \"identity provider\" should be in the trust anchor store. ",
+              "createdAt": "2025-10-14T09:57:24Z",
+              "updatedAt": "2025-10-14T09:57:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7GxfUE",
+          "commit": {
+            "abbreviatedOid": "48b4eb7"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-14T10:13:45Z",
+          "updatedAt": "2025-10-14T10:13:46Z",
+          "comments": [
+            {
+              "originalPosition": 33,
+              "body": "> I don't expect cloud providers to reveal unique machine identifiers.\r\n\r\nHmm, that's fair.\r\n\r\n> How about \"identifier of infrastructure provider\"?\r\n\r\nThat works. Another option is \"infrastructure provider credential\"",
+              "createdAt": "2025-10-14T10:13:46Z",
+              "updatedAt": "2025-10-14T10:13:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7Gx8Ds",
+          "commit": {
+            "abbreviatedOid": "48b4eb7"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-14T10:49:46Z",
+          "updatedAt": "2025-10-14T10:49:46Z",
+          "comments": [
+            {
+              "originalPosition": 33,
+              "body": "> > I don't expect cloud providers to reveal unique machine identifiers.\r\n> \r\n> Hmm, that's fair.\r\n\r\nWhether or not the machine identifier is revealed is irrelevant.  What matters is that a given machine can prove its identity to the credential provider and that this identity is used to create the binding credential.\r\n\r\n> > How about \"identifier of infrastructure provider\"?\r\n> \r\n> That works. Another option is \"infrastructure provider credential\"\r\n\r\nSorry, I don\u2019t like either :-)\r\n\r\n",
+              "createdAt": "2025-10-14T10:49:46Z",
+              "updatedAt": "2025-10-14T10:49:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7GyYw_",
+          "commit": {
+            "abbreviatedOid": "48b4eb7"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-14T11:23:52Z",
+          "updatedAt": "2025-10-14T11:23:52Z",
+          "comments": [
+            {
+              "originalPosition": 33,
+              "body": "> > > I don't expect cloud providers to reveal unique machine identifiers.\r\n> > \r\n> > \r\n> > Hmm, that's fair.\r\n> \r\n> Whether or not the machine identifier is revealed is irrelevant. What matters is that a given machine can prove its identity to the credential provider and that this identity is used to create the binding credential.\r\n> \r\n\r\nWhat does \"identity\" entail here? Also, that seems only applicable to the passport model. \r\n> > > How about \"identifier of infrastructure provider\"?\r\n> > \r\n> > \r\n> > That works. Another option is \"infrastructure provider credential\"\r\n> \r\n> Sorry, I don\u2019t like either :-)\r\n\r\nYou are in the rough :P",
+              "createdAt": "2025-10-14T11:23:52Z",
+              "updatedAt": "2025-10-14T11:23:52Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7GzIGG",
+          "commit": {
+            "abbreviatedOid": "48b4eb7"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-14T12:14:10Z",
+          "updatedAt": "2025-10-14T12:14:11Z",
+          "comments": [
+            {
+              "originalPosition": 33,
+              "body": "> > Whether or not the machine identifier is revealed is irrelevant. What matters is that a given machine can prove its identity to the credential provider and that this identity is used to create the binding credential.\r\n>\r\n> What does \"identity\" entail here?\r\n\r\nThe ability to single out a given machine (or a group of machines in an anonymity group).\r\n\r\n> Also, that seems only applicable to the passport model.\r\n\r\nWhy?  Not at all.",
+              "createdAt": "2025-10-14T12:14:10Z",
+              "updatedAt": "2025-10-14T12:14:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7GzUMy",
+          "commit": {
+            "abbreviatedOid": "1dbb626"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2025-10-14T12:26:19Z",
+          "updatedAt": "2025-10-14T12:26:26Z",
+          "comments": [
+            {
+              "originalPosition": 46,
+              "body": "I don\u2019t think this should be about the \u201cidentifier of the infra provider\u201d.\r\nIt should be about an \u201cidentifier provided to the machine by the infra provider\u201d.",
+              "createdAt": "2025-10-14T12:26:19Z",
+              "updatedAt": "2025-10-14T13:00:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7Gzx7V",
+          "commit": {
+            "abbreviatedOid": "48b4eb7"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-14T12:54:16Z",
+          "updatedAt": "2025-10-14T12:54:16Z",
+          "comments": [
+            {
+              "originalPosition": 33,
+              "body": "> Also, that seems only applicable to the passport model.\r\n\r\nMust've forgotten the model before, but I think the whole flow was something like:\r\n\r\n* New device gets added to a provider's estate.\r\n* Provider issues a credential for the device (and potentially provisions cryptographic material to go with it too); the credential specifies who the provider is, where the device is located etc.\r\n* Workload on the device tries to use aTLS, including binding to the device credential; you therefore need to somehow bind the session to this credential\r\n\r\nIf I understand correctly, we're all talking about this last step. Don't think it's passport model specifically, the device credential must've been issued before, but the background check/passport does not relate to this credential.",
+              "createdAt": "2025-10-14T12:54:16Z",
+              "updatedAt": "2025-10-14T12:54:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7G2-AV",
+          "commit": {
+            "abbreviatedOid": "1dbb626"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-14T15:34:31Z",
+          "updatedAt": "2025-10-14T15:34:31Z",
+          "comments": [
+            {
+              "originalPosition": 46,
+              "body": "ok, that works for me. ",
+              "createdAt": "2025-10-14T15:34:31Z",
+              "updatedAt": "2025-10-14T15:34:31Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7HA5yS",
+          "commit": {
+            "abbreviatedOid": "f238c49"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-15T07:51:40Z",
+          "updatedAt": "2025-10-15T07:51:40Z",
+          "comments": [
+            {
+              "originalPosition": 46,
+              "body": "We should make it clear that the diversion attack is deployment- and architecture-specific.\r\n\r\n```suggestion\r\nIn certain deployments and for specific hardware architectures, diversion attacks are possible {{Meeting-122-TLS-Slides}}.\r\nTo prevent such an attack, Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider.\r\n```",
+              "createdAt": "2025-10-15T07:51:40Z",
+              "updatedAt": "2025-10-15T08:01:52Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7HCWNQ",
+          "commit": {
+            "abbreviatedOid": "f238c49"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-15T09:13:54Z",
+          "updatedAt": "2025-10-15T09:13:55Z",
+          "comments": [
+            {
+              "originalPosition": 46,
+              "body": "Makes sense, makes me wonder whether we should add qualifiers for the other properties too.",
+              "createdAt": "2025-10-15T09:13:54Z",
+              "updatedAt": "2025-10-15T09:13:55Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7HE11k",
+          "commit": {
+            "abbreviatedOid": "f238c49"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-15T11:40:22Z",
+          "updatedAt": "2025-10-15T11:40:22Z",
+          "comments": [
+            {
+              "originalPosition": 46,
+              "body": "I don't disagree, but I don't have any specific suggestions except for this one right now.",
+              "createdAt": "2025-10-15T11:40:22Z",
+              "updatedAt": "2025-10-15T11:40:22Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7HFP1i",
+          "commit": {
+            "abbreviatedOid": "f238c49"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-15T12:09:22Z",
+          "updatedAt": "2025-10-15T12:09:22Z",
+          "comments": [
+            {
+              "originalPosition": 46,
+              "body": "> We should make it clear that the diversion attack is deployment- and architecture-specific.\r\n\r\nI would like to see at least one concrete counterexample of an _existing_ deployment and/or hardware architecture where this attack is not applicable. ",
+              "createdAt": "2025-10-15T12:09:22Z",
+              "updatedAt": "2025-10-15T12:09:22Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7HFRad",
+          "commit": {
+            "abbreviatedOid": "f238c49"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-15T12:11:14Z",
+          "updatedAt": "2025-10-15T12:11:15Z",
+          "comments": [
+            {
+              "originalPosition": 46,
+              "body": "Arm CCA with per-machine instance ID?",
+              "createdAt": "2025-10-15T12:11:14Z",
+              "updatedAt": "2025-10-15T12:11:15Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7HFnjt",
+          "commit": {
+            "abbreviatedOid": "f238c49"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-15T12:34:16Z",
+          "updatedAt": "2025-10-15T12:34:16Z",
+          "comments": [
+            {
+              "originalPosition": 46,
+              "body": "There is no _existing_ deployment for Arm CCA yet, right? And that needs more discussion as in how that would identify that this machine is in a cloud provider's data center. Anyway, I propose we leave as it is, because it is one of the requirements that our protocol design needs to satisfy. This document -- at least the way I am thinking of it -- is just describing our requirements for protocol design and we agree that it is a requirement. Whether it is deployment-specific or hardware architecture-specific does not matter for this document in my view. \r\nIf we really want to qualify it, we should thoroughly discuss how Arm CCA avoids this and then qualify other properties too. ",
+              "createdAt": "2025-10-15T12:34:16Z",
+              "updatedAt": "2025-10-15T12:34:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7HGEXk",
+          "commit": {
+            "abbreviatedOid": "f238c49"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-15T12:55:50Z",
+          "updatedAt": "2025-10-15T12:55:51Z",
+          "comments": [
+            {
+              "originalPosition": 46,
+              "body": "> [\u2026] how that would identify that this machine is in a cloud provider's data center\r\n\r\nWe have already discussed this point: via an endorsement that binds the machine\u2019s instance ID with the network/geographical location.",
+              "createdAt": "2025-10-15T12:55:50Z",
+              "updatedAt": "2025-10-15T12:55:51Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7HHHvg",
+          "commit": {
+            "abbreviatedOid": "f238c49"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-15T13:52:46Z",
+          "updatedAt": "2025-10-15T13:52:46Z",
+          "comments": [
+            {
+              "originalPosition": 46,
+              "body": "Stepping a bit back, we should have a clear separation between things that are strictly necessary regardless of the underlying technologies, and those that depend on how these technologies work, even if some conditions are not met in deployments right now. Don't think our intent should be to write specs only for what exists right now.\r\n\r\nAs an example, the cryptographic binding between RA and Secure Channel (SC) sessions should always be there one way or another, otherwise RA is useless. No change to platform / RA / TLS can be enough to overcome that.",
+              "createdAt": "2025-10-15T13:52:46Z",
+              "updatedAt": "2025-10-15T13:52:47Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
