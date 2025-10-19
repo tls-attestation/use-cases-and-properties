@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-16T01:49:26.412263+00:00",
+  "timestamp": "2025-10-19T02:00:31.575501+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -105,7 +105,7 @@
       "labels": [],
       "body": "s/session/connection",
       "createdAt": "2025-10-13T20:19:34Z",
-      "updatedAt": "2025-10-15T13:52:46Z",
+      "updatedAt": "2025-10-18T20:31:48Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "080e68a1f8ee3ff7d4a416091fe00952073286b7",
@@ -597,6 +597,59 @@
               "updatedAt": "2025-10-15T13:52:47Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7H5I6E",
+          "commit": {
+            "abbreviatedOid": "f238c49"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-18T16:17:48Z",
+          "updatedAt": "2025-10-18T16:17:48Z",
+          "comments": [
+            {
+              "originalPosition": 46,
+              "body": "> We have already discussed this point: via an endorsement that binds the machine\u2019s instance ID with the network/geographical location.\r\n\r\nI said _thorough_ discussions vs. top-of-head discussions.\r\n\r\n- Who provides this Endorsement in the real world? Please point me to one concrete specification and one concrete deployment.\r\n- Please name one concrete cloud provider that provides such machine\u2019s instance ID in the Evidence. Without this, the Endorsement is useless.",
+              "createdAt": "2025-10-18T16:17:48Z",
+              "updatedAt": "2025-10-18T16:17:48Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7H5MGd",
+          "commit": {
+            "abbreviatedOid": "f238c49"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-18T16:51:20Z",
+          "updatedAt": "2025-10-18T16:51:20Z",
+          "comments": [
+            {
+              "originalPosition": 46,
+              "body": "> we should have a clear separation between things that are strictly necessary regardless of the underlying technologies, and those that depend on how these technologies work\r\n\r\nMy point is: it is not followed in the rest of the document. For example, \"Performance and Efficiency\" in the draft is also dependent on the underlying technology. Why are we emphasizing it here only?\r\n\r\nThe purpose is to list the requirements, and we agree that it is a requirement. Whether some technology fulfills it or not is not the aim of this document. Let's not make it a technology comparison document. ",
+              "createdAt": "2025-10-18T16:51:20Z",
+              "updatedAt": "2025-10-18T16:51:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7H5m2m",
+          "commit": {
+            "abbreviatedOid": "f238c49"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-18T20:31:48Z",
+          "updatedAt": "2025-10-18T20:31:48Z",
+          "comments": []
         }
       ]
     }
