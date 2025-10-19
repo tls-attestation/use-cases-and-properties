@@ -20,11 +20,11 @@ trusted computing base (TCB). This document explores specific use cases, such as
 confidential data collaboration and secure secrets provisioning, to motivate the
 need for this integration. From these use cases, it specifies a set of essential
 properties the protocol solution must have, including cryptographic binding to
-the TLS session, evidence freshness, and flexibility to support different
+the TLS connection, evidence freshness, and flexibility to support different
 attestation models. This document is intended to serve as an input to the design
 of protocol solutions within the SEAT working group. 
     " name="description">
-<meta content="xml2rfc 3.30.2" name="generator">
+<meta content="xml2rfc 3.31.0" name="generator">
 <meta content="remote attestation" name="keyword">
 <meta content="TLS" name="keyword">
 <meta content="confidential computing" name="keyword">
@@ -32,18 +32,17 @@ of protocol solutions within the SEAT working group.
 <meta content="RATS" name="keyword">
 <meta content="draft-mihalcea-seat-use-cases-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.30.2
-    Python 3.12.11
+  xml2rfc 3.31.0
+    Python 3.12.12
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
     Jinja2 3.1.6
     lxml 5.3.1
-    platformdirs 4.4.0
+    platformdirs 4.5.0
     pycountry 24.6.1
     PyYAML 6.0.2
     requests 2.32.5
-    setuptools 80.9.0
     wcwidth 0.2.14
 -->
 <link href="draft-mihalcea-seat-use-cases.xml" rel="alternate" type="application/rfc+xml">
@@ -1067,7 +1066,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mihalcea, et al.</td>
-<td class="center">Expires 16 April 2026</td>
+<td class="center">Expires 22 April 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1080,12 +1079,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-mihalcea-seat-use-cases-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-10-13" class="published">13 October 2025</time>
+<time datetime="2025-10-19" class="published">19 October 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-04-16">16 April 2026</time></dd>
+<dd class="expires"><time datetime="2026-04-22">22 April 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1117,7 +1116,7 @@ trusted computing base (TCB). This document explores specific use cases, such as
 confidential data collaboration and secure secrets provisioning, to motivate the
 need for this integration. From these use cases, it specifies a set of essential
 properties the protocol solution must have, including cryptographic binding to
-the TLS session, evidence freshness, and flexibility to support different
+the TLS connection, evidence freshness, and flexibility to support different
 attestation models. This document is intended to serve as an input to the design
 of protocol solutions within the SEAT working group.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
@@ -1140,7 +1139,7 @@ of protocol solutions within the SEAT working group.<a href="#section-abstract-1
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 16 April 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 22 April 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1204,28 +1203,31 @@ of protocol solutions within the SEAT working group.<a href="#section-abstract-1
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-integration-properties" class="internal xref">Integration Properties</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-cryptographic-binding" class="internal xref">Cryptographic Binding</a></p>
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-cryptographic-binding-to-co" class="internal xref">Cryptographic Binding to Communication Channel</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-attestation-credential-fres" class="internal xref">Attestation Credential Freshness</a></p>
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-cryptographic-binding-to-ma" class="internal xref">Cryptographic Binding to Machine Identifier</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3">
-                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-negotiation-and-capability-" class="internal xref">Negotiation and Capability Discovery</a></p>
+                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-attestation-credential-fres" class="internal xref">Attestation Credential Freshness</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4">
-                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="auto internal xref">4.4</a>.  <a href="#name-attestation-model-flexibili" class="internal xref">Attestation Model Flexibility</a></p>
+                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="auto internal xref">4.4</a>.  <a href="#name-negotiation-and-capability-" class="internal xref">Negotiation and Capability Discovery</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.5">
-                <p id="section-toc.1-1.4.2.5.1"><a href="#section-4.5" class="auto internal xref">4.5</a>.  <a href="#name-interaction-with-peer-authe" class="internal xref">Interaction with Peer Authentication</a></p>
+                <p id="section-toc.1-1.4.2.5.1"><a href="#section-4.5" class="auto internal xref">4.5</a>.  <a href="#name-attestation-model-flexibili" class="internal xref">Attestation Model Flexibility</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.6">
-                <p id="section-toc.1-1.4.2.6.1"><a href="#section-4.6" class="auto internal xref">4.6</a>.  <a href="#name-credential-lifecycle-manage" class="internal xref">Credential Lifecycle Management</a></p>
+                <p id="section-toc.1-1.4.2.6.1"><a href="#section-4.6" class="auto internal xref">4.6</a>.  <a href="#name-interaction-with-peer-authe" class="internal xref">Interaction with Peer Authentication</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.7">
-                <p id="section-toc.1-1.4.2.7.1"><a href="#section-4.7" class="auto internal xref">4.7</a>.  <a href="#name-privacy-preservation" class="internal xref">Privacy Preservation</a></p>
+                <p id="section-toc.1-1.4.2.7.1"><a href="#section-4.7" class="auto internal xref">4.7</a>.  <a href="#name-credential-lifecycle-manage" class="internal xref">Credential Lifecycle Management</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.8">
-                <p id="section-toc.1-1.4.2.8.1"><a href="#section-4.8" class="auto internal xref">4.8</a>.  <a href="#name-performance-and-efficiency" class="internal xref">Performance and Efficiency</a></p>
+                <p id="section-toc.1-1.4.2.8.1"><a href="#section-4.8" class="auto internal xref">4.8</a>.  <a href="#name-privacy-preservation" class="internal xref">Privacy Preservation</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.9">
+                <p id="section-toc.1-1.4.2.9.1"><a href="#section-4.9" class="auto internal xref">4.9</a>.  <a href="#name-performance-and-efficiency" class="internal xref">Performance and Efficiency</a></p>
 </li>
             </ul>
 </li>
@@ -1439,104 +1441,112 @@ a compromised interface that could steal credentials or manipulate the device.<a
       <h2 id="name-integration-properties">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-integration-properties" class="section-name selfRef">Integration Properties</a>
       </h2>
-<p id="section-4-1">This section provides a list of desirable properties for designs which integrate
+<p id="section-4-1">This section provides a list of desirable properties for designs that integrate
 RA into secure channel protocols. Proposed integration protocols should make it
 clear which of these properties are fulfilled, and how.<a href="#section-4-1" class="pilcrow">¶</a></p>
-<div id="cryptographic-binding">
+<div id="cryptographic-binding-to-communication-channel">
 <section id="section-4.1">
-        <h3 id="name-cryptographic-binding">
-<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-cryptographic-binding" class="section-name selfRef">Cryptographic Binding</a>
+        <h3 id="name-cryptographic-binding-to-co">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-cryptographic-binding-to-co" class="section-name selfRef">Cryptographic Binding to Communication Channel</a>
         </h3>
 <p id="section-4.1-1">The attestation Evidence or Attestation Result is cryptographically bound to the
-specific secure channel instance (e.g., the TLS session). This prevents replay
+specific secure channel instance (e.g., the TLS connection). This prevents replay
 and relay attacks where an attacker presents valid, but old or unrelated
-Evidence from a different session or context. This binding is paramount for all
+Evidence from a different connection or context. This binding is paramount for all
 use cases.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="attestation-credential-freshness">
+<div id="cryptographic-binding-to-machine-identifier">
 <section id="section-4.2">
-        <h3 id="name-attestation-credential-fres">
-<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-attestation-credential-fres" class="section-name selfRef">Attestation Credential Freshness</a>
+        <h3 id="name-cryptographic-binding-to-ma">
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-cryptographic-binding-to-ma" class="section-name selfRef">Cryptographic Binding to Machine Identifier</a>
         </h3>
-<p id="section-4.2-1">The Relying Party is able to verify that the Evidence or Attestation Result it
-receives was freshly generated by the Attester for the current session. State is
-transient, and credentials from a previous session may no longer be valid. See
+<p id="section-4.2-1">Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider to prevent diversion attacks <span>[<a href="#Meeting-122-TLS-Slides" class="cite xref">Meeting-122-TLS-Slides</a>]</span>.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="attestation-credential-freshness">
+<section id="section-4.3">
+        <h3 id="name-attestation-credential-fres">
+<a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-attestation-credential-fres" class="section-name selfRef">Attestation Credential Freshness</a>
+        </h3>
+<p id="section-4.3-1">The Relying Party is able to verify that the Evidence or Attestation Result it
+receives was freshly generated by the Attester for the current connection. State is
+transient, and credentials from a previous connection may no longer be valid. See
 <span><a href="https://rfc-editor.org/rfc/rfc9334#section-10" class="relref">Section 10</a> of [<a href="#RFC9334" class="cite xref">RFC9334</a>]</span> for more details about freshness in the context of
-RA.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+RA.<a href="#section-4.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="negotiation-and-capability-discovery">
-<section id="section-4.3">
+<section id="section-4.4">
         <h3 id="name-negotiation-and-capability-">
-<a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-negotiation-and-capability-" class="section-name selfRef">Negotiation and Capability Discovery</a>
+<a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-negotiation-and-capability-" class="section-name selfRef">Negotiation and Capability Discovery</a>
         </h3>
-<p id="section-4.3-1">Peers have a secure mechanism to discover each other's support for RA, the
+<p id="section-4.4-1">Peers have a secure mechanism to discover each other's support for RA, the
 specific attestation formats they can produce or consume, and the attestation
 models they support. This enables interoperability and allows for graceful
-fallback for endpoints that do not support RA.<a href="#section-4.3-1" class="pilcrow">¶</a></p>
+fallback for endpoints that do not support RA.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="attestation-model-flexibility">
-<section id="section-4.4">
+<section id="section-4.5">
         <h3 id="name-attestation-model-flexibili">
-<a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-attestation-model-flexibili" class="section-name selfRef">Attestation Model Flexibility</a>
+<a href="#section-4.5" class="section-number selfRef">4.5. </a><a href="#name-attestation-model-flexibili" class="section-name selfRef">Attestation Model Flexibility</a>
         </h3>
-<p id="section-4.4-1">The solution supports both the Background Check and Passport models as defined
+<p id="section-4.5-1">The solution supports both the Background Check and Passport models as defined
 in the RATS architecture <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>. The Background Check model is essential
 for use cases requiring maximum freshness, while the Passport model is better
 suited for performance, scalability, and scenarios where the Verifier may be
-offline or unreachable by the Relying Party.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
+offline or unreachable by the Relying Party.<a href="#section-4.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="interaction-with-peer-authentication">
-<section id="section-4.5">
+<section id="section-4.6">
         <h3 id="name-interaction-with-peer-authe">
-<a href="#section-4.5" class="section-number selfRef">4.5. </a><a href="#name-interaction-with-peer-authe" class="section-name selfRef">Interaction with Peer Authentication</a>
+<a href="#section-4.6" class="section-number selfRef">4.6. </a><a href="#name-interaction-with-peer-authe" class="section-name selfRef">Interaction with Peer Authentication</a>
         </h3>
-<p id="section-4.5-1">The solution supports using RA in conjunction with traditional PKI-based
+<p id="section-4.6-1">The solution supports using RA in conjunction with traditional PKI-based
 authentication (e.g., X.509 certificates). This provides two independent pillars
 of trust: trustworthiness (from RA) and identity (from PKI). The solution may
 also support RA as the sole method of authentication in constrained use cases,
 such as device onboarding, where a device has no stable, long-term identity yet.
 This latter option could have a negative impact on the security of the overall
-design, warranting additional security considerations.<a href="#section-4.5-1" class="pilcrow">¶</a></p>
+design, warranting additional security considerations.<a href="#section-4.6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="credential-lifecycle-management">
-<section id="section-4.6">
+<section id="section-4.7">
         <h3 id="name-credential-lifecycle-manage">
-<a href="#section-4.6" class="section-number selfRef">4.6. </a><a href="#name-credential-lifecycle-manage" class="section-name selfRef">Credential Lifecycle Management</a>
+<a href="#section-4.7" class="section-number selfRef">4.7. </a><a href="#name-credential-lifecycle-manage" class="section-name selfRef">Credential Lifecycle Management</a>
         </h3>
-<p id="section-4.6-1">The solution can provide a mechanism for re-attesting or refreshing attestation
+<p id="section-4.7-1">The solution can provide a mechanism for re-attesting or refreshing attestation
 credentials on an existing, long-lived connection without requiring a full new
-handshake. For long-lived sessions, the initial attestation may become stale,
+handshake. For long-lived connections, the initial attestation may become stale,
 and a lightweight refresh mechanism is beneficial towards re-evaluating the
-peer's state.<a href="#section-4.6-1" class="pilcrow">¶</a></p>
+peer's state.<a href="#section-4.7-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="privacy-preservation">
-<section id="section-4.7">
+<section id="section-4.8">
         <h3 id="name-privacy-preservation">
-<a href="#section-4.7" class="section-number selfRef">4.7. </a><a href="#name-privacy-preservation" class="section-name selfRef">Privacy Preservation</a>
+<a href="#section-4.8" class="section-number selfRef">4.8. </a><a href="#name-privacy-preservation" class="section-name selfRef">Privacy Preservation</a>
         </h3>
-<p id="section-4.7-1">The solution does not degrade the privacy of a standard TLS session. Evidence
+<p id="section-4.8-1">The solution does not degrade the privacy of a standard TLS connection. Evidence
 can contain highly specific, unique information about a device's hardware and
 software, which could be used as an advanced tracking mechanism, following a
-user across different sessions and services. The design must consider how to
+user across different connections and services. The design must consider how to
 minimize this leakage, especially when a third-party Verifier is involved in the
-protocol exchange.<a href="#section-4.7-1" class="pilcrow">¶</a></p>
+protocol exchange.<a href="#section-4.8-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="performance-and-efficiency">
-<section id="section-4.8">
+<section id="section-4.9">
         <h3 id="name-performance-and-efficiency">
-<a href="#section-4.8" class="section-number selfRef">4.8. </a><a href="#name-performance-and-efficiency" class="section-name selfRef">Performance and Efficiency</a>
+<a href="#section-4.9" class="section-number selfRef">4.9. </a><a href="#name-performance-and-efficiency" class="section-name selfRef">Performance and Efficiency</a>
         </h3>
-<p id="section-4.8-1">The introduction of attestation should not add prohibitive latency or overhead
+<p id="section-4.9-1">The introduction of attestation should not add prohibitive latency or overhead
 to the connection establishment process. To be widely adopted, the solution must
 be practical. While some overhead is unavoidable, multiple additional
-round-trips or very large payloads in the initial handshake should be minimized.<a href="#section-4.8-1" class="pilcrow">¶</a></p>
+round-trips or very large payloads in the initial handshake should be minimized.<a href="#section-4.9-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1554,7 +1564,7 @@ considerations:<a href="#section-5-1" class="pilcrow">¶</a></p>
 <li class="normal" id="section-5-2.1">
           <p id="section-5-2.1.1">Replay and Relay Protection: The requirements for cryptographic binding and
 freshness are critical. Failure to bind attestation credentials tightly to the
-current session would allow an adversary to replay or relay old or stolen, yet
+current connection would allow an adversary to replay or relay old or stolen, yet
 valid credentials from a compromised system, completely undermining the
 security goals.<a href="#section-5-2.1.1" class="pilcrow">¶</a></p>
 </li>
@@ -1602,7 +1612,11 @@ measurements, software versions, and security configurations are acceptable.<a h
 <dd class="break"></dd>
 <dt id="I-D.draft-ietf-rats-eat-measured-component">[I-D.draft-ietf-rats-eat-measured-component]</dt>
       <dd>
-<span class="refAuthor">Frost, S.</span>, <span class="refAuthor">Fossati, T.</span>, and <span class="refAuthor">H. Tschofenig</span>, <span class="refTitle">"EAT Measured Component"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-rats-eat-measured-component-04</span>, <time datetime="2025-07-03" class="refDate">3 July 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-eat-measured-component-04">https://datatracker.ietf.org/doc/html/draft-ietf-rats-eat-measured-component-04</a>&gt;</span>. </dd>
+<span class="refAuthor">Frost, S.</span>, <span class="refAuthor">Fossati, T.</span>, <span class="refAuthor">Tschofenig, H.</span>, and <span class="refAuthor">H. Birkholz</span>, <span class="refTitle">"EAT Measured Component"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-rats-eat-measured-component-05</span>, <time datetime="2025-10-16" class="refDate">16 October 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-eat-measured-component-05">https://datatracker.ietf.org/doc/html/draft-ietf-rats-eat-measured-component-05</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Meeting-122-TLS-Slides">[Meeting-122-TLS-Slides]</dt>
+      <dd>
+<span class="refAuthor">Sardar, M. U.</span>, <span class="refAuthor">Moustafa, M.</span>, and <span class="refAuthor">T. Aura</span>, <span class="refTitle">"Identity Crisis in Attested TLS for Confidential Computing"</span>, <time datetime="2025-03" class="refDate">March 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/meeting/122/materials/slides-122-tls-identity-crisis-00">https://datatracker.ietf.org/meeting/122/materials/slides-122-tls-identity-crisis-00</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC9334">[RFC9334]</dt>
     <dd>
