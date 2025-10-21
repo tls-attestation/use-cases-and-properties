@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-19T02:00:31.575501+00:00",
+  "timestamp": "2025-10-21T01:51:27.856058+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -98,24 +98,26 @@
       "id": "PR_kwDOP_9tTM6tiKkV",
       "title": "Binding property + minor terminology update",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/2",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "s/session/connection",
       "createdAt": "2025-10-13T20:19:34Z",
-      "updatedAt": "2025-10-18T20:31:48Z",
+      "updatedAt": "2025-10-19T17:34:22Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "080e68a1f8ee3ff7d4a416091fe00952073286b7",
       "headRepository": "muhammad-usama-sardar/use-cases-and-properties",
       "headRefName": "patch-1",
       "headRefOid": "f238c49030cdab8f312102b17f931ce54d338642",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-10-19T17:34:22Z",
+      "mergedAt": "2025-10-19T17:34:22Z",
+      "mergedBy": "ionut-arm",
+      "mergeCommit": {
+        "oid": "95ebd4c911c22cf2f732561fdde4b1f2de15b81a"
+      },
       "comments": [],
       "reviews": [
         {
@@ -144,7 +146,7 @@
             "abbreviatedOid": "48b4eb7"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-10-14T09:06:22Z",
@@ -204,7 +206,7 @@
             "abbreviatedOid": "48b4eb7"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-10-14T09:26:46Z",
@@ -284,7 +286,7 @@
             "abbreviatedOid": "48b4eb7"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-10-14T09:57:24Z",
@@ -344,7 +346,7 @@
             "abbreviatedOid": "48b4eb7"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-10-14T11:23:52Z",
@@ -424,7 +426,7 @@
             "abbreviatedOid": "1dbb626"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-10-14T15:34:31Z",
@@ -504,7 +506,7 @@
             "abbreviatedOid": "f238c49"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-10-15T12:09:22Z",
@@ -544,7 +546,7 @@
             "abbreviatedOid": "f238c49"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-10-15T12:34:16Z",
@@ -604,7 +606,7 @@
             "abbreviatedOid": "f238c49"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-10-18T16:17:48Z",
@@ -624,7 +626,7 @@
             "abbreviatedOid": "f238c49"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-10-18T16:51:20Z",
@@ -650,6 +652,26 @@
           "createdAt": "2025-10-18T20:31:48Z",
           "updatedAt": "2025-10-18T20:31:48Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7H8zac",
+          "commit": {
+            "abbreviatedOid": "f238c49"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-19T17:34:00Z",
+          "updatedAt": "2025-10-19T17:34:00Z",
+          "comments": [
+            {
+              "originalPosition": 46,
+              "body": "> My point is: it is not followed in the rest of the document. For example, \"Performance and Efficiency\" in the draft is also dependent on the underlying technology. Why are we emphasizing it here only?\r\n\r\nAgree, and I was keen to follow this one up and make it uniform, it's just something that didn't occur to me the first time around. I'll open an issue to address in a future revision.\r\n\r\n> The purpose is to list the requirements, and we agree that it is a requirement.\r\n\r\nAgree here too, but as I pointed out above, there are also nuances that should be made clear _somewhere_ for people who want to deploy something.",
+              "createdAt": "2025-10-19T17:34:00Z",
+              "updatedAt": "2025-10-19T17:34:00Z"
+            }
+          ]
         }
       ]
     }
