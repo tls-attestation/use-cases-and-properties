@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-26T01:56:42.198875+00:00",
+  "timestamp": "2025-10-28T01:50:22.718929+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -49,7 +49,208 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 3,
+      "id": "I_kwDOP_9tTM7T0Smo",
+      "title": "Add GitHub repo link in draft",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/3",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Add GitHub repo link in draft for easy issue filing ",
+      "createdAt": "2025-10-26T10:06:41Z",
+      "updatedAt": "2025-10-26T10:06:41Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 4,
+      "id": "I_kwDOP_9tTM7T1aV0",
+      "title": "Confidential Data Collaboration, specifically SMPC",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/4",
+      "state": "OPEN",
+      "author": "yaronf",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "This is not an ideal use case (certainly should not appear as the first one) because SMPC, when deployed correctly, should not be vulnerable to active attackers, i.e. it should provide \"malicious security\" and not just \"semi honest security\".\n\n",
+      "createdAt": "2025-10-26T13:58:50Z",
+      "updatedAt": "2025-10-26T13:58:50Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 5,
+      "id": "I_kwDOP_9tTM7T1aWR",
+      "title": "High-Assurance Command Execution",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/5",
+      "state": "OPEN",
+      "author": "yaronf",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The requirement is questionnable, because a malicious execution environment does not need a command to do its harm. It is actually the _operator_ that needs to be attested in this use case.\n\nA similar consideration applies to \"Securing Control and Management Planes\" where again, the vulnerable point is the administrator. In that case, we mention stealing credentials as a risk, but it is significantly easier to address credential stealing (e.g. by using PAKE) than with attestation infrastructure.\n\n",
+      "createdAt": "2025-10-26T13:58:52Z",
+      "updatedAt": "2025-10-26T13:58:52Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 6,
+      "id": "I_kwDOP_9tTM7T1aWv",
+      "title": "Use Cases vs. Properties",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/6",
+      "state": "OPEN",
+      "author": "yaronf",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "A general problem with this draft is that there is no connection between Sec. 3 and Sec. 4, to a level where they could each be a separate draft.\n\n",
+      "createdAt": "2025-10-26T13:58:53Z",
+      "updatedAt": "2025-10-26T13:58:53Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 7,
+      "id": "I_kwDOP_9tTM7T1aXI",
+      "title": "Valid but Old",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/7",
+      "state": "OPEN",
+      "author": "yaronf",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "> attacks where an attacker presents valid, but old or unrelated Evidence from a different connection or context\n\nI suggest dropping \"old\" because age of the Evidence is a criterion when evaluation it for validity.\n\n",
+      "createdAt": "2025-10-26T13:58:55Z",
+      "updatedAt": "2025-10-26T13:58:55Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 8,
+      "id": "I_kwDOP_9tTM7T1aXb",
+      "title": "Binding to Machine Identifier",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/8",
+      "state": "OPEN",
+      "author": "yaronf",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "References to slides are frowned upon. Also, this is importnat enough to justify a few paragraphs of text here.\n\nIn addition, the short sentence here makes a ton of assumptions on the deployment model (e.g. \"infrastructure provider\") that require clarification.\n\n",
+      "createdAt": "2025-10-26T13:58:56Z",
+      "updatedAt": "2025-10-27T20:24:15Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> References to slides are frowned upon.\n\nUnfortunately, we could not manage to complete the pre-print for the formal analysis work until the cutoff. The link will be replaced by that in the future.",
+          "createdAt": "2025-10-27T20:24:15Z",
+          "updatedAt": "2025-10-27T20:24:15Z"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "id": "I_kwDOP_9tTM7T1aXu",
+      "title": "Attestation Credential Freshness",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/9",
+      "state": "OPEN",
+      "author": "yaronf",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "RFC 9334 discusses freshness as related to periods of time. This section takes a rather extreme position that the Evidence needs to be bound to the specific connection. This may be very challenging in real life cases, e.g. many short-lived connections, or even many connections spawned in parallel. The requirement may be right for attested TLS, but needs a strong justification.\n\n",
+      "createdAt": "2025-10-26T13:58:58Z",
+      "updatedAt": "2025-10-27T20:29:49Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "The pre-print (to be finalized this week) provides the formal reasoning behind this. We can add a reference to that. ",
+          "createdAt": "2025-10-27T20:29:49Z",
+          "updatedAt": "2025-10-27T20:29:49Z"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "id": "I_kwDOP_9tTM7T1aX9",
+      "title": "Negotiation and Capability Discovery: Fallback",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/10",
+      "state": "OPEN",
+      "author": "yaronf",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "In TLS, \"graceful fallback\" is the root of all evil. I suggest to drop it from the requirement or at least to clarify where fallback is acceptable and does not result in huge security issues.\n\n",
+      "createdAt": "2025-10-26T13:58:59Z",
+      "updatedAt": "2025-10-27T20:36:43Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Do you have a pointer to one concrete security issue?",
+          "createdAt": "2025-10-27T20:36:43Z",
+          "updatedAt": "2025-10-27T20:36:43Z"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "id": "I_kwDOP_9tTM7T1aYa",
+      "title": "Negotiation and Capability Discovery: Formats",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/11",
+      "state": "OPEN",
+      "author": "yaronf",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The \"conceptual wrappers\" are aimed at reducing the need for peers to understand RATS formats. This section should mention this fact, and perhaps the solution should allow for format negotiation that remains opaque to the endpoints.\n\n",
+      "createdAt": "2025-10-26T13:59:01Z",
+      "updatedAt": "2025-10-26T13:59:01Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 12,
+      "id": "I_kwDOP_9tTM7T1aYw",
+      "title": "Privacy Preservation",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/12",
+      "state": "OPEN",
+      "author": "yaronf",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The solution does not degrade the privacy -> The solution must not degrade the privacy (this is a requirement).\n\nAlso I suggest to to cite the [IAB Statement](https://datatracker.ietf.org/doc/statement-iab-statement-on-the-risks-of-attestation-of-software-and-hardware-on-the-open-internet/) in this section, it is not precisey about privacy but it is closely related.\n\n",
+      "createdAt": "2025-10-26T13:59:02Z",
+      "updatedAt": "2025-10-26T13:59:02Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 13,
+      "id": "I_kwDOP_9tTM7T1adh",
+      "title": "Security Considerations",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/13",
+      "state": "OPEN",
+      "author": "yaronf",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "This section is confusing since it overlaps significantly with the requirements. I suggest to fold its text into the requirements section and use the stanard boilerplate: \"This whole document is about security.\"\n\n",
+      "createdAt": "2025-10-26T13:59:04Z",
+      "updatedAt": "2025-10-26T13:59:04Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": [
     {
       "number": 1,
