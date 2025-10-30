@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-28T01:50:22.718929+00:00",
+  "timestamp": "2025-10-30T01:56:49.373539+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -166,7 +166,7 @@
       "labels": [],
       "body": "RFC 9334 discusses freshness as related to periods of time. This section takes a rather extreme position that the Evidence needs to be bound to the specific connection. This may be very challenging in real life cases, e.g. many short-lived connections, or even many connections spawned in parallel. The requirement may be right for attested TLS, but needs a strong justification.\n\n",
       "createdAt": "2025-10-26T13:58:58Z",
-      "updatedAt": "2025-10-27T20:29:49Z",
+      "updatedAt": "2025-10-28T12:50:25Z",
       "closedAt": null,
       "comments": [
         {
@@ -175,6 +175,13 @@
           "body": "The pre-print (to be finalized this week) provides the formal reasoning behind this. We can add a reference to that. ",
           "createdAt": "2025-10-27T20:29:49Z",
           "updatedAt": "2025-10-27T20:29:49Z"
+        },
+        {
+          "author": "yaronf",
+          "authorAssociation": "NONE",
+          "body": "I am sure the formal reasoning can be summarized into an explanation for readers of the draft.",
+          "createdAt": "2025-10-28T12:50:25Z",
+          "updatedAt": "2025-10-28T12:50:25Z"
         }
       ]
     },
@@ -190,7 +197,7 @@
       "labels": [],
       "body": "In TLS, \"graceful fallback\" is the root of all evil. I suggest to drop it from the requirement or at least to clarify where fallback is acceptable and does not result in huge security issues.\n\n",
       "createdAt": "2025-10-26T13:58:59Z",
-      "updatedAt": "2025-10-27T20:36:43Z",
+      "updatedAt": "2025-10-28T14:52:40Z",
       "closedAt": null,
       "comments": [
         {
@@ -199,6 +206,27 @@
           "body": "Do you have a pointer to one concrete security issue?",
           "createdAt": "2025-10-27T20:36:43Z",
           "updatedAt": "2025-10-27T20:36:43Z"
+        },
+        {
+          "author": "yaronf",
+          "authorAssociation": "NONE",
+          "body": "https://www.rfc-editor.org/rfc/rfc7457.html#section-2.12 is one (old) example.\n\nMore recent:\n\nMechanism | Layer | RFC | Purpose | Mitigates\n-- | -- | -- | -- | --\nTLS_FALLBACK_SCSV | TLS 1.2 | RFC 7507 | Prevent fallback retries to lower TLS versions | Forced version downgrade\nTLS 1.3 version negotiation | TLS 1.3 | RFC 8446 | Remove need for fallback | Version negotiation confusion\nDowngrade Sentinel | TLS 1.3 | RFC 8446 \u00a74.1.3 | Cryptographic downgrade detection | Downgrade from 1.3 to \u22641.2\nStrict Version Policy | Config | N/A | Operational enforcement | Legacy protocol fallback\nHSTS | HTTP | RFC 6797 | Force HTTPS-only access | HTTPS\u2192HTTP downgrade\n",
+          "createdAt": "2025-10-28T12:57:26Z",
+          "updatedAt": "2025-10-28T12:57:26Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> More recent:\n\nCould you share the source of this table?",
+          "createdAt": "2025-10-28T14:33:44Z",
+          "updatedAt": "2025-10-28T14:33:44Z"
+        },
+        {
+          "author": "yaronf",
+          "authorAssociation": "NONE",
+          "body": "ChatGPT :-)",
+          "createdAt": "2025-10-28T14:52:40Z",
+          "updatedAt": "2025-10-28T14:52:40Z"
         }
       ]
     },
