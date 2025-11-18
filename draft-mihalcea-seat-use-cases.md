@@ -32,6 +32,8 @@ author:
   - fullname: Thomas Fossati
     organization: Linaro
     email: thomas.fossati@linaro.org
+  - fullname: Yuning Jiang
+    email: jiangyuning2@h-partners.com
 
 normative:
 
@@ -201,6 +203,24 @@ network device's management interface.
 * Requirement: The administrator's client must verify the integrity of the
   management endpoint on the network device to ensure they are not connecting to
   a compromised interface that could steal credentials or manipulate the device.
+
+## Operation-Triggered Attestation for High-Impact Application Operations
+
+Goal: Ensure the integrity of application services at operation time,
+when security posture may change after initial channel establishment.
+
+Use case: High-Assurance Operation Execution in Dynamic Application Services:
+An application service instance (e.g., AI agent) or confidential computing environment
+(which could host an AI agent) maintains a (D)TLS connection with a peer and must execute
+a high-impact action (e.g., payment initiation, configuration change, privileged command).
+
+* Requirement 1: Before executing a high-impact operation over the existing connection,
+the peer must presents fresh, connection-bound attestation evidence reflecting the current
+behavior-affecting posture (e.g., enabled capabilities, policy configuration, runtime permissions).
+
+* Requirement 2: The mechanism should support lightweight, dynamic attestation within the
+existing connection, without necessarily requiring a full new TLS handshake,
+so that behavior-affecting posture changes are visible to relying parties when required by local policy.
 
 # Integration Properties
 
