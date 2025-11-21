@@ -5,11 +5,11 @@
 Secure Evidence and Attestation Transport (SEAT) Working GroupI. Mihalcea
 Internet-Draft                                                       Arm
 Intended status: Informational                              M. U. Sardar
-Expires: 22 May 2026                                          TU Dresden
+Expires: 25 May 2026                                          TU Dresden
                                                               T. Fossati
                                                                   Linaro
                                                                 Y. Jiang
-                                                        18 November 2025
+                                                        21 November 2025
 
 
 Use Cases and Properties for Integrating Remote Attestation with Secure
@@ -51,7 +51,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 22 May 2026.
+   This Internet-Draft will expire on 25 May 2026.
 
 Copyright Notice
 

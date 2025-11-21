@@ -1067,7 +1067,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mihalcea, et al.</td>
-<td class="center">Expires 22 May 2026</td>
+<td class="center">Expires 25 May 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1080,12 +1080,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-mihalcea-seat-use-cases-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-11-18" class="published">18 November 2025</time>
+<time datetime="2025-11-21" class="published">21 November 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-05-22">22 May 2026</time></dd>
+<dd class="expires"><time datetime="2026-05-25">25 May 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1143,7 +1143,7 @@ of protocol solutions within the SEAT working group.<a href="#section-abstract-1
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 22 May 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 25 May 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1449,19 +1449,22 @@ a compromised interface that could steal credentials or manipulate the device.<a
 <p id="section-3.4-1">Goal: Ensure the integrity of application services at operation time,
 when security posture may change after initial channel establishment.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
 <p id="section-3.4-2">Use case: High-Assurance Operation Execution in Dynamic Application Services:
-An application service instance (e.g., AI agent) or confidential computing environment
-(which could host an AI agent) maintains a (D)TLS connection with a peer and must execute
-a high-impact action (e.g., payment initiation, configuration change, privileged command).<a href="#section-3.4-2" class="pilcrow">¶</a></p>
+An application service instance (e.g., AI agent) or confidential computing
+environment (which could host an AI agent) maintains a (D)TLS connection with
+a peer and must execute a high-impact action (e.g., payment initiation,
+configuration change, privileged command).<a href="#section-3.4-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.4-3.1">
-            <p id="section-3.4-3.1.1">Requirement 1: Before executing a high-impact operation over the existing connection,
-the peer must presents fresh, connection-bound attestation evidence reflecting the current
-behavior-affecting posture (e.g., enabled capabilities, policy configuration, runtime permissions).<a href="#section-3.4-3.1.1" class="pilcrow">¶</a></p>
+            <p id="section-3.4-3.1.1">Requirement 1: Before executing a high-impact operation over the existing
+connection, the peer must presents fresh, connection-bound attestation evidence
+reflecting the current behavior-affecting posture (e.g., enabled capabilities,
+policy configuration, runtime permissions).<a href="#section-3.4-3.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-3.4-3.2">
-            <p id="section-3.4-3.2.1">Requirement 2: The mechanism should support lightweight, dynamic attestation within the
-existing connection, without necessarily requiring a full new TLS handshake,
-so that behavior-affecting posture changes are visible to relying parties when required by local policy.<a href="#section-3.4-3.2.1" class="pilcrow">¶</a></p>
+            <p id="section-3.4-3.2.1">Requirement 2: The mechanism should support lightweight, dynamic attestation
+within the existing connection, without necessarily requiring a full new TLS
+handshake, so that behavior-affecting posture changes are visible to relying
+parties when required by local policy.<a href="#section-3.4-3.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
