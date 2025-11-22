@@ -5,11 +5,11 @@
 Secure Evidence and Attestation Transport (SEAT) Working GroupI. Mihalcea
 Internet-Draft                                                       Arm
 Intended status: Informational                              M. U. Sardar
-Expires: 25 May 2026                                          TU Dresden
+Expires: 26 May 2026                                          TU Dresden
                                                               T. Fossati
                                                                   Linaro
                                                                 Y. Jiang
-                                                        21 November 2025
+                                                        22 November 2025
 
 
 Use Cases and Properties for Integrating Remote Attestation with Secure
@@ -51,7 +51,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 25 May 2026.
+   This Internet-Draft will expire on 26 May 2026.
 
 Copyright Notice
 
@@ -168,6 +168,14 @@ Table of Contents
    *  Measurements: as defined in
       [I-D.draft-ietf-rats-eat-measured-component].
 
+   *  AI agent: An AI agent is a long-running software principal that
+      performs closed-loop "perceive -> plan -> act" cycles using an LLM
+      or other model, and invokes external tools/APIs that may read
+      sensitive data or change system/network state.  Its configuration
+      (e.g., model choice, tool enablement, prompt template) can change
+      independently of the binary/image and usually more frequently than
+      typical platform TCB updates.
+
 3.  Use Cases
 
    This section provides the concrete motivation for the WG's work by
@@ -263,10 +271,10 @@ Table of Contents
    privileged command).
 
    *  Requirement 1: Before executing a high-impact operation over the
-      existing connection, the peer must presents fresh, connection-
-      bound attestation evidence reflecting the current behavior-
-      affecting posture (e.g., enabled capabilities, policy
-      configuration, runtime permissions).
+      existing connection, the peer must present fresh, connection-bound
+      attestation evidence reflecting the current behavior-affecting
+      posture (e.g., enabled capabilities, policy configuration, runtime
+      permissions).
 
    *  Requirement 2: The mechanism should support lightweight, dynamic
       attestation within the existing connection, without necessarily
