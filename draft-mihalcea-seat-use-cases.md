@@ -129,7 +129,12 @@ This document also uses the following terms:
   hardware, firmware, software, and their respective configurations.
 * Confidential Workload: as defined in {{-wimse-twi}}.
 * Measurements: as defined in {{-rats-measured}}.
-
+* AI agent: An AI agent is a long-running software principal that performs
+closed-loop "perceive -> plan -> act" cycles using an LLM or other model,
+and invokes external tools/APIs that may read sensitive data or change
+system/network state. Its configuration (e.g., model choice, tool enablement,
+prompt template) can change independently of the binary/image and usually
+more frequently than typical platform TCB updates.
 
 # Use Cases
 
@@ -216,7 +221,7 @@ a peer and must execute a high-impact action (e.g., payment initiation,
 configuration change, privileged command).
 
 * Requirement 1: Before executing a high-impact operation over the existing
-connection, the peer must presents fresh, connection-bound attestation evidence
+connection, the peer must present fresh, connection-bound attestation evidence
 reflecting the current behavior-affecting posture (e.g., enabled capabilities,
 policy configuration, runtime permissions).
 
