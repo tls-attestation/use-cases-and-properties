@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-11-23T02:09:10.776090+00:00",
+  "timestamp": "2025-11-25T01:56:36.229531+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -1006,7 +1006,7 @@
       "labels": [],
       "body": "Just relaying the text from Yuning in issue #15\r\n\r\nSummary of changes in Yuning's text: \r\n- Replaced normative SHOULD by should (I think informative doc cannot have normative SHOULD) \r\n- Applied some formatting (such as line breaks) for readability\r\n- Added Yuning as co-author",
       "createdAt": "2025-11-18T09:06:40Z",
-      "updatedAt": "2025-11-22T22:18:24Z",
+      "updatedAt": "2025-11-24T09:03:48Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "95ebd4c911c22cf2f732561fdde4b1f2de15b81a",
@@ -1074,6 +1074,26 @@
               "body": "How does the RP know that the _high-impact operation_ is now going to be performed? (e.g., that the agent is about to book a flight)",
               "createdAt": "2025-11-22T22:00:17Z",
               "updatedAt": "2025-11-22T22:18:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7QkCcD",
+          "commit": {
+            "abbreviatedOid": "17d6556"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T09:03:48Z",
+          "updatedAt": "2025-11-24T09:03:48Z",
+          "comments": [
+            {
+              "originalPosition": 19,
+              "body": "Add reference.",
+              "createdAt": "2025-11-24T09:03:48Z",
+              "updatedAt": "2025-11-24T09:03:49Z"
             }
           ]
         }
