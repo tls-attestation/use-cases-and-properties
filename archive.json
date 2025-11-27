@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-11-25T01:56:36.229531+00:00",
+  "timestamp": "2025-11-27T01:54:25.611415+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -367,6 +367,24 @@
           "updatedAt": "2025-11-18T09:09:18Z"
         }
       ]
+    },
+    {
+      "number": 17,
+      "id": "I_kwDOP_9tTM7aoR8I",
+      "title": "Paul's proposal of intra-handshake attestation",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/17",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "muhammad-usama-sardar"
+      ],
+      "labels": [],
+      "body": "[Archive link](https://mailarchive.ietf.org/arch/msg/seat/ophFdwJDybMMU4bWTBSmogkp6Bs/)\n\n> A standard webpki using a cert with two subjectAltname's, one for the PKI\n> (eg [www.example.com](http://www.example.com/)) and one for binding the TEE (eg\n> [tee-1234.www.example.com](http://tee-1234.www.example.com/)) along with a tee PKI that has a cert with\n> subjectAltname [tee-1234.www.example.com](http://tee-1234.www.example.com/))\n> \n> The tee PKI signs the attestation report. Both PKIs together give channel\n> binding and a binding between target domain name and server/tee instance.\n> The attestation report contains the TLS nonces for channel binding. The\n> subjectAltname also provides channel binding to the specific instance of\n> the tee, preventing a compromised server from using a modified tee, while\n> forwarding the request to a server/tee next to serving the same domain\n> using that tee which is left uncompromised.\n> \n> I'm sure there are other and hopefully even better ways to acomplish this.\n> It is just one example. Instead of jumping to post-handshake solutions that\n> have a clear disadvantage, the WG should really exhaust intra-handshake\n> options.",
+      "createdAt": "2025-11-26T15:30:14Z",
+      "updatedAt": "2025-11-26T15:30:14Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
