@@ -2,14 +2,14 @@
 
 
 
-Secure Evidence and Attestation Transport (SEAT) Working GroupI. Mihalcea
+SEAT Working Group                                           I. Mihalcea
 Internet-Draft                                                       Arm
 Intended status: Informational                              M. U. Sardar
-Expires: 26 May 2026                                          TU Dresden
+Expires: 3 June 2026                                          TU Dresden
                                                               T. Fossati
                                                                   Linaro
                                                                 Y. Jiang
-                                                        22 November 2025
+                                                        30 November 2025
 
 
 Use Cases and Properties for Integrating Remote Attestation with Secure
@@ -51,7 +51,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 May 2026.
+   This Internet-Draft will expire on 3 June 2026.
 
 Copyright Notice
 
@@ -168,13 +168,13 @@ Table of Contents
    *  Measurements: as defined in
       [I-D.draft-ietf-rats-eat-measured-component].
 
-   *  AI agent: An AI agent is a long-running software principal that
-      performs closed-loop "perceive -> plan -> act" cycles using an LLM
-      or other model, and invokes external tools/APIs that may read
-      sensitive data or change system/network state.  Its configuration
-      (e.g., model choice, tool enablement, prompt template) can change
-      independently of the binary/image and usually more frequently than
-      typical platform TCB updates.
+   *  AI agent: An AI agent is a software principal (typically long-
+      running) that performs closed-loop "perceive -> plan -> act"
+      cycles using an LLM or other model, and invokes external tools/
+      APIs that may read sensitive data or change system/network state.
+      Its configuration (e.g., model choice, tool enablement, prompt
+      template) can change independently of the binary/image and usually
+      more frequently than typical platform TCB updates [AI-agents].
 
 3.  Use Cases
 
@@ -407,6 +407,11 @@ Table of Contents
 
 7.  Informative References
 
+   [AI-agents]
+              Kapoor, S., Stroebl, B., Siegel, Z. S., Nadgir, N., and A.
+              Narayanan, "AI agents that matter", July 2024,
+              <https://arxiv.org/abs/2407.01502>.
+
    [I-D.draft-ccc-wimse-twi-extensions]
               Novak, M., Deshpande, Y., and H. Birkholz, "WIMSE
               Extensions for Trustworthy Workload Identity", Work in
@@ -417,9 +422,9 @@ Table of Contents
    [I-D.draft-ietf-rats-eat-measured-component]
               Frost, S., Fossati, T., Tschofenig, H., and H. Birkholz,
               "EAT Measured Component", Work in Progress, Internet-
-              Draft, draft-ietf-rats-eat-measured-component-07, 14
+              Draft, draft-ietf-rats-eat-measured-component-08, 25
               November 2025, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-rats-eat-measured-component-07>.
+              draft-ietf-rats-eat-measured-component-08>.
 
    [Meeting-122-TLS-Slides]
               Sardar, M. U., Moustafa, M., and T. Aura, "Identity Crisis
