@@ -10,7 +10,7 @@ date:
 consensus: true
 v: 3
 area: Security
-workgroup: Secure Evidence and Attestation Transport (SEAT) Working Group
+workgroup: SEAT Working Group
 keyword:
   - remote attestation
   - TLS
@@ -49,6 +49,16 @@ informative:
      - ins: M. U. Sardar
      - ins: M. Moustafa
      - ins: T. Aura
+    AI-agents:
+     title: "AI agents that matter"
+     date: 1 July 2024,
+     target: https://arxiv.org/abs/2407.01502
+     author:
+     - ins: S. Kapoor
+     - ins: B. Stroebl
+     - ins: Z. S. Siegel
+     - ins: N. Nadgir
+     - ins: A. Narayanan
 
 --- abstract
 
@@ -129,12 +139,12 @@ This document also uses the following terms:
   hardware, firmware, software, and their respective configurations.
 * Confidential Workload: as defined in {{-wimse-twi}}.
 * Measurements: as defined in {{-rats-measured}}.
-* AI agent: An AI agent is a long-running software principal that performs
+* AI agent: An AI agent is a software principal (typically long-running) that performs
 closed-loop "perceive -> plan -> act" cycles using an LLM or other model,
 and invokes external tools/APIs that may read sensitive data or change
 system/network state. Its configuration (e.g., model choice, tool enablement,
 prompt template) can change independently of the binary/image and usually
-more frequently than typical platform TCB updates.
+more frequently than typical platform TCB updates {{AI-agents}}.
 
 # Use Cases
 
