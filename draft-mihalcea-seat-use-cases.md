@@ -301,8 +301,7 @@ peer's state.
 
 ## Runtime Attestation
 
-Evidence collected at certificate issuance or during the initial TLS
-handshake reflects only the platform’s state at that moment. It cannot
+Evidence collected at certificate issuance or during the initial secure channel establishment reflects only the platform’s state at that moment. It cannot
 guarantee that the platform remains trustworthy for the lifetime of the
 certificate or even for the duration of the TLS session. As a result,
 such static evidence is insufficient in environments where the platform
