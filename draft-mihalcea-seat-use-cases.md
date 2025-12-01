@@ -307,14 +307,9 @@ certificate or even for the duration of the TLS session. As a result,
 such static evidence is insufficient in environments where the platform
 may change state after the connection is established and the connection is long-lived.
 
-Runtime attestation addresses this gap by allowing the Relying Party
-(RP) to request fresh attestation evidence after the TLS connection is
-active, or periodically during long-lived sessions. This is necessary 
-when the platform has attributes that can change during
-the session and may affect its trustworthiness, such changes cannot be
-detected from evidence collected earlier. For example, the Evidence may 
-include dynamic parameters such as runtime configuration flags 
-(e.g., FIPS mode), where a device may enter or exit an approved mode.
+Runtime attestation closes this gap by enabling the Relying Party (RP) to request new attestation evidence once the TLS connection has been established, or periodically during long-lived connections if necessary.
+This may be the case when the target environment has attributes that can change during the connection, affecting its trustworthiness. Such changes cannot be detected using evidence collected earlier.
+For example, the evidence may include dynamic parameters such as runtime configuration flags (e.g., FIPS mode), where a device may enter or exit an approved mode, or measurements of critical system files.
 
 ## Privacy Preservation
 
