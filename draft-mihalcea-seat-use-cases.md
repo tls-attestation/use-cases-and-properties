@@ -34,7 +34,7 @@ author:
     email: thomas.fossati@linaro.org
   - fullname: Yuning Jiang
     email: jiangyuning2@h-partners.com
-  - fullname: Chen Meiling
+  - fullname: Meiling Chen
     organization: China Mobile
     email: chenmeiling@chinamobile.com
 
