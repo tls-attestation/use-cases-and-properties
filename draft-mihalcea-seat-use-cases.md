@@ -305,7 +305,7 @@ Evidence collected at certificate issuance or during the initial secure channel 
 guarantee that the platform remains trustworthy for the lifetime of the
 certificate or even for the duration of the TLS session. As a result,
 such static evidence is insufficient in environments where the platform
-may change state after the connection is established.
+may change state after the connection is established and the connection is long-lived.
 
 Runtime attestation addresses this gap by allowing the Relying Party
 (RP) to request fresh attestation evidence after the TLS connection is
