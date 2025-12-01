@@ -299,6 +299,24 @@ handshake. For long-lived connections, the initial attestation may become stale,
 and a lightweight refresh mechanism is beneficial towards re-evaluating the
 peer's state.
 
+## Runtime Attestation
+
+Evidence collected at certificate issuance or during the initial TLS
+handshake reflects only the platform’s state at that moment. It cannot
+guarantee that the platform remains trustworthy for the lifetime of the
+certificate or even for the duration of the TLS session. As a result,
+such static evidence is insufficient in environments where the platform
+may change state after the connection is established.
+
+Runtime attestation addresses this gap by allowing the Relying Party
+(RP) to request fresh attestation evidence after the TLS connection is
+active, or periodically during long-lived sessions. This is necessary 
+when the platform has attributes that can change during
+the session and may affect its trustworthiness, such changes cannot be
+detected from evidence collected earlier. For example, the Evidence may 
+include dynamic parameters such as runtime configuration flags 
+(e.g., FIPS mode), where a device may enter or exit an approved mode.
+
 ## Privacy Preservation
 
 The solution does not degrade the privacy of a standard TLS connection. Evidence
@@ -314,6 +332,8 @@ The introduction of attestation should not add prohibitive latency or overhead
 to the connection establishment process. To be widely adopted, the solution must
 be practical. While some overhead is unavoidable, multiple additional
 round-trips or very large payloads in the initial handshake should be minimized.
+
+
 
 # Security Considerations
 
