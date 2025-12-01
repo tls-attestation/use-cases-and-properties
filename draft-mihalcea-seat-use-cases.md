@@ -32,6 +32,10 @@ author:
   - fullname: Thomas Fossati
     organization: Linaro
     email: thomas.fossati@linaro.org
+  -
+    fullname: Tirumaleswar Reddy
+    organization: Nokia
+    email: "kondtir@gmail.com"
   - fullname: Yuning Jiang
     email: jiangyuning2@h-partners.com
 
@@ -291,21 +295,9 @@ such as device onboarding, where a device has no stable, long-term identity yet.
 This latter option could have a negative impact on the security of the overall
 design, warranting additional security considerations.
 
-## Credential Lifecycle Management
-
-The solution can provide a mechanism for re-attesting or refreshing attestation
-credentials on an existing, long-lived connection without requiring a full new
-handshake. For long-lived connections, the initial attestation may become stale,
-and a lightweight refresh mechanism is beneficial towards re-evaluating the
-peer's state.
-
 ## Runtime Attestation
 
-Evidence collected at certificate issuance or during the initial secure channel establishment reflects only the platform’s state at that moment. It cannot
-guarantee that the target environment remains trustworthy for the lifetime of the
-certificate or even for the duration of the TLS session. As a result,
-such static evidence is insufficient in environments where the platform
-may change state after the connection is established and the connection is long-lived.
+Evidence collected at certificate issuance or during the initial secure channel establishment reflects only the platform’s state at that moment. It cannot guarantee that the target environment remains trustworthy for the lifetime of the certificate or even for the duration of the TLS session. As a result, such static evidence is insufficient in environments where the platform may change state after the connection is established and the connection is long-lived.
 
 Runtime attestation closes this gap by enabling the Relying Party (RP) to request new attestation evidence once the TLS connection has been established, or periodically during long-lived connections if necessary.
 This may be the case when the target environment has attributes that can change during the connection, affecting its trustworthiness. Such changes cannot be detected using evidence collected earlier.
