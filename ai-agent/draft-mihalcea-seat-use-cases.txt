@@ -9,6 +9,9 @@ Expires: 4 June 2026                                          TU Dresden
                                                               T. Fossati
                                                                   Linaro
                                                                 Y. Jiang
+                                                                        
+                                                              C. Meiling
+                                                            China Mobile
                                                          1 December 2025
 
 
@@ -490,3 +493,8 @@ Authors' Addresses
 
    Yuning Jiang
    Email: jiangyuning2@h-partners.com
+
+
+   Chen Meiling
+   China Mobile
+   Email: chenmeiling@chinamobile.com
