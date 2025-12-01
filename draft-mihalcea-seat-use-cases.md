@@ -333,8 +333,6 @@ to the connection establishment process. To be widely adopted, the solution must
 be practical. While some overhead is unavoidable, multiple additional
 round-trips or very large payloads in the initial handshake should be minimized.
 
-
-
 # Security Considerations
 
 This document describes use cases and integration properties. The security of
