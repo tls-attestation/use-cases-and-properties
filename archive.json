@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-11-30T02:07:53.806418+00:00",
+  "timestamp": "2025-12-02T01:58:34.842190+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -78,9 +78,31 @@
       "labels": [],
       "body": "This is not an ideal use case (certainly should not appear as the first one) because SMPC, when deployed correctly, should not be vulnerable to active attackers, i.e. it should provide \"malicious security\" and not just \"semi honest security\".\n\n",
       "createdAt": "2025-10-26T13:58:50Z",
-      "updatedAt": "2025-10-26T13:58:50Z",
+      "updatedAt": "2025-11-30T16:11:02Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> This is not an ideal use case (certainly should not appear as the first one) \n\nWould reversing the order of first two use cases address this? \n\n> SMPC, when deployed correctly, should not be vulnerable to active attackers, i.e. it should provide \"malicious security\" and not just \"semi honest security\".\n\nCould you explain? The protocol is indeed being designed to protect against active attackers. I don't see why this is particularly a problem with SMPC.",
+          "createdAt": "2025-11-30T15:04:14Z",
+          "updatedAt": "2025-11-30T15:04:14Z"
+        },
+        {
+          "author": "yaronf",
+          "authorAssociation": "NONE",
+          "body": "> > This is not an ideal use case (certainly should not appear as the first one)\n> \n> Would reversing the order of first two use cases address this?\n> \n\nYes.\n\n> > SMPC, when deployed correctly, should not be vulnerable to active attackers, i.e. it should provide \"malicious security\" and not just \"semi honest security\".\n> \n> Could you explain? The protocol is indeed being designed to protect against active attackers. I don't see why this is particularly a problem with SMPC.\n\nSMPC is hard to implement, and there's usually no motivation to add the complexity of attestation on top of that, because you're getting the desired security guarantees from the cryptography.",
+          "createdAt": "2025-11-30T15:24:33Z",
+          "updatedAt": "2025-11-30T15:24:33Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Agree with reordering. Single party should be before multi-party. Done in my local copy.\n\n> SMPC is hard to implement, and there's usually no motivation to add the complexity of attestation on top of that, because you're getting the desired security guarantees from the cryptography.\n\nI think there is confusion here between SPMC used in cryptography vs. multiple parties communicating securely (MPC). We intended to mean the latter.",
+          "createdAt": "2025-11-30T16:11:02Z",
+          "updatedAt": "2025-11-30T16:11:02Z"
+        }
+      ]
     },
     {
       "number": 5,
@@ -110,25 +132,76 @@
       "labels": [],
       "body": "A general problem with this draft is that there is no connection between Sec. 3 and Sec. 4, to a level where they could each be a separate draft.\n\n",
       "createdAt": "2025-10-26T13:58:53Z",
-      "updatedAt": "2025-10-26T13:58:53Z",
+      "updatedAt": "2025-12-01T13:07:03Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Sure, I believe properties are much more useful than high-level use cases.",
+          "createdAt": "2025-11-30T15:07:47Z",
+          "updatedAt": "2025-11-30T15:07:47Z"
+        },
+        {
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> I believe properties are much more useful than high-level use cases.\n\nFunnily enough, the charter only asks for a use-cases document.\n\nAgree that there's no explicit connection between the two - the only logical connection is that both use-cases and properties are meant to be generic over the solutions produced by the WG.",
+          "createdAt": "2025-12-01T10:49:17Z",
+          "updatedAt": "2025-12-01T10:49:17Z"
+        },
+        {
+          "author": "yaronf",
+          "authorAssociation": "NONE",
+          "body": "From a reader's perspective, it is strange to read a document where properties are disconnected from use cases. \n\nAlso, when you tie properties to use cases it provides some level of validation of the properties.",
+          "createdAt": "2025-12-01T11:46:41Z",
+          "updatedAt": "2025-12-01T11:46:41Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Funnily enough, the charter only asks for a use-cases document.\n\nBut in AD's interpretation, I don't think it actually means just \"use cases\" per se. \n\n> From a reader's perspective, it is strange to read a document where properties are disconnected from use cases.\n\nAgree, we will add that glue.",
+          "createdAt": "2025-12-01T13:07:03Z",
+          "updatedAt": "2025-12-01T13:07:03Z"
+        }
+      ]
     },
     {
       "number": 7,
       "id": "I_kwDOP_9tTM7T1aXI",
       "title": "Valid but Old",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/7",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yaronf",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "> attacks where an attacker presents valid, but old or unrelated Evidence from a different connection or context\n\nI suggest dropping \"old\" because age of the Evidence is a criterion when evaluation it for validity.\n\n",
       "createdAt": "2025-10-26T13:58:55Z",
-      "updatedAt": "2025-10-26T13:58:55Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-11-30T16:03:50Z",
+      "closedAt": "2025-11-30T16:03:50Z",
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Are you proposing this?\n> attacks where an attacker presents valid Evidence from a different connection or context",
+          "createdAt": "2025-11-30T15:11:27Z",
+          "updatedAt": "2025-11-30T15:11:27Z"
+        },
+        {
+          "author": "yaronf",
+          "authorAssociation": "NONE",
+          "body": "Yes, but on second read I'm also OK with the original text, because timing information in the Evidence is often not trustworthy (no secure time provisioning).",
+          "createdAt": "2025-11-30T15:15:18Z",
+          "updatedAt": "2025-11-30T15:15:18Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Yes, clocks in TEEs are untrustworthy. \nClosing this issue. ",
+          "createdAt": "2025-11-30T16:03:50Z",
+          "updatedAt": "2025-11-30T16:03:50Z"
+        }
+      ]
     },
     {
       "number": 8,
@@ -197,12 +270,12 @@
       "labels": [],
       "body": "In TLS, \"graceful fallback\" is the root of all evil. I suggest to drop it from the requirement or at least to clarify where fallback is acceptable and does not result in huge security issues.\n\n",
       "createdAt": "2025-10-26T13:58:59Z",
-      "updatedAt": "2025-10-28T14:52:40Z",
+      "updatedAt": "2025-11-30T16:04:46Z",
       "closedAt": null,
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "Do you have a pointer to one concrete security issue?",
           "createdAt": "2025-10-27T20:36:43Z",
           "updatedAt": "2025-10-27T20:36:43Z"
@@ -216,7 +289,7 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "> More recent:\n\nCould you share the source of this table?",
           "createdAt": "2025-10-28T14:33:44Z",
           "updatedAt": "2025-10-28T14:33:44Z"
@@ -227,6 +300,20 @@
           "body": "ChatGPT :-)",
           "createdAt": "2025-10-28T14:52:40Z",
           "updatedAt": "2025-10-28T14:52:40Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "ChatGPT often hallucinates :) and maybe this is the case here. I think graceful fallback here is referring to standard TLS 1.3. ",
+          "createdAt": "2025-11-30T15:27:58Z",
+          "updatedAt": "2025-11-30T15:27:58Z"
+        },
+        {
+          "author": "yaronf",
+          "authorAssociation": "NONE",
+          "body": "Of course this refers to standard TLS 1.3. And such fallback is probably unacceptable in 99% of the use cases of attestation. IMHO the security impact of fallback from attested to non-attested TLS is much more severe than from TLS 1.3 to 1.2.",
+          "createdAt": "2025-11-30T16:04:46Z",
+          "updatedAt": "2025-11-30T16:04:46Z"
         }
       ]
     },
@@ -242,9 +329,24 @@
       "labels": [],
       "body": "The \"conceptual wrappers\" are aimed at reducing the need for peers to understand RATS formats. This section should mention this fact, and perhaps the solution should allow for format negotiation that remains opaque to the endpoints.\n\n",
       "createdAt": "2025-10-26T13:59:01Z",
-      "updatedAt": "2025-10-26T13:59:01Z",
+      "updatedAt": "2025-11-30T16:06:20Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Preference here is not to define concrete solutions like CMW in this doc. ",
+          "createdAt": "2025-11-30T15:30:01Z",
+          "updatedAt": "2025-11-30T15:30:01Z"
+        },
+        {
+          "author": "yaronf",
+          "authorAssociation": "NONE",
+          "body": "I agree, and this wasn't my point.",
+          "createdAt": "2025-11-30T16:06:20Z",
+          "updatedAt": "2025-11-30T16:06:20Z"
+        }
+      ]
     },
     {
       "number": 12,
@@ -290,12 +392,12 @@
       "labels": [],
       "body": "This issue comes up a lot, including during the presentation at IETF-124 and on the mailing list. I'll define in words for now what we mean by cryptographic binding, why we think we need it, how it can be achieved.\n\n## Summary\n\nCryptographic binding between a secure channel (establishment) session and a remote attestation session gives the attester's peer (calling them relying party or RP henceforth) confidence that the secure channel endpoint is the attester. So if the attester has a WebPKI-based identifier, the RP can also trust that the attestation credential (AC) is representative of the entity who owns that identifier.\n\n**Attacker model**: The strongest attacker I can think of is a service provider who wants to pretend that their service resides in a TEE (or another attested environment). They have access to webPKI certs and the associated key material. They can also control the routing of traffic to this service, and can spin up the workloads they want to impersonate in attestable environments. Their only difficulty is in convincing the RP that the AC and the CertificateVerify are coming from the same endpoint.\n\n## Why?\n\nStrong binding is needed to prevent a malicious \"attester\" from just conveying an AC taken from a legitimate TEE as its own - in other words, to prevent a Man in the Middle. Without some sort of binding, the provenance of the AC can't be established, and so the RP should not trust its contents. For example, relying strictly on nonces for this would not be sufficient, since the nonces can just be forwarded to/from separate sessions.\n\n## How?\n\nThis is the crux of the problem and I'm not sure whether we should describe any specific mechanism in this draft, but instead leave it to protocol designers to ensure MitM is not possible.\n\nNevertheless, here are some examples of how to achieve this in the context of TLS in particular:\n\n* Export some keying material from the TLS session and include it in the AC. The RP can verify this binding to confirm the provenance. **Pro**: strong guarantee. **Con**: more complex to implement (?), perhaps going as far as making changes to key schedule.\n* Bind the AC to the attester's webPKI cert (e.g., by hashing the cert, or the public key...). The RP can verify that the AC was issued for an entity who owns that cert, which CertificateVerify proves is the peer. **Pro**: simpler to implement and does not involve invasive changes to secure channel protocol. **Con**: this only works if the webPKI-certified key has never left the TEE / attester; if it was provisioned at runtime, the guarantee vanishes (since the key owner could just use the same webPKI credential from an insecure context).\n* Bind the webPKI cert to the (unique) attesting platform. The RP can verify that the platform identifier from the webPKI cert corresponds to whatever is in the AC. **Pro**: similar to above. **Con**: Similar to above, plus it's only possible if the attester has a unique identity.\n\nMaybe these last two options also point to a tiered approach: you can either do direct binding to session, or binding through webPKI cert AND a new property that the certified key has never left / cannot leave the attester.\n\n## Questions for WG\n\n* At what level of detail do we describe it in the draft?\n    * Does it limit the scope of the charter if we go with a lower-level wording?\n* Do we need to perhaps phrase it as a negative property instead? e.g. \"Protocol is not subject to MitM of AC\"",
       "createdAt": "2025-11-12T15:47:39Z",
-      "updatedAt": "2025-11-29T14:24:33Z",
+      "updatedAt": "2025-12-01T08:18:50Z",
       "closedAt": null,
       "comments": [
         {
           "author": "tireddy2",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "body": "In our draft, the attestation evidence or attestation results are carried inside the Certificate message. The CertificateVerify signature also covers the Handshake Context defined in RFC 9261, which is derived from exporter-secret\u2013based values taken from the TLS session. This means the signature is bound both to the webPKI certificate and to the TLS session in which the authenticator is generated. Only the entity that holds the private key corresponding to the webPKI certificate and that has access to the exporter-secret of the session can produce a valid CertificateVerify.\n\nHowever, the binding described above does not by itself prevent a server from obtaining attestation evidence from a different TEE and presenting it as its own. A malicious server that legitimately holds the webPKI  certificate private key and controls the TLS session can export the session-specific exporter values and forward them to a remote TEE, which can in turn produce attestation evidence that verifies correctly inside the Certificate message. To ensure that the attestation evidence originates from the same environment that holds the certificate private key, the attestation evidence will have to include the public key of the webPKI certificate used in the Certificate message, together with claims that the corresponding private key is generated and protected within the TEE. ",
           "createdAt": "2025-11-14T13:39:44Z",
           "updatedAt": "2025-11-14T13:39:44Z"
@@ -355,6 +457,13 @@
           "body": "I agree with @ionut-arm that this issue is walking a thin line: define requirements without defining a specific solution.\n\nAlso, this is complicated because we are talking about a combination of cryptographic properties (what exactly gets signed in the AC) with system security properties: which software components must be endorsed. For example, even if the TLS stack is endorsed, it does not guarantee that *other* components are unable to get arbitrary stuff signed by the TEE.\n\nMy personal opinion is that given the constraints (namely, that some TEEs only accept a nonce input and cannot be modified to accept additional parameters and validate them) we can only achieve \"defense in depth\" - specify the best that can be done at each component (TLS stack, TEE shim library, TEE, RP) but assume than in any real deployment, only a subset will be implemented.",
           "createdAt": "2025-11-29T14:24:33Z",
           "updatedAt": "2025-11-29T14:24:33Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Because the charter doesn't explicitly state how the binding is achieved - it doesn't say it has to be through exported material. If the attestation credential is cryptographically bound to the TLS credential (let's say, the public part of the identity key), and that credential is used to sign the handshake transcript, I'd call that cryptographic binding.\n\nI disagree. Please draw and share a complete protocol diagram.\nMany use cases require runtime posture assessment. How do you do that?",
+          "createdAt": "2025-12-01T08:18:50Z",
+          "updatedAt": "2025-12-01T08:18:50Z"
         }
       ]
     },
@@ -363,15 +472,15 @@
       "id": "I_kwDOP_9tTM7YuLLc",
       "title": "Add a new operation-triggered use case of attested TLS",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/15",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Yuning-J",
-      "authorAssociation": "NONE",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Hi,\n\nI propose the following operation-triggered use case of attested TLS, to be added into your existing use case draft [here](https://datatracker.ietf.org/doc/draft-mihalcea-seat-use-cases/):\n\n----------------------------------------------------\n3.4. Operation-Triggered Attestation for High-Impact Application Operations\n\nGoal: Ensure the integrity of application services at operation time, when security posture may change after initial channel establishment.\n\nUse case: High-Assurance Operation Execution in Dynamic Application Services: An application service instance (e.g., AI agent) or confidential computing environment (which could host an AI agent) maintains a (D)TLS connection with a peer and must execute a high-impact action (e.g., payment initiation, configuration change, privileged command).\n\nRequirement 1: Before executing a high-impact operation over the existing connection, the peer must presents fresh, connection-bound attestation evidence reflecting the current behavior-affecting posture (e.g., enabled capabilities, policy configuration, runtime permissions). \n\nRequirement 2: The mechanism SHOULD support lightweight, dynamic attestation within the existing connection, without necessarily requiring a full new TLS handshake, so that behavior-affecting posture changes are visible to relying parties when required by local policy.\n\n----------------------------------------------------\n\nAny comment and feedback are welcome to refine the descriptions.\n\n/Yuning",
       "createdAt": "2025-11-18T03:42:52Z",
-      "updatedAt": "2025-11-18T09:09:18Z",
-      "closedAt": null,
+      "updatedAt": "2025-11-30T14:59:10Z",
+      "closedAt": "2025-11-30T14:59:10Z",
       "comments": [
         {
           "author": "muhammad-usama-sardar",
@@ -379,6 +488,13 @@
           "body": "Thanks @Yuning-J. I've moved this to PR #16. For any further changes, please make comments there.",
           "createdAt": "2025-11-18T09:09:18Z",
           "updatedAt": "2025-11-18T09:09:18Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Addressed and merged #16 ",
+          "createdAt": "2025-11-30T14:59:10Z",
+          "updatedAt": "2025-11-30T14:59:10Z"
         }
       ]
     },
@@ -396,7 +512,31 @@
       "labels": [],
       "body": "[Archive link](https://mailarchive.ietf.org/arch/msg/seat/ophFdwJDybMMU4bWTBSmogkp6Bs/)\n\n> A standard webpki using a cert with two subjectAltname's, one for the PKI\n> (eg [www.example.com](http://www.example.com/)) and one for binding the TEE (eg\n> [tee-1234.www.example.com](http://tee-1234.www.example.com/)) along with a tee PKI that has a cert with\n> subjectAltname [tee-1234.www.example.com](http://tee-1234.www.example.com/))\n> \n> The tee PKI signs the attestation report. Both PKIs together give channel\n> binding and a binding between target domain name and server/tee instance.\n> The attestation report contains the TLS nonces for channel binding. The\n> subjectAltname also provides channel binding to the specific instance of\n> the tee, preventing a compromised server from using a modified tee, while\n> forwarding the request to a server/tee next to serving the same domain\n> using that tee which is left uncompromised.\n> \n> I'm sure there are other and hopefully even better ways to acomplish this.\n> It is just one example. Instead of jumping to post-handshake solutions that\n> have a clear disadvantage, the WG should really exhaust intra-handshake\n> options.",
       "createdAt": "2025-11-26T15:30:14Z",
-      "updatedAt": "2025-11-26T15:30:14Z",
+      "updatedAt": "2025-12-01T10:32:08Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Based on meeting: (Attendees: Ionut, Thomas, Tiru, Yuning, Carsten, Usama, Yaron, Meiling Chen)\n\nTiru: No attested CSR solution does that. Point to RATS draft \nTiru: How is Attester proving to Verifier that the private key is stored in the key vault? How does Verifier know that it is actually stored in TEE?\n- Thomas: ad hoc appraisal on verifier side\n\nUsama: Could someone convert it to a protocol diagram that I can verify?\n",
+          "createdAt": "2025-12-01T10:19:37Z",
+          "updatedAt": "2025-12-01T10:32:08Z"
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "id": "I_kwDOP_9tTM7bX39J",
+      "title": "Add use-cases diagrams",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/20",
+      "state": "OPEN",
+      "author": "ionut-arm",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "We should have some diagrams that would help readers understand the topologies which might be relevant for the various use-cases documented. Each use-case would then highlight which topology is relevant, and identify which parties take which role (e.g., \"The Admin is a TLS client and relying party\").\n\nThe diagrams should show the basic set-up of a TLS connection between two peers, with one or both acting as attesters.\n\nIf some of the use-cases require more complex diagrams, those can be handled on a case-by-case basis.",
+      "createdAt": "2025-12-01T11:07:59Z",
+      "updatedAt": "2025-12-01T11:07:59Z",
       "closedAt": null,
       "comments": []
     }
@@ -1031,25 +1171,35 @@
       "id": "PR_kwDOP_9tTM60DK-I",
       "title": "AI agent use case by Yuning: issue #15",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/16",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Just relaying the text from Yuning in issue #15\r\n\r\nSummary of changes in Yuning's text: \r\n- Replaced normative SHOULD by should (I think informative doc cannot have normative SHOULD) \r\n- Applied some formatting (such as line breaks) for readability\r\n- Added Yuning as co-author",
       "createdAt": "2025-11-18T09:06:40Z",
-      "updatedAt": "2025-11-29T20:39:51Z",
+      "updatedAt": "2025-12-01T02:21:14Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "95ebd4c911c22cf2f732561fdde4b1f2de15b81a",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "ai-agent",
-      "headRefOid": "17d655637d2d233c272d56b5f1f2085c6a021850",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
+      "headRefOid": "bdf6cae198a63eb5cbf5a74ba5e652f7152a4eab",
+      "closedAt": "2025-11-30T14:58:19Z",
+      "mergedAt": "2025-11-30T14:58:19Z",
+      "mergedBy": "muhammad-usama-sardar",
+      "mergeCommit": {
+        "oid": "4cf46b26ed00e502eec0895b2b448c7bda9d685f"
+      },
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks very much once again @Yuning-J. Ready to merge from my side. ",
+          "createdAt": "2025-11-30T14:54:54Z",
+          "updatedAt": "2025-11-30T14:54:54Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOP_9tTM7QOQ1I",
@@ -1135,7 +1285,7 @@
             "abbreviatedOid": "4c092bc"
           },
           "author": "Yuning-J",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-28T08:27:30Z",
@@ -1155,7 +1305,7 @@
             "abbreviatedOid": "4c092bc"
           },
           "author": "Yuning-J",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-28T08:28:33Z",
@@ -1175,7 +1325,7 @@
             "abbreviatedOid": "17d6556"
           },
           "author": "Yuning-J",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-28T08:28:52Z",
@@ -1195,7 +1345,7 @@
             "abbreviatedOid": "17d6556"
           },
           "author": "Yuning-J",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-28T08:38:51Z",
@@ -1301,7 +1451,7 @@
             "abbreviatedOid": "17d6556"
           },
           "author": "Yuning-J",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-29T02:32:41Z",
@@ -1332,6 +1482,399 @@
               "body": "Sure, just to clarify: The intention here is to define AI agent in the sense we will use at SEAT. So could you please propose a single reference that we can use as a reference for this definition?",
               "createdAt": "2025-11-29T20:39:51Z",
               "updatedAt": "2025-11-29T20:39:51Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7R4Zv9",
+          "commit": {
+            "abbreviatedOid": "17d6556"
+          },
+          "author": "Yuning-J",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-30T10:29:05Z",
+          "updatedAt": "2025-11-30T10:29:06Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "Thanks, that\u2019s a good clarification point.\r\nI do not intend \u201clong-running\u201d to be part of the definition of an AI agent. Long-running or multiplexed sessions are just a common pattern where this is especially visible, not a definitional aspect of AI agent. I\u2019m happy to adjust the wording if all agree.",
+              "createdAt": "2025-11-30T10:29:06Z",
+              "updatedAt": "2025-11-30T10:29:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7R4brh",
+          "commit": {
+            "abbreviatedOid": "17d6556"
+          },
+          "author": "Yuning-J",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-30T10:53:09Z",
+          "updatedAt": "2025-11-30T10:53:09Z",
+          "comments": [
+            {
+              "originalPosition": 19,
+              "body": "I would then recommend to keep [1] as the primary reference for how we use AI agent in our use case draft, and in addition cite [2] and [3] where we specifically talk about configuration-driven behavior (model choice, tool enablement, prompts, etc.).\r\nAs far as I\u2019m aware, there is no requirement in IETF documents that a definition or statement be supported by exactly one reference; it\u2019s quite common to point to several complementary works when a concept is still evolving. In our case, [1] anchors the general notion of agentic AI systems, while [2] and [3] provide concrete architectural decompositions (model + context + tools + workflow) that directly motivate the configuration aspects we describe.\r\n\r\n[1] Kapoor, S., Stroebl, B., Siegel, Z. S., Nadgir, N., & Narayanan, A. (2024). Ai agents that matter. arXiv preprint arXiv:2407.01502.\r\n[2] Gao, H. A., Geng, J., Hua, W., Hu, M., Juan, X., Liu, H., ... & Wang, M. (2025). A survey of self-evolving agents: On path to artificial super intelligence. arXiv preprint arXiv:2507.21046.\r\n[3] Fang, J., Peng, Y., Zhang, X., Wang, Y., Yi, X., Zhang, G., ... & Meng, Z. (2025). A comprehensive survey of self-evolving ai agents: A new paradigm bridging foundation models and lifelong agentic systems. arXiv preprint arXiv:2508.07407.",
+              "createdAt": "2025-11-30T10:53:09Z",
+              "updatedAt": "2025-11-30T10:53:09Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7R4en4",
+          "commit": {
+            "abbreviatedOid": "4c092bc"
+          },
+          "author": "Yuning-J",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-30T11:21:18Z",
+          "updatedAt": "2025-11-30T11:21:19Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "In this use case I\u2019m not assuming a new secret beyond what the application already treats as sensitive. The pattern is:\r\n\r\n- The Attester (e.g., an AI agent runtime) presents fresh, channel-bound Evidence for the current TLS session.\r\n- The Relying Party (RP) then decides whether it is willing to proceed with some high-impact operation over that same TLS connection.\r\n- If the appraisal result is acceptable, the RP may send data or capabilities that it otherwise would not send, that is the \u201csecret\u201d in the usual RATS template.",
+              "createdAt": "2025-11-30T11:21:19Z",
+              "updatedAt": "2025-11-30T11:21:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7R476t",
+          "commit": {
+            "abbreviatedOid": "17d6556"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-30T14:26:30Z",
+          "updatedAt": "2025-11-30T14:26:30Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "> I\u2019m happy to adjust the wording\r\n\r\nYes, please propose a revised definition. If that is a common pattern, it could words like \"typically\" but not make it absolute that every AI agent is long-running.",
+              "createdAt": "2025-11-30T14:26:30Z",
+              "updatedAt": "2025-11-30T14:26:30Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7R496a",
+          "commit": {
+            "abbreviatedOid": "17d6556"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-30T14:29:38Z",
+          "updatedAt": "2025-11-30T14:29:38Z",
+          "comments": [
+            {
+              "originalPosition": 19,
+              "body": "I am a bit hesitant to put self-evolving agents in [2] and [3] because of the discussion in the last meeting. I'll put [1] for now and discuss tomorrow.",
+              "createdAt": "2025-11-30T14:29:38Z",
+              "updatedAt": "2025-11-30T14:29:39Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7R5NXl",
+          "commit": {
+            "abbreviatedOid": "17d6556"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-30T14:51:38Z",
+          "updatedAt": "2025-11-30T14:51:39Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "I slightly updated it to reflect it. Please check if it is ok.",
+              "createdAt": "2025-11-30T14:51:38Z",
+              "updatedAt": "2025-11-30T14:51:39Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7R_BXH",
+          "commit": {
+            "abbreviatedOid": "17d6556"
+          },
+          "author": "Yuning-J",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-01T02:21:14Z",
+          "updatedAt": "2025-12-01T02:21:14Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "Your modified version looks good to me. Thanks.",
+              "createdAt": "2025-12-01T02:21:14Z",
+              "updatedAt": "2025-12-01T02:21:14Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "id": "PR_kwDOP_9tTM62RpZw",
+      "title": "#4, #12 and Use case by Meiling Chen",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/18",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "- #4 Reordering first two use cases  \r\n- #12 phrase as requirement \r\n- Relaying the text from Chen Meiling with small formatting changes",
+      "createdAt": "2025-12-01T07:34:34Z",
+      "updatedAt": "2025-12-01T13:54:38Z",
+      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRefName": "main",
+      "baseRefOid": "4cf46b26ed00e502eec0895b2b448c7bda9d685f",
+      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRefName": "ai-agent",
+      "headRefOid": "fa0cea7daae28f15d633865051cb1699c44c4937",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM7SDHbQ",
+          "commit": {
+            "abbreviatedOid": "a4c986d"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-01T09:28:41Z",
+          "updatedAt": "2025-12-01T09:28:42Z",
+          "comments": [
+            {
+              "originalPosition": 78,
+              "body": "Network devices (TLS client) is Attester. \r\nNetwork orchestrator (TLS server) is RP. ",
+              "createdAt": "2025-12-01T09:28:42Z",
+              "updatedAt": "2025-12-01T09:28:42Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7SF2xp",
+          "commit": {
+            "abbreviatedOid": "fa0cea7"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-01T12:29:55Z",
+          "updatedAt": "2025-12-01T12:29:55Z",
+          "comments": [
+            {
+              "originalPosition": 72,
+              "body": "We need to clarify if there is something unique in this use case, compared to other use cases.",
+              "createdAt": "2025-12-01T12:29:55Z",
+              "updatedAt": "2025-12-01T12:29:56Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "id": "PR_kwDOP_9tTM62SXvT",
+      "title": "Added a new section to discuss run-time attestation",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/19",
+      "state": "OPEN",
+      "author": "tireddy2",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-12-01T08:35:32Z",
+      "updatedAt": "2025-12-01T15:11:53Z",
+      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRefName": "main",
+      "baseRefOid": "4cf46b26ed00e502eec0895b2b448c7bda9d685f",
+      "headRepository": "tireddy2/use-cases-and-properties",
+      "headRefName": "main",
+      "headRefOid": "ce507a1107ed7515625827ad458093eba9e32aea",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM7SDfQ2",
+          "commit": {
+            "abbreviatedOid": "02b4fd3"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "Could you also remove the property before yours (`Credential Lifecycle Management`) - that was intended to convey basically what you're proposing, just more succinctly. Your write-up is better, though!\r\n\r\nI also wonder whether there should be a mention somewhere that runtime attestation should be performant or lightweight.",
+          "createdAt": "2025-12-01T09:50:38Z",
+          "updatedAt": "2025-12-01T09:55:55Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "Ideally the properties should be protocol-agnostic.  This is just the first case, the others below should also be changed, if you want I can provide similar change suggestions.\r\n```suggestion\r\nEvidence collected at certificate issuance or during the initial secure channel establishment reflects only the platform\u2019s state at that moment. It cannot\r\n```\r\n(sorry, couldn't format it properly)",
+              "createdAt": "2025-12-01T09:50:38Z",
+              "updatedAt": "2025-12-01T09:55:24Z"
+            },
+            {
+              "originalPosition": 11,
+              "body": "```suggestion\r\nmay change state after the connection is established and the connection is long-lived.\r\n```",
+              "createdAt": "2025-12-01T09:51:16Z",
+              "updatedAt": "2025-12-01T09:55:25Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7SHaDu",
+          "commit": {
+            "abbreviatedOid": "02b4fd3"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-01T14:01:56Z",
+          "updatedAt": "2025-12-01T14:01:56Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "In general, \u201cplatform\" is just a subset of the target environment.\r\n\r\n```suggestion\r\nhandshake reflects only the attester's state at that moment. It cannot\r\n```",
+              "createdAt": "2025-12-01T14:01:56Z",
+              "updatedAt": "2025-12-01T14:02:29Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7SHbbo",
+          "commit": {
+            "abbreviatedOid": "02b4fd3"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-01T14:03:15Z",
+          "updatedAt": "2025-12-01T14:03:16Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "ditto\r\n\r\n```suggestion\r\nguarantee that the target environment remains trustworthy for the lifetime of the\r\n```",
+              "createdAt": "2025-12-01T14:03:15Z",
+              "updatedAt": "2025-12-01T14:03:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7SHcno",
+          "commit": {
+            "abbreviatedOid": "02b4fd3"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-01T14:04:27Z",
+          "updatedAt": "2025-12-01T14:04:28Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "```suggestion\r\nmay change state during the lifetime of the connection.\r\n```",
+              "createdAt": "2025-12-01T14:04:27Z",
+              "updatedAt": "2025-12-01T14:04:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7SHmgH",
+          "commit": {
+            "abbreviatedOid": "02b4fd3"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-01T14:13:45Z",
+          "updatedAt": "2025-12-01T14:13:45Z",
+          "comments": [
+            {
+              "originalPosition": 20,
+              "body": "```suggestion\r\nRuntime attestation closes this gap by enabling the Relying Party (RP) to request new attestation evidence once the TLS connection has been established, or periodically during long-lived connections if necessary.\r\nThis may be the case when the target environment has attributes that can change during the connection, affecting its trustworthiness. Such changes cannot be detected using evidence collected earlier.\r\nFor example, the evidence may include dynamic parameters such as runtime configuration flags (e.g., FIPS mode), where a device may enter or exit an approved mode, or measurements of critical system files.\r\n```",
+              "createdAt": "2025-12-01T14:13:45Z",
+              "updatedAt": "2025-12-01T14:15:49Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7SHtHq",
+          "commit": {
+            "abbreviatedOid": "02b4fd3"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "LGTM.  I added a few edits to improve precision.\r\n\r\nI suggest we use the NLNS (new line, new sentence) convention rather than splitting the line at an arbitrary number of columns.\r\nIME, once a line is modified, this helps focusing on the semantic change rather than having to reconstruct the fragmented flow.",
+          "createdAt": "2025-12-01T14:19:59Z",
+          "updatedAt": "2025-12-01T14:19:59Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7SH4eX",
+          "commit": {
+            "abbreviatedOid": "ce507a1"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-01T14:29:04Z",
+          "updatedAt": "2025-12-01T14:29:04Z",
+          "comments": [
+            {
+              "originalPosition": 23,
+              "body": "I suggest avoiding the term \u201cplatform\", as this is only a subset of what is measured in attestation evidence.\r\n\r\nInstead, use \u201cattester\u201d or, more precisely, \"target environment\", as per RFC9334.",
+              "createdAt": "2025-12-01T14:29:04Z",
+              "updatedAt": "2025-12-01T14:29:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7SIx3N",
+          "commit": {
+            "abbreviatedOid": "ce507a1"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-01T15:11:53Z",
+          "updatedAt": "2025-12-01T15:11:53Z",
+          "comments": [
+            {
+              "originalPosition": 23,
+              "body": "```suggestion\r\nEvidence collected at certificate issuance or during the initial secure channel establishment reflects only the Target Environment\u2019s state at that moment. It cannot guarantee that the Target Environment remains trustworthy for the lifetime of the certificate or even for the duration of the TLS session. As a result, such static evidence is insufficient in environments where the Target Environment may change state after the connection is established and the connection is long-lived.\r\n```",
+              "createdAt": "2025-12-01T15:11:53Z",
+              "updatedAt": "2025-12-01T15:13:10Z"
             }
           ]
         }
