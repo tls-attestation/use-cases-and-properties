@@ -297,7 +297,7 @@ design, warranting additional security considerations.
 
 ## Runtime Attestation
 
-Evidence collected at certificate issuance or during the initial secure channel establishment reflects only the platform’s state at that moment. It cannot guarantee that the target environment remains trustworthy for the lifetime of the certificate or even for the duration of the TLS session. As a result, such static evidence is insufficient in environments where the platform may change state after the connection is established and the connection is long-lived.
+Evidence collected at certificate issuance or during the initial secure channel establishment reflects only the Target Environment’s state at that moment. It cannot guarantee that the Target Environment remains trustworthy for the lifetime of the certificate or even for the duration of the TLS session. As a result, such static evidence is insufficient in environments where the Target Environment may change state after the connection is established and the connection is long-lived.
 
 Runtime attestation closes this gap by enabling the Relying Party (RP) to request new attestation evidence once the TLS connection has been established, or periodically during long-lived connections if necessary.
 This may be the case when the target environment has attributes that can change during the connection, affecting its trustworthiness. Such changes cannot be detected using evidence collected earlier.
