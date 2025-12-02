@@ -5,11 +5,13 @@
 SEAT Working Group                                           I. Mihalcea
 Internet-Draft                                                       Arm
 Intended status: Informational                              M. U. Sardar
-Expires: 3 June 2026                                          TU Dresden
+Expires: 5 June 2026                                          TU Dresden
                                                               T. Fossati
                                                                   Linaro
+                                                                T. Reddy
+                                                                   Nokia
                                                                 Y. Jiang
-                                                        30 November 2025
+                                                         2 December 2025
 
 
 Use Cases and Properties for Integrating Remote Attestation with Secure
@@ -51,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 June 2026.
+   This Internet-Draft will expire on 5 June 2026.
 
 Copyright Notice
 
@@ -87,7 +89,7 @@ Table of Contents
      4.4.  Negotiation and Capability Discovery
      4.5.  Attestation Model Flexibility
      4.6.  Interaction with Peer Authentication
-     4.7.  Credential Lifecycle Management
+     4.7.  Runtime Attestation
      4.8.  Privacy Preservation
      4.9.  Performance and Efficiency
    5.  Security Considerations
@@ -340,13 +342,27 @@ Table of Contents
    option could have a negative impact on the security of the overall
    design, warranting additional security considerations.
 
-4.7.  Credential Lifecycle Management
+4.7.  Runtime Attestation
 
-   The solution can provide a mechanism for re-attesting or refreshing
-   attestation credentials on an existing, long-lived connection without
-   requiring a full new handshake.  For long-lived connections, the
-   initial attestation may become stale, and a lightweight refresh
-   mechanism is beneficial towards re-evaluating the peer's state.
+   Evidence collected at certificate issuance or during the initial
+   secure channel establishment reflects only the Target Environment’s
+   state at that moment.  It cannot guarantee that the Target
+   Environment remains trustworthy for the lifetime of the certificate
+   or even for the duration of the TLS session.  As a result, such
+   static evidence is insufficient in environments where the Target
+   Environment may change state after the connection is established and
+   the connection is long-lived.
+
+   Runtime attestation closes this gap by enabling the Relying Party
+   (RP) to request new attestation evidence once the TLS connection has
+   been established, or periodically during long-lived connections if
+   necessary.  This may be the case when the target environment has
+   attributes that can change during the connection, affecting its
+   trustworthiness.  Such changes cannot be detected using evidence
+   collected earlier.  For example, the evidence may include dynamic
+   parameters such as runtime configuration flags (e.g., FIPS mode),
+   where a device may enter or exit an approved mode, or measurements of
+   critical system files.
 
 4.8.  Privacy Preservation
 
@@ -456,6 +472,11 @@ Authors' Addresses
    Thomas Fossati
    Linaro
    Email: thomas.fossati@linaro.org
+
+
+   Tirumaleswar Reddy
+   Nokia
+   Email: kondtir@gmail.com
 
 
    Yuning Jiang
