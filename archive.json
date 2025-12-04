@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-12-02T01:58:34.842190+00:00",
+  "timestamp": "2025-12-04T01:59:17.580830+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -1699,24 +1699,26 @@
       "id": "PR_kwDOP_9tTM62SXvT",
       "title": "Added a new section to discuss run-time attestation",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/19",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "tireddy2",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-12-01T08:35:32Z",
-      "updatedAt": "2025-12-01T15:11:53Z",
+      "updatedAt": "2025-12-02T04:50:55Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4cf46b26ed00e502eec0895b2b448c7bda9d685f",
       "headRepository": "tireddy2/use-cases-and-properties",
       "headRefName": "main",
-      "headRefOid": "ce507a1107ed7515625827ad458093eba9e32aea",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "c12de37f391af4deebefad0e6d73fcb02b16ccca",
+      "closedAt": "2025-12-02T04:50:54Z",
+      "mergedAt": "2025-12-02T04:50:54Z",
+      "mergedBy": "tireddy2",
+      "mergeCommit": {
+        "oid": "8a3ac3fc2308144cd7755165d5c0a5bb580d7c54"
+      },
       "comments": [],
       "reviews": [
         {
@@ -1875,6 +1877,26 @@
               "body": "```suggestion\r\nEvidence collected at certificate issuance or during the initial secure channel establishment reflects only the Target Environment\u2019s state at that moment. It cannot guarantee that the Target Environment remains trustworthy for the lifetime of the certificate or even for the duration of the TLS session. As a result, such static evidence is insufficient in environments where the Target Environment may change state after the connection is established and the connection is long-lived.\r\n```",
               "createdAt": "2025-12-01T15:11:53Z",
               "updatedAt": "2025-12-01T15:13:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7SSs__",
+          "commit": {
+            "abbreviatedOid": "ce507a1"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-02T04:50:29Z",
+          "updatedAt": "2025-12-02T04:50:29Z",
+          "comments": [
+            {
+              "originalPosition": 23,
+              "body": "Fixed. ",
+              "createdAt": "2025-12-02T04:50:29Z",
+              "updatedAt": "2025-12-02T04:50:29Z"
             }
           ]
         }
