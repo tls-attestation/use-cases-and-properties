@@ -255,6 +255,10 @@ The management system must continuously verify the integrity state of the
 target device before, during, and after the upgrade, including
 rollback procedures.
 
+From attested TLS perspective, network device (acting as TLS client)
+is Attester and network orchestrator (acting as TLS server) is Verifying
+RP.
+
 * Requirement 1: Before initiating the upgrade, the target device must
 be verified to be in a known, healthy baseline state (e.g., secure
 boot enabled, running a signed software/firmware version).
