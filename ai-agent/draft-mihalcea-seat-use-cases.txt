@@ -5,14 +5,14 @@
 SEAT Working Group                                           I. Mihalcea
 Internet-Draft                                                       Arm
 Intended status: Informational                              M. U. Sardar
-Expires: 4 June 2026                                          TU Dresden
+Expires: 11 June 2026                                         TU Dresden
                                                               T. Fossati
                                                                   Linaro
                                                                 Y. Jiang
                                                                         
                                                                  M. Chen
                                                             China Mobile
-                                                         1 December 2025
+                                                         8 December 2025
 
 
 Use Cases and Properties for Integrating Remote Attestation with Secure
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 June 2026.
+   This Internet-Draft will expire on 11 June 2026.
 
 Copyright Notice
 
@@ -297,6 +297,10 @@ Table of Contents
    instances).  The management system must continuously verify the
    integrity state of the target device before, during, and after the
    upgrade, including rollback procedures.
+
+   From attested TLS perspective, network device (acting as TLS client)
+   is Attester and network orchestrator (acting as TLS server) is
+   Verifying RP.
 
    *  Requirement 1: Before initiating the upgrade, the target device
       must be verified to be in a known, healthy baseline state (e.g.,
