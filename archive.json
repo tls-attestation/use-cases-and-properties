@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-12-04T01:59:17.580830+00:00",
+  "timestamp": "2025-12-09T01:59:31.733665+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -537,6 +537,22 @@
       "body": "We should have some diagrams that would help readers understand the topologies which might be relevant for the various use-cases documented. Each use-case would then highlight which topology is relevant, and identify which parties take which role (e.g., \"The Admin is a TLS client and relying party\").\n\nThe diagrams should show the basic set-up of a TLS connection between two peers, with one or both acting as attesters.\n\nIf some of the use-cases require more complex diagrams, those can be handled on a case-by-case basis.",
       "createdAt": "2025-12-01T11:07:59Z",
       "updatedAt": "2025-12-01T11:07:59Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 21,
+      "id": "I_kwDOP_9tTM7c3a74",
+      "title": "Reference for use cases",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/21",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "@tireddy2 proposed to add one reference for each use case. I think it will be a valuable addition.",
+      "createdAt": "2025-12-08T09:37:59Z",
+      "updatedAt": "2025-12-08T09:37:59Z",
       "closedAt": null,
       "comments": []
     }
@@ -1639,13 +1655,13 @@
       "labels": [],
       "body": "- #4 Reordering first two use cases  \r\n- #12 phrase as requirement \r\n- Relaying the text from Chen Meiling with small formatting changes",
       "createdAt": "2025-12-01T07:34:34Z",
-      "updatedAt": "2025-12-01T13:54:38Z",
+      "updatedAt": "2025-12-08T10:00:22Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4cf46b26ed00e502eec0895b2b448c7bda9d685f",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "ai-agent",
-      "headRefOid": "fa0cea7daae28f15d633865051cb1699c44c4937",
+      "headRefOid": "de85314785bc34045c90aa8faf4d5c436a2a1ec5",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
