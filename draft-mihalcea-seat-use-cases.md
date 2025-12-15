@@ -244,6 +244,43 @@ within the existing connection, without necessarily requiring a full new TLS
 handshake, so that behavior-affecting posture changes are visible to relying
 parties when required by local policy.
 
+# Attestation of Certificate Private Key
+
+A TLS endpoint authenticates itself using an end-entity certificate whose
+corresponding private key is claimed to be protected by a secure element. 
+While standard TLS authentication verifies possession of the private
+key, it provides no assurance about where or how that key is stored and used.
+
+In this scenario, the peer acting as the Relying Party requires additional
+assurance that the private key associated with the end-entity certificate used
+to authenticate the TLS connection is generated, stored, and used within an
+attested cryptographic module. In addition to verifying possession of the 
+private key via the TLS handshake, the Relying Party seeks
+attestation evidence that the key is non-exportable, remains bound to the
+cryptographic module, and that the module is operating in an expected 
+security configuration.
+
+Remote attestation is used to provide Evidence about the cryptographic module
+where the private key used for TLS authentication is stored. The Evidence may 
+include claims about the security properties of the cryptographic module.
+
+* Requirement: The Attester must be able to produce Evidence that demonstrates 
+  that the private key used for secure channel authentication:
+  * is generated and stored within a specific cryptographic module or secure
+    element,
+  * is protected against export or software extraction
+
+The Relying Party uses this Evidence, potentially with the assistance of a
+Verifier, to determine whether the key protection properties satisfy its local
+security policy. 
+
+The approach described in {{draft-ietf-rats-pkix-key-attestation}} addresses this
+use case partially by providing attestation of the cryptographic module and associated
+private key at certificate issuance time, reflecting their state when the
+certificate is enrolled. This model does not provide guarantees about the
+continued state of the module at connection establishment or during the lifetime of 
+the TLS session.
+
 # Integration Properties
 
 This section provides a list of desirable properties for designs that integrate
