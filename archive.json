@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-12-09T01:59:31.733665+00:00",
+  "timestamp": "2025-12-16T02:02:59.813969+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -47,6 +47,11 @@
       "name": "wontfix",
       "description": "This will not be worked on",
       "color": "ffffff"
+    },
+    {
+      "name": "Interim",
+      "description": "",
+      "color": "07e9ce"
     }
   ],
   "issues": [
@@ -212,15 +217,17 @@
       "author": "yaronf",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "Interim"
+      ],
       "body": "References to slides are frowned upon. Also, this is importnat enough to justify a few paragraphs of text here.\n\nIn addition, the short sentence here makes a ton of assumptions on the deployment model (e.g. \"infrastructure provider\") that require clarification.\n\n",
       "createdAt": "2025-10-26T13:58:56Z",
-      "updatedAt": "2025-10-27T20:24:15Z",
+      "updatedAt": "2025-12-15T08:58:25Z",
       "closedAt": null,
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "> References to slides are frowned upon.\n\nUnfortunately, we could not manage to complete the pre-print for the formal analysis work until the cutoff. The link will be replaced by that in the future.",
           "createdAt": "2025-10-27T20:24:15Z",
           "updatedAt": "2025-10-27T20:24:15Z"
@@ -389,10 +396,12 @@
       "author": "ionut-arm",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "Interim"
+      ],
       "body": "This issue comes up a lot, including during the presentation at IETF-124 and on the mailing list. I'll define in words for now what we mean by cryptographic binding, why we think we need it, how it can be achieved.\n\n## Summary\n\nCryptographic binding between a secure channel (establishment) session and a remote attestation session gives the attester's peer (calling them relying party or RP henceforth) confidence that the secure channel endpoint is the attester. So if the attester has a WebPKI-based identifier, the RP can also trust that the attestation credential (AC) is representative of the entity who owns that identifier.\n\n**Attacker model**: The strongest attacker I can think of is a service provider who wants to pretend that their service resides in a TEE (or another attested environment). They have access to webPKI certs and the associated key material. They can also control the routing of traffic to this service, and can spin up the workloads they want to impersonate in attestable environments. Their only difficulty is in convincing the RP that the AC and the CertificateVerify are coming from the same endpoint.\n\n## Why?\n\nStrong binding is needed to prevent a malicious \"attester\" from just conveying an AC taken from a legitimate TEE as its own - in other words, to prevent a Man in the Middle. Without some sort of binding, the provenance of the AC can't be established, and so the RP should not trust its contents. For example, relying strictly on nonces for this would not be sufficient, since the nonces can just be forwarded to/from separate sessions.\n\n## How?\n\nThis is the crux of the problem and I'm not sure whether we should describe any specific mechanism in this draft, but instead leave it to protocol designers to ensure MitM is not possible.\n\nNevertheless, here are some examples of how to achieve this in the context of TLS in particular:\n\n* Export some keying material from the TLS session and include it in the AC. The RP can verify this binding to confirm the provenance. **Pro**: strong guarantee. **Con**: more complex to implement (?), perhaps going as far as making changes to key schedule.\n* Bind the AC to the attester's webPKI cert (e.g., by hashing the cert, or the public key...). The RP can verify that the AC was issued for an entity who owns that cert, which CertificateVerify proves is the peer. **Pro**: simpler to implement and does not involve invasive changes to secure channel protocol. **Con**: this only works if the webPKI-certified key has never left the TEE / attester; if it was provisioned at runtime, the guarantee vanishes (since the key owner could just use the same webPKI credential from an insecure context).\n* Bind the webPKI cert to the (unique) attesting platform. The RP can verify that the platform identifier from the webPKI cert corresponds to whatever is in the AC. **Pro**: similar to above. **Con**: Similar to above, plus it's only possible if the attester has a unique identity.\n\nMaybe these last two options also point to a tiered approach: you can either do direct binding to session, or binding through webPKI cert AND a new property that the certified key has never left / cannot leave the attester.\n\n## Questions for WG\n\n* At what level of detail do we describe it in the draft?\n    * Does it limit the scope of the charter if we go with a lower-level wording?\n* Do we need to perhaps phrase it as a negative property instead? e.g. \"Protocol is not subject to MitM of AC\"",
       "createdAt": "2025-11-12T15:47:39Z",
-      "updatedAt": "2025-12-01T08:18:50Z",
+      "updatedAt": "2025-12-15T08:58:26Z",
       "closedAt": null,
       "comments": [
         {
@@ -509,10 +518,12 @@
       "assignees": [
         "muhammad-usama-sardar"
       ],
-      "labels": [],
+      "labels": [
+        "Interim"
+      ],
       "body": "[Archive link](https://mailarchive.ietf.org/arch/msg/seat/ophFdwJDybMMU4bWTBSmogkp6Bs/)\n\n> A standard webpki using a cert with two subjectAltname's, one for the PKI\n> (eg [www.example.com](http://www.example.com/)) and one for binding the TEE (eg\n> [tee-1234.www.example.com](http://tee-1234.www.example.com/)) along with a tee PKI that has a cert with\n> subjectAltname [tee-1234.www.example.com](http://tee-1234.www.example.com/))\n> \n> The tee PKI signs the attestation report. Both PKIs together give channel\n> binding and a binding between target domain name and server/tee instance.\n> The attestation report contains the TLS nonces for channel binding. The\n> subjectAltname also provides channel binding to the specific instance of\n> the tee, preventing a compromised server from using a modified tee, while\n> forwarding the request to a server/tee next to serving the same domain\n> using that tee which is left uncompromised.\n> \n> I'm sure there are other and hopefully even better ways to acomplish this.\n> It is just one example. Instead of jumping to post-handshake solutions that\n> have a clear disadvantage, the WG should really exhaust intra-handshake\n> options.",
       "createdAt": "2025-11-26T15:30:14Z",
-      "updatedAt": "2025-12-01T10:32:08Z",
+      "updatedAt": "2025-12-15T09:05:34Z",
       "closedAt": null,
       "comments": [
         {
@@ -521,6 +532,13 @@
           "body": "Based on meeting: (Attendees: Ionut, Thomas, Tiru, Yuning, Carsten, Usama, Yaron, Meiling Chen)\n\nTiru: No attested CSR solution does that. Point to RATS draft \nTiru: How is Attester proving to Verifier that the private key is stored in the key vault? How does Verifier know that it is actually stored in TEE?\n- Thomas: ad hoc appraisal on verifier side\n\nUsama: Could someone convert it to a protocol diagram that I can verify?\n",
           "createdAt": "2025-12-01T10:19:37Z",
           "updatedAt": "2025-12-01T10:32:08Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Based on meeting: (Attendees: Meiling, Tiru, Usama, Yuning)\n\n@ionut-arm can you make a protocol diagram for this? ",
+          "createdAt": "2025-12-15T09:05:33Z",
+          "updatedAt": "2025-12-15T09:05:33Z"
         }
       ]
     },
@@ -1917,6 +1935,32 @@
           ]
         }
       ]
+    },
+    {
+      "number": 22,
+      "id": "PR_kwDOP_9tTM642xeo",
+      "title": "New use case \"Attestation of Certificate Private Key\"",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/22",
+      "state": "OPEN",
+      "author": "tireddy2",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-12-15T07:34:22Z",
+      "updatedAt": "2025-12-15T08:40:59Z",
+      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRefName": "main",
+      "baseRefOid": "8a3ac3fc2308144cd7755165d5c0a5bb580d7c54",
+      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRefName": "tireddy2-patch-1",
+      "headRefOid": "31f180f3e328d2f8ce1bc7d0a72416248c02b47b",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
