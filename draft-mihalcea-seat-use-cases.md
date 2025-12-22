@@ -248,7 +248,7 @@ parties when required by local policy.
 Goal: Ensure integrity during software/firmware updates, guaranteeing the
 reliability and security of network services.
 
-Contrast with infrastructure integrity use case: Trusted upgrade ensures 
+Contrast with infrastructure integrity use case: Trusted upgrade ensures
 "the right thing is installed during the upgrade process," while network
 infrastructure integrity ensures "the entire network operates securely
 as expected during the initialization phase."
