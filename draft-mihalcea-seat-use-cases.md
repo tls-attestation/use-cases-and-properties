@@ -38,6 +38,9 @@ author:
     email: "kondtir@gmail.com"
   - fullname: Yuning Jiang
     email: jiangyuning2@h-partners.com
+  - fullname: Meiling Chen
+    organization: China Mobile
+    email: chenmeiling@chinamobile.com
 
 normative:
 
@@ -156,28 +159,6 @@ This section provides the concrete motivation for the WG's work by describing
 specific use cases. For each case, the scenario, actors, and specific security
 guarantees needed from RA are described.
 
-## Confidential Data Collaboration
-
-Goal: Enable multiple parties to collaborate on sensitive, combined datasets
-without exposing raw data to each other or to the infrastructure operator.
-
-Use case: Data Clean Rooms: Multiple data providers contribute sensitive data to
-a confidential workload for joint analysis. Data consumers receive aggregated
-insights without ever accessing the raw, combined dataset.
-
-* Requirement: Before sending data, each data provider must attest the
-  confidential workload to verify it is running the authorized analysis code in
-  a secure Trusted Execution Environment (TEE). Similarly, data consumers must
-  attest the workload to trust the integrity of the results.
-
-Use case: Secure Multi-Party Computation (MPC): Distributed parties
-collaboratively compute a function (e.g., train a machine learning model)
-without sharing their local data.
-
-* Requirement: The central aggregator, as well as each participating client,
-  must be able to mutually attest to ensure all parties are running the correct,
-  untampered MPC algorithm in a trusted environment.
-
 ## Secure Provisioning and High-Assurance Operations
 
 Goal: Ensure the integrity of workloads and devices when bootstrapping their
@@ -200,6 +181,28 @@ processor).
 * Requirement: The system must provide fresh attestation Evidence to the
   operator to prove its integrity before the command is dispatched. This
   prevents commands from being executed on a compromised system.
+
+## Confidential Data Collaboration
+
+Goal: Enable multiple parties to collaborate on sensitive, combined datasets
+without exposing raw data to each other or to the infrastructure operator.
+
+Use case: Data Clean Rooms: Multiple data providers contribute sensitive data to
+a confidential workload for joint analysis. Data consumers receive aggregated
+insights without ever accessing the raw, combined dataset.
+
+* Requirement: Before sending data, each data provider must attest the
+  confidential workload to verify it is running the authorized analysis code in
+  a secure Trusted Execution Environment (TEE). Similarly, data consumers must
+  attest the workload to trust the integrity of the results.
+
+Use case: Secure Multi-Party Computation (MPC): Distributed parties
+collaboratively compute a function (e.g., train a machine learning model)
+without sharing their local data.
+
+* Requirement: The central aggregator, as well as each participating client,
+  must be able to mutually attest to ensure all parties are running the correct,
+  untampered MPC algorithm in a trusted environment.
 
 ## Network Infrastructure Integrity
 
@@ -243,6 +246,44 @@ policy configuration, runtime permissions).
 within the existing connection, without necessarily requiring a full new TLS
 handshake, so that behavior-affecting posture changes are visible to relying
 parties when required by local policy.
+
+## Trusted Software and Firmware Upgrade
+
+Goal: Ensure integrity during software/firmware updates, guaranteeing the
+reliability and security of network services.
+
+Contrast with infrastructure integrity use case: Trusted upgrade ensures
+"the right thing is installed during the upgrade process," while network
+infrastructure integrity ensures "the entire network operates securely
+as expected during the initialization phase."
+
+Use case: Integrity Attestation During Software/Firmware Upgrade Deployment:
+A network orchestrator pushes new software or firmware to network devices
+(e.g., routers, switches, or virtual network function instances).
+The management system must continuously verify the integrity state of the
+target device before, during, and after the upgrade, including
+rollback procedures.
+
+From attested TLS perspective, network device (acting as TLS client)
+is Attester and network orchestrator (acting as TLS server) is Verifying
+RP.
+
+* Requirement 1: Before initiating the upgrade, the target device must
+be verified to be in a known, healthy baseline state (e.g., secure
+boot enabled, running a signed software/firmware version).
+
+* Requirement 2: The software/firmware package must be fetched from a
+trusted source via a secure channel with attestation capabilities
+(e.g., TLS with remote attestation extensions).
+
+* Requirement 3: Upon completion, the integrity measurements of the
+new instance (e.g., software hash, firmware manifest) must be verified.
+The device can only be admitted to the service plane after compliance
+with the security policy is confirmed.
+
+* Requirement 4: If post-upgrade verification fails, an automated and
+verified rollback to a previously known good version must be triggered
+based on attestation evidence.
 
 # Integration Properties
 
@@ -305,7 +346,7 @@ For example, the evidence may include dynamic parameters such as runtime configu
 
 ## Privacy Preservation
 
-The solution does not degrade the privacy of a standard TLS connection. Evidence
+The solution must not degrade the privacy of a standard TLS connection. Evidence
 can contain highly specific, unique information about a device's hardware and
 software, which could be used as an advanced tracking mechanism, following a
 user across different connections and services. The design must consider how to
