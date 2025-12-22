@@ -5,14 +5,14 @@
 SEAT Working Group                                           I. Mihalcea
 Internet-Draft                                                       Arm
 Intended status: Informational                              M. U. Sardar
-Expires: 11 June 2026                                         TU Dresden
+Expires: 25 June 2026                                         TU Dresden
                                                               T. Fossati
                                                                   Linaro
                                                                 Y. Jiang
                                                                         
                                                                  M. Chen
                                                             China Mobile
-                                                         8 December 2025
+                                                        22 December 2025
 
 
 Use Cases and Properties for Integrating Remote Attestation with Secure
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 June 2026.
+   This Internet-Draft will expire on 25 June 2026.
 
 Copyright Notice
 
@@ -291,6 +291,11 @@ Table of Contents
    Goal: Ensure integrity during software/firmware updates, guaranteeing
    the reliability and security of network services.
 
+   Contrast with infrastructure integrity use case: Trusted upgrade
+   ensures "the right thing is installed during the upgrade process,"
+   while network infrastructure integrity ensures "the entire network
+   operates securely as expected during the initialization phase."
+
    Use case: Integrity Attestation During Software/Firmware Upgrade
    Deployment: A network orchestrator pushes new software or firmware to
    network devices (e.g., routers, switches, or virtual network function
@@ -459,9 +464,9 @@ Table of Contents
    [I-D.draft-ietf-rats-eat-measured-component]
               Frost, S., Fossati, T., Tschofenig, H., and H. Birkholz,
               "EAT Measured Component", Work in Progress, Internet-
-              Draft, draft-ietf-rats-eat-measured-component-08, 25
-              November 2025, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-rats-eat-measured-component-08>.
+              Draft, draft-ietf-rats-eat-measured-component-09, 8
+              December 2025, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-rats-eat-measured-component-09>.
 
    [Meeting-122-TLS-Slides]
               Sardar, M. U., Moustafa, M., and T. Aura, "Identity Crisis
