@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-12-16T02:02:59.813969+00:00",
+  "timestamp": "2025-12-23T02:03:30.351892+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -1666,25 +1666,35 @@
       "id": "PR_kwDOP_9tTM62RpZw",
       "title": "#4, #12 and Use case by Meiling Chen",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/18",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "- #4 Reordering first two use cases  \r\n- #12 phrase as requirement \r\n- Relaying the text from Chen Meiling with small formatting changes",
       "createdAt": "2025-12-01T07:34:34Z",
-      "updatedAt": "2025-12-08T10:00:22Z",
+      "updatedAt": "2025-12-22T08:42:08Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4cf46b26ed00e502eec0895b2b448c7bda9d685f",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "ai-agent",
-      "headRefOid": "de85314785bc34045c90aa8faf4d5c436a2a1ec5",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
+      "headRefOid": "cd00c0a3caefcfa5f5917c8087ea889a35e0dddd",
+      "closedAt": "2025-12-22T08:42:08Z",
+      "mergedAt": "2025-12-22T08:42:08Z",
+      "mergedBy": "muhammad-usama-sardar",
+      "mergeCommit": {
+        "oid": "c935adf36ef0004667472e4393726d491af7947f"
+      },
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "No one objected on the list since last meeting. So based on our agreement in last meeting, we are merging it.",
+          "createdAt": "2025-12-22T08:42:04Z",
+          "updatedAt": "2025-12-22T08:42:04Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOP_9tTM7SDHbQ",
@@ -1725,6 +1735,19 @@
               "updatedAt": "2025-12-01T12:29:56Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7Ww4w2",
+          "commit": {
+            "abbreviatedOid": "cd00c0a"
+          },
+          "author": "Yuning-J",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-12-22T08:39:59Z",
+          "updatedAt": "2025-12-22T08:39:59Z",
+          "comments": []
         }
       ]
     },
