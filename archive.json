@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-12-23T02:03:30.351892+00:00",
+  "timestamp": "2025-12-28T02:20:53.224106+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -571,6 +571,22 @@
       "body": "@tireddy2 proposed to add one reference for each use case. I think it will be a valuable addition.",
       "createdAt": "2025-12-08T09:37:59Z",
       "updatedAt": "2025-12-08T09:37:59Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 23,
+      "id": "I_kwDOP_9tTM7gRRoj",
+      "title": "Analyze the role of attester/RP in each use case",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/23",
+      "state": "OPEN",
+      "author": "Yuning-J",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Hi team,\n\nI performed an analysis mapping the attester role(s) and VRP for each use case. This is based on the draft's descriptions, inferred TLS client/server roles (e.g., who initiates connections and needs proof), and RATS terminology (RFC 9334).\n\nI'd love feedback from the authors on whether this mapping aligns with your intent, or if clarifications/additions to the draft would help (e.g., adding explicit roles).\n\n3.1 Secure Provisioning and High-Assurance Operations \n\n3.1.1.Use case: Runtime Secret Provisioning. --> Require: Client as attester.\nReasoning: A confidential workload (TLS client) must prove its runtime state and TEE trustworthiness to a secrets management service (TLS server) before receiving sensitive secrets.\n\n3.1.2.Use case: High-Assurance Command Execution --> Require: Server as attester.\nReasoning: An operator (TLS client) issues critical commands to a remote system (TLS server), but only after the system proves its integrity to avoid execution on a compromised device.\n\n3.2 Confidential Data Collaboration\n\n3.2.1.Use case: Data Clean Rooms. --> Require: Both (mutual attestation). **Could clarify if mutual is always required?**\nReasoning: Data providers (TLS clients) and consumers (TLS server) must each verify that a shared confidential workload runs authorized code in a secure TEE before sharing or processing data.\n\n3.2.2.Use case: Secure Multi-Party Computation (MPC) --> Require: Both (mutual attestation).\nReasoning: Participating (TLS clients) and a central aggregator (TLS server) must all prove they are running the correct MPC algorithm in trusted environments to ensure privacy-preserving computation.\n\n3.3 Network Infrastructure Integrity\n\n3.3.1.Use case: Attestation of Network Functions. --> Require: **Both (mutual attestation)?**\nReasoning: The use case describes device integrity verification by the orchestrator, implying device as client/attester. However, in some management flows (e.g., orchestrator-initiated connections), roles might switch or require mutual attestation.\n\n3.3.2.Use case: Securing Control and Management Planes --> Require: **NOT SURE?**\nReasoning: The use case has the admin client verifying the device, suggesting device as server/attester and admin as client/RP. Confirm if this holds, or if mutual attestation applies in some variants?\n\n3.4 Operation-Triggered Attestation for High-Impact Application Operations\n\n3.4.1.Use case: High-Assurance Operation Execution in Dynamic Application Services --> Require: Server as attester.\nReasoning: An application service instance (e.g., AI agent, acting as TLS server) must provide fresh, connection-bound attestation Evidence reflecting its current posture (e.g., capabilities, permissions) before executing high-impact actions over an existing connection with a peer (TLS client).\n\n3.5 Trusted Software and Firmware Upgrade\n\n3.5.1. Use case: Integrity Attestation During Software/Firmware Upgrade Deployment --> Require: Client as attester.\nReasoning: A network device (TLS client) must be verified by an orchestrator (TLS server) for a healthy baseline state before, during, and after upgrades, with verified rollback if needed.\n\n\nQuestions for feedback:\n- Does this role mapping match your vision? Any adjustments?\n- For ambiguous cases (marked with ?), should we add variants (e.g., mutual or role-switching) to the draft?\n\nThanks for your thoughts. This could help refine the draft and ensure better alignment with further implementations.\n\nBest,  \nYuning",
+      "createdAt": "2025-12-26T03:31:47Z",
+      "updatedAt": "2025-12-26T03:31:47Z",
       "closedAt": null,
       "comments": []
     }
