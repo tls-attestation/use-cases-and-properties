@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-01-04T02:22:43.039035+00:00",
+  "timestamp": "2026-01-06T02:06:08.562192+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -1994,7 +1994,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-12-15T07:34:22Z",
-      "updatedAt": "2025-12-15T08:40:59Z",
+      "updatedAt": "2026-01-05T10:46:56Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "8a3ac3fc2308144cd7755165d5c0a5bb580d7c54",
@@ -2005,7 +2005,15 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@tireddy2 could you resolve the merge conflicts?",
+          "createdAt": "2026-01-05T10:46:56Z",
+          "updatedAt": "2026-01-05T10:46:56Z"
+        }
+      ],
       "reviews": []
     }
   ]
