@@ -258,17 +258,21 @@ attested cryptographic module. In addition to verifying possession of the
 private key via the TLS handshake, the Relying Party seeks
 attestation evidence that the key is non-exportable, remains bound to the
 cryptographic module, and that the module is operating in an expected
-security configuration.
+security configuration at the time the TLS connection is established.
 
 Remote attestation is used to provide Evidence about the cryptographic module
 where the private key used for TLS authentication is stored. The Evidence may
-include claims about the security properties of the cryptographic module.
+include claims about the security properties of the cryptographic module. 
+To prevent replay attacks, this Evidence has to be fresh and tied to the 
+current TLS connection. Replayed Evidence could otherwise be used to falsely 
+assert key protection properties that no longer hold.
 
 * Requirement: The Attester must be able to produce Evidence that demonstrates
   that the private key used for secure channel authentication:
   * is generated and stored within a specific cryptographic module or secure
     element,
   * is protected against export or software extraction
+  * is attested using fresh Evidence that is bound to the current TLS connection.
 
 The Relying Party uses this Evidence, potentially with the assistance of a
 Verifier, to determine whether the key protection properties satisfy its local
