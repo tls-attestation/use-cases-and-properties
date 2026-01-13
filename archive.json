@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-01-06T02:06:08.562192+00:00",
+  "timestamp": "2026-01-13T02:03:50.903500+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -593,9 +593,24 @@
       "labels": [],
       "body": "Hi team,\n\nI performed an analysis mapping the attester role(s) and VRP for each use case. This is based on the draft's descriptions, inferred TLS client/server roles (e.g., who initiates connections and needs proof), and RATS terminology (RFC 9334).\n\nI'd love feedback from the authors on whether this mapping aligns with your intent, or if clarifications/additions to the draft would help (e.g., adding explicit roles).\n\n3.1 Secure Provisioning and High-Assurance Operations \n\n3.1.1.Use case: Runtime Secret Provisioning. --> Require: Client as attester.\nReasoning: A confidential workload (TLS client) must prove its runtime state and TEE trustworthiness to a secrets management service (TLS server) before receiving sensitive secrets.\n\n3.1.2.Use case: High-Assurance Command Execution --> Require: Server as attester.\nReasoning: An operator (TLS client) issues critical commands to a remote system (TLS server), but only after the system proves its integrity to avoid execution on a compromised device.\n\n3.2 Confidential Data Collaboration\n\n3.2.1.Use case: Data Clean Rooms. --> Require: Both (mutual attestation). **Could clarify if mutual is always required?**\nReasoning: Data providers (TLS clients) and consumers (TLS server) must each verify that a shared confidential workload runs authorized code in a secure TEE before sharing or processing data.\n\n3.2.2.Use case: Secure Multi-Party Computation (MPC) --> Require: Both (mutual attestation).\nReasoning: Participating (TLS clients) and a central aggregator (TLS server) must all prove they are running the correct MPC algorithm in trusted environments to ensure privacy-preserving computation.\n\n3.3 Network Infrastructure Integrity\n\n3.3.1.Use case: Attestation of Network Functions. --> Require: **Both (mutual attestation)?**\nReasoning: The use case describes device integrity verification by the orchestrator, implying device as client/attester. However, in some management flows (e.g., orchestrator-initiated connections), roles might switch or require mutual attestation.\n\n3.3.2.Use case: Securing Control and Management Planes --> Require: **NOT SURE?**\nReasoning: The use case has the admin client verifying the device, suggesting device as server/attester and admin as client/RP. Confirm if this holds, or if mutual attestation applies in some variants?\n\n3.4 Operation-Triggered Attestation for High-Impact Application Operations\n\n3.4.1.Use case: High-Assurance Operation Execution in Dynamic Application Services --> Require: Server as attester.\nReasoning: An application service instance (e.g., AI agent, acting as TLS server) must provide fresh, connection-bound attestation Evidence reflecting its current posture (e.g., capabilities, permissions) before executing high-impact actions over an existing connection with a peer (TLS client).\n\n3.5 Trusted Software and Firmware Upgrade\n\n3.5.1. Use case: Integrity Attestation During Software/Firmware Upgrade Deployment --> Require: Client as attester.\nReasoning: A network device (TLS client) must be verified by an orchestrator (TLS server) for a healthy baseline state before, during, and after upgrades, with verified rollback if needed.\n\n\nQuestions for feedback:\n- Does this role mapping match your vision? Any adjustments?\n- For ambiguous cases (marked with ?), should we add variants (e.g., mutual or role-switching) to the draft?\n\nThanks for your thoughts. This could help refine the draft and ensure better alignment with further implementations.\n\nBest,  \nYuning",
       "createdAt": "2025-12-26T03:31:47Z",
-      "updatedAt": "2025-12-26T03:31:47Z",
+      "updatedAt": "2026-01-12T11:34:01Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "Yuning-J",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Building on the attester role mapping I shared above (client/server/mutual across the use cases), I've extended the analysis to consider whether each scenario is best addressed via **intra-handshake** (e.g., one-time verification at connection establishment), **post-handshake** (e.g., dynamic/fresh evidence over existing sessions without renegotiation), or a hybrid. This is inferred from the use cases' emphasis on timing, freshness, and dynamics (e.g., runtime checks or phased processes).\n\nNot all use cases fit neatly into one category, some prioritize efficiency at setup (intra), while others need runtime updates (post). \n\nA fuller mapping is below for discussion:\n\n| Use Case | Best Approach | Reasoning |\n|----------|---------------|-----------|\n| 3.1.1 Runtime Secret Provisioning | Hybrid (intra + post) | One-time attestation during initial setup, but could benefit from post for ongoing or refreshed secret management in long sessions. |\n| 3.1.2 High-Assurance Command Execution | Post-handshake | Requires fresh evidence over potentially long-lived connections; avoids renegotiation for efficiency. |\n| 3.2.1 Data Clean Rooms | Hybrid (intra + post) | Focus on pre-data-sharing verification, intra suffices for setup; post enables re-checks in long sessions or ongoing data flows. |\n| 3.2.2 Secure Multi-Party Computation (MPC) | Intra-handshake | Mutual setup-phase attestation; no explicit runtime elements. |\n| 3.3.1 Attestation of Network Functions | Intra-handshake | Tied to joining/onboarding; one-time baseline check. |\n| 3.3.2 Securing Control and Management Planes | Intra-handshake | Verification at connection time to the management interface; initial trust focus. |\n| 3.4.1 High-Assurance Operation Execution in Dynamic Application Services | Post-handshake | Explicit need for lightweight, dynamic attestation without full handshakes for posture changes. |\n| 3.5.1 Integrity Attestation During Software/Firmware Upgrade Deployment | Hybrid (intra + post) | Initial baseline via intra; continuous pre/during/post verification benefits from post-handshake freshness. |\n\nI'd appreciate input from the use case authors on this intra/post mapping\u2014does it align with your scenarios? Any adjustments, or should we add explicit guidance in the draft on preferred mechanisms per use case?\n\nThanks!  \nYuning",
+          "createdAt": "2026-01-11T04:20:59Z",
+          "updatedAt": "2026-01-11T04:20:59Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "There are factual errors in this table, as pointed [here](https://mailarchive.ietf.org/arch/msg/seat/-hrVLla9pyWGrcTxzBvNkf6MfBY/). As the draft mentions, you should do post-handshake attestation round immediately after the handshake. Moreover, all use cases are covered, as Microsoft, Google and SCONE are using it in all cases. ",
+          "createdAt": "2026-01-12T11:34:01Z",
+          "updatedAt": "2026-01-12T11:34:01Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -1994,13 +2009,13 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-12-15T07:34:22Z",
-      "updatedAt": "2026-01-05T10:46:56Z",
+      "updatedAt": "2026-01-12T11:11:30Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "8a3ac3fc2308144cd7755165d5c0a5bb580d7c54",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "tireddy2-patch-1",
-      "headRefOid": "31f180f3e328d2f8ce1bc7d0a72416248c02b47b",
+      "headRefOid": "c7912d20e66b8cfb63fd57e2a230feb09a862943",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -2014,7 +2029,34 @@
           "updatedAt": "2026-01-05T10:46:56Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM7ZiwJT",
+          "commit": {
+            "abbreviatedOid": "31f180f"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "as discussed in the meeting today",
+          "createdAt": "2026-01-12T09:08:43Z",
+          "updatedAt": "2026-01-12T10:08:25Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Add one reference, if possible, as per #21.\r\nIn current scenario, both Attester and VRP are in same data center. ",
+              "createdAt": "2026-01-12T09:08:43Z",
+              "updatedAt": "2026-01-12T10:08:25Z"
+            },
+            {
+              "originalPosition": 39,
+              "body": "Discuss replay and relay attacks more clearly, perhaps with a pointer to [this](https://www.researchgate.net/publication/398839141_Identity_Crisis_in_Confidential_Computing_Formal_Analysis_of_Attested_TLS), since Evidence may change and can be avoided by attested TLS.",
+              "createdAt": "2026-01-12T09:08:49Z",
+              "updatedAt": "2026-01-12T10:08:25Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
