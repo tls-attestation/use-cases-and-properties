@@ -66,6 +66,9 @@ informative:
      - ins: Z. S. Siegel
      - ins: N. Nadgir
      - ins: A. Narayanan
+    MigTD:
+     title: Intel TDX Migration TD
+     target: https://github.com/intel/MigTD
 
 --- abstract
 
@@ -284,6 +287,26 @@ with the security policy is confirmed.
 * Requirement 4: If post-upgrade verification fails, an automated and
 verified rollback to a previously known good version must be triggered
 based on attestation evidence.
+
+## Platform-to-platform communication
+
+Goal: Allow platforms within the same estate to establish a trustworthy
+secure channel.
+
+Use case: Migration of workloads (confidential workloads in particular) between
+different platforms. Migration is occasionally required in order to maintain
+uptime for the hosted services across periods of scheduled downtime for the
+hosting platform. Having remote attestation-enforced policies for such migration
+events provides guarantees that the services will not be exposed to lower
+security guarantees when migrating.
+
+* Requirement: The migration agents on the target platform typically acts as
+  attester, proving its state for its peer on the initiating platform (where the
+  workload initially resides).
+
+* Example: Intel TDX offers migration capabilities via its Migration TD
+  {{MigTD}}. Peer MigTDs on the initiating and target platforms set up an
+  attested TLS channel to perform the migration over.
 
 # Integration Properties
 
