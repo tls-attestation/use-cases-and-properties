@@ -300,7 +300,7 @@ hosting platform. Having remote attestation-enforced policies for such migration
 events provides guarantees that the services will not be exposed to lower
 security guarantees when migrating.
 
-* Requirement: The migration agents on the target platform typically acts as
+* Requirement: The migration agent on the target platform typically acts as
   attester, proving its state for its peer on the initiating platform (where the
   workload initially resides).
 
