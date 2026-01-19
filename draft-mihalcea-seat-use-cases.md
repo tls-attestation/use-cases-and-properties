@@ -290,21 +290,22 @@ based on attestation evidence.
 
 ## Platform-to-platform communication
 
-Goal: Allow platforms within the same estate to establish a trustworthy
-secure channel.
+Goal: Allow platforms to establish a trustworthy secure channel with each other.
 
 Use case: Migration of workloads (confidential workloads in particular) between
 different platforms. Migration is occasionally required in order to maintain
 uptime for the hosted services across periods of scheduled downtime for the
 hosting platform. Having remote attestation-enforced policies for such migration
 events provides guarantees that the services will not be exposed to lower
-security guarantees when migrating.
+security guarantees when migrating. Migration is typically performed by trusted,
+low-level components (migration agents) on both source and destination
+platforms, which perform the authorization checks and handle the data migration.
 
-* Requirement: The migration agent on the target platform typically acts as
-  attester, proving its state for its peer on the initiating platform (where the
+* Requirement: The migration agent on the destination platform typically acts
+  as attester, proving its state for its peer on the source platform (where the
   workload initially resides).
 
-* Example: Intel TDX offers migration capabilities via its Migration TD
+* Example: Intel TDX offers migration capabilities via its Migration TD (MigTD)
   {{MigTD}}. Peer MigTDs on the initiating and target platforms set up an
   attested TLS connection to perform the migration over.
 
