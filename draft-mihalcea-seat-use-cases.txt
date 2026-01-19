@@ -86,6 +86,7 @@ Table of Contents
      3.4.  Operation-Triggered Attestation for High-Impact Application
            Operations
      3.5.  Attestation of Certificate Private Key
+     3.6.  Platform-to-platform communication
    4.  Integration Properties
      4.1.  Cryptographic Binding to Communication Channel
      4.2.  Cryptographic Binding to Machine Identifier
@@ -340,6 +341,31 @@ Table of Contents
    state of the module at connection establishment or during the
    lifetime of the TLS session.
 
+3.6.  Platform-to-platform communication
+
+   Goal: Allow platforms to establish a trustworthy secure channel with
+   each other.
+
+   Use case: Migration of workloads (confidential workloads in
+   particular) between different platforms.  Migration is occasionally
+   required in order to maintain uptime for the hosted services across
+   periods of scheduled downtime for the hosting platform.  Having
+   remote attestation-enforced policies for such migration events
+   provides guarantees that the services will not be exposed to lower
+   security guarantees when migrating.  Migration is typically performed
+   by trusted, low-level components (migration agents) on both source
+   and destination platforms, which perform the authorization checks and
+   handle the data migration.
+
+   *  Requirement: The migration agent on the destination platform
+      typically acts as attester, proving its state for its peer on the
+      source platform (where the workload initially resides).
+
+   *  Example: Intel TDX offers migration capabilities via its Migration
+      TD (MigTD) [MigTD].  Peer MigTDs on the initiating and target
+      platforms set up an attested TLS connection to perform the
+      migration over.
+
 4.  Integration Properties
 
    This section provides a list of desirable properties for designs that
@@ -517,6 +543,9 @@ Table of Contents
               in Attested TLS for Confidential Computing", March 2025,
               <https://datatracker.ietf.org/meeting/122/materials/
               slides-122-tls-identity-crisis-00>.
+
+   [MigTD]    "Intel TDX Migration TD", n.d.,
+              <https://github.com/intel/MigTD>.
 
    [RFC9334]  Birkholz, H., Thaler, D., Richardson, M., Smith, N., and
               W. Pan, "Remote ATtestation procedureS (RATS)

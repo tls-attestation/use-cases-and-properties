@@ -1217,6 +1217,9 @@ of protocol solutions within the SEAT working group.<a href="#section-abstract-1
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5">
                 <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="auto internal xref">3.5</a>.  <a href="#name-attestation-of-certificate-" class="internal xref">Attestation of Certificate Private Key</a></p>
 </li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.6">
+                <p id="section-toc.1-1.3.2.6.1"><a href="#section-3.6" class="auto internal xref">3.6</a>.  <a href="#name-platform-to-platform-commun" class="internal xref">Platform-to-platform communication</a></p>
+</li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
@@ -1550,6 +1553,34 @@ continued state of the module at connection establishment or during the lifetime
 the TLS session.<a href="#section-3.5-6" class="pilcrow">¶</a></p>
 </section>
 </div>
+<div id="platform-to-platform-communication">
+<section id="section-3.6">
+        <h3 id="name-platform-to-platform-commun">
+<a href="#section-3.6" class="section-number selfRef">3.6. </a><a href="#name-platform-to-platform-commun" class="section-name selfRef">Platform-to-platform communication</a>
+        </h3>
+<p id="section-3.6-1">Goal: Allow platforms to establish a trustworthy secure channel with each other.<a href="#section-3.6-1" class="pilcrow">¶</a></p>
+<p id="section-3.6-2">Use case: Migration of workloads (confidential workloads in particular) between
+different platforms. Migration is occasionally required in order to maintain
+uptime for the hosted services across periods of scheduled downtime for the
+hosting platform. Having remote attestation-enforced policies for such migration
+events provides guarantees that the services will not be exposed to lower
+security guarantees when migrating. Migration is typically performed by trusted,
+low-level components (migration agents) on both source and destination
+platforms, which perform the authorization checks and handle the data migration.<a href="#section-3.6-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.6-3.1">
+            <p id="section-3.6-3.1.1">Requirement: The migration agent on the destination platform typically acts
+as attester, proving its state for its peer on the source platform (where the
+workload initially resides).<a href="#section-3.6-3.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.6-3.2">
+            <p id="section-3.6-3.2.1">Example: Intel TDX offers migration capabilities via its Migration TD (MigTD)
+<span>[<a href="#MigTD" class="cite xref">MigTD</a>]</span>. Peer MigTDs on the initiating and target platforms set up an
+attested TLS connection to perform the migration over.<a href="#section-3.6-3.2.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+</section>
+</div>
 </section>
 </div>
 <div id="integration-properties">
@@ -1754,6 +1785,10 @@ measurements, software versions, and security configurations are acceptable.<a h
 <dt id="Meeting-122-TLS-Slides">[Meeting-122-TLS-Slides]</dt>
         <dd>
 <span class="refAuthor">Sardar, M. U.</span>, <span class="refAuthor">Moustafa, M.</span>, and <span class="refAuthor">T. Aura</span>, <span class="refTitle">"Identity Crisis in Attested TLS for Confidential Computing"</span>, <time datetime="2025-03" class="refDate">March 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/meeting/122/materials/slides-122-tls-identity-crisis-00">https://datatracker.ietf.org/meeting/122/materials/slides-122-tls-identity-crisis-00</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="MigTD">[MigTD]</dt>
+        <dd>
+<span class="refTitle">"Intel TDX Migration TD"</span>, <span>n.d.</span>, <span>&lt;<a href="https://github.com/intel/MigTD">https://github.com/intel/MigTD</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC9334">[RFC9334]</dt>
       <dd>
