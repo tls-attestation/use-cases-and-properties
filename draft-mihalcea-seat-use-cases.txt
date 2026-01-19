@@ -5,7 +5,7 @@
 SEAT Working Group                                           I. Mihalcea
 Internet-Draft                                                       Arm
 Intended status: Informational                              M. U. Sardar
-Expires: 25 June 2026                                         TU Dresden
+Expires: 23 July 2026                                         TU Dresden
                                                               T. Fossati
                                                                   Linaro
                                                                 T. Reddy
@@ -14,7 +14,7 @@ Expires: 25 June 2026                                         TU Dresden
                                                                         
                                                                  M. Chen
                                                             China Mobile
-                                                        22 December 2025
+                                                         19 January 2026
 
 
 Use Cases and Properties for Integrating Remote Attestation with Secure
@@ -56,11 +56,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 25 June 2026.
+   This Internet-Draft will expire on 23 July 2026.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -85,7 +85,7 @@ Table of Contents
      3.3.  Network Infrastructure Integrity
      3.4.  Operation-Triggered Attestation for High-Impact Application
            Operations
-     3.5.  Trusted Software and Firmware Upgrade
+     3.5.  Attestation of Certificate Private Key
    4.  Integration Properties
      4.1.  Cryptographic Binding to Communication Channel
      4.2.  Cryptographic Binding to Machine Identifier
@@ -98,7 +98,9 @@ Table of Contents
      4.9.  Performance and Efficiency
    5.  Security Considerations
    6.  IANA Considerations
-   7.  Informative References
+   7.  References
+     7.1.  Normative References
+     7.2.  Informative References
    Acknowledgments
    Authors' Addresses
 
@@ -288,43 +290,55 @@ Table of Contents
       posture changes are visible to relying parties when required by
       local policy.
 
-3.5.  Trusted Software and Firmware Upgrade
+3.5.  Attestation of Certificate Private Key
 
-   Goal: Ensure integrity during software/firmware updates, guaranteeing
-   the reliability and security of network services.
+   A TLS endpoint authenticates itself using an end-entity certificate
+   whose corresponding private key is claimed to be protected by a
+   secure element.  While standard TLS authentication verifies
+   possession of the private key, it provides no assurance about where
+   or how that key is stored and used.
 
-   Contrast with infrastructure integrity use case: Trusted upgrade
-   ensures "the right thing is installed during the upgrade process,"
-   while network infrastructure integrity ensures "the entire network
-   operates securely as expected during the initialization phase."
+   In this scenario, the peer acting as the Relying Party requires
+   additional assurance that the private key associated with the end-
+   entity certificate used to authenticate the TLS connection is
+   generated, stored, and used within an attested cryptographic module.
+   In addition to verifying possession of the private key via the TLS
+   handshake, the Relying Party seeks attestation evidence that the key
+   is non-exportable, remains bound to the cryptographic module, and
+   that the module is operating in an expected security configuration at
+   the time the TLS connection is established.
 
-   Use case: Integrity Attestation During Software/Firmware Upgrade
-   Deployment: A network orchestrator pushes new software or firmware to
-   network devices (e.g., routers, switches, or virtual network function
-   instances).  The management system must continuously verify the
-   integrity state of the target device before, during, and after the
-   upgrade, including rollback procedures.
+   Remote attestation is used to provide Evidence about the
+   cryptographic module where the private key used for TLS
+   authentication is stored.  The Evidence may include claims about the
+   security properties of the cryptographic module.  To prevent replay
+   attacks, this Evidence has to be fresh and tied to the current TLS
+   connection.  Replayed Evidence could otherwise be used to falsely
+   assert key protection properties that no longer hold.
 
-   From attested TLS perspective, network device (acting as TLS client)
-   is Attester and network orchestrator (acting as TLS server) is
-   Verifying RP.
+   *  Requirement: The Attester must be able to produce Evidence that
+      demonstrates that the private key used for secure channel
+      authentication:
 
-   *  Requirement 1: Before initiating the upgrade, the target device
-      must be verified to be in a known, healthy baseline state (e.g.,
-      secure boot enabled, running a signed software/firmware version).
+      -  is generated and stored within a specific cryptographic module
+         or secure element,
 
-   *  Requirement 2: The software/firmware package must be fetched from
-      a trusted source via a secure channel with attestation
-      capabilities (e.g., TLS with remote attestation extensions).
+      -  is protected against export or software extraction
 
-   *  Requirement 3: Upon completion, the integrity measurements of the
-      new instance (e.g., software hash, firmware manifest) must be
-      verified.  The device can only be admitted to the service plane
-      after compliance with the security policy is confirmed.
+      -  is attested using fresh Evidence that is bound to the current
+         TLS connection.
 
-   *  Requirement 4: If post-upgrade verification fails, an automated
-      and verified rollback to a previously known good version must be
-      triggered based on attestation evidence.
+   The Relying Party uses this Evidence, potentially with the assistance
+   of a Verifier, to determine whether the key protection properties
+   satisfy its local security policy.
+
+   The approach described in [I-D.draft-ietf-rats-pkix-key-attestation]
+   addresses this use case partially by providing attestation of the
+   cryptographic module and associated private key at certificate
+   issuance time, reflecting their state when the certificate is
+   enrolled.  This model does not provide guarantees about the continued
+   state of the module at connection establishment or during the
+   lifetime of the TLS session.
 
 4.  Integration Properties
 
@@ -463,7 +477,20 @@ Table of Contents
 
    This document has no IANA actions.
 
-7.  Informative References
+7.  References
+
+7.1.  Normative References
+
+   [I-D.draft-ietf-rats-pkix-key-attestation]
+              Ounsworth, M., Fiset, J., Tschofenig, H., Birkholz, H.,
+              Wiseman, M., and N. Smith, "PKIX Evidence for Remote
+              Attestation of Hardware Security Modules", Work in
+              Progress, Internet-Draft, draft-ietf-rats-pkix-key-
+              attestation-02, 10 October 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-rats-
+              pkix-key-attestation-02>.
+
+7.2.  Informative References
 
    [AI-agents]
               Kapoor, S., Stroebl, B., Siegel, Z. S., Nadgir, N., and A.
@@ -474,15 +501,16 @@ Table of Contents
               Novak, M., Deshpande, Y., and H. Birkholz, "WIMSE
               Extensions for Trustworthy Workload Identity", Work in
               Progress, Internet-Draft, draft-ccc-wimse-twi-extensions-
-              00, 4 July 2025, <https://datatracker.ietf.org/doc/html/
-              draft-ccc-wimse-twi-extensions-00>.
+              01, 5 January 2026,
+              <https://datatracker.ietf.org/doc/html/draft-ccc-wimse-
+              twi-extensions-01>.
 
    [I-D.draft-ietf-rats-eat-measured-component]
               Frost, S., Fossati, T., Tschofenig, H., and H. Birkholz,
               "EAT Measured Component", Work in Progress, Internet-
-              Draft, draft-ietf-rats-eat-measured-component-09, 8
-              December 2025, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-rats-eat-measured-component-09>.
+              Draft, draft-ietf-rats-eat-measured-component-10, 12
+              January 2026, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-rats-eat-measured-component-10>.
 
    [Meeting-122-TLS-Slides]
               Sardar, M. U., Moustafa, M., and T. Aura, "Identity Crisis
