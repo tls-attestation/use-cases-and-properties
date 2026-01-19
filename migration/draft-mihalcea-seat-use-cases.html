@@ -1543,22 +1543,23 @@ based on attestation evidence.<a href="#section-3.5-5.4.1" class="pilcrow">¶</a
         <h3 id="name-platform-to-platform-commun">
 <a href="#section-3.6" class="section-number selfRef">3.6. </a><a href="#name-platform-to-platform-commun" class="section-name selfRef">Platform-to-platform communication</a>
         </h3>
-<p id="section-3.6-1">Goal: Allow platforms within the same estate to establish a trustworthy
-secure channel.<a href="#section-3.6-1" class="pilcrow">¶</a></p>
+<p id="section-3.6-1">Goal: Allow platforms to establish a trustworthy secure channel with each other.<a href="#section-3.6-1" class="pilcrow">¶</a></p>
 <p id="section-3.6-2">Use case: Migration of workloads (confidential workloads in particular) between
 different platforms. Migration is occasionally required in order to maintain
 uptime for the hosted services across periods of scheduled downtime for the
 hosting platform. Having remote attestation-enforced policies for such migration
 events provides guarantees that the services will not be exposed to lower
-security guarantees when migrating.<a href="#section-3.6-2" class="pilcrow">¶</a></p>
+security guarantees when migrating. Migration is typically performed by trusted,
+low-level components (migration agents) on both source and destination
+platforms, which perform the authorization checks and handle the data migration.<a href="#section-3.6-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.6-3.1">
-            <p id="section-3.6-3.1.1">Requirement: The migration agent on the target platform typically acts as
-attester, proving its state for its peer on the initiating platform (where the
+            <p id="section-3.6-3.1.1">Requirement: The migration agent on the destination platform typically acts
+as attester, proving its state for its peer on the source platform (where the
 workload initially resides).<a href="#section-3.6-3.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-3.6-3.2">
-            <p id="section-3.6-3.2.1">Example: Intel TDX offers migration capabilities via its Migration TD
+            <p id="section-3.6-3.2.1">Example: Intel TDX offers migration capabilities via its Migration TD (MigTD)
 <span>[<a href="#MigTD" class="cite xref">MigTD</a>]</span>. Peer MigTDs on the initiating and target platforms set up an
 attested TLS connection to perform the migration over.<a href="#section-3.6-3.2.1" class="pilcrow">¶</a></p>
 </li>
