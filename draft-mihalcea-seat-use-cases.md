@@ -38,6 +38,9 @@ author:
     email: "kondtir@gmail.com"
   - fullname: Yuning Jiang
     email: jiangyuning2@h-partners.com
+  - fullname: Meiling Chen
+    organization: China Mobile
+    email: chenmeiling@chinamobile.com
 
 normative:
 
@@ -156,28 +159,6 @@ This section provides the concrete motivation for the WG's work by describing
 specific use cases. For each case, the scenario, actors, and specific security
 guarantees needed from RA are described.
 
-## Confidential Data Collaboration
-
-Goal: Enable multiple parties to collaborate on sensitive, combined datasets
-without exposing raw data to each other or to the infrastructure operator.
-
-Use case: Data Clean Rooms: Multiple data providers contribute sensitive data to
-a confidential workload for joint analysis. Data consumers receive aggregated
-insights without ever accessing the raw, combined dataset.
-
-* Requirement: Before sending data, each data provider must attest the
-  confidential workload to verify it is running the authorized analysis code in
-  a secure Trusted Execution Environment (TEE). Similarly, data consumers must
-  attest the workload to trust the integrity of the results.
-
-Use case: Secure Multi-Party Computation (MPC): Distributed parties
-collaboratively compute a function (e.g., train a machine learning model)
-without sharing their local data.
-
-* Requirement: The central aggregator, as well as each participating client,
-  must be able to mutually attest to ensure all parties are running the correct,
-  untampered MPC algorithm in a trusted environment.
-
 ## Secure Provisioning and High-Assurance Operations
 
 Goal: Ensure the integrity of workloads and devices when bootstrapping their
@@ -200,6 +181,28 @@ processor).
 * Requirement: The system must provide fresh attestation Evidence to the
   operator to prove its integrity before the command is dispatched. This
   prevents commands from being executed on a compromised system.
+
+## Confidential Data Collaboration
+
+Goal: Enable multiple parties to collaborate on sensitive, combined datasets
+without exposing raw data to each other or to the infrastructure operator.
+
+Use case: Data Clean Rooms: Multiple data providers contribute sensitive data to
+a confidential workload for joint analysis. Data consumers receive aggregated
+insights without ever accessing the raw, combined dataset.
+
+* Requirement: Before sending data, each data provider must attest the
+  confidential workload to verify it is running the authorized analysis code in
+  a secure Trusted Execution Environment (TEE). Similarly, data consumers must
+  attest the workload to trust the integrity of the results.
+
+Use case: Secure Multi-Party Computation (MPC): Distributed parties
+collaboratively compute a function (e.g., train a machine learning model)
+without sharing their local data.
+
+* Requirement: The central aggregator, as well as each participating client,
+  must be able to mutually attest to ensure all parties are running the correct,
+  untampered MPC algorithm in a trusted environment.
 
 ## Network Infrastructure Integrity
 
@@ -346,7 +349,7 @@ For example, the evidence may include dynamic parameters such as runtime configu
 
 ## Privacy Preservation
 
-The solution does not degrade the privacy of a standard TLS connection. Evidence
+The solution must not degrade the privacy of a standard TLS connection. Evidence
 can contain highly specific, unique information about a device's hardware and
 software, which could be used as an advanced tracking mechanism, following a
 user across different connections and services. The design must consider how to
