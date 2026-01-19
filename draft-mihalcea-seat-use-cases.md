@@ -247,43 +247,46 @@ within the existing connection, without necessarily requiring a full new TLS
 handshake, so that behavior-affecting posture changes are visible to relying
 parties when required by local policy.
 
-## Trusted Software and Firmware Upgrade
+## Attestation of Certificate Private Key
 
-Goal: Ensure integrity during software/firmware updates, guaranteeing the
-reliability and security of network services.
+A TLS endpoint authenticates itself using an end-entity certificate whose
+corresponding private key is claimed to be protected by a secure element.
+While standard TLS authentication verifies possession of the private
+key, it provides no assurance about where or how that key is stored and used.
 
-Contrast with infrastructure integrity use case: Trusted upgrade ensures
-"the right thing is installed during the upgrade process," while network
-infrastructure integrity ensures "the entire network operates securely
-as expected during the initialization phase."
+In this scenario, the peer acting as the Relying Party requires additional
+assurance that the private key associated with the end-entity certificate used
+to authenticate the TLS connection is generated, stored, and used within an
+attested cryptographic module. In addition to verifying possession of the
+private key via the TLS handshake, the Relying Party seeks
+attestation evidence that the key is non-exportable, remains bound to the
+cryptographic module, and that the module is operating in an expected
+security configuration at the time the TLS connection is established.
 
-Use case: Integrity Attestation During Software/Firmware Upgrade Deployment:
-A network orchestrator pushes new software or firmware to network devices
-(e.g., routers, switches, or virtual network function instances).
-The management system must continuously verify the integrity state of the
-target device before, during, and after the upgrade, including
-rollback procedures.
+Remote attestation is used to provide Evidence about the cryptographic module
+where the private key used for TLS authentication is stored. The Evidence may
+include claims about the security properties of the cryptographic module.
+To prevent replay attacks, this Evidence has to be fresh and tied to the
+current TLS connection. Replayed Evidence could otherwise be used to falsely
+assert key protection properties that no longer hold.
 
-From attested TLS perspective, network device (acting as TLS client)
-is Attester and network orchestrator (acting as TLS server) is Verifying
-RP.
+* Requirement: The Attester must be able to produce Evidence that demonstrates
+  that the private key used for secure channel authentication:
+  * is generated and stored within a specific cryptographic module or secure
+    element,
+  * is protected against export or software extraction
+  * is attested using fresh Evidence that is bound to the current TLS connection.
 
-* Requirement 1: Before initiating the upgrade, the target device must
-be verified to be in a known, healthy baseline state (e.g., secure
-boot enabled, running a signed software/firmware version).
+The Relying Party uses this Evidence, potentially with the assistance of a
+Verifier, to determine whether the key protection properties satisfy its local
+security policy.
 
-* Requirement 2: The software/firmware package must be fetched from a
-trusted source via a secure channel with attestation capabilities
-(e.g., TLS with remote attestation extensions).
-
-* Requirement 3: Upon completion, the integrity measurements of the
-new instance (e.g., software hash, firmware manifest) must be verified.
-The device can only be admitted to the service plane after compliance
-with the security policy is confirmed.
-
-* Requirement 4: If post-upgrade verification fails, an automated and
-verified rollback to a previously known good version must be triggered
-based on attestation evidence.
+The approach described in {{!I-D.draft-ietf-rats-pkix-key-attestation}} addresses this
+use case partially by providing attestation of the cryptographic module and associated
+private key at certificate issuance time, reflecting their state when the
+certificate is enrolled. This model does not provide guarantees about the
+continued state of the module at connection establishment or during the lifetime of
+the TLS session.
 
 # Integration Properties
 
