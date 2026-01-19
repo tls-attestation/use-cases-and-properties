@@ -244,7 +244,7 @@ within the existing connection, without necessarily requiring a full new TLS
 handshake, so that behavior-affecting posture changes are visible to relying
 parties when required by local policy.
 
-# Attestation of Certificate Private Key
+## Attestation of Certificate Private Key
 
 A TLS endpoint authenticates itself using an end-entity certificate whose
 corresponding private key is claimed to be protected by a secure element.
@@ -262,9 +262,9 @@ security configuration at the time the TLS connection is established.
 
 Remote attestation is used to provide Evidence about the cryptographic module
 where the private key used for TLS authentication is stored. The Evidence may
-include claims about the security properties of the cryptographic module. 
-To prevent replay attacks, this Evidence has to be fresh and tied to the 
-current TLS connection. Replayed Evidence could otherwise be used to falsely 
+include claims about the security properties of the cryptographic module.
+To prevent replay attacks, this Evidence has to be fresh and tied to the
+current TLS connection. Replayed Evidence could otherwise be used to falsely
 assert key protection properties that no longer hold.
 
 * Requirement: The Attester must be able to produce Evidence that demonstrates
