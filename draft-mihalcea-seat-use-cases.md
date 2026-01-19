@@ -306,7 +306,7 @@ security guarantees when migrating.
 
 * Example: Intel TDX offers migration capabilities via its Migration TD
   {{MigTD}}. Peer MigTDs on the initiating and target platforms set up an
-  attested TLS channel to perform the migration over.
+  attested TLS connection to perform the migration over.
 
 # Integration Properties
 
