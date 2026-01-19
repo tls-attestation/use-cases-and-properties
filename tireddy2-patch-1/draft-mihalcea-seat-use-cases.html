@@ -10,6 +10,7 @@
 <meta content="Thomas Fossati" name="author">
 <meta content="Tirumaleswar Reddy" name="author">
 <meta content="Yuning Jiang" name="author">
+<meta content="Meiling Chen" name="author">
 <meta content="
        This document outlines use cases and desirable properties for integrating remote
 attestation (RA) capabilities with secure channel establishment protocols, with
@@ -1108,6 +1109,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <div class="author">
       <div class="author-name">Y. Jiang</div>
 </div>
+<div class="author">
+      <div class="author-name">M. Chen</div>
+<div class="org">China Mobile</div>
+</div>
 </dd>
 </dl>
 </div>
@@ -1198,10 +1203,10 @@ of protocol solutions within the SEAT working group.<a href="#section-abstract-1
             <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-use-cases" class="internal xref">Use Cases</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-confidential-data-collabora" class="internal xref">Confidential Data Collaboration</a></p>
+                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-secure-provisioning-and-hig" class="internal xref">Secure Provisioning and High-Assurance Operations</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-secure-provisioning-and-hig" class="internal xref">Secure Provisioning and High-Assurance Operations</a></p>
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-confidential-data-collabora" class="internal xref">Confidential Data Collaboration</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
                 <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-network-infrastructure-inte" class="internal xref">Network Infrastructure Integrity</a></p>
@@ -1374,63 +1379,63 @@ more frequently than typical platform TCB updates <span>[<a href="#AI-agents" cl
 <p id="section-3-1">This section provides the concrete motivation for the WG's work by describing
 specific use cases. For each case, the scenario, actors, and specific security
 guarantees needed from RA are described.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<div id="confidential-data-collaboration">
+<div id="secure-provisioning-and-high-assurance-operations">
 <section id="section-3.1">
-        <h3 id="name-confidential-data-collabora">
-<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-confidential-data-collabora" class="section-name selfRef">Confidential Data Collaboration</a>
+        <h3 id="name-secure-provisioning-and-hig">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-secure-provisioning-and-hig" class="section-name selfRef">Secure Provisioning and High-Assurance Operations</a>
         </h3>
-<p id="section-3.1-1">Goal: Enable multiple parties to collaborate on sensitive, combined datasets
-without exposing raw data to each other or to the infrastructure operator.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
-<p id="section-3.1-2">Use case: Data Clean Rooms: Multiple data providers contribute sensitive data to
-a confidential workload for joint analysis. Data consumers receive aggregated
-insights without ever accessing the raw, combined dataset.<a href="#section-3.1-2" class="pilcrow">¶</a></p>
+<p id="section-3.1-1">Goal: Ensure the integrity of workloads and devices when bootstrapping their
+identity or receiving critical commands.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1-2">Use case: Runtime Secret Provisioning: A confidential workload starts in a
+generic state and needs to fetch secrets (e.g., API keys, database credentials,
+encryption keys) to become operational.<a href="#section-3.1-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.1-3.1">
-            <p id="section-3.1-3.1.1">Requirement: Before sending data, each data provider must attest the
-confidential workload to verify it is running the authorized analysis code in
-a secure Trusted Execution Environment (TEE). Similarly, data consumers must
-attest the workload to trust the integrity of the results.<a href="#section-3.1-3.1.1" class="pilcrow">¶</a></p>
+            <p id="section-3.1-3.1.1">Requirement: The workload must attest its runtime state (TEE genuineness,
+software measurements) to a secrets management service. The service will only
+release the secrets after successful verification, ensuring they are delivered
+exclusively to a trustworthy environment. This use-case also covers secure
+device onboarding for IoT devices that lack a pre-provisioned identity.<a href="#section-3.1-3.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-3.1-4">Use case: Secure Multi-Party Computation (MPC): Distributed parties
-collaboratively compute a function (e.g., train a machine learning model)
-without sharing their local data.<a href="#section-3.1-4" class="pilcrow">¶</a></p>
+<p id="section-3.1-4">Use case: High-Assurance Command Execution: An operator sends a critical command
+to a remote system (e.g., an industrial controller, a financial transaction
+processor).<a href="#section-3.1-4" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.1-5.1">
-            <p id="section-3.1-5.1.1">Requirement: The central aggregator, as well as each participating client,
-must be able to mutually attest to ensure all parties are running the correct,
-untampered MPC algorithm in a trusted environment.<a href="#section-3.1-5.1.1" class="pilcrow">¶</a></p>
+            <p id="section-3.1-5.1.1">Requirement: The system must provide fresh attestation Evidence to the
+operator to prove its integrity before the command is dispatched. This
+prevents commands from being executed on a compromised system.<a href="#section-3.1-5.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
 </div>
-<div id="secure-provisioning-and-high-assurance-operations">
+<div id="confidential-data-collaboration">
 <section id="section-3.2">
-        <h3 id="name-secure-provisioning-and-hig">
-<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-secure-provisioning-and-hig" class="section-name selfRef">Secure Provisioning and High-Assurance Operations</a>
+        <h3 id="name-confidential-data-collabora">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-confidential-data-collabora" class="section-name selfRef">Confidential Data Collaboration</a>
         </h3>
-<p id="section-3.2-1">Goal: Ensure the integrity of workloads and devices when bootstrapping their
-identity or receiving critical commands.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
-<p id="section-3.2-2">Use case: Runtime Secret Provisioning: A confidential workload starts in a
-generic state and needs to fetch secrets (e.g., API keys, database credentials,
-encryption keys) to become operational.<a href="#section-3.2-2" class="pilcrow">¶</a></p>
+<p id="section-3.2-1">Goal: Enable multiple parties to collaborate on sensitive, combined datasets
+without exposing raw data to each other or to the infrastructure operator.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-2">Use case: Data Clean Rooms: Multiple data providers contribute sensitive data to
+a confidential workload for joint analysis. Data consumers receive aggregated
+insights without ever accessing the raw, combined dataset.<a href="#section-3.2-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.2-3.1">
-            <p id="section-3.2-3.1.1">Requirement: The workload must attest its runtime state (TEE genuineness,
-software measurements) to a secrets management service. The service will only
-release the secrets after successful verification, ensuring they are delivered
-exclusively to a trustworthy environment. This use-case also covers secure
-device onboarding for IoT devices that lack a pre-provisioned identity.<a href="#section-3.2-3.1.1" class="pilcrow">¶</a></p>
+            <p id="section-3.2-3.1.1">Requirement: Before sending data, each data provider must attest the
+confidential workload to verify it is running the authorized analysis code in
+a secure Trusted Execution Environment (TEE). Similarly, data consumers must
+attest the workload to trust the integrity of the results.<a href="#section-3.2-3.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-3.2-4">Use case: High-Assurance Command Execution: An operator sends a critical command
-to a remote system (e.g., an industrial controller, a financial transaction
-processor).<a href="#section-3.2-4" class="pilcrow">¶</a></p>
+<p id="section-3.2-4">Use case: Secure Multi-Party Computation (MPC): Distributed parties
+collaboratively compute a function (e.g., train a machine learning model)
+without sharing their local data.<a href="#section-3.2-4" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.2-5.1">
-            <p id="section-3.2-5.1.1">Requirement: The system must provide fresh attestation Evidence to the
-operator to prove its integrity before the command is dispatched. This
-prevents commands from being executed on a compromised system.<a href="#section-3.2-5.1.1" class="pilcrow">¶</a></p>
+            <p id="section-3.2-5.1.1">Requirement: The central aggregator, as well as each participating client,
+must be able to mutually attest to ensure all parties are running the correct,
+untampered MPC algorithm in a trusted environment.<a href="#section-3.2-5.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
@@ -1640,7 +1645,7 @@ For example, the evidence may include dynamic parameters such as runtime configu
         <h3 id="name-privacy-preservation">
 <a href="#section-4.8" class="section-number selfRef">4.8. </a><a href="#name-privacy-preservation" class="section-name selfRef">Privacy Preservation</a>
         </h3>
-<p id="section-4.8-1">The solution does not degrade the privacy of a standard TLS connection. Evidence
+<p id="section-4.8-1">The solution must not degrade the privacy of a standard TLS connection. Evidence
 can contain highly specific, unique information about a device's hardware and
 software, which could be used as an advanced tracking mechanism, following a
 user across different connections and services. The design must consider how to
@@ -1809,6 +1814,14 @@ measurements, software versions, and security configurations are acceptable.<a h
 <div class="email">
 <span>Email:</span>
 <a href="mailto:jiangyuning2@h-partners.com" class="email">jiangyuning2@h-partners.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Meiling Chen</span></div>
+<div dir="auto" class="left"><span class="org">China Mobile</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:chenmeiling@chinamobile.com" class="email">chenmeiling@chinamobile.com</a>
 </div>
 </address>
 </section>
