@@ -46,6 +46,7 @@ normative:
 
 informative:
     RFC9334: rats-arch
+    RFC9261:
     I-D.draft-ccc-wimse-twi-extensions: wimse-twi
     I-D.draft-ietf-rats-eat-measured-component: rats-measured
     Meeting-122-TLS-Slides:
@@ -147,8 +148,11 @@ This document also uses the following terms:
 
 * Trusted Computing Base (TCB) of a device: all security-relevant components:
   hardware, firmware, software, and their respective configurations.
+
 * Confidential Workload: as defined in {{-wimse-twi}}.
+
 * Measurements: as defined in {{-rats-measured}}.
+
 * AI agent: An AI agent is a software principal (typically long-running) that performs
 closed-loop "perceive -> plan -> act" cycles using an LLM or other model,
 and invokes external tools/APIs that may read sensitive data or change
@@ -156,161 +160,234 @@ system/network state. Its configuration (e.g., model choice, tool enablement,
 prompt template) can change independently of the binary/image and usually
 more frequently than typical platform TCB updates {{AI-agents}}.
 
-# Use Cases
+# Architectural Integration Framework
 
-This section provides the concrete motivation for the WG's work by describing
-specific use cases. For each case, the scenario, actors, and specific security
-guarantees needed from RA are described.
+To design robust protocols integrating Remote Attestation (RA) with secure
+channel establishment (such as TLS 1.3 or DTLS 1.3), the required primitives
+must be categorized based on their architectural interaction with the underlying
+protocols. This section categorizes the required primitives based on temporal
+(when attestation occurs relative to the secure channel state machine),
+topological (who attests), and authentication (how integration with
+authentication is handled) characteristics. Application-layer business cases are
+given as examples of these underlying architectural requirements.
 
-## Secure Provisioning and High-Assurance Operations
+## Temporal Integration Patterns
 
-Goal: Ensure the integrity of workloads and devices when bootstrapping their
-identity or receiving critical commands.
+Temporal integration defines the precise state machine phase where the protocol
+produces, transmits, and verifies RA Evidence. It differentiates between
+transport-layer gating and application-layer gating.
 
-Use case: Runtime Secret Provisioning: A confidential workload starts in a
-generic state and needs to fetch secrets (e.g., API keys, database credentials,
-encryption keys) to become operational.
+### In-Band Handshake Attestation
 
-* Requirement: The workload must attest its runtime state (TEE genuineness,
-  software measurements) to a secrets management service. The service will only
-  release the secrets after successful verification, ensuring they are delivered
-  exclusively to a trustworthy environment. This use-case also covers secure
-  device onboarding for IoT devices that lack a pre-provisioned identity.
+Definition: Attestation Evidence is exchanged concurrently with the secure
+channel establishment. Verification of this Evidence is a strict prerequisite
+for the completion of the transport key schedule and the transition to the
+application data phase.
 
-Use case: High-Assurance Command Execution: An operator sends a critical command
-to a remote system (e.g., an industrial controller, a financial transaction
-processor).
+Protocol Requirements:
 
-* Requirement: The system must provide fresh attestation Evidence to the
-  operator to prove its integrity before the command is dispatched. This
-  prevents commands from being executed on a compromised system.
+* The secure channel handshake must support the encapsulation of RA Evidence
+  (e.g., via TLS extensions).
 
-## Confidential Data Collaboration
+* The transport state machine must halt or cleanly abort (e.g., via a defined
+  fatal alert) if verification fails.
 
-Goal: Enable multiple parties to collaborate on sensitive, combined datasets
-without exposing raw data to each other or to the infrastructure operator.
+* Evidence must be cryptographically bound to the handshake transcript to
+  prevent relay attacks.
 
-Use case: Data Clean Rooms: Multiple data providers contribute sensitive data to
-a confidential workload for joint analysis. Data consumers receive aggregated
-insights without ever accessing the raw, combined dataset.
+Instantiation Examples:
 
-* Requirement: Before sending data, each data provider must attest the
-  confidential workload to verify it is running the authorized analysis code in
-  a secure Trusted Execution Environment (TEE). Similarly, data consumers must
-  attest the workload to trust the integrity of the results.
+* Attested Certificate Keys: A server that claims its TLS private key is sealed
+  in a secure element proves that claim inside the initial handshake before the
+  client allows application data keys to be derived.
 
-Use case: Secure Multi-Party Computation (MPC): Distributed parties
-collaboratively compute a function (e.g., train a machine learning model)
-without sharing their local data.
+* Runtime Secret Provisioning (shared with {{immediate-post}}): A secrets
+  manager relies on an authenticated and attested secure channel as a
+  pre-requisite for releasing credentials or cryptographic keys.
 
-* Requirement: The central aggregator, as well as each participating client,
-  must be able to mutually attest to ensure all parties are running the correct,
-  untampered MPC algorithm in a trusted environment.
+* Confidential Data Collaboration (shared with {{immediate-post}}): Data may
+  only be sent to or accepted from peers that have proven they're running
+  acceptable software.
 
-## Network Infrastructure Integrity
+* Network Infrastructure Integrity (shared with {{immediate-post}}): A VNF must
+  attest its secure boot state to an orchestrator before the orchestrator
+  allocates application-layer state or transmits sensitive routing
+  configurations.
 
-Goal: Verify the integrity of network devices that form the foundation of
-communication.
+### Immediate Post-Handshake Attestation {#immediate-post}
 
-Use case: Attestation of Network Functions: A router, switch, or firewall joins
-a network's management plane. A Virtualized Network Function (VNF) is
-instantiated on a generic server.
+Definition: The secure channel is fully established without modification to its
+core handshake. Immediately following establishment, attestation credential is
+exchanged over the encrypted channel before any functional application data is
+permitted to flow.
 
-* Requirement: The network orchestrator must verify the device's integrity
-  (e.g., secure boot enabled, running signed OS and firmware) before allowing it
-  to join the network and receive policy. This prevents a compromised router
-  from misdirecting traffic or a malicious VNF from inspecting sensitive
-  packets.
+Protocol Requirements:
 
-Use case: Securing Control and Management Planes: An administrator connects to a
-network device's management interface.
+* The transport handshake remains standard.
 
-* Requirement: The administrator's client must verify the integrity of the
-  management endpoint on the network device to ensure they are not connecting to
-  a compromised interface that could steal credentials or manipulate the device.
+* Cryptographic binding relies on deriving material from the established
+  transport channel (e.g., utilizing TLS Exported Authenticators {{RFC9261}}) to
+  prove the credential originates from the terminating endpoint.
 
-## Operation-Triggered Attestation for High-Impact Application Operations
+* Application-layer state machines must enforce a blocking phase during which
+  only attestation payloads are processed. Alternatively, the secure channel
+  protocol must be wrapped in a shim layer which enforces this in-between state,
+  before relinquishing control the connection to the application layer.
 
-Goal: Ensure the integrity of application services at operation time,
-when security posture may change after initial channel establishment.
+Instantiation Examples:
 
-Use case: High-Assurance Operation Execution in Dynamic Application Services:
-An application service instance (e.g., AI agent) or confidential computing
-environment (which could host an AI agent) maintains a (D)TLS connection with
-a peer and must execute a high-impact action (e.g., payment initiation,
-configuration change, privileged command).
+* Legacy Transport Compatibility: A deployment requires attestation but
+  traverses middleboxes or uses TLS libraries that do not support custom
+  handshake extensions. The application layer handles the RA exchange
+  immediately after the standard TLS Finished message using Exporters to bind
+  the credential to the channel.
 
-* Requirement 1: Before executing a high-impact operation over the existing
-connection, the peer must present fresh, connection-bound attestation evidence
-reflecting the current behavior-affecting posture (e.g., enabled capabilities,
-policy configuration, runtime permissions).
+### Deferred and Periodic Runtime Attestation
 
-* Requirement 2: The mechanism should support lightweight, dynamic attestation
-within the existing connection, without necessarily requiring a full new TLS
-handshake, so that behavior-affecting posture changes are visible to relying
-parties when required by local policy.
+Definition: The exchange of attestation credentials occurs asynchronously after
+the initial secure channel, when application sessions are established and active.
 
-## Attestation of Certificate Private Key
+Protocol Requirements:
 
-A TLS endpoint authenticates itself using an end-entity certificate whose
-corresponding private key is claimed to be protected by a secure element.
-While standard TLS authentication verifies possession of the private
-key, it provides no assurance about where or how that key is stored and used.
+* Mechanisms to trigger an attestation request asynchronously over an active
+  connection.
 
-In this scenario, the peer acting as the Relying Party requires additional
-assurance that the private key associated with the end-entity certificate used
-to authenticate the TLS connection is generated, stored, and used within an
-attested cryptographic module. In addition to verifying possession of the
-private key via the TLS handshake, the Relying Party seeks
-attestation evidence that the key is non-exportable, remains bound to the
-cryptographic module, and that the module is operating in an expected
-security configuration at the time the TLS connection is established.
+* Cryptographic binding of the runtime Evidence to the existing channel state.
 
-Remote attestation is used to provide Evidence about the cryptographic module
-where the private key used for TLS authentication is stored. The Evidence may
-include claims about the security properties of the cryptographic module.
-To prevent replay attacks, this Evidence has to be fresh and tied to the
-current TLS connection. Replayed Evidence could otherwise be used to falsely
-assert key protection properties that no longer hold.
+* Execution must not disrupt or pause the concurrent multiplexing of
+  application data streams.
 
-* Requirement: The Attester must be able to produce Evidence that demonstrates
-  that the private key used for secure channel authentication:
-  * is generated and stored within a specific cryptographic module or secure
-    element,
-  * is protected against export or software extraction
-  * is attested using fresh Evidence that is bound to the current TLS connection.
+Instantiation Examples:
 
-The Relying Party uses this Evidence, potentially with the assistance of a
-Verifier, to determine whether the key protection properties satisfy its local
-security policy.
+* Operation-Triggered Attestation: An AI agent connected to a remote API must
+  provide fresh credentials of its state before the API authorizes a high-privilege
+  action.
 
-The approach described in {{!I-D.draft-ietf-rats-pkix-key-attestation}} addresses this
-use case partially by providing attestation of the cryptographic module and associated
-private key at certificate issuance time, reflecting their state when the
-certificate is enrolled. This model does not provide guarantees about the
-continued state of the module at connection establishment or during the lifetime of
-the TLS session.
+* Confidential Data Collaboration: A data provider requests re-attestation from
+  the confidential analytics service before uploading each new dataset or model
+  update to ensure authorized code and policy remain in place.
 
-## Platform-to-platform communication
+* High-Assurance Command Execution: An operator connects to a management plane,
+  then requests fresh exporter-bound credentials over the encrypted channel before
+  sending critical commands.
 
-Goal: Allow platforms to establish a trustworthy secure channel with each other.
+## Topological Integration Patterns
 
-Use case: Migration of workloads (confidential workloads in particular) between
-different platforms. Migration is occasionally required in order to maintain
-uptime for the hosted services across periods of scheduled downtime for the
-hosting platform. Having remote attestation-enforced policies for such migration
-events provides guarantees that the services will not be exposed to lower
-security guarantees when migrating. Migration is typically performed by trusted,
-low-level components (migration agents) on both source and destination
-platforms, which perform the authorization checks and handle the data migration.
+Topological integration dictates the directionality of the trust evaluation and
+defines which peer acts as the Attester and which acts as the Relying Party.
 
-* Requirement: The migration agent on the destination platform typically acts
-  as attester, proving its state for its peer on the source platform (where the
-  workload initially resides).
+### Unidirectional Attestation
 
-* Example: Intel TDX offers migration capabilities via its Migration TD (MigTD)
-  {{MigTD}}. Peer MigTDs on the initiating and target platforms set up an
-  attested TLS connection to perform the migration over.
+Definition: Only one peer (either the client or the server) provides
+attestation credentials to the other peer.
+
+Protocol Requirements:
+
+* The protocol must support asymmetric payload capabilities where the Attester
+  can transmit potentially large credentials, while the Relying Party requires
+  only the capacity to parse and appraise (or forward to a Verifier).
+
+* Downgrade protection to ensure an active attacker cannot suppress the Relying
+  Party's demand for attestation credentials.
+
+Instantiation Examples:
+
+* Client Attestation: A bare-metal device connecting to a cloud provider proves
+  its TCB state to the cloud provider, but the device inherently trusts the
+  cloud provider's standard TLS certificate.
+
+* Server Attestation: A client connects to an untrusted edge computing node and
+  requires the edge node to prove it is running an authorized software stack.
+
+* Secrets Provisioning: A confidential workload or IoT device attests to a
+  secrets management service before the service releases credentials needed to
+  bootstrap the device.
+
+* Administrative Control Access: An operator's client requests attestation from
+  a network device's management endpoint before issuing credential changes,
+  while the device is satisfied with standard PKI validation of the client.
+
+### Mutual Attestation
+
+Definition: Both the client and the server simultaneously exchange and verify
+each other's attestation credentials.
+
+Protocol Requirements:
+
+* Bidirectional exchange mechanisms that do not create state machine deadlocks.
+
+* Prevention of cross-protocol attacks, ensuring that the attestation Evidence
+  provided by Peer A is cryptographically bound to Peer A's specific role
+  (client or server) in the session.
+
+Instantiation Examples:
+
+* Platform-to-Platform Migration: In confidential computing, a workload
+  migrating between two hardware nodes requires mutual assurance. The
+  destination attests it can securely host the workload; the source attests the
+  workload's legitimate origin.
+
+* Confidential Data Collaboration (MPC): Clients connecting to a secure
+  aggregator must mutually attest to ensure all parties are running untampered
+  multiparty computation algorithms.
+
+* Data Clean Rooms: Data providers and the confidential analytics service
+  mutually attest to verify both sides are running the authorized code and
+  policies before any combined dataset is processed.
+
+## Authentication Integration Patterns
+
+Authentication integration dictates how the attestation credentials relates to
+traditional authentication models (e.g., PKI).
+
+### Composite Authentication
+
+Definition: Attestation credential is utilized strictly to augment standard
+authentication mechanisms. The channel requires proof of private key possession
+and proof of the operational environment securing that key.
+
+Protocol Requirements:
+
+* The Evidence must explicitly cover the security state of the hardware module
+  or platform holding the connection's authentication private key.
+
+* The protocol must cryptographically bind the standard authentication checks
+  (e.g., TLS CertificateVerify signature verification) with the attestation
+  Evidence.
+
+Instantiation Examples:
+
+* Attestation of Certificate Private Key: A Relying Party requires assurance
+  that the peer's TLS private key is non-exportable and resides in a
+  hardware-backed secure element, augmenting the standard X.509 validation path.
+
+* Network Infrastructure Integrity: A router or firewall proves that the TLS
+  key used on its management interface is sealed to a secure element on a
+  measured platform before it is allowed to join the control plane.
+
+* High-Assurance Operations: A service that will later issue high-impact
+  commands proves during channel setup that its authentication key is bound to
+  an attested module so relying parties can trust subsequent privileged actions.
+
+### Anonymous Trust Establishment
+
+Definition: The secure channel is established based solely on attestation
+Evidence, without relying on long-term stable identifiers such as PKI-based
+credentials.
+
+Protocol Requirements:
+
+* Support for authentication frameworks where PKI is absent.
+
+* Strict privacy preservation (e.g., encryption of the attestation payload) to
+  prevent hardware identifiers from acting as persistent tracking vectors.
+
+Instantiation Examples:
+
+* Zero-Touch Device Onboarding: A newly manufactured device connects to a
+  network without an X.509 certificate. The channel is authenticated entirely
+  via the device proving its hardware genuineness (e.g., via a DICE chain),
+  bootstrapping initial trust prior to standard network identity assignment.
 
 # Integration Properties
 
