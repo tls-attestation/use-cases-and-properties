@@ -160,7 +160,7 @@ system/network state. Its configuration (e.g., model choice, tool enablement,
 prompt template) can change independently of the binary/image and usually
 more frequently than typical platform TCB updates {{AI-agents}}.
 
-# Architectural Integration Framework
+# Integration Use-Cases
 
 To design robust protocols integrating Remote Attestation (RA) with secure
 channel establishment (such as TLS 1.3 or DTLS 1.3), the required primitives
@@ -174,26 +174,26 @@ given as examples of these underlying architectural requirements.
 ## Temporal Integration Patterns
 
 Temporal integration defines the precise state machine phase where the protocol
-produces, transmits, and verifies RA Evidence. It differentiates between
+produces, transmits, and verifies RA credentials. It differentiates between
 transport-layer gating and application-layer gating.
 
 ### In-Band Handshake Attestation
 
-Definition: Attestation Evidence is exchanged concurrently with the secure
-channel establishment. Verification of this Evidence is a strict prerequisite
-for the completion of the transport key schedule and the transition to the
-application data phase.
+Definition: Attestation credentials are exchanged concurrently with the secure
+channel establishment. Verification of these credentials is a strict
+prerequisite for the completion of the transport key schedule and the transition
+to the application data phase.
 
 Protocol Requirements:
 
-* The secure channel handshake must support the encapsulation of RA Evidence
+* The secure channel handshake must support the encapsulation of RA credentials
   (e.g., via TLS extensions).
 
 * The transport state machine must halt or cleanly abort (e.g., via a defined
   fatal alert) if verification fails.
 
-* Evidence must be cryptographically bound to the handshake transcript to
-  prevent relay attacks.
+* Attestation credentials must be cryptographically bound to the handshake
+  transcript to prevent relay attacks.
 
 Instantiation Examples:
 
@@ -252,7 +252,8 @@ Protocol Requirements:
 * Mechanisms to trigger an attestation request asynchronously over an active
   connection.
 
-* Cryptographic binding of the runtime Evidence to the existing channel state.
+* Cryptographic binding of the runtime Attestaiton credentials to the existing
+  channel state.
 
 * Execution must not disrupt or pause the concurrent multiplexing of
   application data streams.
@@ -260,16 +261,16 @@ Protocol Requirements:
 Instantiation Examples:
 
 * Operation-Triggered Attestation: An AI agent connected to a remote API must
-  provide fresh credentials of its state before the API authorizes a high-privilege
-  action.
+  provide fresh credentials of its state before the API authorizes a
+  high-privilege action.
 
 * Confidential Data Collaboration: A data provider requests re-attestation from
   the confidential analytics service before uploading each new dataset or model
   update to ensure authorized code and policy remain in place.
 
 * High-Assurance Command Execution: An operator connects to a management plane,
-  then requests fresh exporter-bound credentials over the encrypted channel before
-  sending critical commands.
+  then requests fresh exporter-bound credentials over the encrypted channel
+  before sending critical commands.
 
 ## Topological Integration Patterns
 
@@ -316,7 +317,7 @@ Protocol Requirements:
 
 * Bidirectional exchange mechanisms that do not create state machine deadlocks.
 
-* Prevention of cross-protocol attacks, ensuring that the attestation Evidence
+* Prevention of cross-protocol attacks, ensuring that the Attestation credential
   provided by Peer A is cryptographically bound to Peer A's specific role
   (client or server) in the session.
 
@@ -348,12 +349,12 @@ and proof of the operational environment securing that key.
 
 Protocol Requirements:
 
-* The Evidence must explicitly cover the security state of the hardware module
+* The credentials must explicitly cover the security state of the hardware module
   or platform holding the connection's authentication private key.
 
 * The protocol must cryptographically bind the standard authentication checks
   (e.g., TLS CertificateVerify signature verification) with the attestation
-  Evidence.
+  credentials.
 
 Instantiation Examples:
 
@@ -372,7 +373,7 @@ Instantiation Examples:
 ### Anonymous Trust Establishment
 
 Definition: The secure channel is established based solely on attestation
-Evidence, without relying on long-term stable identifiers such as PKI-based
+credentials, without relying on long-term stable identifiers such as PKI-based
 credentials.
 
 Protocol Requirements:
