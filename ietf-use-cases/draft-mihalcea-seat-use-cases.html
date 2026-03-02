@@ -1071,7 +1071,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mihalcea, et al.</td>
-<td class="center">Expires 2 September 2026</td>
+<td class="center">Expires 3 September 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1084,12 +1084,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-mihalcea-seat-use-cases-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-03-01" class="published">1 March 2026</time>
+<time datetime="2026-03-02" class="published">2 March 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-09-02">2 September 2026</time></dd>
+<dd class="expires"><time datetime="2026-09-03">3 September 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1155,7 +1155,7 @@ of protocol solutions within the SEAT working group.<a href="#section-abstract-1
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 2 September 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 3 September 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1202,7 +1202,7 @@ of protocol solutions within the SEAT working group.<a href="#section-abstract-1
             <p id="section-toc.1-1.2.1"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-terminology" class="internal xref">Terminology</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-architectural-integration-f" class="internal xref">Architectural Integration Framework</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-integration-use-cases" class="internal xref">Integration Use-Cases</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
                 <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-temporal-integration-patter" class="internal xref">Temporal Integration Patterns</a></p>
@@ -1386,10 +1386,10 @@ more frequently than typical platform TCB updates <span>[<a href="#AI-agents" cl
       </ul>
 </section>
 </div>
-<div id="architectural-integration-framework">
+<div id="integration-use-cases">
 <section id="section-3">
-      <h2 id="name-architectural-integration-f">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-architectural-integration-f" class="section-name selfRef">Architectural Integration Framework</a>
+      <h2 id="name-integration-use-cases">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-integration-use-cases" class="section-name selfRef">Integration Use-Cases</a>
       </h2>
 <p id="section-3-1">To design robust protocols integrating Remote Attestation (RA) with secure
 channel establishment (such as TLS 1.3 or DTLS 1.3), the required primitives
@@ -1405,21 +1405,21 @@ given as examples of these underlying architectural requirements.<a href="#secti
 <a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-temporal-integration-patter" class="section-name selfRef">Temporal Integration Patterns</a>
         </h3>
 <p id="section-3.1-1">Temporal integration defines the precise state machine phase where the protocol
-produces, transmits, and verifies RA Evidence. It differentiates between
+produces, transmits, and verifies RA credentials. It differentiates between
 transport-layer gating and application-layer gating.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
 <div id="in-band-handshake-attestation">
 <section id="section-3.1.1">
           <h4 id="name-in-band-handshake-attestati">
 <a href="#section-3.1.1" class="section-number selfRef">3.1.1. </a><a href="#name-in-band-handshake-attestati" class="section-name selfRef">In-Band Handshake Attestation</a>
           </h4>
-<p id="section-3.1.1-1">Definition: Attestation Evidence is exchanged concurrently with the secure
-channel establishment. Verification of this Evidence is a strict prerequisite
-for the completion of the transport key schedule and the transition to the
-application data phase.<a href="#section-3.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1.1-1">Definition: Attestation credentials are exchanged concurrently with the secure
+channel establishment. Verification of these credentials is a strict
+prerequisite for the completion of the transport key schedule and the transition
+to the application data phase.<a href="#section-3.1.1-1" class="pilcrow">¶</a></p>
 <p id="section-3.1.1-2">Protocol Requirements:<a href="#section-3.1.1-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.1.1-3.1">
-              <p id="section-3.1.1-3.1.1">The secure channel handshake must support the encapsulation of RA Evidence
+              <p id="section-3.1.1-3.1.1">The secure channel handshake must support the encapsulation of RA credentials
 (e.g., via TLS extensions).<a href="#section-3.1.1-3.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3.1.1-3.2">
@@ -1427,8 +1427,8 @@ application data phase.<a href="#section-3.1.1-1" class="pilcrow">¶</a></p>
 fatal alert) if verification fails.<a href="#section-3.1.1-3.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3.1.1-3.3">
-              <p id="section-3.1.1-3.3.1">Evidence must be cryptographically bound to the handshake transcript to
-prevent relay attacks.<a href="#section-3.1.1-3.3.1" class="pilcrow">¶</a></p>
+              <p id="section-3.1.1-3.3.1">Attestation credentials must be cryptographically bound to the handshake
+transcript to prevent relay attacks.<a href="#section-3.1.1-3.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <p id="section-3.1.1-4">Instantiation Examples:<a href="#section-3.1.1-4" class="pilcrow">¶</a></p>
@@ -1509,7 +1509,8 @@ the initial secure channel, when application sessions are established and active
 connection.<a href="#section-3.1.3-3.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3.1.3-3.2">
-              <p id="section-3.1.3-3.2.1">Cryptographic binding of the runtime Evidence to the existing channel state.<a href="#section-3.1.3-3.2.1" class="pilcrow">¶</a></p>
+              <p id="section-3.1.3-3.2.1">Cryptographic binding of the runtime Attestaiton credentials to the existing
+channel state.<a href="#section-3.1.3-3.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3.1.3-3.3">
               <p id="section-3.1.3-3.3.1">Execution must not disrupt or pause the concurrent multiplexing of
@@ -1520,8 +1521,8 @@ application data streams.<a href="#section-3.1.3-3.3.1" class="pilcrow">¶</a></
 <ul class="normal">
 <li class="normal" id="section-3.1.3-5.1">
               <p id="section-3.1.3-5.1.1">Operation-Triggered Attestation: An AI agent connected to a remote API must
-provide fresh credentials of its state before the API authorizes a high-privilege
-action.<a href="#section-3.1.3-5.1.1" class="pilcrow">¶</a></p>
+provide fresh credentials of its state before the API authorizes a
+high-privilege action.<a href="#section-3.1.3-5.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3.1.3-5.2">
               <p id="section-3.1.3-5.2.1">Confidential Data Collaboration: A data provider requests re-attestation from
@@ -1530,8 +1531,8 @@ update to ensure authorized code and policy remain in place.<a href="#section-3.
 </li>
             <li class="normal" id="section-3.1.3-5.3">
               <p id="section-3.1.3-5.3.1">High-Assurance Command Execution: An operator connects to a management plane,
-then requests fresh exporter-bound credentials over the encrypted channel before
-sending critical commands.<a href="#section-3.1.3-5.3.1" class="pilcrow">¶</a></p>
+then requests fresh exporter-bound credentials over the encrypted channel
+before sending critical commands.<a href="#section-3.1.3-5.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
@@ -1601,7 +1602,7 @@ each other's attestation credentials.<a href="#section-3.2.2-1" class="pilcrow">
               <p id="section-3.2.2-3.1.1">Bidirectional exchange mechanisms that do not create state machine deadlocks.<a href="#section-3.2.2-3.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3.2.2-3.2">
-              <p id="section-3.2.2-3.2.1">Prevention of cross-protocol attacks, ensuring that the attestation Evidence
+              <p id="section-3.2.2-3.2.1">Prevention of cross-protocol attacks, ensuring that the Attestation credential
 provided by Peer A is cryptographically bound to Peer A's specific role
 (client or server) in the session.<a href="#section-3.2.2-3.2.1" class="pilcrow">¶</a></p>
 </li>
@@ -1647,13 +1648,13 @@ and proof of the operational environment securing that key.<a href="#section-3.3
 <p id="section-3.3.1-2">Protocol Requirements:<a href="#section-3.3.1-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3.1-3.1">
-              <p id="section-3.3.1-3.1.1">The Evidence must explicitly cover the security state of the hardware module
+              <p id="section-3.3.1-3.1.1">The credentials must explicitly cover the security state of the hardware module
 or platform holding the connection's authentication private key.<a href="#section-3.3.1-3.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3.3.1-3.2">
               <p id="section-3.3.1-3.2.1">The protocol must cryptographically bind the standard authentication checks
 (e.g., TLS CertificateVerify signature verification) with the attestation
-Evidence.<a href="#section-3.3.1-3.2.1" class="pilcrow">¶</a></p>
+credentials.<a href="#section-3.3.1-3.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <p id="section-3.3.1-4">Instantiation Examples:<a href="#section-3.3.1-4" class="pilcrow">¶</a></p>
@@ -1682,7 +1683,7 @@ an attested module so relying parties can trust subsequent privileged actions.<a
 <a href="#section-3.3.2" class="section-number selfRef">3.3.2. </a><a href="#name-anonymous-trust-establishme" class="section-name selfRef">Anonymous Trust Establishment</a>
           </h4>
 <p id="section-3.3.2-1">Definition: The secure channel is established based solely on attestation
-Evidence, without relying on long-term stable identifiers such as PKI-based
+credentials, without relying on long-term stable identifiers such as PKI-based
 credentials.<a href="#section-3.3.2-1" class="pilcrow">¶</a></p>
 <p id="section-3.3.2-2">Protocol Requirements:<a href="#section-3.3.2-2" class="pilcrow">¶</a></p>
 <ul class="normal">
