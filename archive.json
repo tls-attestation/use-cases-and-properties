@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-01-20T02:07:34.067135+00:00",
+  "timestamp": "2026-03-03T02:39:18.896274+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -2581,6 +2581,79 @@
           "body": "LGTM",
           "createdAt": "2026-01-19T12:36:03Z",
           "updatedAt": "2026-01-19T12:36:03Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "id": "PR_kwDOP_9tTM7HMMhE",
+      "title": "Change use-cases to be IETF-centric",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/28",
+      "state": "OPEN",
+      "author": "ionut-arm",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-03-01T22:41:14Z",
+      "updatedAt": "2026-03-02T17:31:32Z",
+      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRefName": "main",
+      "baseRefOid": "54a685fda22aaf6176dc6ce01509b5d2d9b64d26",
+      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRefName": "ietf-use-cases",
+      "headRefOid": "52f4587bd56bd7572ddfdbe65d0be9560167dfc8",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM7m-Ywj",
+          "commit": {
+            "abbreviatedOid": "102ad60"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "LGTM, thanks!\n\nI\u2019ve left an editorial comment inline.",
+          "createdAt": "2026-03-02T09:53:03Z",
+          "updatedAt": "2026-03-02T09:53:26Z",
+          "comments": [
+            {
+              "originalPosition": 39,
+              "body": "Rather than \"RA evidence\", we should establish \"RA credential\" as a term that encompasses both evidence and RA, and use it consistently.",
+              "createdAt": "2026-03-02T09:53:03Z",
+              "updatedAt": "2026-03-02T09:53:27Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7nBaIK",
+          "commit": {
+            "abbreviatedOid": "52f4587"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-03-02T12:27:11Z",
+          "updatedAt": "2026-03-02T12:27:11Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7nH_oY",
+          "commit": {
+            "abbreviatedOid": "52f4587"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "That's a lot of changes with only a few hours left in the cutoff and no discussion in the meetings. Let's discuss first before merging.",
+          "createdAt": "2026-03-02T17:31:32Z",
+          "updatedAt": "2026-03-02T17:31:32Z",
           "comments": []
         }
       ]
