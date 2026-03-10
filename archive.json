@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-03-03T02:39:18.896274+00:00",
+  "timestamp": "2026-03-10T02:31:12.548003+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -720,6 +720,22 @@
       "body": "https://datatracker.ietf.org/doc/draft-aylward-aiga-1/",
       "createdAt": "2026-01-18T20:04:40Z",
       "updatedAt": "2026-01-18T20:04:40Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 29,
+      "id": "I_kwDOP_9tTM7xEePd",
+      "title": "Use cases sample",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/29",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "@tireddy2 proposed to check [RFC7478](https://datatracker.ietf.org/doc/html/rfc7478) as a sample.",
+      "createdAt": "2026-03-09T09:36:40Z",
+      "updatedAt": "2026-03-09T09:36:40Z",
       "closedAt": null,
       "comments": []
     }
@@ -2590,25 +2606,33 @@
       "id": "PR_kwDOP_9tTM7HMMhE",
       "title": "Change use-cases to be IETF-centric",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/28",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "ionut-arm",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2026-03-01T22:41:14Z",
-      "updatedAt": "2026-03-02T17:31:32Z",
+      "updatedAt": "2026-03-09T10:34:23Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "54a685fda22aaf6176dc6ce01509b5d2d9b64d26",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "ietf-use-cases",
       "headRefOid": "52f4587bd56bd7572ddfdbe65d0be9560167dfc8",
-      "closedAt": null,
+      "closedAt": "2026-03-09T10:34:23Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "As discussed, I'm closing this and will come back with an appropriate PR that blends the previous use-cases with the IETF-centric view of \"properties and requirements\"",
+          "createdAt": "2026-03-09T10:34:23Z",
+          "updatedAt": "2026-03-09T10:34:23Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOP_9tTM7m-Ywj",
@@ -2655,6 +2679,110 @@
           "createdAt": "2026-03-02T17:31:32Z",
           "updatedAt": "2026-03-02T17:31:32Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7pH2kD",
+          "commit": {
+            "abbreviatedOid": "52f4587"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "This PR needs more discussion. ",
+          "createdAt": "2026-03-08T07:54:54Z",
+          "updatedAt": "2026-03-08T08:16:35Z",
+          "comments": [
+            {
+              "originalPosition": 64,
+              "body": "```suggestion\n  client allows application traffic keys to be derived.\n```",
+              "createdAt": "2026-03-08T07:54:54Z",
+              "updatedAt": "2026-03-08T08:16:35Z"
+            },
+            {
+              "originalPosition": 101,
+              "body": "Middleboxes acting as (D)TLS proxies terminate the original (D)TLS connection and establish a new one with the peer. This breaks the end-to-end (D)TLS channel binding, making it impossible to bind the attestation evidence to the original TLS connection. Therefore, I would remove this requirement.",
+              "createdAt": "2026-03-08T08:11:50Z",
+              "updatedAt": "2026-03-08T08:20:10Z"
+            },
+            {
+              "originalPosition": 86,
+              "body": "The protocol requirements discuss attestation during and after the handshake exchange. However, decisions about such mechanisms should be made by the WG during protocol design. Since the use cases draft should not discuss potential solutions, I suggest removing this text.",
+              "createdAt": "2026-03-08T08:12:59Z",
+              "updatedAt": "2026-03-08T08:20:55Z"
+            },
+            {
+              "originalPosition": 241,
+              "body": "This is outside the scope of SEAT charter to disallow existing TLS authentication. ",
+              "createdAt": "2026-03-08T08:15:25Z",
+              "updatedAt": "2026-03-08T08:16:35Z"
+            },
+            {
+              "originalPosition": 260,
+              "body": "Modifying TLS to exclude PKI is not within the charter of SEAT. ",
+              "createdAt": "2026-03-08T08:16:09Z",
+              "updatedAt": "2026-03-08T08:16:35Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7pSR-s",
+          "commit": {
+            "abbreviatedOid": "52f4587"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-09T09:02:37Z",
+          "updatedAt": "2026-03-09T09:02:37Z",
+          "comments": [
+            {
+              "originalPosition": 42,
+              "body": "is it in-band vs. out of band?",
+              "createdAt": "2026-03-09T09:02:37Z",
+              "updatedAt": "2026-03-09T09:02:37Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7pSTKH",
+          "commit": {
+            "abbreviatedOid": "52f4587"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-09T09:03:38Z",
+          "updatedAt": "2026-03-09T09:03:38Z",
+          "comments": [
+            {
+              "originalPosition": 51,
+              "body": "`Encapsulation` has a specific meaning in the context of TLS, which does not seem appropriate here.",
+              "createdAt": "2026-03-09T09:03:38Z",
+              "updatedAt": "2026-03-09T09:03:38Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7pSV0Q",
+          "commit": {
+            "abbreviatedOid": "52f4587"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-09T09:05:38Z",
+          "updatedAt": "2026-03-09T09:05:38Z",
+          "comments": [
+            {
+              "originalPosition": 55,
+              "body": "verification of attestation or PKI?",
+              "createdAt": "2026-03-09T09:05:38Z",
+              "updatedAt": "2026-03-09T09:05:38Z"
+            }
+          ]
         }
       ]
     }
