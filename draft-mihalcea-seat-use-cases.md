@@ -73,20 +73,21 @@ informative:
 
 --- abstract
 
-This document outlines use cases and desirable properties for integrating remote
-attestation (RA) capabilities with secure channel establishment protocols, with
-an initial focus on Transport Layer Security (TLS) v1.3 Handshake. Traditional
-peer authentication in TLS establishes trust in a peer's network identifiers but
+This document outlines desirable properties for integrating remote attestation
+(RA) capabilities with secure channel establishment protocols, along with the
+ecosystem use cases from which they were derived. The initial focus is on the
+Transport Layer Security (TLS) v1.3 Handshake protocol. Traditional peer
+authentication in TLS establishes trust in a peer's network identifiers but
 provides no assurance regarding the integrity of its underlying software and
 hardware stack. Remote attestation addresses this gap by enabling a peer to
 provide verifiable evidence about its current state, including the state of its
-trusted computing base (TCB). This document explores specific use cases, such as
-confidential data collaboration and secure secrets provisioning, to motivate the
-need for this integration. From these use cases, it specifies a set of essential
+trusted computing base (TCB). This document specifies a set of essential
 properties the protocol solution must have, including cryptographic binding to
 the TLS connection, evidence freshness, and flexibility to support different
-attestation models. This document is intended to serve as an input to the design
-of protocol solutions within the SEAT working group.
+attestation models. It also explores the use cases which motivate the need for
+these properties, such as confidential data collaboration and secure secrets
+provisioning. This document is intended to serve as an input to the design of
+protocol solutions within the SEAT working group.
 
 --- middle
 
