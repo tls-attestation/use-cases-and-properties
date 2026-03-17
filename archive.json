@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-03-10T02:31:12.548003+00:00",
+  "timestamp": "2026-03-17T02:36:16.579000+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -2781,6 +2781,143 @@
               "body": "verification of attestation or PKI?",
               "createdAt": "2026-03-09T09:05:38Z",
               "updatedAt": "2026-03-09T09:05:38Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 30,
+      "id": "PR_kwDOP_9tTM7K9ukS",
+      "title": "Respin draft around integration properties",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/30",
+      "state": "OPEN",
+      "author": "ionut-arm",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Moving Integration Properties at the top.\r\nSeparating properties into generic and per-use-case. \r\nPolishing some of the properties to match our current understanding.\r\nReferencing required and generic properties for each use-case.",
+      "createdAt": "2026-03-16T15:49:41Z",
+      "updatedAt": "2026-03-16T22:58:17Z",
+      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRefName": "main",
+      "baseRefOid": "54a685fda22aaf6176dc6ce01509b5d2d9b64d26",
+      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRefName": "properties-focus",
+      "headRefOid": "97c7715522a00fa9b3d1f4b4c6c861b3cb7bb720",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Note: most properties have just been copied without any change, but some changes were made to a few: Integration with Authentication (dropped RA-only, renamed); Privacy Preservation (rewording); Cryptographic Binding to Machine Identifier (rewording).",
+          "createdAt": "2026-03-16T15:51:47Z",
+          "updatedAt": "2026-03-16T15:51:47Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "One simple comment: if we are reflowing the body, we should adjust the abstract to reflect this.",
+          "createdAt": "2026-03-16T17:15:08Z",
+          "updatedAt": "2026-03-16T17:15:08Z"
+        },
+        {
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> One simple comment: if we are reflowing the body, we should adjust the abstract to reflect this.\r\n\r\nGood point, I've updated the abstract too now!",
+          "createdAt": "2026-03-16T17:32:31Z",
+          "updatedAt": "2026-03-16T17:32:31Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM7rxGxf",
+          "commit": {
+            "abbreviatedOid": "906b8d3"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-16T17:29:29Z",
+          "updatedAt": "2026-03-16T17:51:58Z",
+          "comments": [
+            {
+              "originalPosition": 26,
+              "body": "We should make the subject (i.e., \u201cAttestation Credentials\u201d) explicit in the title.\n\nTo avoid a mouthful, perhaps: _\u201cAttestation Credential binding to the Secure Channel\u201d_.",
+              "createdAt": "2026-03-16T17:29:29Z",
+              "updatedAt": "2026-03-16T17:51:58Z"
+            },
+            {
+              "originalPosition": 32,
+              "body": "Passport is the \ud83d\udc18 in this subsection and the next one \u2026 It\u2019s not clear to me how these can be made compatible with _\u201cAttestation Model Flexibility\u201d_.",
+              "createdAt": "2026-03-16T17:31:46Z",
+              "updatedAt": "2026-03-16T17:51:58Z"
+            },
+            {
+              "originalPosition": 38,
+              "body": "The sentence _\u201cState is transient [\u2026]\u201d_ sounds a bit disconnected.  Is there anything we could add to link it to the rest of the paragraph?",
+              "createdAt": "2026-03-16T17:36:09Z",
+              "updatedAt": "2026-03-16T17:51:58Z"
+            },
+            {
+              "originalPosition": 70,
+              "body": "I'm wondering whether this \"especially [\u2026]\" is really a requirement, though.\n\nIt seems purely a requirement concerning the RA protocol, rather than the _integration_ between RA and secure channel establishment.",
+              "createdAt": "2026-03-16T17:42:56Z",
+              "updatedAt": "2026-03-16T17:51:58Z"
+            },
+            {
+              "originalPosition": 86,
+              "body": "This should be presented as a requirement rather than a solution.\n\nWe should phrase it the other way around, for example:\n\n_\"Evidence can be securely linked to location information about the Attester who produced it to prevent diversion attacks.\u201d_\n",
+              "createdAt": "2026-03-16T17:50:34Z",
+              "updatedAt": "2026-03-16T17:51:58Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7r3FR6",
+          "commit": {
+            "abbreviatedOid": "c8f50f1"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-16T22:35:53Z",
+          "updatedAt": "2026-03-16T22:58:17Z",
+          "comments": [
+            {
+              "originalPosition": 26,
+              "body": "Done!",
+              "createdAt": "2026-03-16T22:35:54Z",
+              "updatedAt": "2026-03-16T22:58:17Z"
+            },
+            {
+              "originalPosition": 32,
+              "body": "Indeed. Couple with that with a clear performance penalty for background check and I'm not sure where this whole thing leaves us.\n\nI think it's likely we'll end up with a scheme along the lines of: \"AR contains some claim about the TIK, and the TIK is the thing that binds everything together.\" The counter-argument would be 'what if the TIK_priv is leaked?' but that sort of attack breaks everything anyway.",
+              "createdAt": "2026-03-16T22:38:42Z",
+              "updatedAt": "2026-03-16T22:58:17Z"
+            },
+            {
+              "originalPosition": 38,
+              "body": "Done. I've actually changed the freshness section quite thoroughly. The previous version was leaning way too much in the direction of equating freshness and channel binding (e.g., \"freshly generated by the Attester _for the current connection_\").",
+              "createdAt": "2026-03-16T22:52:56Z",
+              "updatedAt": "2026-03-16T22:58:17Z"
+            },
+            {
+              "originalPosition": 70,
+              "body": "Right, the integration protocol design should be agnostic of that, since you can't know a priori. Removed.",
+              "createdAt": "2026-03-16T22:54:23Z",
+              "updatedAt": "2026-03-16T22:58:17Z"
+            },
+            {
+              "originalPosition": 86,
+              "body": "Ack, done.",
+              "createdAt": "2026-03-16T22:56:23Z",
+              "updatedAt": "2026-03-16T22:58:17Z"
             }
           ]
         }
