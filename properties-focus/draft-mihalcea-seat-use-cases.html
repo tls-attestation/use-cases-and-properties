@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>Use Cases and Properties for Integrating Remote Attestation with Secure Channel Protocols</title>
+<title>Attested Secure Channel Establishment: Use Cases and Requirements</title>
 <meta content="Ionuț Mihalcea" name="author">
 <meta content="Muhammad Usama Sardar" name="author">
 <meta content="Thomas Fossati" name="author">
@@ -15,18 +15,18 @@
        This document outlines desirable properties for integrating remote attestation
 (RA) capabilities with secure channel establishment protocols, along with the
 ecosystem use cases from which they were derived. The initial focus is on the
-Transport Layer Security (TLS) v1.3 Handshake protocol. Traditional peer
-authentication in TLS establishes trust in a peer's network identifiers but
-provides no assurance regarding the integrity of its underlying software and
-hardware stack. Remote attestation addresses this gap by enabling a peer to
-provide verifiable evidence about its current state, including the state of its
-trusted computing base (TCB). This document specifies a set of essential
-properties the protocol solution must have, including cryptographic binding to
-the TLS connection, evidence freshness, and flexibility to support different
-attestation models. It also explores the use cases which motivate the need for
-these properties, such as confidential data collaboration and secure secrets
-provisioning. This document is intended to serve as an input to the design of
-protocol solutions within the SEAT working group. 
+(D)TLS v1.3 Handshake protocol. Traditional peer authentication in TLS
+establishes trust in a peer's network identifiers but provides no assurance
+regarding the integrity of its underlying software and hardware stack. Remote
+attestation addresses this gap by enabling a peer to provide verifiable evidence
+about its current state, including the state of its trusted computing base
+(TCB). This document specifies a set of essential properties the protocol
+solution must have, including cryptographic binding to the TLS connection,
+evidence freshness, and flexibility to support different attestation models. It
+also explores the use cases which motivate the need for these properties, such
+as confidential data collaboration and secure secrets provisioning. This
+document is intended to serve as an input to the design of protocol solutions
+within the SEAT working group. 
     " name="description">
 <meta content="xml2rfc 3.32.0" name="generator">
 <meta content="remote attestation" name="keyword">
@@ -1072,7 +1072,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mihalcea, et al.</td>
-<td class="center">Expires 17 September 2026</td>
+<td class="center">Expires 21 September 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1085,12 +1085,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-mihalcea-seat-use-cases-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-03-16" class="published">16 March 2026</time>
+<time datetime="2026-03-20" class="published">20 March 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-09-17">17 September 2026</time></dd>
+<dd class="expires"><time datetime="2026-09-21">21 September 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1119,24 +1119,24 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </dd>
 </dl>
 </div>
-<h1 id="title">Use Cases and Properties for Integrating Remote Attestation with Secure Channel Protocols</h1>
+<h1 id="title">Attested Secure Channel Establishment: Use Cases and Requirements</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
 <p id="section-abstract-1">This document outlines desirable properties for integrating remote attestation
 (RA) capabilities with secure channel establishment protocols, along with the
 ecosystem use cases from which they were derived. The initial focus is on the
-Transport Layer Security (TLS) v1.3 Handshake protocol. Traditional peer
-authentication in TLS establishes trust in a peer's network identifiers but
-provides no assurance regarding the integrity of its underlying software and
-hardware stack. Remote attestation addresses this gap by enabling a peer to
-provide verifiable evidence about its current state, including the state of its
-trusted computing base (TCB). This document specifies a set of essential
-properties the protocol solution must have, including cryptographic binding to
-the TLS connection, evidence freshness, and flexibility to support different
-attestation models. It also explores the use cases which motivate the need for
-these properties, such as confidential data collaboration and secure secrets
-provisioning. This document is intended to serve as an input to the design of
-protocol solutions within the SEAT working group.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+(D)TLS v1.3 Handshake protocol. Traditional peer authentication in TLS
+establishes trust in a peer's network identifiers but provides no assurance
+regarding the integrity of its underlying software and hardware stack. Remote
+attestation addresses this gap by enabling a peer to provide verifiable evidence
+about its current state, including the state of its trusted computing base
+(TCB). This document specifies a set of essential properties the protocol
+solution must have, including cryptographic binding to the TLS connection,
+evidence freshness, and flexibility to support different attestation models. It
+also explores the use cases which motivate the need for these properties, such
+as confidential data collaboration and secure secrets provisioning. This
+document is intended to serve as an input to the design of protocol solutions
+within the SEAT working group.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
@@ -1157,7 +1157,7 @@ protocol solutions within the SEAT working group.<a href="#section-abstract-1" c
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 17 September 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 21 September 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1385,6 +1385,10 @@ system/network state. Its configuration (e.g., model choice, tool enablement,
 prompt template) can change independently of the binary/image and usually
 more frequently than typical platform TCB updates <span>[<a href="#AI-agents" class="cite xref">AI-agents</a>]</span>.<a href="#section-2-3.4.1" class="pilcrow">¶</a></p>
 </li>
+        <li class="normal" id="section-2-3.5">
+          <p id="section-2-3.5.1">TLS: The (Datagram) Transport Layer Security protocol. Throughout this
+document, unless specified otherwise, it refers to both TLS and DTLS.<a href="#section-2-3.5.1" class="pilcrow">¶</a></p>
+</li>
       </ul>
 </section>
 </div>
@@ -1414,8 +1418,8 @@ use-cases they might be intended for.<a href="#section-3.1-1" class="pilcrow">¶
 <p id="section-3.1.1-1">Attestation Evidence or Attestation Results are cryptographically bound to the
 specific secure channel instance (e.g., the TLS connection). This prevents
 replay and relay attacks where an attacker presents valid but old or unrelated
-credentials from a different connection or context. This binding is paramount
-for all use cases.<a href="#section-3.1.1-1" class="pilcrow">¶</a></p>
+attestation credentials from a different connection or context. This binding is
+paramount for all use cases.<a href="#section-3.1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="attestation-credential-freshness">
@@ -1425,9 +1429,9 @@ for all use cases.<a href="#section-3.1.1-1" class="pilcrow">¶</a></p>
           </h4>
 <p id="section-3.1.2-1">The Relying Party can verify that the Evidence or Attestation Result it receives
 was freshly generated by the Attester. Since the attester's security state can
-change at any moment, stale credentials might no longer present relevant
-insights. See <span><a href="https://rfc-editor.org/rfc/rfc9334#section-10" class="relref">Section 10</a> of [<a href="#RFC9334" class="cite xref">RFC9334</a>]</span> for more details about freshness in
-the context of RA.<a href="#section-3.1.2-1" class="pilcrow">¶</a></p>
+change at any moment, stale evidence or attestation results might no longer
+present relevant insights. See <span><a href="https://rfc-editor.org/rfc/rfc9334#section-10" class="relref">Section 10</a> of [<a href="#RFC9334" class="cite xref">RFC9334</a>]</span> for more details
+about freshness in the context of RA.<a href="#section-3.1.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="negotiation-and-capability-discovery">
@@ -1449,8 +1453,9 @@ fallback for endpoints that do not support RA.<a href="#section-3.1.3-1" class="
 <p id="section-3.1.4-1">The solution supports both the Background Check and Passport models as defined
 in the RATS architecture <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>. The Background Check model is essential
 for deployments requiring maximum freshness, while the Passport model is better
-suited for performance, scalability, and scenarios where the Verifier may be
-offline or unreachable by the Relying Party.<a href="#section-3.1.4-1" class="pilcrow">¶</a></p>
+suited for performance, scalability, and scenarios where the Verifier may
+introduce additional latency, or may be offline or unreachable by the Relying
+Party.<a href="#section-3.1.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="integration-with-authentication">
@@ -1458,7 +1463,7 @@ offline or unreachable by the Relying Party.<a href="#section-3.1.4-1" class="pi
           <h4 id="name-integration-with-authentica">
 <a href="#section-3.1.5" class="section-number selfRef">3.1.5. </a><a href="#name-integration-with-authentica" class="section-name selfRef">Integration with Authentication</a>
           </h4>
-<p id="section-3.1.5-1">The solution supports using RA in conjunction with traditional PKI-based
+<p id="section-3.1.5-1">The solution should support using RA in conjunction with traditional PKI-based
 authentication (e.g., X.509 certificates). This provides two independent pillars
 of trust: trustworthiness (from RA) and network identity (from PKI).<a href="#section-3.1.5-1" class="pilcrow">¶</a></p>
 </section>
@@ -1499,10 +1504,11 @@ solution remains practical.<a href="#section-3.1.7-1" class="pilcrow">¶</a></p>
           <h4 id="name-cryptographic-binding-to-ma">
 <a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-cryptographic-binding-to-ma" class="section-name selfRef">Cryptographic Binding to Machine Identifier</a>
           </h4>
-<p id="section-3.2.1-1">Evidence can be securely linked to location information about the Attester who
-produced it to prevent diversion attacks <span>[<a href="#Meeting-122-TLS-Slides" class="cite xref">Meeting-122-TLS-Slides</a>]</span>. This
-property is especially important in confidential computing scenarios where
-policy is tied to a specific platform instance.<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.1-1">Evidence and attestation results can be securely linked to location information
+about the Attester who produced it to prevent diversion attacks
+<span>[<a href="#Meeting-122-TLS-Slides" class="cite xref">Meeting-122-TLS-Slides</a>]</span>. This property is especially important in
+confidential computing scenarios where policy is tied to a specific platform
+instance.<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="runtime-attestation">
@@ -1807,7 +1813,7 @@ measurements, software versions, and security configurations are acceptable.<a h
 <dl class="references">
 <dt id="I-D.draft-ietf-rats-pkix-key-attestation">[I-D.draft-ietf-rats-pkix-key-attestation]</dt>
       <dd>
-<span class="refAuthor">Ounsworth, M.</span>, <span class="refAuthor">Fiset, J.</span>, <span class="refAuthor">Tschofenig, H.</span>, <span class="refAuthor">Birkholz, H.</span>, <span class="refAuthor">Wiseman, M.</span>, and <span class="refAuthor">N. Smith</span>, <span class="refTitle">"Evidence Encoding for Hardware Security Modules"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-rats-pkix-key-attestation-04</span>, <time datetime="2026-03-15" class="refDate">15 March 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-pkix-key-attestation-04">https://datatracker.ietf.org/doc/html/draft-ietf-rats-pkix-key-attestation-04</a>&gt;</span>. </dd>
+<span class="refAuthor">Ounsworth, M.</span>, <span class="refAuthor">Fiset, J.</span>, <span class="refAuthor">Tschofenig, H.</span>, <span class="refAuthor">Birkholz, H.</span>, <span class="refAuthor">Wiseman, M.</span>, and <span class="refAuthor">N. Smith</span>, <span class="refTitle">"Evidence Encoding for Hardware Security Modules"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-rats-pkix-key-attestation-05</span>, <time datetime="2026-03-17" class="refDate">17 March 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-pkix-key-attestation-05">https://datatracker.ietf.org/doc/html/draft-ietf-rats-pkix-key-attestation-05</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
