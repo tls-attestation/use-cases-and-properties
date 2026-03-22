@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-03-19T02:44:20.977281+00:00",
+  "timestamp": "2026-03-22T02:45:08.808733+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -2798,13 +2798,13 @@
       "labels": [],
       "body": "Moving Integration Properties at the top.\r\nSeparating properties into generic and per-use-case. \r\nPolishing some of the properties to match our current understanding.\r\nReferencing required and generic properties for each use-case.",
       "createdAt": "2026-03-16T15:49:41Z",
-      "updatedAt": "2026-03-17T13:29:02Z",
+      "updatedAt": "2026-03-21T08:17:33Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "54a685fda22aaf6176dc6ce01509b5d2d9b64d26",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "properties-focus",
-      "headRefOid": "97c7715522a00fa9b3d1f4b4c6c861b3cb7bb720",
+      "headRefOid": "2b2deff57d45990db7e5dc64b4baa7e33a3fb517",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -3046,6 +3046,180 @@
               "body": "You are right.  It\u2019s probably \u201cownership\u201d that matters most.",
               "createdAt": "2026-03-17T13:29:02Z",
               "updatedAt": "2026-03-17T13:29:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7tRCzL",
+          "commit": {
+            "abbreviatedOid": "97c7715"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-20T10:22:32Z",
+          "updatedAt": "2026-03-20T11:40:05Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "Done",
+              "createdAt": "2026-03-20T10:22:32Z",
+              "updatedAt": "2026-03-20T11:40:05Z"
+            },
+            {
+              "originalPosition": 19,
+              "body": "Done",
+              "createdAt": "2026-03-20T10:26:45Z",
+              "updatedAt": "2026-03-20T11:40:05Z"
+            },
+            {
+              "originalPosition": 47,
+              "body": "The wording here was meant to be non-specific, as we could repurpose the contents for other protocols in the future",
+              "createdAt": "2026-03-20T10:33:21Z",
+              "updatedAt": "2026-03-20T11:40:05Z"
+            },
+            {
+              "originalPosition": 59,
+              "body": "Yeah, same as with Thomas' comment, I agree. Guess the question is: where does that leave us? Do we just say \"Evidence is always bound, ARs are only bound when they can be\"?\n\nClearly we need to decide and define what is good enough as an alternative for ARs, otherwise RPs won't be able to trust that they represent the peer.",
+              "createdAt": "2026-03-20T10:40:26Z",
+              "updatedAt": "2026-03-20T11:40:06Z"
+            },
+            {
+              "originalPosition": 14,
+              "body": "That's the kind of extremism I approve of. Done.",
+              "createdAt": "2026-03-20T10:42:05Z",
+              "updatedAt": "2026-03-20T11:40:05Z"
+            },
+            {
+              "originalPosition": 69,
+              "body": "Done!",
+              "createdAt": "2026-03-20T10:43:34Z",
+              "updatedAt": "2026-03-20T11:40:06Z"
+            },
+            {
+              "originalPosition": 86,
+              "body": "Done",
+              "createdAt": "2026-03-20T10:44:48Z",
+              "updatedAt": "2026-03-20T11:40:06Z"
+            },
+            {
+              "originalPosition": 90,
+              "body": "Done",
+              "createdAt": "2026-03-20T10:45:08Z",
+              "updatedAt": "2026-03-20T11:40:06Z"
+            },
+            {
+              "originalPosition": 115,
+              "body": "I think it's both, but just a note: location here does not necessarily mean GPS coordinates or whatever, but can be something along the lines of \"AWS eu-west-1 datacenter, room 342, rack 13\".\n\n> You are right. It\u2019s probably \u201cownership\u201d that matters most.\n\nEven if it did matter most, you still have jurisdiction issues regarding data geofencing.\n\nThat being said, I think this is something that the whole RA process should solve, and it seems irrelevant to the SCxRA integration. I'll try to figure out if there's anything about that \"location\" information which goes into the SC, and if not we can scrap this property.",
+              "createdAt": "2026-03-20T10:55:49Z",
+              "updatedAt": "2026-03-20T11:40:06Z"
+            },
+            {
+              "originalPosition": 43,
+              "body": "I partially agree, but this would make it inconsistent with, e.g., binding to secure channel. Why not name that one \"Prevention of relay attacks\", and freshness as \"Prevention of replay attacks\".",
+              "createdAt": "2026-03-20T10:57:26Z",
+              "updatedAt": "2026-03-20T11:40:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7tgFlj",
+          "commit": {
+            "abbreviatedOid": "2b2deff"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-20T23:46:25Z",
+          "updatedAt": "2026-03-20T23:46:26Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "```suggestion\n  ID-Crisis:\n    title: \"Identity Crisis in Confidential Computing: Formal Analysis of Attested TLS\"\n    date: November 2025,\n    target: https://www.researchgate.net/publication/398839141_Identity_Crisis_in_Confidential_Computing_Formal_Analysis_of_Attested_TLS\n    author:\n      - ins: M. U. Sardar\n      - ins: M. Moustafa\n      - ins: T. Aura\n```",
+              "createdAt": "2026-03-20T23:46:25Z",
+              "updatedAt": "2026-03-20T23:46:26Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7tgGAl",
+          "commit": {
+            "abbreviatedOid": "2b2deff"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-20T23:47:04Z",
+          "updatedAt": "2026-03-20T23:47:04Z",
+          "comments": [
+            {
+              "originalPosition": 133,
+              "body": "```suggestion\n{{ID-Crisis}}. This property is especially important in\n```",
+              "createdAt": "2026-03-20T23:47:04Z",
+              "updatedAt": "2026-03-20T23:47:04Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7tki30",
+          "commit": {
+            "abbreviatedOid": "97c7715"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-21T07:58:09Z",
+          "updatedAt": "2026-03-21T07:58:09Z",
+          "comments": [
+            {
+              "originalPosition": 47,
+              "body": "I see your point but scope of the WG is TLS; we could say something like \r\n\r\nThese properties guide the design of RA integration with TLS and can be extended to other security protocols in the future.",
+              "createdAt": "2026-03-21T07:58:09Z",
+              "updatedAt": "2026-03-21T07:58:09Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7tkjS9",
+          "commit": {
+            "abbreviatedOid": "97c7715"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-21T08:01:05Z",
+          "updatedAt": "2026-03-21T08:01:05Z",
+          "comments": [
+            {
+              "originalPosition": 59,
+              "body": "ARs as per RATS is passport model, TLS binding is not possible; it has an advantage of avoiding communication with verifier and the checks in the verifier to validate the evidence; if there is an deployment which wants to use it at the cost of losting the TLS binding; it is delibrate choice with weak security properties.",
+              "createdAt": "2026-03-21T08:01:05Z",
+              "updatedAt": "2026-03-21T08:01:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7tklv-",
+          "commit": {
+            "abbreviatedOid": "97c7715"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-21T08:17:32Z",
+          "updatedAt": "2026-03-21T08:17:33Z",
+          "comments": [
+            {
+              "originalPosition": 115,
+              "body": "The ownership or location claims in the evidence have to be defined in RATS; it is out of scope for SEAT. I suggest we remove it for now; till we have clarity on it. \r\n\r\nThe scope of SEAT is cryptographic binding of the Evidence to the TLS connection. ",
+              "createdAt": "2026-03-21T08:17:32Z",
+              "updatedAt": "2026-03-21T08:17:33Z"
             }
           ]
         }
