@@ -171,10 +171,11 @@ more frequently than typical platform TCB updates {{AI-agents}}.
 
 Following the model used in {{RFC7478}}, the primary output of the use cases
 collected in this document is a set of protocol integration properties. These
-properties guide the design of RA integration with secure channel protocols.
-They are split into generic requirements that must hold for all deployments and
-use-case-specific requirements that arise in particular scenarios. The use
-cases in the next section explicitly reference the relevant properties.
+properties guide the design of RA integration with TLS and can be extended to
+other security protocols in the future. They are split into generic requirements
+that must hold for all deployments and use-case-specific requirements that arise
+in particular scenarios. The use cases in the next section explicitly reference
+the relevant properties.
 
 ## Generic Properties
 
