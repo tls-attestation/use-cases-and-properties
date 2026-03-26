@@ -49,7 +49,14 @@ informative:
     RFC9334: rats-arch
     I-D.draft-ccc-wimse-twi-extensions: wimse-twi
     I-D.draft-ietf-rats-eat-measured-component: rats-measured
-    Meeting-122-TLS-Slides:
+  ID-Crisis:
+    title: "Identity Crisis in Confidential Computing: Formal Analysis of Attested TLS"
+    date: November 2025,
+    target: https://www.researchgate.net/publication/398839141_Identity_Crisis_in_Confidential_Computing_Formal_Analysis_of_Attested_TLS
+    author:
+      - ins: M. U. Sardar
+      - ins: M. Moustafa
+      - ins: T. Aura
      title: "Identity Crisis in Attested TLS for Confidential Computing"
      date: 20 March 2025,
      target: https://datatracker.ietf.org/meeting/122/materials/slides-122-tls-identity-crisis-00
