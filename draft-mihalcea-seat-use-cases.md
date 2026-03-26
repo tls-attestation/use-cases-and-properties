@@ -242,7 +242,7 @@ These properties are only required for specific use-cases.
 
 Evidence and attestation results can be securely linked to location information
 about the Attester who produced it to prevent diversion attacks
-{{Meeting-122-TLS-Slides}}. This property is especially important in
+{{ID-Crisis}}. This property is especially important in
 confidential computing scenarios where policy is tied to a specific platform
 instance.
 
