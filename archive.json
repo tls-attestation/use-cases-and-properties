@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-03-22T02:45:08.808733+00:00",
+  "timestamp": "2026-03-29T02:55:26.950165+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -2798,13 +2798,13 @@
       "labels": [],
       "body": "Moving Integration Properties at the top.\r\nSeparating properties into generic and per-use-case. \r\nPolishing some of the properties to match our current understanding.\r\nReferencing required and generic properties for each use-case.",
       "createdAt": "2026-03-16T15:49:41Z",
-      "updatedAt": "2026-03-21T08:17:33Z",
+      "updatedAt": "2026-03-27T07:21:36Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "54a685fda22aaf6176dc6ce01509b5d2d9b64d26",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "properties-focus",
-      "headRefOid": "2b2deff57d45990db7e5dc64b4baa7e33a3fb517",
+      "headRefOid": "a464b9affbc960defc15c1f7a9e779c8bd12bcaa",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -3220,6 +3220,186 @@
               "body": "The ownership or location claims in the evidence have to be defined in RATS; it is out of scope for SEAT. I suggest we remove it for now; till we have clarity on it. \r\n\r\nThe scope of SEAT is cryptographic binding of the Evidence to the TLS connection. ",
               "createdAt": "2026-03-21T08:17:32Z",
               "updatedAt": "2026-03-21T08:17:33Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7vIAO8",
+          "commit": {
+            "abbreviatedOid": "2b2deff"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-26T06:56:27Z",
+          "updatedAt": "2026-03-26T06:56:28Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "I suggest adding a new section: \r\n\r\nIdentity Binding Requirement\r\n\r\nThe authenticated identity of a peer (e.g., as established via PKI-based authentication in TLS) has to be cryptographically bound to the attested TEE. As discussed in {{ID-Crisis}}, failure to establish such binding can lead to diversion or identity misbinding attacks, where the authenticated identity does not correspond to the peer that produced the attestation evidence. The attestation evidence has to be cryptographically bound to the keying material used by the peer in the secure channel establishment.",
+              "createdAt": "2026-03-26T06:56:27Z",
+              "updatedAt": "2026-03-26T06:56:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7vVneX",
+          "commit": {
+            "abbreviatedOid": "2b2deff"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-26T15:55:15Z",
+          "updatedAt": "2026-03-26T15:55:16Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "Wait, is this a replacement for either connection binding, or binding to machine identifier? I'm confused because to me this seems like an alternative to connection binding:\r\n\r\n* Evidence / AR is cryptographically bound to specific TLS connection\r\n* Authenticated identity is cryptographically bound to specific TLS connection (via CertificateVerify)\r\n* Evidence / AR is cryptographically bound to Authenticated identity\r\n\r\nThe 3rd step seems redundant given the first two. Or, the first step seems redundant given the 2nd and 3rd.",
+              "createdAt": "2026-03-26T15:55:15Z",
+              "updatedAt": "2026-03-26T15:55:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7vVxHT",
+          "commit": {
+            "abbreviatedOid": "97c7715"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-26T15:59:58Z",
+          "updatedAt": "2026-03-26T15:59:59Z",
+          "comments": [
+            {
+              "originalPosition": 115,
+              "body": "Agree with Tiru here.\r\n\r\nThe one argument I knew of regarding the physical machine identity is related to how that identity is conveyed, i.e., whether we need to carry it as a separate authenticated identity as part of whatever design we choose. For example, do we need to carry (and prove possession of) a new PKI-based identity, just for the machine? Or must that be folded into the attestation credential we pass around?",
+              "createdAt": "2026-03-26T15:59:58Z",
+              "updatedAt": "2026-03-26T15:59:59Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7vV3mE",
+          "commit": {
+            "abbreviatedOid": "97c7715"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-26T16:03:26Z",
+          "updatedAt": "2026-03-26T16:03:27Z",
+          "comments": [
+            {
+              "originalPosition": 59,
+              "body": "> TLS binding is not possible\r\n\r\nI don't think that's technically impossible, just very bad efficiency-wise. The attester could get a new AR per connection, from a Verifier, whenever that AR is needed. It's no different from just getting evidence, just that you have to also pass that evidence to the Verifier (who has to also reflect the binder in the AR).\r\n\r\nBut I agree that it's unlikely for this approach to actually be used (unless the Verifier is on the same machine and the latency is basically 0).",
+              "createdAt": "2026-03-26T16:03:27Z",
+              "updatedAt": "2026-03-26T16:03:27Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7vV8Yc",
+          "commit": {
+            "abbreviatedOid": "97c7715"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-26T16:06:34Z",
+          "updatedAt": "2026-03-26T16:06:34Z",
+          "comments": [
+            {
+              "originalPosition": 47,
+              "body": "Thanks, done!",
+              "createdAt": "2026-03-26T16:06:34Z",
+              "updatedAt": "2026-03-26T16:06:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7vWy4W",
+          "commit": {
+            "abbreviatedOid": "a464b9a"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-26T16:40:37Z",
+          "updatedAt": "2026-03-26T16:40:37Z",
+          "comments": [
+            {
+              "originalPosition": 59,
+              "body": "> But I agree that it's unlikely for this approach to actually be used (unless the Verifier is on the same machine and the latency is basically 0).\n\nI agree it\u2019s unlikely.  But, as a data point, this is what draft-ietf-acme-rats currently does.  (That said, it may change in the future.)",
+              "createdAt": "2026-03-26T16:40:37Z",
+              "updatedAt": "2026-03-26T16:40:37Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7vkfGt",
+          "commit": {
+            "abbreviatedOid": "97c7715"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-27T07:16:10Z",
+          "updatedAt": "2026-03-27T07:16:10Z",
+          "comments": [
+            {
+              "originalPosition": 59,
+              "body": "I suggest keeping it simple and aligned with RATS. The attestation results follow a passport model: they are obtained once and can be used across multiple TLS connections.",
+              "createdAt": "2026-03-27T07:16:10Z",
+              "updatedAt": "2026-03-27T07:16:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7vkhMf",
+          "commit": {
+            "abbreviatedOid": "97c7715"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-27T07:18:35Z",
+          "updatedAt": "2026-03-27T07:18:36Z",
+          "comments": [
+            {
+              "originalPosition": 115,
+              "body": "Let's delete this section. ",
+              "createdAt": "2026-03-27T07:18:35Z",
+              "updatedAt": "2026-03-27T07:18:36Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7vkkMs",
+          "commit": {
+            "abbreviatedOid": "2b2deff"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-27T07:21:35Z",
+          "updatedAt": "2026-03-27T07:21:36Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "It is different from https://github.com/tls-attestation/use-cases-and-properties/blob/properties-focus/draft-mihalcea-seat-use-cases.md#attestation-credential-binding-to-the-secure-channel. \r\n\r\nThe requirement will be to address the problem discussed in {{ID-Crisis}} and https://datatracker.ietf.org/doc/draft-reddy-rats-key-binding/ ",
+              "createdAt": "2026-03-27T07:21:35Z",
+              "updatedAt": "2026-03-27T07:21:36Z"
             }
           ]
         }
