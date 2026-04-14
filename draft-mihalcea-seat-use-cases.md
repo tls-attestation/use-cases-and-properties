@@ -84,7 +84,7 @@ properties the protocol solution must have, including cryptographic binding to
 the TLS connection, evidence freshness, and flexibility to support different
 attestation models. It then explores relevant use cases, such as confidential
 data collaboration and secure secrets provisioning, to motivate the
-need for this integration. From these use cases, it  This document is intended
+need for this integration.  This document is intended
 to serve as an input to the design
 of protocol solutions within the SEAT working group.
 
