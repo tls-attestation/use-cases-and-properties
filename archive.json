@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-03-31T02:50:43.325267+00:00",
+  "timestamp": "2026-04-14T03:19:28.695435+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -2832,7 +2832,7 @@
       "labels": [],
       "body": "Moving Integration Properties at the top.\r\nSeparating properties into generic and per-use-case. \r\nPolishing some of the properties to match our current understanding.\r\nReferencing required and generic properties for each use-case.",
       "createdAt": "2026-03-16T15:49:41Z",
-      "updatedAt": "2026-03-30T11:39:49Z",
+      "updatedAt": "2026-04-13T08:26:08Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "54a685fda22aaf6176dc6ce01509b5d2d9b64d26",
@@ -2864,6 +2864,13 @@
           "body": "> One simple comment: if we are reflowing the body, we should adjust the abstract to reflect this.\r\n\r\nGood point, I've updated the abstract too now!",
           "createdAt": "2026-03-16T17:32:31Z",
           "updatedAt": "2026-03-16T17:32:31Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Discussed in the meeting:\r\n\r\nRuntime attestation is clearly in all use cases. \r\nRevert it back to the older pattern, since not clarified why the two properties are use-cases dependent.\r\n\r\nCan do this in future if justified why these properties are use case dependent. ",
+          "createdAt": "2026-04-13T08:19:23Z",
+          "updatedAt": "2026-04-13T08:21:10Z"
         }
       ],
       "reviews": [
@@ -3500,8 +3507,134 @@
               "updatedAt": "2026-03-30T11:39:49Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM70NYa5",
+          "commit": {
+            "abbreviatedOid": "906b8d3"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-04-13T07:51:44Z",
+          "updatedAt": "2026-04-13T07:51:44Z",
+          "comments": [
+            {
+              "originalPosition": 32,
+              "body": "Attestation Results should be bound to the TLS connection as per SEAT charter:\r\n\r\n> The attested D(TLS) protocol extension will also describe a minimum\r\nsubset of properties that the attested state must convey in order\r\nto bind the Evidence and Attestation Results to the TLS connection.\r\n\r\nAttestation Results produced before TLS connection are not within the scope.",
+              "createdAt": "2026-04-13T07:51:44Z",
+              "updatedAt": "2026-04-13T07:51:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM70Njy3",
+          "commit": {
+            "abbreviatedOid": "97c7715"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-04-13T08:00:50Z",
+          "updatedAt": "2026-04-13T08:00:51Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "Discussed in meeting: \r\n\r\nReplaced this text with the older text in the published I-D.",
+              "createdAt": "2026-04-13T08:00:50Z",
+              "updatedAt": "2026-04-13T08:00:51Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM70NlXy",
+          "commit": {
+            "abbreviatedOid": "97c7715"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-04-13T08:02:05Z",
+          "updatedAt": "2026-04-13T08:02:05Z",
+          "comments": [
+            {
+              "originalPosition": 59,
+              "body": "Discussion in meeting:\r\n\r\nAttestation Results should be bound to the TLS connection as per SEAT charter:\r\n\r\n> The attested D(TLS) protocol extension will also describe a minimum\r\nsubset of properties that the attested state must convey in order\r\nto bind the Evidence and Attestation Results to the TLS connection.\r\n\r\nAttestation Results produced before TLS connection are not within the scope.",
+              "createdAt": "2026-04-13T08:02:05Z",
+              "updatedAt": "2026-04-13T08:02:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM70N8Cj",
+          "commit": {
+            "abbreviatedOid": "2b2deff"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-04-13T08:17:51Z",
+          "updatedAt": "2026-04-13T08:17:52Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "Discussed in meeting:\r\n1. Private key is stored in TEE and not in rich OS. \r\n2. Private key is non-exportable. \r\n",
+              "createdAt": "2026-04-13T08:17:51Z",
+              "updatedAt": "2026-04-13T08:17:52Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM70OG8i",
+          "commit": {
+            "abbreviatedOid": "a464b9a"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-04-13T08:26:08Z",
+          "updatedAt": "2026-04-13T08:26:08Z",
+          "comments": [
+            {
+              "originalPosition": 85,
+              "body": "Discussed in meeting: \r\n\r\ns/Connection/TLS connection",
+              "createdAt": "2026-04-13T08:26:08Z",
+              "updatedAt": "2026-04-13T08:26:08Z"
+            }
+          ]
         }
       ]
+    },
+    {
+      "number": 33,
+      "id": "PR_kwDOP_9tTM7R_8wF",
+      "title": "reorder props and use cases",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/33",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "- only reordering without any changes\r\n- further changes in upcoming PR",
+      "createdAt": "2026-04-13T13:53:16Z",
+      "updatedAt": "2026-04-13T13:53:17Z",
+      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRefName": "main",
+      "baseRefOid": "54a685fda22aaf6176dc6ce01509b5d2d9b64d26",
+      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRefName": "reorder",
+      "headRefOid": "4a870fe4183be9290e31622d75353f78f82ee799",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
