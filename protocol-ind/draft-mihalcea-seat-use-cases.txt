@@ -256,7 +256,7 @@ Table of Contents
 
    Runtime attestation closes this gap by enabling the Relying Party
    (RP) to request new attestation evidence once the secure connection
-   (e.g., the TLS connection) has been established, or periodically
+   (e.g., the (D)TLS connection) has been established, or periodically
    during long-lived connections if necessary.  This may be the case
    when the target environment has attributes that can change during the
    connection, affecting its trustworthiness.  Such changes cannot be
