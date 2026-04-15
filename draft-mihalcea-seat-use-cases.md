@@ -48,14 +48,14 @@ informative:
     RFC9334: rats-arch
     I-D.draft-ccc-wimse-twi-extensions: wimse-twi
     I-D.draft-ietf-rats-eat-measured-component: rats-measured
-    Meeting-122-TLS-Slides:
-     title: "Identity Crisis in Attested TLS for Confidential Computing"
-     date: 20 March 2025,
-     target: https://datatracker.ietf.org/meeting/122/materials/slides-122-tls-identity-crisis-00
-     author:
-     - ins: M. U. Sardar
-     - ins: M. Moustafa
-     - ins: T. Aura
+    ID-Crisis:
+      title: "Identity Crisis in Confidential Computing: Formal Analysis of Attested TLS"
+      date: November 2025,
+      target: https://www.researchgate.net/publication/398839141_Identity_Crisis_in_Confidential_Computing_Formal_Analysis_of_Attested_TLS
+      author:
+        - ins: M. U. Sardar
+        - ins: M. Moustafa
+        - ins: T. Aura
     AI-agents:
      title: "AI agents that matter"
      date: 1 July 2024,
@@ -79,12 +79,13 @@ peer authentication in TLS establishes trust in a peer's network identifiers but
 provides no assurance regarding the integrity of its underlying software and
 hardware stack. Remote attestation addresses this gap by enabling a peer to
 provide verifiable evidence about its current state, including the state of its
-trusted computing base (TCB). This document explores specific use cases, such as
-confidential data collaboration and secure secrets provisioning, to motivate the
-need for this integration. From these use cases, it specifies a set of essential
+trusted computing base (TCB). This document specifies a set of essential
 properties the protocol solution must have, including cryptographic binding to
 the TLS connection, evidence freshness, and flexibility to support different
-attestation models. This document is intended to serve as an input to the design
+attestation models. It then explores relevant use cases, such as confidential
+data collaboration and secure secrets provisioning, to motivate the
+need for this integration.  This document is intended
+to serve as an input to the design
 of protocol solutions within the SEAT working group.
 
 --- middle
@@ -172,7 +173,7 @@ use cases.
 
 ## Cryptographic Binding to Machine Identifier
 
-Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider to prevent diversion attacks {{Meeting-122-TLS-Slides}}.
+Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider to prevent diversion attacks {{ID-Crisis}}.
 
 ## Attestation Credential Freshness
 
