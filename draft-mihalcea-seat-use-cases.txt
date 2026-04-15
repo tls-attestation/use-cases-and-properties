@@ -5,7 +5,7 @@
 SEAT Working Group                                           I. Mihalcea
 Internet-Draft                                                       Arm
 Intended status: Informational                              M. U. Sardar
-Expires: 16 October 2026                                      TU Dresden
+Expires: 17 October 2026                                      TU Dresden
                                                               T. Fossati
                                                                   Linaro
                                                                 T. Reddy
@@ -14,7 +14,7 @@ Expires: 16 October 2026                                      TU Dresden
                                                                         
                                                                  M. Chen
                                                             China Mobile
-                                                           14 April 2026
+                                                           15 April 2026
 
 
 Use Cases and Properties for Integrating Remote Attestation with Secure
@@ -32,14 +32,14 @@ Abstract
    hardware stack.  Remote attestation addresses this gap by enabling a
    peer to provide verifiable evidence about its current state,
    including the state of its trusted computing base (TCB).  This
-   document explores specific use cases, such as confidential data
-   collaboration and secure secrets provisioning, to motivate the need
-   for this integration.  From these use cases, it specifies a set of
-   essential properties the protocol solution must have, including
-   cryptographic binding to the TLS connection, evidence freshness, and
-   flexibility to support different attestation models.  This document
-   is intended to serve as an input to the design of protocol solutions
-   within the SEAT working group.
+   document specifies a set of essential properties the protocol
+   solution must have, including cryptographic binding to the TLS
+   connection, evidence freshness, and flexibility to support different
+   attestation models.  It then explores relevant use cases, such as
+   confidential data collaboration and secure secrets provisioning, to
+   motivate the need for this integration.  This document is intended to
+   serve as an input to the design of protocol solutions within the SEAT
+   working group.
 
 Status of This Memo
 
@@ -56,7 +56,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 October 2026.
+   This Internet-Draft will expire on 17 October 2026.
 
 Copyright Notice
 
@@ -205,7 +205,7 @@ Table of Contents
 
    Evidence should be cryptographically bound to the identifier provided
    to the machine by the infrastructure provider to prevent diversion
-   attacks [Meeting-122-TLS-Slides].
+   attacks [ID-Crisis].
 
 3.3.  Attestation Credential Freshness
 
@@ -538,11 +538,11 @@ Table of Contents
               <https://datatracker.ietf.org/doc/html/draft-ietf-rats-
               eat-measured-component-12>.
 
-   [Meeting-122-TLS-Slides]
+   [ID-Crisis]
               Sardar, M. U., Moustafa, M., and T. Aura, "Identity Crisis
-              in Attested TLS for Confidential Computing", March 2025,
-              <https://datatracker.ietf.org/meeting/122/materials/
-              slides-122-tls-identity-crisis-00>.
+              in Confidential Computing: Formal Analysis of Attested
+              TLS", November 2025, <https://www.researchgate.net/
+              publication/398839141_Identity_Crisis_in_Confidential_Computing_Formal_Analysis_of_Attested_TLS>.
 
    [MigTD]    "Intel TDX Migration TD", n.d.,
               <https://github.com/intel/MigTD>.
