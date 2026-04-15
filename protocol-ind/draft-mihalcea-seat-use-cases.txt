@@ -195,10 +195,11 @@ Table of Contents
 3.1.  Cryptographic Binding to Communication Channel
 
    The attestation Evidence or Attestation Result is cryptographically
-   bound to the specific secure connection (e.g., the TLS connection).
-   This prevents replay and relay attacks where an attacker presents
-   valid, but old or unrelated Evidence from a different connection or
-   context.  This binding is paramount for all use cases.
+   bound to the specific secure connection (e.g., the (D)TLS
+   connection).  This prevents replay and relay attacks where an
+   attacker presents valid, but old or unrelated Evidence from a
+   different connection or context.  This binding is paramount for all
+   use cases.
 
 3.2.  Cryptographic Binding to Machine Identifier
 
