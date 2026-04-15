@@ -220,7 +220,7 @@ For example, the evidence may include dynamic parameters such as runtime configu
 
 ## Privacy Preservation
 
-The solution must not degrade the privacy of a standard secure connection (e.g., the TLS connection). Evidence
+The solution must not degrade the privacy of a standard secure connection (e.g., the (D)TLS connection). Evidence
 can contain highly specific, unique information about a device's hardware and
 software, which could be used as an advanced tracking mechanism, following a
 user across different connections and services. The design must consider how to
