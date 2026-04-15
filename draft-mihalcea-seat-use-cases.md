@@ -76,7 +76,7 @@ informative:
 
 This document outlines desirable properties and use cases for integrating remote
 attestation (RA) capabilities with secure channel establishment protocols, with
-an initial focus on Transport Layer Security (TLS) v1.3 Handshake {{I-D.ietf-tls-rfc8446bis}}. Traditional
+an initial focus on Transport Layer Security (TLS) 1.3 {{I-D.ietf-tls-rfc8446bis}} and its datagram-oriented variant, DTLS 1.3 {{I-D.ietf-tls-rfc9147bis}}. Traditional
 peer authentication in such protocols establishes trust in a peer's network identifiers but
 provides no assurance regarding the integrity of its underlying software and
 hardware stack. Remote attestation addresses this gap by enabling a peer to
