@@ -168,7 +168,7 @@ clear which of these properties are fulfilled, and how.
 ## Cryptographic Binding to Communication Channel
 
 The attestation Evidence or Attestation Result is cryptographically bound to the
-specific secure connection (e.g., the TLS connection). This prevents replay
+specific secure connection (e.g., the (D)TLS connection). This prevents replay
 and relay attacks where an attacker presents valid, but old or unrelated
 Evidence from a different connection or context. This binding is paramount for all
 use cases.
