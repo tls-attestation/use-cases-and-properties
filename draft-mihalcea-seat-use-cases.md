@@ -1,5 +1,5 @@
 ---
-title: "Use Cases and Properties for Integrating Remote Attestation with Secure Channel Protocols"
+title: "Properties and Use Cases for Integrating Remote Attestation with Secure Channel Protocols"
 abbrev: "SEAT Use Cases"
 category: info
 
@@ -69,19 +69,21 @@ informative:
     MigTD:
      title: Intel TDX Migration TD
      target: https://github.com/intel/MigTD
+    I-D.ietf-tls-rfc8446bis:
+    I-D.ietf-tls-rfc9147bis:
 
 --- abstract
 
-This document outlines use cases and desirable properties for integrating remote
+This document outlines desirable properties and use cases for integrating remote
 attestation (RA) capabilities with secure channel establishment protocols, with
-an initial focus on Transport Layer Security (TLS) v1.3 Handshake. Traditional
-peer authentication in TLS establishes trust in a peer's network identifiers but
+an initial focus on Transport Layer Security (TLS) 1.3 {{I-D.ietf-tls-rfc8446bis}} and its datagram-oriented variant, DTLS 1.3 {{I-D.ietf-tls-rfc9147bis}}. Traditional
+peer authentication in such protocols establishes trust in a peer's network identifiers but
 provides no assurance regarding the integrity of its underlying software and
 hardware stack. Remote attestation addresses this gap by enabling a peer to
 provide verifiable evidence about its current state, including the state of its
 trusted computing base (TCB). This document specifies a set of essential
 properties the protocol solution must have, including cryptographic binding to
-the TLS connection, evidence freshness, and flexibility to support different
+the secure connection, evidence freshness, and flexibility to support different
 attestation models. It then explores relevant use cases, such as confidential
 data collaboration and secure secrets provisioning, to motivate the
 need for this integration.  This document is intended
@@ -129,8 +131,8 @@ acceptable.
 
 The purpose of this document is to outline the key use cases that motivate the
 integration of RA with secure channel protocols and to establish a set of
-essential properties for such an integration. The initial focus is on TLS 1.3
-and its datagram-oriented variant, DTLS 1.3.
+essential properties for such an integration. The initial focus is on TLS 1.3  {{I-D.ietf-tls-rfc8446bis}}
+and its datagram-oriented variant, DTLS 1.3 {{I-D.ietf-tls-rfc9147bis}}.
 
 This document is intended as an input to the design of protocol solutions within
 the SEAT working group. It defines the "why" and the "what" (the requirements),
@@ -166,7 +168,7 @@ clear which of these properties are fulfilled, and how.
 ## Cryptographic Binding to Communication Channel
 
 The attestation Evidence or Attestation Result is cryptographically bound to the
-specific secure channel instance (e.g., the TLS connection). This prevents replay
+specific secure connection (e.g., the (D)TLS connection). This prevents replay
 and relay attacks where an attacker presents valid, but old or unrelated
 Evidence from a different connection or context. This binding is paramount for all
 use cases.
@@ -210,15 +212,15 @@ design, warranting additional security considerations.
 
 ## Runtime Attestation
 
-Evidence collected at certificate issuance or during the initial secure channel establishment reflects only the Target Environment’s state at that moment. It cannot guarantee that the Target Environment remains trustworthy for the lifetime of the certificate or even for the duration of the TLS session. As a result, such static evidence is insufficient in environments where the Target Environment may change state after the connection is established and the connection is long-lived.
+Evidence collected at certificate issuance or during the initial secure channel establishment reflects only the Target Environment’s state at that moment. It cannot guarantee that the Target Environment remains trustworthy for the lifetime of the certificate or even for the duration of the secure connection (e.g., the (D)TLS connection). As a result, such static evidence is insufficient in environments where the Target Environment may change state after the connection is established and the connection is long-lived.
 
-Runtime attestation closes this gap by enabling the Relying Party (RP) to request new attestation evidence once the TLS connection has been established, or periodically during long-lived connections if necessary.
+Runtime attestation closes this gap by enabling the Relying Party (RP) to request new attestation evidence once the secure connection (e.g., the (D)TLS connection) has been established, or periodically during long-lived connections if necessary.
 This may be the case when the target environment has attributes that can change during the connection, affecting its trustworthiness. Such changes cannot be detected using evidence collected earlier.
 For example, the evidence may include dynamic parameters such as runtime configuration flags (e.g., FIPS mode), where a device may enter or exit an approved mode, or measurements of critical system files.
 
 ## Privacy Preservation
 
-The solution must not degrade the privacy of a standard TLS connection. Evidence
+The solution must not degrade the privacy of a standard secure connection (e.g., the (D)TLS connection). Evidence
 can contain highly specific, unique information about a device's hardware and
 software, which could be used as an advanced tracking mechanism, following a
 user across different connections and services. The design must consider how to
