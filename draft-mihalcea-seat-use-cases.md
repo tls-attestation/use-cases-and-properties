@@ -46,6 +46,8 @@ normative:
 
 informative:
     RFC9334: rats-arch
+    RFC4949:
+    I-D.usama-seat-intra-vs-post:
     I-D.draft-ccc-wimse-twi-extensions: wimse-twi
     I-D.draft-ietf-rats-eat-measured-component: rats-measured
     ID-Crisis:
@@ -103,7 +105,7 @@ Certification Authority (CA) vouches for the binding between a public key and an
 identifier (e.g., a hostname).
 
 However, this model has a core limitation: identity authentication provides no
-assurance about the peer's internal state or the integrity of its software
+assurance about the peer's state or the integrity of its software
 stack. A compromised server, for instance, can still present a valid X.509
 certificate and be considered "trusted" by a client. This gap allows compromised
 endpoints to maintain network access and the trust of their peers, posing a
@@ -129,14 +131,19 @@ acceptable.
 
 ## Purpose and Scope
 
-The purpose of this document is to outline the key use cases that motivate the
-integration of RA with secure channel protocols and to establish a set of
-essential properties for such an integration. The initial focus is on TLS 1.3  {{I-D.ietf-tls-rfc8446bis}}
+The purpose of this document is to establish a set of essential properties
+for integration of RA with secure channel protocols and to outline the key use
+cases that can benefit from such an integration. Most use cases are provided by
+industry folks who would like to deploy it in practice. The initial focus is on
+TLS 1.3  {{I-D.ietf-tls-rfc8446bis}}
 and its datagram-oriented variant, DTLS 1.3 {{I-D.ietf-tls-rfc9147bis}}.
 
 This document is intended as an input to the design of protocol solutions within
 the SEAT working group. It defines the "why" and the "what" (the requirements),
-but not the "how" (the protocol specification itself). A key goal is to define
+but not the "how" (the protocol design itself). The "how" part is discussed
+in the companion document {{I-D.usama-seat-intra-vs-post}}, which serves as the
+glue between this document and the protocol specifications. A key goal of this
+document is to define
 requirements for a solution that is agnostic to any specific attestation
 technology (e.g., Trusted Platform Modules (TPMs), Intel TDX, AMD SEV, Arm CCA).
 
@@ -148,8 +155,8 @@ Results".
 
 This document also uses the following terms:
 
-* Trusted Computing Base (TCB) of a device: all security-relevant components:
-  hardware, firmware, software, and their respective configurations.
+* Trusted Computing Base (TCB) of a device: see {{RFC4949}}. Note that for this
+draft, it includes respective configurations of hardware, firmware, and software.
 * Confidential Workload: as defined in {{-wimse-twi}}.
 * Measurements: as defined in {{-rats-measured}}.
 * AI agent: An AI agent is a software principal (typically long-running) that performs
