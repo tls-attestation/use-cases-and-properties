@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>Use Cases and Properties for Integrating Remote Attestation with Secure Channel Protocols</title>
+<title>Properties and Use Cases for Integrating Remote Attestation with Secure Channel Protocols</title>
 <meta content="Ionuț Mihalcea" name="author">
 <meta content="Muhammad Usama Sardar" name="author">
 <meta content="Thomas Fossati" name="author">
@@ -12,16 +12,16 @@
 <meta content="Yuning Jiang" name="author">
 <meta content="Meiling Chen" name="author">
 <meta content="
-       This document outlines use cases and desirable properties for integrating remote
+       This document outlines desirable properties and use cases for integrating remote
 attestation (RA) capabilities with secure channel establishment protocols, with
-an initial focus on Transport Layer Security (TLS) v1.3 Handshake. Traditional
-peer authentication in TLS establishes trust in a peer's network identifiers but
+an initial focus on Transport Layer Security (TLS) 1.3   and its datagram-oriented variant, DTLS 1.3  . Traditional
+peer authentication in such protocols establishes trust in a peer's network identifiers but
 provides no assurance regarding the integrity of its underlying software and
 hardware stack. Remote attestation addresses this gap by enabling a peer to
 provide verifiable evidence about its current state, including the state of its
 trusted computing base (TCB). This document specifies a set of essential
 properties the protocol solution must have, including cryptographic binding to
-the TLS connection, evidence freshness, and flexibility to support different
+the secure connection, evidence freshness, and flexibility to support different
 attestation models. It then explores relevant use cases, such as confidential
 data collaboration and secure secrets provisioning, to motivate the
 need for this integration.  This document is intended
@@ -1072,7 +1072,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mihalcea, et al.</td>
-<td class="center">Expires 17 October 2026</td>
+<td class="center">Expires 18 October 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1085,12 +1085,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-mihalcea-seat-use-cases-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-04-15" class="published">15 April 2026</time>
+<time datetime="2026-04-16" class="published">16 April 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-10-17">17 October 2026</time></dd>
+<dd class="expires"><time datetime="2026-10-18">18 October 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1119,19 +1119,19 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </dd>
 </dl>
 </div>
-<h1 id="title">Use Cases and Properties for Integrating Remote Attestation with Secure Channel Protocols</h1>
+<h1 id="title">Properties and Use Cases for Integrating Remote Attestation with Secure Channel Protocols</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This document outlines use cases and desirable properties for integrating remote
+<p id="section-abstract-1">This document outlines desirable properties and use cases for integrating remote
 attestation (RA) capabilities with secure channel establishment protocols, with
-an initial focus on Transport Layer Security (TLS) v1.3 Handshake. Traditional
-peer authentication in TLS establishes trust in a peer's network identifiers but
+an initial focus on Transport Layer Security (TLS) 1.3 <span>[<a href="#I-D.ietf-tls-rfc8446bis" class="cite xref">I-D.ietf-tls-rfc8446bis</a>]</span> and its datagram-oriented variant, DTLS 1.3 <span>[<a href="#I-D.ietf-tls-rfc9147bis" class="cite xref">I-D.ietf-tls-rfc9147bis</a>]</span>. Traditional
+peer authentication in such protocols establishes trust in a peer's network identifiers but
 provides no assurance regarding the integrity of its underlying software and
 hardware stack. Remote attestation addresses this gap by enabling a peer to
 provide verifiable evidence about its current state, including the state of its
 trusted computing base (TCB). This document specifies a set of essential
 properties the protocol solution must have, including cryptographic binding to
-the TLS connection, evidence freshness, and flexibility to support different
+the secure connection, evidence freshness, and flexibility to support different
 attestation models. It then explores relevant use cases, such as confidential
 data collaboration and secure secrets provisioning, to motivate the
 need for this integration.  This document is intended
@@ -1157,7 +1157,7 @@ of protocol solutions within the SEAT working group.<a href="#section-abstract-1
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 17 October 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 18 October 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1336,8 +1336,8 @@ acceptable.<a href="#section-1.2-2" class="pilcrow">¶</a></p>
         </h3>
 <p id="section-1.3-1">The purpose of this document is to outline the key use cases that motivate the
 integration of RA with secure channel protocols and to establish a set of
-essential properties for such an integration. The initial focus is on TLS 1.3
-and its datagram-oriented variant, DTLS 1.3.<a href="#section-1.3-1" class="pilcrow">¶</a></p>
+essential properties for such an integration. The initial focus is on TLS 1.3  <span>[<a href="#I-D.ietf-tls-rfc8446bis" class="cite xref">I-D.ietf-tls-rfc8446bis</a>]</span>
+and its datagram-oriented variant, DTLS 1.3 <span>[<a href="#I-D.ietf-tls-rfc9147bis" class="cite xref">I-D.ietf-tls-rfc9147bis</a>]</span>.<a href="#section-1.3-1" class="pilcrow">¶</a></p>
 <p id="section-1.3-2">This document is intended as an input to the design of protocol solutions within
 the SEAT working group. It defines the "why" and the "what" (the requirements),
 but not the "how" (the protocol specification itself). A key goal is to define
@@ -1392,7 +1392,7 @@ clear which of these properties are fulfilled, and how.<a href="#section-3-1" cl
 <a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-cryptographic-binding-to-co" class="section-name selfRef">Cryptographic Binding to Communication Channel</a>
         </h3>
 <p id="section-3.1-1">The attestation Evidence or Attestation Result is cryptographically bound to the
-specific secure channel instance (e.g., the TLS connection). This prevents replay
+specific secure connection (e.g., the (D)TLS connection). This prevents replay
 and relay attacks where an attacker presents valid, but old or unrelated
 Evidence from a different connection or context. This binding is paramount for all
 use cases.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
@@ -1460,8 +1460,8 @@ design, warranting additional security considerations.<a href="#section-3.6-1" c
         <h3 id="name-runtime-attestation">
 <a href="#section-3.7" class="section-number selfRef">3.7. </a><a href="#name-runtime-attestation" class="section-name selfRef">Runtime Attestation</a>
         </h3>
-<p id="section-3.7-1">Evidence collected at certificate issuance or during the initial secure channel establishment reflects only the Target Environment’s state at that moment. It cannot guarantee that the Target Environment remains trustworthy for the lifetime of the certificate or even for the duration of the TLS session. As a result, such static evidence is insufficient in environments where the Target Environment may change state after the connection is established and the connection is long-lived.<a href="#section-3.7-1" class="pilcrow">¶</a></p>
-<p id="section-3.7-2">Runtime attestation closes this gap by enabling the Relying Party (RP) to request new attestation evidence once the TLS connection has been established, or periodically during long-lived connections if necessary.
+<p id="section-3.7-1">Evidence collected at certificate issuance or during the initial secure channel establishment reflects only the Target Environment’s state at that moment. It cannot guarantee that the Target Environment remains trustworthy for the lifetime of the certificate or even for the duration of the secure connection (e.g., the (D)TLS connection). As a result, such static evidence is insufficient in environments where the Target Environment may change state after the connection is established and the connection is long-lived.<a href="#section-3.7-1" class="pilcrow">¶</a></p>
+<p id="section-3.7-2">Runtime attestation closes this gap by enabling the Relying Party (RP) to request new attestation evidence once the secure connection (e.g., the (D)TLS connection) has been established, or periodically during long-lived connections if necessary.
 This may be the case when the target environment has attributes that can change during the connection, affecting its trustworthiness. Such changes cannot be detected using evidence collected earlier.
 For example, the evidence may include dynamic parameters such as runtime configuration flags (e.g., FIPS mode), where a device may enter or exit an approved mode, or measurements of critical system files.<a href="#section-3.7-2" class="pilcrow">¶</a></p>
 </section>
@@ -1471,7 +1471,7 @@ For example, the evidence may include dynamic parameters such as runtime configu
         <h3 id="name-privacy-preservation">
 <a href="#section-3.8" class="section-number selfRef">3.8. </a><a href="#name-privacy-preservation" class="section-name selfRef">Privacy Preservation</a>
         </h3>
-<p id="section-3.8-1">The solution must not degrade the privacy of a standard TLS connection. Evidence
+<p id="section-3.8-1">The solution must not degrade the privacy of a standard secure connection (e.g., the (D)TLS connection). Evidence
 can contain highly specific, unique information about a device's hardware and
 software, which could be used as an advanced tracking mechanism, following a
 user across different connections and services. The design must consider how to
@@ -1785,6 +1785,14 @@ measurements, software versions, and security configurations are acceptable.<a h
 <dt id="I-D.draft-ietf-rats-eat-measured-component">[I-D.draft-ietf-rats-eat-measured-component]</dt>
         <dd>
 <span class="refAuthor">Frost, S.</span>, <span class="refAuthor">Fossati, T.</span>, <span class="refAuthor">Tschofenig, H.</span>, and <span class="refAuthor">H. Birkholz</span>, <span class="refTitle">"Entity Attestation Token (EAT) Measured Component"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-rats-eat-measured-component-12</span>, <time datetime="2026-02-20" class="refDate">20 February 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-eat-measured-component-12">https://datatracker.ietf.org/doc/html/draft-ietf-rats-eat-measured-component-12</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-tls-rfc8446bis">[I-D.ietf-tls-rfc8446bis]</dt>
+        <dd>
+<span class="refAuthor">Rescorla, E.</span>, <span class="refTitle">"The Transport Layer Security (TLS) Protocol Version 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-rfc8446bis-14</span>, <time datetime="2025-09-13" class="refDate">13 September 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-14">https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-14</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-tls-rfc9147bis">[I-D.ietf-tls-rfc9147bis]</dt>
+        <dd>
+<span class="refAuthor">Rescorla, E.</span>, <span class="refAuthor">Tschofenig, H.</span>, and <span class="refAuthor">N. Modadugu</span>, <span class="refTitle">"The Datagram Transport Layer Security (DTLS) Protocol Version 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-rfc9147bis-01</span>, <time datetime="2025-10-20" class="refDate">20 October 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc9147bis-01">https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc9147bis-01</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="ID-Crisis">[ID-Crisis]</dt>
         <dd>
