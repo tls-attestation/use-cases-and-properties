@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-04-14T03:19:28.695435+00:00",
+  "timestamp": "2026-04-16T03:25:51.515946+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -770,6 +770,22 @@
       "body": "Proposal for identity crisis text:\nhttps://github.com/tls-attestation/use-cases-and-properties/pull/30#discussion_r2992863390\n\n\nLocation of machine? Geo-fencing (RATS vs. SEAT).\nhttps://github.com/tls-attestation/use-cases-and-properties/pull/30#discussion_r2946694418\n\n",
       "createdAt": "2026-03-30T11:33:31Z",
       "updatedAt": "2026-03-30T11:33:31Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 36,
+      "id": "I_kwDOP_9tTM7-oAiJ",
+      "title": "Yaron's feedback",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/36",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "> \n> At Tiru\u2019s request, I reread version -01 of the draft, below are my comments.\n> \n> In general I\u2019m not very happy with the draft but I\u2019m also not sure it matters, because as far as I know we are not planning to publish it as an RFC. Chairs, please correct me if I'm wrong.\n> \n> The document is still made of two almost disconnected parts: use cases and requirements. But it\u2019s totally unclear to me how to obtain specific protocol-level requirements from any of the use cases. So as it is, the document is IMHO not very helpful in building the protocol(s) that address the SEAT charter.\n> \n> Detailed comments:\n> \n> Secure Channel Protocols\n> I'm not sure why the title and abstract discuss generic \"secure channel protocols\", I believe SEAT is only chartered for TLS. (Yes, the charter text is initially not terribly clear on this but the scoping is all about TLS.)\n> \n> Internal State\n> \u201cIdentity authentication provides no assurance about the peer's internal state or the integrity of its software stack.\" - I don't think attestation typically provides strong assurance about a peer's internal state, e.g. its volatile memory. It does provide information about some of the state (the less volatile parts) at a certain point in time.\n> \n> Trusted Computing Base\n> This is a very old, well defined term, so let's use an existing definition instead of making our own. RFC 4949: The totality of protection mechanisms within a computer system, including hardware, firmware, and software, the combination of which is responsible for enforcing a security policy.\n> \n> The Use Cases Do Not Determine the Solution\n> Most of the use cases are totally valid, but I don't think any of them mandates an attested TLS solution. I believe each of them can easily be implemented at the application level, given enough expertise.\n> The motivation for attested TLS is to make it easier/cheaper to implement these use cases and similar ones even if you don't have the expertise. IMO this is a very good reason, but it's still a jump from the use cases to the proposed solution.\n> With that in mind, I don't think the use cases directly lead to the \"integration properties\".\n> \n> Cryptographic Binding to Machine Identifier\n> This may be a valid requirement for some use cases, but not in general. The current text is \"Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider\". This assumes there is a separate infrastructure provider, which may not be the case. And if one exists (cloud environments), applications typically do not have access to (i.e., cannot validate) machine identities. Moreover, applications usually only care about the attested software stack and not the physical identity of a machine. So I\u2019m sure there are some cases where this makes sense, but I think most deployments will not need it.\n> \n> Thanks,\n> \u2002\u2002\u2002\u2002\u2002\u2002Yaron\n> ",
+      "createdAt": "2026-04-15T21:46:56Z",
+      "updatedAt": "2026-04-15T21:46:56Z",
       "closedAt": null,
       "comments": []
     }
@@ -3615,26 +3631,198 @@
       "id": "PR_kwDOP_9tTM7R_8wF",
       "title": "reorder props and use cases",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/33",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "- only reordering without any changes\r\n- further changes in upcoming PR",
       "createdAt": "2026-04-13T13:53:16Z",
-      "updatedAt": "2026-04-13T13:53:17Z",
+      "updatedAt": "2026-04-14T04:56:28Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "54a685fda22aaf6176dc6ce01509b5d2d9b64d26",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "reorder",
       "headRefOid": "4a870fe4183be9290e31622d75353f78f82ee799",
+      "closedAt": "2026-04-14T04:56:28Z",
+      "mergedAt": "2026-04-14T04:56:28Z",
+      "mergedBy": "tireddy2",
+      "mergeCommit": {
+        "oid": "506a28302530e28dcd06949271dc06f0374d78d9"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM70lWNC",
+          "commit": {
+            "abbreviatedOid": "4a870fe"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-04-14T04:56:21Z",
+          "updatedAt": "2026-04-14T04:56:21Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 34,
+      "id": "PR_kwDOP_9tTM7SU2Cq",
+      "title": "Update abstract for reordering and add ID-Crisis ref",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/34",
+      "state": "MERGED",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "- update abstract for reordering \r\n- replace TLS slides by ID-Crisis ref",
+      "createdAt": "2026-04-14T13:47:33Z",
+      "updatedAt": "2026-04-15T07:40:01Z",
+      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRefName": "main",
+      "baseRefOid": "506a28302530e28dcd06949271dc06f0374d78d9",
+      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRefName": "text-for-reordering",
+      "headRefOid": "fdb1a12132e23a2ce74457e4ffd3e41401c502a1",
+      "closedAt": "2026-04-15T07:40:01Z",
+      "mergedAt": "2026-04-15T07:40:01Z",
+      "mergedBy": "tireddy2",
+      "mergeCommit": {
+        "oid": "339c6ea9ce1f03d0c76bfbc264462a8d017f179e"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM70xAIr",
+          "commit": {
+            "abbreviatedOid": "09b4729"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-04-14T13:57:50Z",
+          "updatedAt": "2026-04-14T13:58:01Z",
+          "comments": [
+            {
+              "originalPosition": 36,
+              "body": "```suggestion\nneed for this integration.  This document is intended\n```",
+              "createdAt": "2026-04-14T13:57:50Z",
+              "updatedAt": "2026-04-14T13:58:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM71Ew48",
+          "commit": {
+            "abbreviatedOid": "fdb1a12"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-04-15T07:39:42Z",
+          "updatedAt": "2026-04-15T07:39:42Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 35,
+      "id": "PR_kwDOP_9tTM7SjzDG",
+      "title": "Properties independent of TLS",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/35",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "muhammad-usama-sardar"
+      ],
+      "labels": [],
+      "body": "- Properties independent of TLS\r\n- (D)TLS 1.3 as examples\r\n- Added refs for (D)TLS 1.3",
+      "createdAt": "2026-04-15T08:05:40Z",
+      "updatedAt": "2026-04-15T09:45:54Z",
+      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRefName": "main",
+      "baseRefOid": "339c6ea9ce1f03d0c76bfbc264462a8d017f179e",
+      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRefName": "protocol-ind",
+      "headRefOid": "e262c820bcfa34960c2a6aff44dbe7c938bd90a9",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "CC @burgerdev who requested it a while ago",
+          "createdAt": "2026-04-15T08:19:33Z",
+          "updatedAt": "2026-04-15T08:19:33Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM71Gwjm",
+          "commit": {
+            "abbreviatedOid": "7ac7a7f"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-04-15T08:58:03Z",
+          "updatedAt": "2026-04-15T08:59:29Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "add DTLS as well. ",
+              "createdAt": "2026-04-15T08:58:03Z",
+              "updatedAt": "2026-04-15T08:59:29Z"
+            },
+            {
+              "originalPosition": 49,
+              "body": "```suggestion\nspecific secure connection (e.g., the (D)TLS connection). This prevents replay\n```",
+              "createdAt": "2026-04-15T08:58:38Z",
+              "updatedAt": "2026-04-15T08:59:29Z"
+            },
+            {
+              "originalPosition": 58,
+              "body": "```suggestion\nEvidence collected at certificate issuance or during the initial secure channel establishment reflects only the Target Environment\u2019s state at that moment. It cannot guarantee that the Target Environment remains trustworthy for the lifetime of the certificate or even for the duration of the secure connection (e.g., the (D)TLS connection). As a result, such static evidence is insufficient in environments where the Target Environment may change state after the connection is established and the connection is long-lived.\n```",
+              "createdAt": "2026-04-15T08:58:54Z",
+              "updatedAt": "2026-04-15T08:59:29Z"
+            },
+            {
+              "originalPosition": 61,
+              "body": "```suggestion\nRuntime attestation closes this gap by enabling the Relying Party (RP) to request new attestation evidence once the secure connection (e.g., the (D)TLS connection) has been established, or periodically during long-lived connections if necessary.\n```",
+              "createdAt": "2026-04-15T08:59:06Z",
+              "updatedAt": "2026-04-15T08:59:29Z"
+            },
+            {
+              "originalPosition": 68,
+              "body": "```suggestion\nThe solution must not degrade the privacy of a standard secure connection (e.g., the (D)TLS connection). Evidence\n```",
+              "createdAt": "2026-04-15T08:59:17Z",
+              "updatedAt": "2026-04-15T08:59:29Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM71H-CY",
+          "commit": {
+            "abbreviatedOid": "e262c82"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-04-15T09:45:54Z",
+          "updatedAt": "2026-04-15T09:45:54Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
