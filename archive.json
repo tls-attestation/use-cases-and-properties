@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-04-16T03:25:51.515946+00:00",
+  "timestamp": "2026-04-19T03:27:36.703507+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -781,11 +781,37 @@
       "state": "OPEN",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "muhammad-usama-sardar"
+      ],
+      "labels": [],
+      "body": "[Archive link](https://mailarchive.ietf.org/arch/msg/seat/dcBddogh7LeoCLM0VFX9uZqLLhQ/)\n\n> \n> At Tiru\u2019s request, I reread version -01 of the draft, below are my comments.\n> \n> In general I\u2019m not very happy with the draft but I\u2019m also not sure it matters, because as far as I know we are not planning to publish it as an RFC. Chairs, please correct me if I'm wrong.\n> \n> The document is still made of two almost disconnected parts: use cases and requirements. But it\u2019s totally unclear to me how to obtain specific protocol-level requirements from any of the use cases. So as it is, the document is IMHO not very helpful in building the protocol(s) that address the SEAT charter.\n> \n> Detailed comments:\n> \n> Secure Channel Protocols\n> I'm not sure why the title and abstract discuss generic \"secure channel protocols\", I believe SEAT is only chartered for TLS. (Yes, the charter text is initially not terribly clear on this but the scoping is all about TLS.)\n> \n> Internal State\n> \u201cIdentity authentication provides no assurance about the peer's internal state or the integrity of its software stack.\" - I don't think attestation typically provides strong assurance about a peer's internal state, e.g. its volatile memory. It does provide information about some of the state (the less volatile parts) at a certain point in time.\n> \n> Trusted Computing Base\n> This is a very old, well defined term, so let's use an existing definition instead of making our own. RFC 4949: The totality of protection mechanisms within a computer system, including hardware, firmware, and software, the combination of which is responsible for enforcing a security policy.\n> \n> The Use Cases Do Not Determine the Solution\n> Most of the use cases are totally valid, but I don't think any of them mandates an attested TLS solution. I believe each of them can easily be implemented at the application level, given enough expertise.\n> The motivation for attested TLS is to make it easier/cheaper to implement these use cases and similar ones even if you don't have the expertise. IMO this is a very good reason, but it's still a jump from the use cases to the proposed solution.\n> With that in mind, I don't think the use cases directly lead to the \"integration properties\".\n> \n> Cryptographic Binding to Machine Identifier\n> This may be a valid requirement for some use cases, but not in general. The current text is \"Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider\". This assumes there is a separate infrastructure provider, which may not be the case. And if one exists (cloud environments), applications typically do not have access to (i.e., cannot validate) machine identities. Moreover, applications usually only care about the attested software stack and not the physical identity of a machine. So I\u2019m sure there are some cases where this makes sense, but I think most deployments will not need it.\n> \n> Thanks,\n> \u2002\u2002\u2002\u2002\u2002\u2002Yaron\n> ",
+      "createdAt": "2026-04-15T21:46:56Z",
+      "updatedAt": "2026-04-16T19:59:43Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Response https://mailarchive.ietf.org/arch/msg/seat/OB6ERG-aiY1xpxJEVY7xmVu2v_U/",
+          "createdAt": "2026-04-16T19:59:43Z",
+          "updatedAt": "2026-04-16T19:59:43Z"
+        }
+      ]
+    },
+    {
+      "number": 38,
+      "id": "I_kwDOP_9tTM7_kI4i",
+      "title": "Add Meiling Chen in tls-attestation organization",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/38",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
-      "body": "> \n> At Tiru\u2019s request, I reread version -01 of the draft, below are my comments.\n> \n> In general I\u2019m not very happy with the draft but I\u2019m also not sure it matters, because as far as I know we are not planning to publish it as an RFC. Chairs, please correct me if I'm wrong.\n> \n> The document is still made of two almost disconnected parts: use cases and requirements. But it\u2019s totally unclear to me how to obtain specific protocol-level requirements from any of the use cases. So as it is, the document is IMHO not very helpful in building the protocol(s) that address the SEAT charter.\n> \n> Detailed comments:\n> \n> Secure Channel Protocols\n> I'm not sure why the title and abstract discuss generic \"secure channel protocols\", I believe SEAT is only chartered for TLS. (Yes, the charter text is initially not terribly clear on this but the scoping is all about TLS.)\n> \n> Internal State\n> \u201cIdentity authentication provides no assurance about the peer's internal state or the integrity of its software stack.\" - I don't think attestation typically provides strong assurance about a peer's internal state, e.g. its volatile memory. It does provide information about some of the state (the less volatile parts) at a certain point in time.\n> \n> Trusted Computing Base\n> This is a very old, well defined term, so let's use an existing definition instead of making our own. RFC 4949: The totality of protection mechanisms within a computer system, including hardware, firmware, and software, the combination of which is responsible for enforcing a security policy.\n> \n> The Use Cases Do Not Determine the Solution\n> Most of the use cases are totally valid, but I don't think any of them mandates an attested TLS solution. I believe each of them can easily be implemented at the application level, given enough expertise.\n> The motivation for attested TLS is to make it easier/cheaper to implement these use cases and similar ones even if you don't have the expertise. IMO this is a very good reason, but it's still a jump from the use cases to the proposed solution.\n> With that in mind, I don't think the use cases directly lead to the \"integration properties\".\n> \n> Cryptographic Binding to Machine Identifier\n> This may be a valid requirement for some use cases, but not in general. The current text is \"Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider\". This assumes there is a separate infrastructure provider, which may not be the case. And if one exists (cloud environments), applications typically do not have access to (i.e., cannot validate) machine identities. Moreover, applications usually only care about the attested software stack and not the physical identity of a machine. So I\u2019m sure there are some cases where this makes sense, but I think most deployments will not need it.\n> \n> Thanks,\n> \u2002\u2002\u2002\u2002\u2002\u2002Yaron\n> ",
-      "createdAt": "2026-04-15T21:46:56Z",
-      "updatedAt": "2026-04-15T21:46:56Z",
+      "body": "Who is the owner of this organization?\nPlease add @Maisy-ML, who is a co-author of the use cases doc.",
+      "createdAt": "2026-04-18T10:32:30Z",
+      "updatedAt": "2026-04-18T10:32:50Z",
       "closedAt": null,
       "comments": []
     }
@@ -3735,7 +3761,7 @@
       "id": "PR_kwDOP_9tTM7SjzDG",
       "title": "Properties independent of TLS",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/35",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -3744,17 +3770,19 @@
       "labels": [],
       "body": "- Properties independent of TLS\r\n- (D)TLS 1.3 as examples\r\n- Added refs for (D)TLS 1.3",
       "createdAt": "2026-04-15T08:05:40Z",
-      "updatedAt": "2026-04-15T09:45:54Z",
+      "updatedAt": "2026-04-16T05:43:19Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "339c6ea9ce1f03d0c76bfbc264462a8d017f179e",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "protocol-ind",
       "headRefOid": "e262c820bcfa34960c2a6aff44dbe7c938bd90a9",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2026-04-16T05:43:19Z",
+      "mergedAt": "2026-04-16T05:43:19Z",
+      "mergedBy": "tireddy2",
+      "mergeCommit": {
+        "oid": "3447396222b321101aa38938f53ce5b9aaa9823b"
+      },
       "comments": [
         {
           "author": "muhammad-usama-sardar",
@@ -3820,6 +3848,54 @@
           "body": "",
           "createdAt": "2026-04-15T09:45:54Z",
           "updatedAt": "2026-04-15T09:45:54Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 37,
+      "id": "PR_kwDOP_9tTM7TF0VZ",
+      "title": "Addresses #36 (Yaron's feedback)",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/37",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Addresses @yaronf's comments in #36 ",
+      "createdAt": "2026-04-16T20:01:13Z",
+      "updatedAt": "2026-04-18T07:54:52Z",
+      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRefName": "main",
+      "baseRefOid": "3447396222b321101aa38938f53ce5b9aaa9823b",
+      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRefName": "yaron-comments",
+      "headRefOid": "692ff73b3c0ebebc1af8a0cf6e537e051fa86024",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I'm OK with these changes. However I still disagree with requirement https://github.com/tls-attestation/use-cases-and-properties/pull/2.\r\n\r\n@tireddy2 @ionut-arm @thomas-fossati @Yuning-J Since @yaronf is ok with the changes, I propose to merge this PR and then discuss #2 separately in a new issue. This will help us proceed with other work while he frames his concern on #2 in more convincing way.",
+          "createdAt": "2026-04-18T07:54:52Z",
+          "updatedAt": "2026-04-18T07:54:52Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM72A4rg",
+          "commit": {
+            "abbreviatedOid": "692ff73"
+          },
+          "author": "yaronf",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "I'm OK with these changes. However I still disagree with requirement #2.",
+          "createdAt": "2026-04-17T09:03:36Z",
+          "updatedAt": "2026-04-17T09:03:36Z",
           "comments": []
         }
       ]
