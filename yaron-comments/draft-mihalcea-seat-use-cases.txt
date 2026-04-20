@@ -5,7 +5,7 @@
 SEAT Working Group                                           I. Mihalcea
 Internet-Draft                                                       Arm
 Intended status: Informational                              M. U. Sardar
-Expires: 18 October 2026                                      TU Dresden
+Expires: 22 October 2026                                      TU Dresden
                                                               T. Fossati
                                                                   Linaro
                                                                 T. Reddy
@@ -14,7 +14,7 @@ Expires: 18 October 2026                                      TU Dresden
                                                                         
                                                                  M. Chen
                                                             China Mobile
-                                                           16 April 2026
+                                                           20 April 2026
 
 
 Properties and Use Cases for Integrating Remote Attestation with Secure
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 October 2026.
+   This Internet-Draft will expire on 22 October 2026.
 
 Copyright Notice
 
@@ -150,8 +150,9 @@ Table of Contents
    The purpose of this document is to establish a set of essential
    properties for integration of RA with secure channel protocols and to
    outline the key use cases that can benefit from such an integration.
-   Most use cases are provided by industry folks who would like to
-   deploy it in practice.  The initial focus is on TLS 1.3
+   Most of the use cases presented in this document are provided by
+   industry contributors in the SEAT WG, who have plans to deploy this
+   technology.  The initial focus is on TLS 1.3
    [I-D.ietf-tls-rfc8446bis] and its datagram-oriented variant, DTLS 1.3
    [I-D.ietf-tls-rfc9147bis].
 
