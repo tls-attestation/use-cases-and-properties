@@ -133,8 +133,7 @@ acceptable.
 
 The purpose of this document is to establish a set of essential properties
 for integration of RA with secure channel protocols and to outline the key use
-cases that can benefit from such an integration. Most use cases are provided by
-industry folks who would like to deploy it in practice. The initial focus is on
+cases that can benefit from such an integration. Most of the use cases presented in this document are provided by industry contributors in the SEAT WG, who have plans to deploy this technology. The initial focus is on
 TLS 1.3  {{I-D.ietf-tls-rfc8446bis}}
 and its datagram-oriented variant, DTLS 1.3 {{I-D.ietf-tls-rfc9147bis}}.
 
