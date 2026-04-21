@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-04-19T03:27:36.703507+00:00",
+  "timestamp": "2026-04-21T03:21:13.130265+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -538,14 +538,14 @@
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
-        "muhammad-usama-sardar"
+        "tireddy2"
       ],
       "labels": [
         "Interim"
       ],
       "body": "[Archive link](https://mailarchive.ietf.org/arch/msg/seat/ophFdwJDybMMU4bWTBSmogkp6Bs/)\n\n> A standard webpki using a cert with two subjectAltname's, one for the PKI\n> (eg [www.example.com](http://www.example.com/)) and one for binding the TEE (eg\n> [tee-1234.www.example.com](http://tee-1234.www.example.com/)) along with a tee PKI that has a cert with\n> subjectAltname [tee-1234.www.example.com](http://tee-1234.www.example.com/))\n> \n> The tee PKI signs the attestation report. Both PKIs together give channel\n> binding and a binding between target domain name and server/tee instance.\n> The attestation report contains the TLS nonces for channel binding. The\n> subjectAltname also provides channel binding to the specific instance of\n> the tee, preventing a compromised server from using a modified tee, while\n> forwarding the request to a server/tee next to serving the same domain\n> using that tee which is left uncompromised.\n> \n> I'm sure there are other and hopefully even better ways to acomplish this.\n> It is just one example. Instead of jumping to post-handshake solutions that\n> have a clear disadvantage, the WG should really exhaust intra-handshake\n> options.",
       "createdAt": "2025-11-26T15:30:14Z",
-      "updatedAt": "2025-12-15T09:05:34Z",
+      "updatedAt": "2026-04-20T08:30:47Z",
       "closedAt": null,
       "comments": [
         {
@@ -623,13 +623,15 @@
       "state": "OPEN",
       "author": "Yuning-J",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "Yuning-J"
+      ],
       "labels": [
         "Interim"
       ],
       "body": "Hi team,\n\nI performed an analysis mapping the attester role(s) and VRP for each use case. This is based on the draft's descriptions, inferred TLS client/server roles (e.g., who initiates connections and needs proof), and RATS terminology (RFC 9334).\n\nI'd love feedback from the authors on whether this mapping aligns with your intent, or if clarifications/additions to the draft would help (e.g., adding explicit roles).\n\n3.1 Secure Provisioning and High-Assurance Operations \n\n3.1.1.Use case: Runtime Secret Provisioning. --> Require: Client as attester.\nReasoning: A confidential workload (TLS client) must prove its runtime state and TEE trustworthiness to a secrets management service (TLS server) before receiving sensitive secrets.\n\n3.1.2.Use case: High-Assurance Command Execution --> Require: Server as attester.\nReasoning: An operator (TLS client) issues critical commands to a remote system (TLS server), but only after the system proves its integrity to avoid execution on a compromised device.\n\n3.2 Confidential Data Collaboration\n\n3.2.1.Use case: Data Clean Rooms. --> Require: Both (mutual attestation). **Could clarify if mutual is always required?**\nReasoning: Data providers (TLS clients) and consumers (TLS server) must each verify that a shared confidential workload runs authorized code in a secure TEE before sharing or processing data.\n\n3.2.2.Use case: Secure Multi-Party Computation (MPC) --> Require: Both (mutual attestation).\nReasoning: Participating (TLS clients) and a central aggregator (TLS server) must all prove they are running the correct MPC algorithm in trusted environments to ensure privacy-preserving computation.\n\n3.3 Network Infrastructure Integrity\n\n3.3.1.Use case: Attestation of Network Functions. --> Require: **Both (mutual attestation)?**\nReasoning: The use case describes device integrity verification by the orchestrator, implying device as client/attester. However, in some management flows (e.g., orchestrator-initiated connections), roles might switch or require mutual attestation.\n\n3.3.2.Use case: Securing Control and Management Planes --> Require: **NOT SURE?**\nReasoning: The use case has the admin client verifying the device, suggesting device as server/attester and admin as client/RP. Confirm if this holds, or if mutual attestation applies in some variants?\n\n3.4 Operation-Triggered Attestation for High-Impact Application Operations\n\n3.4.1.Use case: High-Assurance Operation Execution in Dynamic Application Services --> Require: Server as attester.\nReasoning: An application service instance (e.g., AI agent, acting as TLS server) must provide fresh, connection-bound attestation Evidence reflecting its current posture (e.g., capabilities, permissions) before executing high-impact actions over an existing connection with a peer (TLS client).\n\n3.5 Trusted Software and Firmware Upgrade\n\n3.5.1. Use case: Integrity Attestation During Software/Firmware Upgrade Deployment --> Require: Client as attester.\nReasoning: A network device (TLS client) must be verified by an orchestrator (TLS server) for a healthy baseline state before, during, and after upgrades, with verified rollback if needed.\n\n\nQuestions for feedback:\n- Does this role mapping match your vision? Any adjustments?\n- For ambiguous cases (marked with ?), should we add variants (e.g., mutual or role-switching) to the draft?\n\nThanks for your thoughts. This could help refine the draft and ensure better alignment with further implementations.\n\nBest,  \nYuning",
       "createdAt": "2025-12-26T03:31:47Z",
-      "updatedAt": "2026-01-19T15:33:41Z",
+      "updatedAt": "2026-04-20T08:29:30Z",
       "closedAt": null,
       "comments": [
         {
@@ -681,9 +683,17 @@
       "labels": [],
       "body": "The use-cases we describe are condensed, abstract versions of what we'd expect to be deployed in the wild. Ideally, we should provide some examples that these condensed versions are accurate, by mapping our descriptions and assessments onto existing implementations.\n\nThis would act both as quality control for our write-ups, and help solidify the rationale for considering these use-cases in particular.\n\nAs an example, [CoCo's Trustee](https://github.com/confidential-containers/trustee) embodies the Runtime Secret Provisioning use-case.\n\nNote: not adding any deadline or target date, as this will likely be a \"living task\".",
       "createdAt": "2026-01-16T11:09:13Z",
-      "updatedAt": "2026-01-16T11:09:13Z",
+      "updatedAt": "2026-04-20T08:28:36Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "wherever possible, possibly a duplicate of #21 ",
+          "createdAt": "2026-04-20T08:27:39Z",
+          "updatedAt": "2026-04-20T08:28:36Z"
+        }
+      ]
     },
     {
       "number": 25,
@@ -701,9 +711,17 @@
       ],
       "body": "Add confidential workload migration from one machine to another as a use-case.",
       "createdAt": "2026-01-16T11:11:51Z",
-      "updatedAt": "2026-01-16T11:11:51Z",
+      "updatedAt": "2026-04-20T08:26:14Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Recheck and close if addressed.",
+          "createdAt": "2026-04-20T08:26:14Z",
+          "updatedAt": "2026-04-20T08:26:14Z"
+        }
+      ]
     },
     {
       "number": 27,
@@ -747,11 +765,13 @@
       "state": "OPEN",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "muhammad-usama-sardar"
+      ],
       "labels": [],
       "body": "Use consistent terminology:\n \n* periodic vs. on-demand attestation\n* boot-time vs. runtime attestation",
       "createdAt": "2026-03-30T11:27:14Z",
-      "updatedAt": "2026-03-30T11:27:14Z",
+      "updatedAt": "2026-04-20T08:24:07Z",
       "closedAt": null,
       "comments": []
     },
@@ -769,16 +789,24 @@
       "labels": [],
       "body": "Proposal for identity crisis text:\nhttps://github.com/tls-attestation/use-cases-and-properties/pull/30#discussion_r2992863390\n\n\nLocation of machine? Geo-fencing (RATS vs. SEAT).\nhttps://github.com/tls-attestation/use-cases-and-properties/pull/30#discussion_r2946694418\n\n",
       "createdAt": "2026-03-30T11:33:31Z",
-      "updatedAt": "2026-03-30T11:33:31Z",
+      "updatedAt": "2026-04-20T08:23:48Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Discussed in meeting:\n\nRA-only: is freshness also not RA-only? We have to convey freshness. We have to convey machine ID as well.\nShort-lived connection with HTTP: \n- Why is re-attestation required?\n- Why is freshness required?\nClaims are fresh OR there is freshness nonce.\n",
+          "createdAt": "2026-04-20T08:23:48Z",
+          "updatedAt": "2026-04-20T08:23:48Z"
+        }
+      ]
     },
     {
       "number": 36,
       "id": "I_kwDOP_9tTM7-oAiJ",
       "title": "Yaron's feedback",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/36",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -787,8 +815,8 @@
       "labels": [],
       "body": "[Archive link](https://mailarchive.ietf.org/arch/msg/seat/dcBddogh7LeoCLM0VFX9uZqLLhQ/)\n\n> \n> At Tiru\u2019s request, I reread version -01 of the draft, below are my comments.\n> \n> In general I\u2019m not very happy with the draft but I\u2019m also not sure it matters, because as far as I know we are not planning to publish it as an RFC. Chairs, please correct me if I'm wrong.\n> \n> The document is still made of two almost disconnected parts: use cases and requirements. But it\u2019s totally unclear to me how to obtain specific protocol-level requirements from any of the use cases. So as it is, the document is IMHO not very helpful in building the protocol(s) that address the SEAT charter.\n> \n> Detailed comments:\n> \n> Secure Channel Protocols\n> I'm not sure why the title and abstract discuss generic \"secure channel protocols\", I believe SEAT is only chartered for TLS. (Yes, the charter text is initially not terribly clear on this but the scoping is all about TLS.)\n> \n> Internal State\n> \u201cIdentity authentication provides no assurance about the peer's internal state or the integrity of its software stack.\" - I don't think attestation typically provides strong assurance about a peer's internal state, e.g. its volatile memory. It does provide information about some of the state (the less volatile parts) at a certain point in time.\n> \n> Trusted Computing Base\n> This is a very old, well defined term, so let's use an existing definition instead of making our own. RFC 4949: The totality of protection mechanisms within a computer system, including hardware, firmware, and software, the combination of which is responsible for enforcing a security policy.\n> \n> The Use Cases Do Not Determine the Solution\n> Most of the use cases are totally valid, but I don't think any of them mandates an attested TLS solution. I believe each of them can easily be implemented at the application level, given enough expertise.\n> The motivation for attested TLS is to make it easier/cheaper to implement these use cases and similar ones even if you don't have the expertise. IMO this is a very good reason, but it's still a jump from the use cases to the proposed solution.\n> With that in mind, I don't think the use cases directly lead to the \"integration properties\".\n> \n> Cryptographic Binding to Machine Identifier\n> This may be a valid requirement for some use cases, but not in general. The current text is \"Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider\". This assumes there is a separate infrastructure provider, which may not be the case. And if one exists (cloud environments), applications typically do not have access to (i.e., cannot validate) machine identities. Moreover, applications usually only care about the attested software stack and not the physical identity of a machine. So I\u2019m sure there are some cases where this makes sense, but I think most deployments will not need it.\n> \n> Thanks,\n> \u2002\u2002\u2002\u2002\u2002\u2002Yaron\n> ",
       "createdAt": "2026-04-15T21:46:56Z",
-      "updatedAt": "2026-04-16T19:59:43Z",
-      "closedAt": null,
+      "updatedAt": "2026-04-20T08:08:19Z",
+      "closedAt": "2026-04-20T08:08:19Z",
       "comments": [
         {
           "author": "muhammad-usama-sardar",
@@ -807,11 +835,13 @@
       "state": "OPEN",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "ionut-arm"
+      ],
       "labels": [],
       "body": "Who is the owner of this organization?\nPlease add @Maisy-ML, who is a co-author of the use cases doc.",
       "createdAt": "2026-04-18T10:32:30Z",
-      "updatedAt": "2026-04-18T10:32:50Z",
+      "updatedAt": "2026-04-20T08:24:00Z",
       "closedAt": null,
       "comments": []
     }
@@ -3857,24 +3887,26 @@
       "id": "PR_kwDOP_9tTM7TF0VZ",
       "title": "Addresses #36 (Yaron's feedback)",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/37",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Addresses @yaronf's comments in #36 ",
       "createdAt": "2026-04-16T20:01:13Z",
-      "updatedAt": "2026-04-18T07:54:52Z",
+      "updatedAt": "2026-04-20T08:08:02Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "3447396222b321101aa38938f53ce5b9aaa9823b",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "yaron-comments",
-      "headRefOid": "692ff73b3c0ebebc1af8a0cf6e537e051fa86024",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "d907ac2bd6c6ff3a82eb8b96dbba48007af789ce",
+      "closedAt": "2026-04-20T08:08:01Z",
+      "mergedAt": "2026-04-20T08:08:01Z",
+      "mergedBy": "muhammad-usama-sardar",
+      "mergeCommit": {
+        "oid": "206ec3837f0278f2d2f6c3697335ef9d6faeae9f"
+      },
       "comments": [
         {
           "author": "muhammad-usama-sardar",
@@ -3882,6 +3914,13 @@
           "body": "> I'm OK with these changes. However I still disagree with requirement https://github.com/tls-attestation/use-cases-and-properties/pull/2.\r\n\r\n@tireddy2 @ionut-arm @thomas-fossati @Yuning-J Since @yaronf is ok with the changes, I propose to merge this PR and then discuss #2 separately in a new issue. This will help us proceed with other work while he frames his concern on #2 in more convincing way.",
           "createdAt": "2026-04-18T07:54:52Z",
           "updatedAt": "2026-04-18T07:54:52Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Merging as per discussion in meeting. See #2 afterwards as per above comment. ",
+          "createdAt": "2026-04-20T08:07:50Z",
+          "updatedAt": "2026-04-20T08:07:50Z"
         }
       ],
       "reviews": [
@@ -3896,6 +3935,65 @@
           "body": "I'm OK with these changes. However I still disagree with requirement #2.",
           "createdAt": "2026-04-17T09:03:36Z",
           "updatedAt": "2026-04-17T09:03:36Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM72p-lG",
+          "commit": {
+            "abbreviatedOid": "692ff73"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-04-20T08:00:10Z",
+          "updatedAt": "2026-04-20T08:00:10Z",
+          "comments": [
+            {
+              "originalPosition": 28,
+              "body": "I propose to modify the text as follows: Most of the use cases presented in this document are provided by industry contributors in the SEAT WG, who have plans to deploy this technology.",
+              "createdAt": "2026-04-20T08:00:10Z",
+              "updatedAt": "2026-04-20T08:00:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM72p_mV",
+          "commit": {
+            "abbreviatedOid": "692ff73"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "One nit; rest of the changes look good. ",
+          "createdAt": "2026-04-20T08:00:56Z",
+          "updatedAt": "2026-04-20T08:00:56Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM72qIJI",
+          "commit": {
+            "abbreviatedOid": "d907ac2"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-04-20T08:06:54Z",
+          "updatedAt": "2026-04-20T08:06:54Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM72qI_u",
+          "commit": {
+            "abbreviatedOid": "d907ac2"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-04-20T08:07:23Z",
+          "updatedAt": "2026-04-20T08:07:23Z",
           "comments": []
         }
       ]
