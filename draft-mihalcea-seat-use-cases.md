@@ -77,13 +77,11 @@ informative:
 --- abstract
 
 This document outlines desirable properties and use cases for integrating remote
-attestation (RA) capabilities with secure channel establishment protocols, with
-an initial focus on Transport Layer Security (TLS) 1.3 {{I-D.ietf-tls-rfc8446bis}} and its datagram-oriented variant, DTLS 1.3 {{I-D.ietf-tls-rfc9147bis}}. Traditional
-peer authentication in such protocols establishes trust in a peer's network identifiers but
+attestation (RA) capabilities with secure channel establishment protocols.
+Peer authentication in such protocols establishes trust in a peer's network identifiers but
 provides no assurance regarding the integrity of its underlying software and
 hardware stack. Remote attestation addresses this gap by enabling a peer to
-provide verifiable evidence about its current state, including the state of its
-trusted computing base (TCB). This document specifies a set of essential
+provide verifiable evidence about its current state of the Target Environment. This document specifies a set of essential
 properties the protocol solution must have, including cryptographic binding to
 the secure connection, evidence freshness, and flexibility to support different
 attestation models. It then explores relevant use cases, such as confidential
@@ -98,15 +96,15 @@ of protocol solutions within the SEAT working group.
 
 ## Establishing Trust in Secure Communications
 
-Traditional secure channel protocols, such as Transport Layer Security (TLS),
+Secure channel protocols, such as Transport Layer Security (TLS),
 primarily establish trust in a peer's identity. This is typically achieved
 through mechanisms like a Public Key Infrastructure (PKI), where a trusted
 Certification Authority (CA) vouches for the binding between a public key and an
 identifier (e.g., a hostname).
 
-However, this model has a core limitation: identity authentication provides no
-assurance about the peer's state or the integrity of its software
-stack. A compromised server, for instance, can still present a valid X.509
+However, this model has a core limitation: entity authentication provides no
+assurance about the peer's state, such as the boot-time and runtime integrity of its software
+stack. A compromised endpoint, for instance, can still present a valid X.509
 certificate and be considered "trusted" by a client. This gap allows compromised
 endpoints to maintain network access and the trust of their peers, posing a
 significant security risk in many environments.
@@ -116,14 +114,14 @@ significant security risk in many environments.
 Remote Attestation (RA), as described in the RATS architecture {{RFC9334}}, is a
 mechanism designed to fill this gap. RA allows an entity (the "Attester") to
 produce verifiable "Evidence" about its current runtime state. This Evidence
-covers the Attester's TCB, and can thus include measurements of its firmware,
+can include boot-time and runtime measurements of its firmware,
 operating system, and application code, as well as the configuration of its
 hardware and software security features (e.g., secure boot status, memory
 isolation). A "Relying Party" can then use this Evidence, often with the help of
 a trusted "Verifier", to appraise the Attester's trustworthiness.
 
-By integrating RA into a secure channel establishment protocol, a second
-dimension of trust—trustworthiness—is added to complement regular peer
+By composing RA with a secure channel establishment protocol, a second
+dimension of trust — trustworthiness — is added to complement peer
 authentication. This allows a peer to make authorization decisions based not
 just on who the other party is, but also on what it is (e.g., an AMD
 SEV-SNP-based server running in some known datacenter) and whether its state is
@@ -132,13 +130,13 @@ acceptable.
 ## Purpose and Scope
 
 The purpose of this document is to establish a set of essential properties
-for integration of RA with secure channel protocols and to outline the key use
-cases that can benefit from such an integration. Most of the use cases presented in this document are provided by industry contributors in the SEAT WG, who have plans to deploy this technology. The initial focus is on
+for composition of RA with secure channel protocols and to outline the key use
+cases that can benefit from such a composition. Most of the use cases presented in this document are provided by industry contributors in the SEAT WG, who have plans to deploy this technology. The initial focus is on
 TLS 1.3  {{I-D.ietf-tls-rfc8446bis}}
 and its datagram-oriented variant, DTLS 1.3 {{I-D.ietf-tls-rfc9147bis}}.
 
 This document is intended as an input to the design of protocol solutions within
-the SEAT working group. It defines the "why" and the "what" (the requirements),
+the SEAT working group. It defines the "why" (the motivation) and the "what" (the requirements),
 but not the "how" (the protocol design itself). The "how" part is discussed
 in the companion document {{I-D.usama-seat-intra-vs-post}}, which serves as the
 glue between this document and the protocol specifications. A key goal of this
@@ -167,27 +165,31 @@ more frequently than typical platform TCB updates {{AI-agents}}.
 
 # Integration Properties
 
-This section provides a list of desirable properties for designs that integrate
-RA into secure channel protocols. Proposed integration protocols should make it
+This section provides a list of desirable properties for designs that compose
+RA with secure channel protocols. Proposed protocol specifications should make it
 clear which of these properties are fulfilled, and how.
 
 ## Cryptographic Binding to Communication Channel
 
-The attestation Evidence or Attestation Result is cryptographically bound to the
-specific secure connection (e.g., the (D)TLS connection). This prevents replay
-and relay attacks where an attacker presents valid, but old or unrelated
+The Evidence or Attestation Result is cryptographically bound to the
+specific secure connection (e.g., the (D)TLS connection). This prevents
+**relay** attacks where an attacker presents valid, but unrelated
 Evidence from a different connection or context. This binding is paramount for all
-use cases.
+use cases because the absence of this binding can be exploited in high-severity
+vulnerabilities, such as [CVE-2026-33697](https://www.cve.org/CVERecord?id=CVE-2026-33697).
 
 ## Cryptographic Binding to Machine Identifier
 
-Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider to prevent diversion attacks {{ID-Crisis}}.
+Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider to prevent **diversion** attacks {{ID-Crisis}}.
 
 ## Attestation Credential Freshness
 
 The Relying Party is able to verify that the Evidence or Attestation Result it
-receives was freshly generated by the Attester for the current connection. State is
-transient, and credentials from a previous connection may no longer be valid. See
+receives was freshly generated by the Attester for the specific RA interaction {{ID-Crisis}}.
+State is
+transient, and credentials from a previous RA interaction may no longer be valid.
+Hence, this property ensures that the Evidence or Attestation Result cannot be inappropriately reused in other RA interactions {{ID-Crisis}}.
+See
 {{Section 10 of -rats-arch}} for more details about freshness in the context of
 RA.
 
@@ -210,19 +212,16 @@ offline or unreachable by the Relying Party.
 
 The solution supports using RA in conjunction with traditional PKI-based
 authentication (e.g., X.509 certificates). This provides two independent pillars
-of trust: trustworthiness (from RA) and identity (from PKI). The solution may
-also support RA as the sole method of authentication in constrained use cases,
-such as device onboarding, where a device has no stable, long-term identity yet.
-This latter option could have a negative impact on the security of the overall
-design, warranting additional security considerations.
+of trust: trustworthiness (from RA) and identity (from PKI).
 
 ## Runtime Attestation
 
-Evidence collected at certificate issuance or during the initial secure channel establishment reflects only the Target Environment’s state at that moment. It cannot guarantee that the Target Environment remains trustworthy for the lifetime of the certificate or even for the duration of the secure connection (e.g., the (D)TLS connection). As a result, such static evidence is insufficient in environments where the Target Environment may change state after the connection is established and the connection is long-lived.
+Evidence collected at certificate issuance or during the initial secure channel establishment reflects only the Target Environment’s state at that moment. It cannot guarantee that the Target Environment remains trustworthy for the lifetime of the certificate or even for the duration of the secure connection (e.g., the (D)TLS connection). As a result, such static Evidence is insufficient in environments where the Target Environment may change state after the connection is established and the connection is long-lived.
 
-Runtime attestation closes this gap by enabling the Relying Party (RP) to request new attestation evidence once the secure connection (e.g., the (D)TLS connection) has been established, or periodically during long-lived connections if necessary.
-This may be the case when the target environment has attributes that can change during the connection, affecting its trustworthiness. Such changes cannot be detected using evidence collected earlier.
-For example, the evidence may include dynamic parameters such as runtime configuration flags (e.g., FIPS mode), where a device may enter or exit an approved mode, or measurements of critical system files.
+### Periodic vs. On-demand Attestation
+It should be possible for the Relying Party to request new Evidence periodically or on-demand during the lifetime of the connection.
+This may be the case when the Target Environment has attributes that can change during the connection, affecting its trustworthiness. Such changes cannot be detected using Evidence collected earlier.
+For example, the Evidence may include dynamic parameters such as runtime configuration flags (e.g., FIPS mode), where a device may enter or exit an approved mode, or measurements of critical system files.
 
 ## Privacy Preservation
 
@@ -235,7 +234,7 @@ protocol exchange.
 
 ## Performance and Efficiency
 
-The introduction of attestation should not add prohibitive latency or overhead
+The introduction of remote attestation should not add prohibitive latency or overhead
 to the connection establishment process. To be widely adopted, the solution must
 be practical. While some overhead is unavoidable, multiple additional
 round-trips or very large payloads in the initial handshake should be minimized.
