@@ -115,11 +115,15 @@ significant security risk in many environments.
 
 Remote Attestation (RA), as described in the RATS architecture {{RFC9334}}, is a
 mechanism designed to fill this gap. RA allows an entity (the "Attester") to
-produce verifiable "Evidence" about its current runtime state. This Evidence
-can include boot-time and runtime measurements of its firmware,
-operating system, and application code, as well as the configuration of its
-hardware and software security features (e.g., secure boot status, memory
-isolation). A "Relying Party" can then use this Evidence, often with the help of
+produce verifiable "Evidence" about its current runtime state. This Evidence covers the Attester's TCB and can thus include measurements of:
+
+- firmware
+- operating system
+- application code
+- the configuration of its hardware and software security features (e.g., secure boot status and memory
+isolation).
+
+A "Relying Party" can then use this Evidence, often with the help of
 a trusted "Verifier", to appraise the Attester's trustworthiness.
 
 Composing RA with a secure channel establishment protocol adds a second
