@@ -80,7 +80,7 @@ informative:
 --- abstract
 
 This document outlines desirable properties and use cases for integrating remote
-attestation (RA) capabilities with secure channel establishment protocols.
+attestation (RA) capabilities with secure channel establishment protocols (e.g., TLS and DTLS).
 Peer authentication in such protocols establishes trust in a peer's network identifiers but
 provides no assurance regarding the integrity of its underlying software and
 hardware stack. Remote attestation addresses this gap by enabling a peer to
