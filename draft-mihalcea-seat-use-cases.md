@@ -84,7 +84,7 @@ attestation (RA) capabilities with secure channel establishment protocols.
 Peer authentication in such protocols establishes trust in a peer's network identifiers but
 provides no assurance regarding the integrity of its underlying software and
 hardware stack. Remote attestation addresses this gap by enabling a peer to
-provide verifiable evidence about its current state of the Target Environment. This document specifies a set of essential
+provide verifiable evidence about the current state of the Target Environment. This document specifies a set of essential
 properties the protocol solution must have, including cryptographic binding to
 the secure connection, evidence freshness, and flexibility to support different
 attestation models. It then explores relevant use cases, such as confidential
@@ -105,9 +105,8 @@ through mechanisms like a Public Key Infrastructure (PKI), where a trusted
 Certification Authority (CA) vouches for the binding between a public key and an
 identifier (e.g., a hostname).
 
-However, this model has a core limitation: entity authentication provides no
-assurance about the peer's state, such as the boot-time and runtime integrity of its software
-stack. A compromised endpoint, for instance, can still present a valid X.509
+However, this model has one key limitation: entity authentication provides no assurance about the peer's state, such as the integrity of its software stack at boot time and during runtime.
+A compromised endpoint, for instance, can still present a valid X.509
 certificate and be considered "trusted" by a client. This gap allows compromised
 endpoints to maintain network access and the trust of their peers, posing a
 significant security risk in many environments.
@@ -123,8 +122,8 @@ hardware and software security features (e.g., secure boot status, memory
 isolation). A "Relying Party" can then use this Evidence, often with the help of
 a trusted "Verifier", to appraise the Attester's trustworthiness.
 
-By composing RA with a secure channel establishment protocol, a second
-dimension of trust — trustworthiness — is added to complement peer
+Composing RA with a secure channel establishment protocol adds a second
+dimension of trust - trustworthiness - to complement peer
 authentication. This allows a peer to make authorization decisions based not
 just on who the other party is, but also on what it is (e.g., an AMD
 SEV-SNP-based server running in some known datacenter) and whether its state is
@@ -169,8 +168,8 @@ more frequently than typical platform TCB updates {{AI-agents}}.
 # Integration Properties
 
 This section provides a list of desirable properties for designs that compose
-RA with secure channel protocols. Proposed protocol specifications should make it
-clear which of these properties are fulfilled, and how.
+RA with secure channel protocols. Proposed protocol specifications should
+clearly state which of these properties are fulfilled and explain how.
 
 ## Cryptographic Binding to Communication Channel
 
@@ -222,8 +221,8 @@ Evidence collected at certificate issuance or during the initial secure channel 
 
 ### Periodic vs. On-demand Attestation
 It should be possible for the Relying Party to request new Evidence periodically or on-demand during the lifetime of the connection.
-This may be the case when the Target Environment has attributes that can change during the connection, affecting its trustworthiness. Such changes cannot be detected using Evidence collected earlier.
-For example, the Evidence may include dynamic parameters such as runtime configuration flags (e.g., FIPS mode), where a device may enter or exit an approved mode, or measurements of critical system files.
+This may be necessary if the Target Environment has attributes that can change during the connection, thereby affecting its trustworthiness. Such changes cannot be detected using Evidence collected earlier.
+For example, the Evidence may include dynamic parameters such as runtime configuration flags (e.g., FIPS mode), which indicate whether the device has entered or exited an approved mode, or measurements of critical system files.
 
 ## Privacy Preservation
 
