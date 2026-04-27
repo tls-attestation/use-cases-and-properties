@@ -1315,18 +1315,30 @@ significant security risk in many environments.<a href="#section-1.1-2" class="p
         </h3>
 <p id="section-1.2-1">Remote Attestation (RA), as described in the RATS architecture <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>, is a
 mechanism designed to fill this gap. RA allows an entity (the "Attester") to
-produce verifiable "Evidence" about its current runtime state. This Evidence
-can include boot-time and runtime measurements of its firmware,
-operating system, and application code, as well as the configuration of its
-hardware and software security features (e.g., secure boot status, memory
-isolation). A "Relying Party" can then use this Evidence, often with the help of
-a trusted "Verifier", to appraise the Attester's trustworthiness.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
-<p id="section-1.2-2">Composing RA with a secure channel establishment protocol adds a second
+produce verifiable "Evidence" about its current runtime state. This Evidence covers the Attester's TCB and can thus include measurements of:<a href="#section-1.2-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-1.2-2.1">
+            <p id="section-1.2-2.1.1">firmware<a href="#section-1.2-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.2-2.2">
+            <p id="section-1.2-2.2.1">operating system<a href="#section-1.2-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.2-2.3">
+            <p id="section-1.2-2.3.1">application code<a href="#section-1.2-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.2-2.4">
+            <p id="section-1.2-2.4.1">the configuration of its hardware and software security features (e.g., secure boot status and memory
+isolation).<a href="#section-1.2-2.4.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-1.2-3">A "Relying Party" can then use this Evidence, often with the help of
+a trusted "Verifier", to appraise the Attester's trustworthiness.<a href="#section-1.2-3" class="pilcrow">¶</a></p>
+<p id="section-1.2-4">Composing RA with a secure channel establishment protocol adds a second
 dimension of trust - trustworthiness - to complement peer
 authentication. This allows a peer to make authorization decisions based not
 just on who the other party is, but also on what it is (e.g., an AMD
 SEV-SNP-based server running in some known datacenter) and whether its state is
-acceptable.<a href="#section-1.2-2" class="pilcrow">¶</a></p>
+acceptable.<a href="#section-1.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="purpose-and-scope">
