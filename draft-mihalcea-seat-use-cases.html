@@ -13,13 +13,11 @@
 <meta content="Meiling Chen" name="author">
 <meta content="
        This document outlines desirable properties and use cases for integrating remote
-attestation (RA) capabilities with secure channel establishment protocols, with
-an initial focus on Transport Layer Security (TLS) 1.3   and its datagram-oriented variant, DTLS 1.3  . Traditional
-peer authentication in such protocols establishes trust in a peer's network identifiers but
+attestation (RA) capabilities with secure channel establishment protocols (e.g., TLS and DTLS).
+Peer authentication in such protocols establishes trust in a peer's network identifiers but
 provides no assurance regarding the integrity of its underlying software and
 hardware stack. Remote attestation addresses this gap by enabling a peer to
-provide verifiable evidence about its current state, including the state of its
-trusted computing base (TCB). This document specifies a set of essential
+provide verifiable evidence about the current state of the Target Environment. This document specifies a set of essential
 properties the protocol solution must have, including cryptographic binding to
 the secure connection, evidence freshness, and flexibility to support different
 attestation models. It then explores relevant use cases, such as confidential
@@ -1072,7 +1070,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mihalcea, et al.</td>
-<td class="center">Expires 22 October 2026</td>
+<td class="center">Expires 29 October 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1085,12 +1083,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-mihalcea-seat-use-cases-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-04-20" class="published">20 April 2026</time>
+<time datetime="2026-04-27" class="published">27 April 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-10-22">22 October 2026</time></dd>
+<dd class="expires"><time datetime="2026-10-29">29 October 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1123,13 +1121,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
 <p id="section-abstract-1">This document outlines desirable properties and use cases for integrating remote
-attestation (RA) capabilities with secure channel establishment protocols, with
-an initial focus on Transport Layer Security (TLS) 1.3 <span>[<a href="#I-D.ietf-tls-rfc8446bis" class="cite xref">I-D.ietf-tls-rfc8446bis</a>]</span> and its datagram-oriented variant, DTLS 1.3 <span>[<a href="#I-D.ietf-tls-rfc9147bis" class="cite xref">I-D.ietf-tls-rfc9147bis</a>]</span>. Traditional
-peer authentication in such protocols establishes trust in a peer's network identifiers but
+attestation (RA) capabilities with secure channel establishment protocols (e.g., TLS and DTLS).
+Peer authentication in such protocols establishes trust in a peer's network identifiers but
 provides no assurance regarding the integrity of its underlying software and
 hardware stack. Remote attestation addresses this gap by enabling a peer to
-provide verifiable evidence about its current state, including the state of its
-trusted computing base (TCB). This document specifies a set of essential
+provide verifiable evidence about the current state of the Target Environment. This document specifies a set of essential
 properties the protocol solution must have, including cryptographic binding to
 the secure connection, evidence freshness, and flexibility to support different
 attestation models. It then explores relevant use cases, such as confidential
@@ -1157,7 +1153,7 @@ of protocol solutions within the SEAT working group.<a href="#section-abstract-1
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 22 October 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 29 October 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1226,6 +1222,11 @@ of protocol solutions within the SEAT working group.<a href="#section-abstract-1
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.7">
                 <p id="section-toc.1-1.3.2.7.1"><a href="#section-3.7" class="auto internal xref">3.7</a>.  <a href="#name-runtime-attestation" class="internal xref">Runtime Attestation</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.7.2.1">
+                    <p id="section-toc.1-1.3.2.7.2.1.1"><a href="#section-3.7.1" class="auto internal xref">3.7.1</a>.  <a href="#name-periodic-vs-on-demand-attes" class="internal xref">Periodic vs. On-demand Attestation</a></p>
+</li>
+                </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.8">
                 <p id="section-toc.1-1.3.2.8.1"><a href="#section-3.8" class="auto internal xref">3.8</a>.  <a href="#name-privacy-preservation" class="internal xref">Privacy Preservation</a></p>
@@ -1295,14 +1296,13 @@ of protocol solutions within the SEAT working group.<a href="#section-abstract-1
         <h3 id="name-establishing-trust-in-secur">
 <a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-establishing-trust-in-secur" class="section-name selfRef">Establishing Trust in Secure Communications</a>
         </h3>
-<p id="section-1.1-1">Traditional secure channel protocols, such as Transport Layer Security (TLS),
+<p id="section-1.1-1">Secure channel protocols, such as Transport Layer Security (TLS),
 primarily establish trust in a peer's identity. This is typically achieved
 through mechanisms like a Public Key Infrastructure (PKI), where a trusted
 Certification Authority (CA) vouches for the binding between a public key and an
 identifier (e.g., a hostname).<a href="#section-1.1-1" class="pilcrow">¶</a></p>
-<p id="section-1.1-2">However, this model has a core limitation: identity authentication provides no
-assurance about the peer's state or the integrity of its software
-stack. A compromised server, for instance, can still present a valid X.509
+<p id="section-1.1-2">However, this model has one key limitation: entity authentication provides no assurance about the peer's state, such as the integrity of its software stack at boot time and during runtime.
+A compromised endpoint, for instance, can still present a valid X.509
 certificate and be considered "trusted" by a client. This gap allows compromised
 endpoints to maintain network access and the trust of their peers, posing a
 significant security risk in many environments.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
@@ -1316,13 +1316,13 @@ significant security risk in many environments.<a href="#section-1.1-2" class="p
 <p id="section-1.2-1">Remote Attestation (RA), as described in the RATS architecture <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>, is a
 mechanism designed to fill this gap. RA allows an entity (the "Attester") to
 produce verifiable "Evidence" about its current runtime state. This Evidence
-covers the Attester's TCB, and can thus include measurements of its firmware,
+can include boot-time and runtime measurements of its firmware,
 operating system, and application code, as well as the configuration of its
 hardware and software security features (e.g., secure boot status, memory
 isolation). A "Relying Party" can then use this Evidence, often with the help of
 a trusted "Verifier", to appraise the Attester's trustworthiness.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
-<p id="section-1.2-2">By integrating RA into a secure channel establishment protocol, a second
-dimension of trust—trustworthiness—is added to complement regular peer
+<p id="section-1.2-2">Composing RA with a secure channel establishment protocol adds a second
+dimension of trust - trustworthiness - to complement peer
 authentication. This allows a peer to make authorization decisions based not
 just on who the other party is, but also on what it is (e.g., an AMD
 SEV-SNP-based server running in some known datacenter) and whether its state is
@@ -1335,12 +1335,12 @@ acceptable.<a href="#section-1.2-2" class="pilcrow">¶</a></p>
 <a href="#section-1.3" class="section-number selfRef">1.3. </a><a href="#name-purpose-and-scope" class="section-name selfRef">Purpose and Scope</a>
         </h3>
 <p id="section-1.3-1">The purpose of this document is to establish a set of essential properties
-for integration of RA with secure channel protocols and to outline the key use
-cases that can benefit from such an integration. Most of the use cases presented in this document are provided by industry contributors in the SEAT WG, who have plans to deploy this technology. The initial focus is on
+for composition of RA with secure channel protocols and to outline the key use
+cases that can benefit from such a composition. Most of the use cases presented in this document are provided by industry contributors in the SEAT WG, who have plans to deploy this technology. The initial focus is on
 TLS 1.3  <span>[<a href="#I-D.ietf-tls-rfc8446bis" class="cite xref">I-D.ietf-tls-rfc8446bis</a>]</span>
 and its datagram-oriented variant, DTLS 1.3 <span>[<a href="#I-D.ietf-tls-rfc9147bis" class="cite xref">I-D.ietf-tls-rfc9147bis</a>]</span>.<a href="#section-1.3-1" class="pilcrow">¶</a></p>
 <p id="section-1.3-2">This document is intended as an input to the design of protocol solutions within
-the SEAT working group. It defines the "why" and the "what" (the requirements),
+the SEAT working group. It defines the "why" (the motivation) and the "what" (the requirements),
 but not the "how" (the protocol design itself). The "how" part is discussed
 in the companion document <span>[<a href="#I-D.usama-seat-intra-vs-post" class="cite xref">I-D.usama-seat-intra-vs-post</a>]</span>, which serves as the
 glue between this document and the protocol specifications. A key goal of this
@@ -1387,19 +1387,20 @@ more frequently than typical platform TCB updates <span>[<a href="#AI-agents" cl
       <h2 id="name-integration-properties">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-integration-properties" class="section-name selfRef">Integration Properties</a>
       </h2>
-<p id="section-3-1">This section provides a list of desirable properties for designs that integrate
-RA into secure channel protocols. Proposed integration protocols should make it
-clear which of these properties are fulfilled, and how.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-1">This section provides a list of desirable properties for designs that compose
+RA with secure channel protocols. Proposed protocol specifications should
+clearly state which of these properties are fulfilled and explain how.<a href="#section-3-1" class="pilcrow">¶</a></p>
 <div id="cryptographic-binding-to-communication-channel">
 <section id="section-3.1">
         <h3 id="name-cryptographic-binding-to-co">
 <a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-cryptographic-binding-to-co" class="section-name selfRef">Cryptographic Binding to Communication Channel</a>
         </h3>
-<p id="section-3.1-1">The attestation Evidence or Attestation Result is cryptographically bound to the
-specific secure connection (e.g., the (D)TLS connection). This prevents replay
-and relay attacks where an attacker presents valid, but old or unrelated
+<p id="section-3.1-1">The Evidence or Attestation Result is cryptographically bound to the
+specific secure connection (e.g., the (D)TLS connection). This prevents
+<strong>relay</strong> attacks where an attacker presents valid, but unrelated
 Evidence from a different connection or context. This binding is paramount for all
-use cases.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+use cases because the absence of this binding can be exploited in high-severity
+vulnerabilities, such as <span>[<a href="#CVE-2026-33697" class="cite xref">CVE-2026-33697</a>]</span>.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="cryptographic-binding-to-machine-identifier">
@@ -1407,7 +1408,7 @@ use cases.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
         <h3 id="name-cryptographic-binding-to-ma">
 <a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-cryptographic-binding-to-ma" class="section-name selfRef">Cryptographic Binding to Machine Identifier</a>
         </h3>
-<p id="section-3.2-1">Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider to prevent diversion attacks <span>[<a href="#ID-Crisis" class="cite xref">ID-Crisis</a>]</span>.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-1">Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider to prevent <strong>diversion</strong> attacks <span>[<a href="#ID-Crisis" class="cite xref">ID-Crisis</a>]</span>.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="attestation-credential-freshness">
@@ -1416,10 +1417,12 @@ use cases.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
 <a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-attestation-credential-fres" class="section-name selfRef">Attestation Credential Freshness</a>
         </h3>
 <p id="section-3.3-1">The Relying Party is able to verify that the Evidence or Attestation Result it
-receives was freshly generated by the Attester for the current connection. State is
-transient, and credentials from a previous connection may no longer be valid. See
+receives was freshly generated by the Attester for the specific RA interaction.
+State is
+transient, and credentials from a previous RA interaction may no longer be valid.
+See
 <span><a href="https://rfc-editor.org/rfc/rfc9334#section-10" class="relref">Section 10</a> of [<a href="#RFC9334" class="cite xref">RFC9334</a>]</span> for more details about freshness in the context of
-RA.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+RA. This is formalized for attestation nonce in  <span>[<a href="#ID-Crisis" class="cite xref">ID-Crisis</a>]</span>.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="negotiation-and-capability-discovery">
@@ -1452,11 +1455,7 @@ offline or unreachable by the Relying Party.<a href="#section-3.5-1" class="pilc
         </h3>
 <p id="section-3.6-1">The solution supports using RA in conjunction with traditional PKI-based
 authentication (e.g., X.509 certificates). This provides two independent pillars
-of trust: trustworthiness (from RA) and identity (from PKI). The solution may
-also support RA as the sole method of authentication in constrained use cases,
-such as device onboarding, where a device has no stable, long-term identity yet.
-This latter option could have a negative impact on the security of the overall
-design, warranting additional security considerations.<a href="#section-3.6-1" class="pilcrow">¶</a></p>
+of trust: trustworthiness (from RA) and identity (from PKI).<a href="#section-3.6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="runtime-attestation">
@@ -1464,10 +1463,17 @@ design, warranting additional security considerations.<a href="#section-3.6-1" c
         <h3 id="name-runtime-attestation">
 <a href="#section-3.7" class="section-number selfRef">3.7. </a><a href="#name-runtime-attestation" class="section-name selfRef">Runtime Attestation</a>
         </h3>
-<p id="section-3.7-1">Evidence collected at certificate issuance or during the initial secure channel establishment reflects only the Target Environment’s state at that moment. It cannot guarantee that the Target Environment remains trustworthy for the lifetime of the certificate or even for the duration of the secure connection (e.g., the (D)TLS connection). As a result, such static evidence is insufficient in environments where the Target Environment may change state after the connection is established and the connection is long-lived.<a href="#section-3.7-1" class="pilcrow">¶</a></p>
-<p id="section-3.7-2">Runtime attestation closes this gap by enabling the Relying Party (RP) to request new attestation evidence once the secure connection (e.g., the (D)TLS connection) has been established, or periodically during long-lived connections if necessary.
-This may be the case when the target environment has attributes that can change during the connection, affecting its trustworthiness. Such changes cannot be detected using evidence collected earlier.
-For example, the evidence may include dynamic parameters such as runtime configuration flags (e.g., FIPS mode), where a device may enter or exit an approved mode, or measurements of critical system files.<a href="#section-3.7-2" class="pilcrow">¶</a></p>
+<p id="section-3.7-1">Evidence collected at certificate issuance or during the initial secure channel establishment reflects only the Target Environment’s state at that moment. It cannot guarantee that the Target Environment remains trustworthy for the lifetime of the certificate or even for the duration of the secure connection (e.g., the (D)TLS connection). As a result, such static Evidence is insufficient in environments where the Target Environment may change state after the connection is established and the connection is long-lived.<a href="#section-3.7-1" class="pilcrow">¶</a></p>
+<div id="periodic-vs-on-demand-attestation">
+<section id="section-3.7.1">
+          <h4 id="name-periodic-vs-on-demand-attes">
+<a href="#section-3.7.1" class="section-number selfRef">3.7.1. </a><a href="#name-periodic-vs-on-demand-attes" class="section-name selfRef">Periodic vs. On-demand Attestation</a>
+          </h4>
+<p id="section-3.7.1-1">It should be possible for the Relying Party to request new Evidence periodically or on-demand during the lifetime of the connection.
+This may be necessary if the Target Environment has attributes that can change during the connection, thereby affecting its trustworthiness. Such changes cannot be detected using Evidence collected earlier.
+For example, the Evidence may include dynamic parameters such as runtime configuration flags (e.g., FIPS mode), which indicate whether the device has entered or exited an approved mode, or measurements of critical system files.<a href="#section-3.7.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="privacy-preservation">
@@ -1488,7 +1494,7 @@ protocol exchange.<a href="#section-3.8-1" class="pilcrow">¶</a></p>
         <h3 id="name-performance-and-efficiency">
 <a href="#section-3.9" class="section-number selfRef">3.9. </a><a href="#name-performance-and-efficiency" class="section-name selfRef">Performance and Efficiency</a>
         </h3>
-<p id="section-3.9-1">The introduction of attestation should not add prohibitive latency or overhead
+<p id="section-3.9-1">The introduction of remote attestation should not add prohibitive latency or overhead
 to the connection establishment process. To be widely adopted, the solution must
 be practical. While some overhead is unavoidable, multiple additional
 round-trips or very large payloads in the initial handshake should be minimized.<a href="#section-3.9-1" class="pilcrow">¶</a></p>
@@ -1781,6 +1787,10 @@ measurements, software versions, and security configurations are acceptable.<a h
 <dt id="AI-agents">[AI-agents]</dt>
         <dd>
 <span class="refAuthor">Kapoor, S.</span>, <span class="refAuthor">Stroebl, B.</span>, <span class="refAuthor">Siegel, Z. S.</span>, <span class="refAuthor">Nadgir, N.</span>, and <span class="refAuthor">A. Narayanan</span>, <span class="refTitle">"AI agents that matter"</span>, <time datetime="2024-07" class="refDate">July 2024</time>, <span>&lt;<a href="https://arxiv.org/abs/2407.01502">https://arxiv.org/abs/2407.01502</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="CVE-2026-33697">[CVE-2026-33697]</dt>
+        <dd>
+<span class="refTitle">"CVE-2026-33697"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.cve.org/CVERecord?id=CVE-2026-33697">https://www.cve.org/CVERecord?id=CVE-2026-33697</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.draft-ccc-wimse-twi-extensions">[I-D.draft-ccc-wimse-twi-extensions]</dt>
         <dd>
