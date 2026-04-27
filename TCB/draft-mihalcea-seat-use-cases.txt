@@ -127,7 +127,7 @@ Table of Contents
    Remote Attestation (RA), as described in the RATS architecture
    [RFC9334], is a mechanism designed to fill this gap.  RA allows an
    entity (the "Attester") to produce verifiable "Evidence" about its
-   current runtime state.  This Evidence covers the Attester's TCB, and
+   current runtime state.  This Evidence covers the Attester's TCB and
    can thus include measurements of:
 
    *  firmware
