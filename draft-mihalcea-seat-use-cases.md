@@ -120,7 +120,7 @@ produce verifiable "Evidence" about its current runtime state. This Evidence cov
 - firmware
 - operating system
 - application code
-- the configuration of its hardware and software security features (e.g., secure boot status, memory
+- the configuration of its hardware and software security features (e.g., secure boot status and memory
 isolation).
 
 A "Relying Party" can then use this Evidence, often with the help of
