@@ -105,9 +105,7 @@ Table of Contents
      4.7.  AI Governance and Accountability
    5.  Security Considerations
    6.  IANA Considerations
-   7.  References
-     7.1.  Normative References
-     7.2.  Informative References
+   7.  Informative References
    Acknowledgments
    Authors' Addresses
 
@@ -535,19 +533,7 @@ Table of Contents
 
    This document has no IANA actions.
 
-7.  References
-
-7.1.  Normative References
-
-   [I-D.draft-ietf-rats-pkix-key-attestation]
-              Ounsworth, M., Fiset, J., Tschofenig, H., Birkholz, H.,
-              Wiseman, M., and N. Smith, "Evidence Encoding for Hardware
-              Security Modules", Work in Progress, Internet-Draft,
-              draft-ietf-rats-pkix-key-attestation-05, 17 March 2026,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-rats-
-              pkix-key-attestation-05>.
-
-7.2.  Informative References
+7.  Informative References
 
    [AI-agents]
               Kapoor, S., Stroebl, B., Siegel, Z. S., Nadgir, N., and A.
@@ -580,6 +566,14 @@ Table of Contents
               component-12, 20 February 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-rats-
               eat-measured-component-12>.
+
+   [I-D.draft-ietf-rats-pkix-key-attestation]
+              Ounsworth, M., Fiset, J., Tschofenig, H., Birkholz, H.,
+              Wiseman, M., and N. Smith, "Evidence Encoding for Hardware
+              Security Modules", Work in Progress, Internet-Draft,
+              draft-ietf-rats-pkix-key-attestation-05, 17 March 2026,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-rats-
+              pkix-key-attestation-05>.
 
    [I-D.ietf-tls-rfc8446bis]
               Rescorla, E., "The Transport Layer Security (TLS) Protocol
