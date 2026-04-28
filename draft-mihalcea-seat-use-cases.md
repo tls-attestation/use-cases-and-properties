@@ -77,6 +77,7 @@ informative:
      title: CVE-2026-33697
      target: https://www.cve.org/CVERecord?id=CVE-2026-33697
     I-D.aylward-aiga-2:
+    I-D.draft-ietf-rats-pkix-key-attestation:
 
 --- abstract
 
@@ -386,7 +387,7 @@ The Relying Party uses this Evidence, potentially with the assistance of a
 Verifier, to determine whether the key protection properties satisfy its local
 security policy.
 
-The approach described in {{!I-D.draft-ietf-rats-pkix-key-attestation}} addresses this
+The approach described in {{I-D.draft-ietf-rats-pkix-key-attestation}} addresses this
 use case partially by providing attestation of the cryptographic module and associated
 private key at certificate issuance time, reflecting their state when the
 certificate is enrolled. This model does not provide guarantees about the
