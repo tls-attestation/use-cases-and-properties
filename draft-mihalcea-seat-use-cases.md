@@ -76,6 +76,7 @@ informative:
     CVE-2026-33697:
      title: CVE-2026-33697
      target: https://www.cve.org/CVERecord?id=CVE-2026-33697
+    I-D.aylward-aiga-2:
 
 --- abstract
 
@@ -256,7 +257,9 @@ guarantees needed from RA are described.
 Goal: Ensure the integrity of workloads and devices when bootstrapping their
 identity or receiving critical commands.
 
-Use case: Runtime Secret Provisioning: A confidential workload starts in a
+### Runtime Secret Provisioning
+
+A confidential workload starts in a
 generic state and needs to fetch secrets (e.g., API keys, database credentials,
 encryption keys) to become operational.
 
@@ -266,11 +269,13 @@ encryption keys) to become operational.
   exclusively to a trustworthy environment. This use-case also covers secure
   device onboarding for IoT devices that lack a pre-provisioned identity.
 
-Use case: High-Assurance Command Execution: An operator sends a critical command
+### High-Assurance Command Execution
+
+An operator sends a critical command
 to a remote system (e.g., an industrial controller, a financial transaction
 processor).
 
-* Requirement: The system must provide fresh attestation Evidence to the
+* Requirement: The system must provide fresh Evidence to the
   operator to prove its integrity before the command is dispatched. This
   prevents commands from being executed on a compromised system.
 
@@ -279,8 +284,10 @@ processor).
 Goal: Enable multiple parties to collaborate on sensitive, combined datasets
 without exposing raw data to each other or to the infrastructure operator.
 
-Use case: Data Clean Rooms: Multiple data providers contribute sensitive data to
-a confidential workload for joint analysis. Data consumers receive aggregated
+### Data Clean Rooms
+
+Multiple *data providers* contribute sensitive data to
+a confidential workload for joint analysis. *Data consumers* receive aggregated
 insights without ever accessing the raw, combined dataset.
 
 * Requirement: Before sending data, each data provider must attest the
@@ -288,7 +295,9 @@ insights without ever accessing the raw, combined dataset.
   a secure Trusted Execution Environment (TEE). Similarly, data consumers must
   attest the workload to trust the integrity of the results.
 
-Use case: Secure Multi-Party Computation (MPC): Distributed parties
+###Secure Multi-Party Computation (MPC)
+
+Distributed parties
 collaboratively compute a function (e.g., train a machine learning model)
 without sharing their local data.
 
@@ -301,7 +310,9 @@ without sharing their local data.
 Goal: Verify the integrity of network devices that form the foundation of
 communication.
 
-Use case: Attestation of Network Functions: A router, switch, or firewall joins
+### Attestation of Network Functions
+
+A router, switch, or firewall joins
 a network's management plane. A Virtualized Network Function (VNF) is
 instantiated on a generic server.
 
@@ -311,7 +322,9 @@ instantiated on a generic server.
   from misdirecting traffic or a malicious VNF from inspecting sensitive
   packets.
 
-Use case: Securing Control and Management Planes: An administrator connects to a
+### Securing Control and Management Planes
+
+An administrator connects to a
 network device's management interface.
 
 * Requirement: The administrator's client must verify the integrity of the
@@ -323,14 +336,14 @@ network device's management interface.
 Goal: Ensure the integrity of application services at operation time,
 when security posture may change after initial channel establishment.
 
-Use case: High-Assurance Operation Execution in Dynamic Application Services:
+Use case: **High-Assurance Operation Execution in Dynamic Application Services**:
 An application service instance (e.g., AI agent) or confidential computing
 environment (which could host an AI agent) maintains a (D)TLS connection with
 a peer and must execute a high-impact action (e.g., payment initiation,
 configuration change, privileged command).
 
 * Requirement 1: Before executing a high-impact operation over the existing
-connection, the peer must present fresh, connection-bound attestation evidence
+connection, the peer must present fresh, connection-bound Evidence
 reflecting the current behavior-affecting posture (e.g., enabled capabilities,
 policy configuration, runtime permissions).
 
@@ -351,7 +364,7 @@ assurance that the private key associated with the end-entity certificate used
 to authenticate the TLS connection is generated, stored, and used within an
 attested cryptographic module. In addition to verifying possession of the
 private key via the TLS handshake, the Relying Party seeks
-attestation evidence that the key is non-exportable, remains bound to the
+Evidence that the key is non-exportable, remains bound to the
 cryptographic module, and that the module is operating in an expected
 security configuration at the time the TLS connection is established.
 
@@ -378,7 +391,7 @@ use case partially by providing attestation of the cryptographic module and asso
 private key at certificate issuance time, reflecting their state when the
 certificate is enrolled. This model does not provide guarantees about the
 continued state of the module at connection establishment or during the lifetime of
-the TLS session.
+the TLS connection.
 
 ## Platform-to-platform communication
 
@@ -394,12 +407,18 @@ low-level components (migration agents) on both source and destination
 platforms, which perform the authorization checks and handle the data migration.
 
 * Requirement: The migration agent on the destination platform typically acts
-  as attester, proving its state for its peer on the source platform (where the
+  as Attester, proving its state for its peer on the source platform (where the
   workload initially resides).
 
-* Example: Intel TDX offers migration capabilities via its Migration TD (MigTD)
+* Example: Intel TDX offers migration capabilities via its Migration Trust Domain (MigTD)
   {{MigTD}}. Peer MigTDs on the initiating and target platforms set up an
   attested TLS connection to perform the migration over.
+
+## AI Governance and Accountability
+
+Goal: Design framework for governing autonomous AI agents. See {{I-D.aylward-aiga-2}} for details.
+
+* Requirement: Runtime attestation based on agent risk tiers {{Section 2.2 of I-D.aylward-aiga-2}}
 
 # Security Considerations
 
