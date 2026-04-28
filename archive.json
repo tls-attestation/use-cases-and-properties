@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-04-21T03:21:13.130265+00:00",
+  "timestamp": "2026-04-28T03:41:05.196333+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -534,7 +534,7 @@
       "id": "I_kwDOP_9tTM7aoR8I",
       "title": "Paul's proposal of intra-handshake attestation",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/17",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -545,8 +545,8 @@
       ],
       "body": "[Archive link](https://mailarchive.ietf.org/arch/msg/seat/ophFdwJDybMMU4bWTBSmogkp6Bs/)\n\n> A standard webpki using a cert with two subjectAltname's, one for the PKI\n> (eg [www.example.com](http://www.example.com/)) and one for binding the TEE (eg\n> [tee-1234.www.example.com](http://tee-1234.www.example.com/)) along with a tee PKI that has a cert with\n> subjectAltname [tee-1234.www.example.com](http://tee-1234.www.example.com/))\n> \n> The tee PKI signs the attestation report. Both PKIs together give channel\n> binding and a binding between target domain name and server/tee instance.\n> The attestation report contains the TLS nonces for channel binding. The\n> subjectAltname also provides channel binding to the specific instance of\n> the tee, preventing a compromised server from using a modified tee, while\n> forwarding the request to a server/tee next to serving the same domain\n> using that tee which is left uncompromised.\n> \n> I'm sure there are other and hopefully even better ways to acomplish this.\n> It is just one example. Instead of jumping to post-handshake solutions that\n> have a clear disadvantage, the WG should really exhaust intra-handshake\n> options.",
       "createdAt": "2025-11-26T15:30:14Z",
-      "updatedAt": "2026-04-20T08:30:47Z",
-      "closedAt": null,
+      "updatedAt": "2026-04-27T10:23:45Z",
+      "closedAt": "2026-04-27T10:23:45Z",
       "comments": [
         {
           "author": "muhammad-usama-sardar",
@@ -561,6 +561,13 @@
           "body": "Based on meeting: (Attendees: Meiling, Tiru, Usama, Yuning)\n\n@ionut-arm can you make a protocol diagram for this? ",
           "createdAt": "2025-12-15T09:05:33Z",
           "updatedAt": "2025-12-15T09:05:33Z"
+        },
+        {
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The solution to address the attack does not require to modify the end-entity certificates, for instance see https://datatracker.ietf.org/doc/draft-reddy-rats-key-binding/",
+          "createdAt": "2026-04-27T10:23:45Z",
+          "updatedAt": "2026-04-27T10:23:45Z"
         }
       ]
     },
@@ -762,7 +769,7 @@
       "id": "I_kwDOP_9tTM74jBWk",
       "title": "Terminology",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/31",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -771,9 +778,17 @@
       "labels": [],
       "body": "Use consistent terminology:\n \n* periodic vs. on-demand attestation\n* boot-time vs. runtime attestation",
       "createdAt": "2026-03-30T11:27:14Z",
-      "updatedAt": "2026-04-20T08:24:07Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2026-04-27T08:20:11Z",
+      "closedAt": "2026-04-27T08:20:13Z",
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Addressed in #39 ",
+          "createdAt": "2026-04-27T08:20:11Z",
+          "updatedAt": "2026-04-27T08:20:11Z"
+        }
+      ]
     },
     {
       "number": 32,
@@ -2897,21 +2912,21 @@
       "id": "PR_kwDOP_9tTM7K9ukS",
       "title": "Respin draft around integration properties",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/30",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "ionut-arm",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Moving Integration Properties at the top.\r\nSeparating properties into generic and per-use-case. \r\nPolishing some of the properties to match our current understanding.\r\nReferencing required and generic properties for each use-case.",
       "createdAt": "2026-03-16T15:49:41Z",
-      "updatedAt": "2026-04-13T08:26:08Z",
+      "updatedAt": "2026-04-26T21:55:16Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "54a685fda22aaf6176dc6ce01509b5d2d9b64d26",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "properties-focus",
       "headRefOid": "a464b9affbc960defc15c1f7a9e779c8bd12bcaa",
-      "closedAt": null,
+      "closedAt": "2026-04-26T21:55:16Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -2943,6 +2958,13 @@
           "body": "Discussed in the meeting:\r\n\r\nRuntime attestation is clearly in all use cases. \r\nRevert it back to the older pattern, since not clarified why the two properties are use-cases dependent.\r\n\r\nCan do this in future if justified why these properties are use case dependent. ",
           "createdAt": "2026-04-13T08:19:23Z",
           "updatedAt": "2026-04-13T08:21:10Z"
+        },
+        {
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Closing this, remaining issues will be addressed in other issues / PRs",
+          "createdAt": "2026-04-26T21:55:16Z",
+          "updatedAt": "2026-04-26T21:55:16Z"
         }
       ],
       "reviews": [
@@ -3994,6 +4016,338 @@
           "body": "",
           "createdAt": "2026-04-20T08:07:23Z",
           "updatedAt": "2026-04-20T08:07:23Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 39,
+      "id": "PR_kwDOP_9tTM7VxGN5",
+      "title": "intro and props",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/39",
+      "state": "MERGED",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Updated introduction and properties:\r\n\r\n- Terminology consistent with the existing literature\r\n- Addresses #31 ",
+      "createdAt": "2026-04-26T20:38:31Z",
+      "updatedAt": "2026-04-27T08:19:51Z",
+      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRefName": "main",
+      "baseRefOid": "206ec3837f0278f2d2f6c3697335ef9d6faeae9f",
+      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRefName": "formal",
+      "headRefOid": "d71794d22565512897faf7321c63d0650132dfe5",
+      "closedAt": "2026-04-27T08:19:51Z",
+      "mergedAt": "2026-04-27T08:19:51Z",
+      "mergedBy": "tireddy2",
+      "mergeCommit": {
+        "oid": "628746b85ff9e2b5628cbe1bd594e2cd57f746a4"
+      },
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "CC @Maisy-ML",
+          "createdAt": "2026-04-26T20:39:35Z",
+          "updatedAt": "2026-04-26T20:39:35Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM74_-nF",
+          "commit": {
+            "abbreviatedOid": "2f97031"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2026-04-26T22:02:23Z",
+          "updatedAt": "2026-04-26T22:08:16Z",
+          "comments": [
+            {
+              "originalPosition": 93,
+              "body": "Could you change this reference to the typical I-D reference format, instead of just a Markdown link?",
+              "createdAt": "2026-04-26T22:02:23Z",
+              "updatedAt": "2026-04-26T22:08:16Z"
+            },
+            {
+              "originalPosition": 105,
+              "body": "Not sure why the reference is needed given that we have the link to Section 10 of -rats-arch below.",
+              "createdAt": "2026-04-26T22:04:41Z",
+              "updatedAt": "2026-04-26T22:08:16Z"
+            },
+            {
+              "originalPosition": 108,
+              "body": "Idem. You're also literally just restating the above sentence",
+              "createdAt": "2026-04-26T22:05:33Z",
+              "updatedAt": "2026-04-26T22:08:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM75FEfs",
+          "commit": {
+            "abbreviatedOid": "2f97031"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-04-27T07:18:11Z",
+          "updatedAt": "2026-04-27T07:18:11Z",
+          "comments": [
+            {
+              "originalPosition": 93,
+              "body": "sure",
+              "createdAt": "2026-04-27T07:18:11Z",
+              "updatedAt": "2026-04-27T07:18:12Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM75FF9V",
+          "commit": {
+            "abbreviatedOid": "2f97031"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-04-27T07:19:11Z",
+          "updatedAt": "2026-04-27T07:19:11Z",
+          "comments": [
+            {
+              "originalPosition": 105,
+              "body": "Fair point, I can remove it.",
+              "createdAt": "2026-04-27T07:19:11Z",
+              "updatedAt": "2026-04-27T07:19:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM75FG5l",
+          "commit": {
+            "abbreviatedOid": "2f97031"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-04-27T07:19:43Z",
+          "updatedAt": "2026-04-27T07:19:43Z",
+          "comments": [
+            {
+              "originalPosition": 108,
+              "body": "which above sentence?",
+              "createdAt": "2026-04-27T07:19:43Z",
+              "updatedAt": "2026-04-27T07:19:43Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM75Ervm",
+          "commit": {
+            "abbreviatedOid": "2f97031"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2026-04-27T06:59:40Z",
+          "updatedAt": "2026-04-27T07:22:11Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "```suggestion\nprovide verifiable evidence about the current state of the Target Environment. This document specifies a set of essential\n```",
+              "createdAt": "2026-04-27T06:59:41Z",
+              "updatedAt": "2026-04-27T07:22:11Z"
+            },
+            {
+              "originalPosition": 33,
+              "body": "declunkify\n```suggestion\nHowever, this model has one key limitation: entity authentication provides no assurance about the peer's state, such as the integrity of its software stack at boot time and during runtime.\nA compromised endpoint, for instance, can still present a valid X.509\n```",
+              "createdAt": "2026-04-27T07:02:11Z",
+              "updatedAt": "2026-04-27T07:22:11Z"
+            },
+            {
+              "originalPosition": 42,
+              "body": "I don't see why this would be an improvement on the existing text.\nThe Attester's TCB covers more than just software measurements.",
+              "createdAt": "2026-04-27T07:04:24Z",
+              "updatedAt": "2026-04-27T07:22:11Z"
+            },
+            {
+              "originalPosition": 52,
+              "body": "avoid passive form\n\n```suggestion\nComposing RA with a secure channel establishment protocol adds a second\ndimension of trust - trustworthiness - to complement peer\nauthentication. This allows a peer to make authorization decisions based not\n```",
+              "createdAt": "2026-04-27T07:05:42Z",
+              "updatedAt": "2026-04-27T07:22:11Z"
+            },
+            {
+              "originalPosition": 80,
+              "body": "```suggestion\nRA with secure channel protocols. Proposed protocol specifications should\nclearly state which of these properties are fulfilled and explain how.\n```",
+              "createdAt": "2026-04-27T07:07:32Z",
+              "updatedAt": "2026-04-27T07:22:11Z"
+            },
+            {
+              "originalPosition": 93,
+              "body": "streamline and use a neutral tone\n\n```suggestion\nThe Evidence or Attestation Result is cryptographically bound to the\nspecific secure connection (e.g., the (D)TLS connection). This prevents\n**relay** attacks, in which an attacker presents valid but unrelated\nEvidence from a different connection or context (see, for example, [CVE-2026-33697](https://www.cve.org/CVERecord?id=CVE-2026-33697)).\n```",
+              "createdAt": "2026-04-27T07:11:14Z",
+              "updatedAt": "2026-04-27T07:22:11Z"
+            },
+            {
+              "originalPosition": 134,
+              "body": "```suggestion\nThis may be necessary if the Target Environment has attributes that can change during the connection, thereby affecting its trustworthiness. Such changes cannot be detected using Evidence collected earlier.\n```",
+              "createdAt": "2026-04-27T07:19:21Z",
+              "updatedAt": "2026-04-27T07:22:11Z"
+            },
+            {
+              "originalPosition": 135,
+              "body": "```suggestion\nFor example, the Evidence may include dynamic parameters such as runtime configuration flags (e.g., FIPS mode), which indicate whether the device has entered or exited an approved mode, or measurements of critical system files.\n```",
+              "createdAt": "2026-04-27T07:21:59Z",
+              "updatedAt": "2026-04-27T07:22:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM75FiYY",
+          "commit": {
+            "abbreviatedOid": "55908f6"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-04-27T07:38:08Z",
+          "updatedAt": "2026-04-27T07:38:08Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "```suggestion\nattestation (RA) capabilities with secure channel establishment protocols (e.g., TLS and DTLS).\n```",
+              "createdAt": "2026-04-27T07:38:08Z",
+              "updatedAt": "2026-04-27T07:38:08Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM75FyT2",
+          "commit": {
+            "abbreviatedOid": "55908f6"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-04-27T07:48:17Z",
+          "updatedAt": "2026-04-27T07:48:17Z",
+          "comments": [
+            {
+              "originalPosition": 42,
+              "body": "Discussed in meeting:\nTCB is confusing here. Explain what Attester's TCB means here? ",
+              "createdAt": "2026-04-27T07:48:17Z",
+              "updatedAt": "2026-04-27T07:48:17Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM75GdJP",
+          "commit": {
+            "abbreviatedOid": "2f97031"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-04-27T08:15:27Z",
+          "updatedAt": "2026-04-27T08:15:27Z",
+          "comments": [
+            {
+              "originalPosition": 42,
+              "body": "> Discussed in meeting: TCB is confusing here.\r\n\r\nNot sure what is confusing?\r\n\r\n> Explain what Attester's TCB means here?\r\n\r\nThe usual meaning.\r\n\r\nIn any case, my main point is that software and firmware measurements are only one part of the TCB.  Other key dimensions (e.g., the attester's debug state and platform configuration flags) are ignored in the proposed rewrite.\r\nThat\u2019s why I flagged it as a downgrade.\r\nIn the original, the term \"TCB\" encompasses all trust-related metrics and is IMO a better fit.\r\n",
+              "createdAt": "2026-04-27T08:15:27Z",
+              "updatedAt": "2026-04-27T08:15:27Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM75Gh6F",
+          "commit": {
+            "abbreviatedOid": "d71794d"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-04-27T08:19:06Z",
+          "updatedAt": "2026-04-27T08:19:06Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 40,
+      "id": "PR_kwDOP_9tTM7V47Gp",
+      "title": "RA and Attester's TCB",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/40",
+      "state": "MERGED",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "as discussed in meeting today\r\n\r\nCC co-author @Maisy-ML ",
+      "createdAt": "2026-04-27T08:48:36Z",
+      "updatedAt": "2026-04-27T10:21:11Z",
+      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRefName": "main",
+      "baseRefOid": "628746b85ff9e2b5628cbe1bd594e2cd57f746a4",
+      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRefName": "TCB",
+      "headRefOid": "28d638a5817281207b6cc01762d54c4f9c3d8101",
+      "closedAt": "2026-04-27T10:21:11Z",
+      "mergedAt": "2026-04-27T10:21:11Z",
+      "mergedBy": "tireddy2",
+      "mergeCommit": {
+        "oid": "c0980300bcfc85958f99dfb4aecafb9e8ad597d0"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM75H5Rv",
+          "commit": {
+            "abbreviatedOid": "893605e"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM, thanks",
+          "createdAt": "2026-04-27T09:10:38Z",
+          "updatedAt": "2026-04-27T09:11:17Z",
+          "comments": [
+            {
+              "originalPosition": 9,
+              "body": "spurious comma\n\n```suggestion\nproduce verifiable \"Evidence\" about its current runtime state. This Evidence covers the Attester's TCB and can thus include measurements of:\n```",
+              "createdAt": "2026-04-27T09:10:38Z",
+              "updatedAt": "2026-04-27T09:11:17Z"
+            },
+            {
+              "originalPosition": 14,
+              "body": "```suggestion\n- the configuration of its hardware and software security features (e.g., secure boot status and memory\n```",
+              "createdAt": "2026-04-27T09:10:58Z",
+              "updatedAt": "2026-04-27T09:11:17Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM75JpX2",
+          "commit": {
+            "abbreviatedOid": "28d638a"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-04-27T10:21:01Z",
+          "updatedAt": "2026-04-27T10:21:01Z",
           "comments": []
         }
       ]
