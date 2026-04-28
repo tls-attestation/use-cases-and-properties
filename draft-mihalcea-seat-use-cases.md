@@ -186,6 +186,10 @@ Evidence from a different connection or context. This binding is paramount for a
 use cases because the absence of this binding can be exploited in high-severity
 vulnerabilities, such as {{CVE-2026-33697}}.
 
+## Compound Authentication
+RA should complement PKI rather than replace it.
+Combining the two security measures would ensure that the introduction of attestation increases security instead of replacing one security measure by another. This can be formalized as *composition* goals, as in {{ID-Crisis}} for TLS 1.3 protocol.
+
 ## Cryptographic Binding to Machine Identifier
 
 Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider to prevent **diversion** attacks {{ID-Crisis}}.
