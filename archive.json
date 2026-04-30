@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-04-28T03:41:05.196333+00:00",
+  "timestamp": "2026-04-30T03:40:18.283362+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -742,9 +742,9 @@
         "muhammad-usama-sardar"
       ],
       "labels": [],
-      "body": "https://datatracker.ietf.org/doc/draft-aylward-aiga-1/",
+      "body": "https://datatracker.ietf.org/doc/draft-aylward-aiga-2/",
       "createdAt": "2026-01-18T20:04:40Z",
-      "updatedAt": "2026-01-18T20:04:40Z",
+      "updatedAt": "2026-04-28T14:21:26Z",
       "closedAt": null,
       "comments": []
     },
@@ -4351,6 +4351,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 41,
+      "id": "PR_kwDOP_9tTM7WWKe7",
+      "title": "Use cases",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/41",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "- Organized use cases\r\n- Some terminology update for clarity\r\n- Addresses #27 \r\n- Addresses #32 \r\n\r\nCC co-author @Maisy-ML\r\n",
+      "createdAt": "2026-04-28T13:13:51Z",
+      "updatedAt": "2026-04-29T21:15:01Z",
+      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRefName": "main",
+      "baseRefOid": "c0980300bcfc85958f99dfb4aecafb9e8ad597d0",
+      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRefName": "use-cases",
+      "headRefOid": "fe634a0a4bb14a32fd739f9cee6e4f0ab45af02f",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
