@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-04-30T03:40:18.283362+00:00",
+  "timestamp": "2026-05-03T03:46:19.498984+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -857,6 +857,22 @@
       "body": "Who is the owner of this organization?\nPlease add @Maisy-ML, who is a co-author of the use cases doc.",
       "createdAt": "2026-04-18T10:32:30Z",
       "updatedAt": "2026-04-20T08:24:00Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 42,
+      "id": "I_kwDOP_9tTM8AAAABA6mo8Q",
+      "title": "IoT Question",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/42",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "[Archive link](https://mailarchive.ietf.org/arch/msg/seat/ykLHkXXk6pWJzNFbJOofVfcYyC0/)\n\n> \"\n> Section 3.1. Secure Provisioning and High-Assurance Operations\n> \n>        This use-case also covers secure\n>        device onboarding for IoT devices that lack a pre-provisioned\n>        identity.\n> \"\n> \n> This does mean that you consider a use case where devices have no factory-provised attestation key or do you consider the case where the device has only the attestation key and no other key provisioned during manufacturing?",
+      "createdAt": "2026-04-30T08:06:49Z",
+      "updatedAt": "2026-04-30T08:06:49Z",
       "closedAt": null,
       "comments": []
     }
