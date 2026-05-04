@@ -506,8 +506,8 @@ Table of Contents
    governance body and for the purposes of ensuring that no unethical or
    harmful action is performed.
 
-   *  Requirement: Runtime attestation based on agent risk tiers in
-      Section 2.2 of [I-D.aylward-aiga-2]
+   *  Requirement: Runtime attestation based on agent risk tiers defined
+      in Section 2.2 of [I-D.aylward-aiga-2]
 
 5.  Security Considerations
 
