@@ -427,7 +427,7 @@ Goal: Design framework for governing autonomous AI agents.
 
 Use case: See {{I-D.aylward-aiga-2}} for details. Contrary to {{sec-operation-triggered}}, the entity verifying the Evidence in this case is the governance body and for the purposes of ensuring that no unethical or harmful action is performed.
 
-* Requirement: Runtime attestation based on agent risk tiers in {{Section 2.2 of I-D.aylward-aiga-2}}
+* Requirement: Runtime attestation based on agent risk tiers defined in {{Section 2.2 of I-D.aylward-aiga-2}}
 
 # Security Considerations
 
