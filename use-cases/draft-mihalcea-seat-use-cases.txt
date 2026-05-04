@@ -5,7 +5,7 @@
 SEAT Working Group                                           I. Mihalcea
 Internet-Draft                                                       Arm
 Intended status: Informational                              M. U. Sardar
-Expires: 30 October 2026                                      TU Dresden
+Expires: 5 November 2026                                      TU Dresden
                                                               T. Fossati
                                                                   Linaro
                                                                 T. Reddy
@@ -14,7 +14,7 @@ Expires: 30 October 2026                                      TU Dresden
                                                                         
                                                                  M. Chen
                                                             China Mobile
-                                                           28 April 2026
+                                                              4 May 2026
 
 
 Properties and Use Cases for Integrating Remote Attestation with Secure
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 30 October 2026.
+   This Internet-Draft will expire on 5 November 2026.
 
 Copyright Notice
 
@@ -263,8 +263,8 @@ Table of Contents
 
    The solution supports using RA in conjunction with traditional PKI-
    based authentication (e.g., X.509 certificates).  This provides two
-   independent pillars of trust: trustworthiness (from RA) and identity
-   (from PKI).
+   independent pillars of trust: endpoint trustworthiness (from RA) and
+   identity (from PKI).
 
 3.8.  Runtime Attestation
 
@@ -316,7 +316,8 @@ Table of Contents
 4.1.  Secure Provisioning and High-Assurance Operations
 
    Goal: Ensure the integrity of workloads and devices when
-   bootstrapping their identity or receiving critical commands.
+   bootstrapping their PKI-based identity or receiving critical
+   commands.
 
 4.1.1.  Runtime Secret Provisioning
 
@@ -329,8 +330,8 @@ Table of Contents
       service.  The service will only release the secrets after
       successful verification, ensuring they are delivered exclusively
       to a trustworthy environment.  This use-case also covers secure
-      device onboarding for IoT devices that lack a pre-provisioned
-      identity.
+      device onboarding for IoT devices that lack a pre-provisioned PKI-
+      based identity.
 
 4.1.2.  High-Assurance Command Execution
 
