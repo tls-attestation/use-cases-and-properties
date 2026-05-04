@@ -223,7 +223,7 @@ offline or unreachable by the Relying Party.
 
 The solution supports using RA in conjunction with traditional PKI-based
 authentication (e.g., X.509 certificates). This provides two independent pillars
-of trust: trustworthiness (from RA) and identity (from PKI).
+of trust: endpoint trustworthiness (from RA) and identity (from PKI).
 
 ## Runtime Attestation
 
@@ -260,7 +260,7 @@ guarantees needed from RA are described.
 ## Secure Provisioning and High-Assurance Operations
 
 Goal: Ensure the integrity of workloads and devices when bootstrapping their
-identity or receiving critical commands.
+PKI-based identity or receiving critical commands.
 
 ### Runtime Secret Provisioning
 
@@ -272,7 +272,7 @@ encryption keys) to become operational.
   software measurements) to a secrets management service. The service will only
   release the secrets after successful verification, ensuring they are delivered
   exclusively to a trustworthy environment. This use-case also covers secure
-  device onboarding for IoT devices that lack a pre-provisioned identity.
+  device onboarding for IoT devices that lack a pre-provisioned PKI-based identity.
 
 ### High-Assurance Command Execution
 
