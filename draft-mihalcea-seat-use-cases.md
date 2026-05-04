@@ -187,8 +187,9 @@ use cases because the absence of this binding can be exploited in high-severity
 vulnerabilities, such as {{CVE-2026-33697}}.
 
 ## Compound Authentication
-RA should complement PKI rather than replace it.
-Combining the two security measures would ensure that the introduction of attestation increases security instead of replacing one security measure by another. This can be formalized as *composition* goals, as in {{ID-Crisis}} for TLS 1.3 protocol.
+RA should complement endpoint authentication rather than replace it.
+Combining the two security measures would ensure that the introduction of attestation increases security instead of replacing one security measure by another.
+A formal representation of this requirement in the form of *composition* goal can be found in {{ID-Crisis}} for TLS 1.3 protocol.
 
 ## Cryptographic Binding to Machine Identifier
 
@@ -337,6 +338,7 @@ network device's management interface.
   a compromised interface that could steal credentials or manipulate the device.
 
 ## Operation-Triggered Attestation for High-Impact Application Operations
+{: #sec-operation-triggered }
 
 Goal: Ensure the integrity of application services at operation time,
 when security posture may change after initial channel establishment.
@@ -421,7 +423,9 @@ platforms, which perform the authorization checks and handle the data migration.
 
 ## AI Governance and Accountability
 
-Goal: Design framework for governing autonomous AI agents. See {{I-D.aylward-aiga-2}} for details.
+Goal: Design framework for governing autonomous AI agents.
+
+Use case: See {{I-D.aylward-aiga-2}} for details. Contrary to {{sec-operation-triggered}}, the entity verifying the Evidence in this case is the governance body and for the purposes of ensuring that no unethical or harmful action is performed.
 
 * Requirement: Runtime attestation based on agent risk tiers {{Section 2.2 of I-D.aylward-aiga-2}}
 
