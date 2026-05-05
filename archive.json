@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-03T03:46:19.498984+00:00",
+  "timestamp": "2026-05-05T03:28:32.483949+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -735,7 +735,7 @@
       "id": "I_kwDOP_9tTM7kH10x",
       "title": "AI Governance and Accountability Protocol (AIGA)",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/27",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -744,8 +744,8 @@
       "labels": [],
       "body": "https://datatracker.ietf.org/doc/draft-aylward-aiga-2/",
       "createdAt": "2026-01-18T20:04:40Z",
-      "updatedAt": "2026-04-28T14:21:26Z",
-      "closedAt": null,
+      "updatedAt": "2026-05-04T10:25:32Z",
+      "closedAt": "2026-05-04T10:25:32Z",
       "comments": []
     },
     {
@@ -795,7 +795,7 @@
       "id": "I_kwDOP_9tTM74jNMN",
       "title": "Review ID-crisis related text",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/32",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -804,8 +804,8 @@
       "labels": [],
       "body": "Proposal for identity crisis text:\nhttps://github.com/tls-attestation/use-cases-and-properties/pull/30#discussion_r2992863390\n\n\nLocation of machine? Geo-fencing (RATS vs. SEAT).\nhttps://github.com/tls-attestation/use-cases-and-properties/pull/30#discussion_r2946694418\n\n",
       "createdAt": "2026-03-30T11:33:31Z",
-      "updatedAt": "2026-04-20T08:23:48Z",
-      "closedAt": null,
+      "updatedAt": "2026-05-04T10:25:25Z",
+      "closedAt": "2026-05-04T10:25:25Z",
       "comments": [
         {
           "author": "muhammad-usama-sardar",
@@ -865,15 +865,17 @@
       "id": "I_kwDOP_9tTM8AAAABA6mo8Q",
       "title": "IoT Question",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/42",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "muhammad-usama-sardar"
+      ],
       "labels": [],
       "body": "[Archive link](https://mailarchive.ietf.org/arch/msg/seat/ykLHkXXk6pWJzNFbJOofVfcYyC0/)\n\n> \"\n> Section 3.1. Secure Provisioning and High-Assurance Operations\n> \n>        This use-case also covers secure\n>        device onboarding for IoT devices that lack a pre-provisioned\n>        identity.\n> \"\n> \n> This does mean that you consider a use case where devices have no factory-provised attestation key or do you consider the case where the device has only the attestation key and no other key provisioned during manufacturing?",
       "createdAt": "2026-04-30T08:06:49Z",
-      "updatedAt": "2026-04-30T08:06:49Z",
-      "closedAt": null,
+      "updatedAt": "2026-05-04T10:25:15Z",
+      "closedAt": "2026-05-04T10:25:15Z",
       "comments": []
     }
   ],
@@ -4373,26 +4375,117 @@
       "id": "PR_kwDOP_9tTM7WWKe7",
       "title": "Use cases",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/41",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
-      "body": "- Organized use cases\r\n- Some terminology update for clarity\r\n- Addresses #27 \r\n- Addresses #32 \r\n\r\nCC co-author @Maisy-ML\r\n",
+      "body": "- Organized use cases\r\n- Some terminology update for clarity\r\n- Addresses #27 \r\n- Addresses #32 \r\n- Addresses #42 \r\n\r\nCC co-author @Maisy-ML\r\n",
       "createdAt": "2026-04-28T13:13:51Z",
-      "updatedAt": "2026-04-29T21:15:01Z",
+      "updatedAt": "2026-05-04T10:30:50Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "c0980300bcfc85958f99dfb4aecafb9e8ad597d0",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "use-cases",
-      "headRefOid": "fe634a0a4bb14a32fd739f9cee6e4f0ab45af02f",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "headRefOid": "b9617c684984ddc7264d7769c1385b8912404a91",
+      "closedAt": "2026-05-04T10:30:50Z",
+      "mergedAt": "2026-05-04T10:30:50Z",
+      "mergedBy": "muhammad-usama-sardar",
+      "mergeCommit": {
+        "oid": "4775778e3fceb856680abf15327fc0f78b92c0db"
+      },
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks, fixed. Please check and merge. ",
+          "createdAt": "2026-05-04T10:02:56Z",
+          "updatedAt": "2026-05-04T10:02:56Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Merging it based on discussion in meeting today and approval.",
+          "createdAt": "2026-05-04T10:29:48Z",
+          "updatedAt": "2026-05-04T10:29:48Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM77a-n4",
+          "commit": {
+            "abbreviatedOid": "6eafe6e"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-04T07:33:54Z",
+          "updatedAt": "2026-05-04T07:33:54Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "```suggestion\nRA should complement authentication rather than replace it.\n```",
+              "createdAt": "2026-05-04T07:33:54Z",
+              "updatedAt": "2026-05-04T07:33:54Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM77cIny",
+          "commit": {
+            "abbreviatedOid": "6eafe6e"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-04T08:25:26Z",
+          "updatedAt": "2026-05-04T08:25:26Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "fixed, thanks.",
+              "createdAt": "2026-05-04T08:25:26Z",
+              "updatedAt": "2026-05-04T08:25:26Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM77eWuw",
+          "commit": {
+            "abbreviatedOid": "8844570"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-04T09:59:43Z",
+          "updatedAt": "2026-05-04T09:59:43Z",
+          "comments": [
+            {
+              "originalPosition": 174,
+              "body": "```suggestion\n* Requirement: Runtime attestation based on agent risk tiers defined in {{Section 2.2 of I-D.aylward-aiga-2}}\n```",
+              "createdAt": "2026-05-04T09:59:43Z",
+              "updatedAt": "2026-05-04T09:59:43Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM77eXAE",
+          "commit": {
+            "abbreviatedOid": "8844570"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks good with a Nit. ",
+          "createdAt": "2026-05-04T09:59:55Z",
+          "updatedAt": "2026-05-04T09:59:55Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
