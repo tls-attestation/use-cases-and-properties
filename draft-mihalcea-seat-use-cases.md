@@ -78,6 +78,7 @@ informative:
      target: https://www.cve.org/CVERecord?id=CVE-2026-33697
     I-D.aylward-aiga-2:
     I-D.draft-ietf-rats-pkix-key-attestation:
+    I-D.sardar-rats-sec-cons:
 
 --- abstract
 
@@ -170,11 +171,16 @@ and invokes external tools/APIs that may read sensitive data or change
 system/network state. Its configuration (e.g., model choice, tool enablement,
 prompt template) can change independently of the binary/image and usually
 more frequently than typical platform TCB updates {{AI-agents}}.
+* Infrastructure provider: see {{I-D.sardar-rats-sec-cons}}.
+* Diversion attacks: see {{I-D.sardar-rats-sec-cons}}.
 
 # Integration Properties
 
 This section provides a list of desirable properties for designs that compose
-RA with secure channel protocols. Proposed protocol specifications should
+RA with secure channel protocols. In general, properties may depend on several
+factors, such as the deployment model, hardware architecture, etc.
+Also, some properties may not be met by the existing state-of-the-art.
+Proposed protocol specifications should
 clearly state which of these properties are fulfilled and explain how.
 
 ## Cryptographic Binding to Communication Channel
