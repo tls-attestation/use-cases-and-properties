@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-05T03:28:32.483949+00:00",
+  "timestamp": "2026-05-07T03:39:33.911354+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -62,14 +62,22 @@
       "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/3",
       "state": "OPEN",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Add GitHub repo link in draft for easy issue filing ",
       "createdAt": "2025-10-26T10:06:41Z",
-      "updatedAt": "2025-10-26T10:06:41Z",
+      "updatedAt": "2026-05-05T17:12:21Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Added in \"additional resources\" of draft. But also add in draft itself.",
+          "createdAt": "2026-05-05T17:12:21Z",
+          "updatedAt": "2026-05-05T17:12:21Z"
+        }
+      ]
     },
     {
       "number": 4,
@@ -237,7 +245,7 @@
       ],
       "body": "References to slides are frowned upon. Also, this is importnat enough to justify a few paragraphs of text here.\n\nIn addition, the short sentence here makes a ton of assumptions on the deployment model (e.g. \"infrastructure provider\") that require clarification.\n\n",
       "createdAt": "2025-10-26T13:58:56Z",
-      "updatedAt": "2025-12-15T08:58:25Z",
+      "updatedAt": "2026-05-05T18:58:55Z",
       "closedAt": null,
       "comments": [
         {
@@ -246,6 +254,20 @@
           "body": "> References to slides are frowned upon.\n\nUnfortunately, we could not manage to complete the pre-print for the formal analysis work until the cutoff. The link will be replaced by that in the future.",
           "createdAt": "2025-10-27T20:24:15Z",
           "updatedAt": "2025-10-27T20:24:15Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Clarified in https://mailarchive.ietf.org/arch/msg/seat/HzEf7V5KGHhM8htlQ0p9ACXQ_4g/",
+          "createdAt": "2026-05-05T18:52:55Z",
+          "updatedAt": "2026-05-05T18:52:55Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "and in case you missed, [follow-up](https://github.com/tls-attestation/use-cases-and-properties/pull/37#issuecomment-4273176972) was requesting you to make your case more convincingly. ",
+          "createdAt": "2026-05-05T18:58:54Z",
+          "updatedAt": "2026-05-05T18:58:54Z"
         }
       ]
     },
@@ -4486,6 +4508,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 43,
+      "id": "PR_kwDOP_9tTM7Y8Pze",
+      "title": "Clarification for Issue #8",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/43",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Addresses #8 \r\n- Added def. of infrastructure provider\r\n- Added def. of diversion attack\r\n- dependency on deployment model etc.\r\n- state-of-the-art may not meet some properties\r\n\r\nCC co-author @Maisy-ML",
+      "createdAt": "2026-05-06T22:14:34Z",
+      "updatedAt": "2026-05-06T23:36:32Z",
+      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRefName": "main",
+      "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
+      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRefName": "machine-id",
+      "headRefOid": "814fde75330dfdf94d0bcde00783b639e42ba0ca",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
