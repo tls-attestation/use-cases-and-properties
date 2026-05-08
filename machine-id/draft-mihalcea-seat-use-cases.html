@@ -1070,7 +1070,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mihalcea, et al.</td>
-<td class="center">Expires 7 November 2026</td>
+<td class="center">Expires 9 November 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1083,12 +1083,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-mihalcea-seat-use-cases-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-05-06" class="published">6 May 2026</time>
+<time datetime="2026-05-08" class="published">8 May 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-11-07">7 November 2026</time></dd>
+<dd class="expires"><time datetime="2026-11-09">9 November 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1153,7 +1153,7 @@ of protocol solutions within the SEAT working group.<a href="#section-abstract-1
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 7 November 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 9 November 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1429,7 +1429,7 @@ more frequently than typical platform TCB updates <span>[<a href="#AI-agents" cl
       </h2>
 <p id="section-3-1">This section provides a list of desirable properties for designs that compose
 RA with secure channel protocols. In general, properties may depend on several
-factors, such as the deployment model, hardware architecture, etc.
+factors, such as the system model, threat model, deployment model, hardware architecture, etc.
 Also, some properties may not be met by the existing state-of-the-art.
 Proposed protocol specifications should
 clearly state which of these properties are fulfilled and explain how.<a href="#section-3-1" class="pilcrow">¶</a></p>
@@ -1462,6 +1462,7 @@ A formal representation of this requirement in the form of <em>composition</em> 
 <a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-cryptographic-binding-to-ma" class="section-name selfRef">Cryptographic Binding to Machine Identifier</a>
         </h3>
 <p id="section-3.3-1">Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider to prevent <strong>diversion</strong> attacks <span>[<a href="#ID-Crisis" class="cite xref">ID-Crisis</a>]</span>.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.3-2">Because of absence of the binding of Evidence to physical identity of the system and to an owner organization in state-of-the-art confidential computing deployments, these attacks have been practically exploited in <a href="https://tee.fail/">TEE.fail</a>, <a href="https://wiretap.fail/">Wiretap.fail</a>, and <a href="https://badram.eu/">BadRAM</a>.<a href="#section-3.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="attestation-credential-freshness">
@@ -1476,6 +1477,8 @@ transient, and credentials from a previous RA interaction may no longer be valid
 See
 <span><a href="https://rfc-editor.org/rfc/rfc9334#section-10" class="relref">Section 10</a> of [<a href="#RFC9334" class="cite xref">RFC9334</a>]</span> for more details about freshness in the context of
 RA. This is formalized for attestation nonce in  <span>[<a href="#ID-Crisis" class="cite xref">ID-Crisis</a>]</span>.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
+<p id="section-3.4-2">In all state-of-the-art hardware architectures (Intel, AMD etc.) and deployments today, attestation nonce does not go to the platform level to trigger fresh Claims collection.
+Hence, attestation nonce in all deployments today does not provide <em>real</em> freshness.<a href="#section-3.4-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="negotiation-and-capability-discovery">
