@@ -178,7 +178,7 @@ more frequently than typical platform TCB updates {{AI-agents}}.
 
 This section provides a list of desirable properties for designs that compose
 RA with secure channel protocols. In general, properties may depend on several
-factors, such as the deployment model, hardware architecture, etc.
+factors, such as the system model, threat model, deployment model, hardware architecture, etc.
 Also, some properties may not be met by the existing state-of-the-art.
 Proposed protocol specifications should
 clearly state which of these properties are fulfilled and explain how.
@@ -201,6 +201,8 @@ A formal representation of this requirement in the form of *composition* goal ca
 
 Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider to prevent **diversion** attacks {{ID-Crisis}}.
 
+Because of absence of the binding of Evidence to physical identity of the system and to an owner organization in state-of-the-art confidential computing deployments, these attacks have been practically exploited in [TEE.fail](https://tee.fail/), [Wiretap.fail](https://wiretap.fail/), and [BadRAM](https://badram.eu/).
+
 ## Attestation Credential Freshness
 
 The Relying Party is able to verify that the Evidence or Attestation Result it
@@ -210,6 +212,9 @@ transient, and credentials from a previous RA interaction may no longer be valid
 See
 {{Section 10 of -rats-arch}} for more details about freshness in the context of
 RA. This is formalized for attestation nonce in  {{ID-Crisis}}.
+
+In all state-of-the-art hardware architectures (Intel, AMD etc.) and deployments today, attestation nonce does not go to the platform level to trigger fresh Claims collection.
+Hence, attestation nonce in all deployments today does not provide *real* freshness.
 
 ## Negotiation and Capability Discovery
 
