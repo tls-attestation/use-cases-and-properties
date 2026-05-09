@@ -195,6 +195,11 @@ A formal representation of this requirement in the form of *composition* goal ca
 
 Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider to prevent **diversion** attacks {{ID-Crisis}}.
 
+## Cryptographic Binding to Target Environment's Public Key
+Evidence should be cryptographically bound to the Target Environment's public key to prevent **replication** attacks.
+This is critical in use cases, such as consensus protocols like Raft, where an adversary can run more VM instances than desired to launch such attacks.
+Target Environment's public key distinguishes a specific instance of the VM to mitigate such attacks.
+
 ## Attestation Credential Freshness
 
 The Relying Party is able to verify that the Evidence or Attestation Result it
