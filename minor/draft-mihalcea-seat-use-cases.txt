@@ -476,7 +476,7 @@ Table of Contents
    security goals of the cryptographic module.  To prevent replay
    attacks, this Evidence has to be fresh and tied to the current TLS
    connection.  Replayed Evidence could otherwise be used to falsely
-   assert key protection security goals that no longer hold.
+   assert key security goals that no longer hold.
 
    *  Requirement: The Attester must be able to produce Evidence that
       demonstrates that the private key used for secure channel
