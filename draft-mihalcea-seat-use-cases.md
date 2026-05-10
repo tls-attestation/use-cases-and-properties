@@ -227,8 +227,7 @@ models they support. This enables interoperability and allows for graceful
 fallback for endpoints that do not support RA.
 
 The negotiation of attestation capabilities must be secure.
-  An active attacker must not be able to trick two parties that both support
-  attestation into negotiating a connection without it.
+An active attacker must not be able to cause two attestation-capable peers to negotiate a connection in which attestation is not performed.
 
 ## Attestation Model Flexibility
 
@@ -263,12 +262,11 @@ minimize this leakage, especially when a third-party Verifier is involved in the
 protocol exchange.
 
 ### Verifier Trust and Privacy
-In the Background Check model, the Relying Party
-  communicates with a Verifier. This reveals to the Verifier that the Relying
-  Party is communicating with the Attester. Depending on the scenario, this
-  could leak sensitive information about business relationships or user
-  activity. Solutions should consider mechanisms to minimize the data revealed
-  to the Verifier.
+In the Background Check model, the Relying Party communicates with the Verifier at the time of appraisal.
+This reveals the Attester's identity and connection timing to the Verifier.
+This also reveals to the Verifier that the Relying Party is communicating with the specific Attester.
+If the Verifier is a third party, it can observe which Attesters are being verified and when, potentially exposing client identity or business relationships.
+Solutions should consider privacy-preserving attestation  to minimize the data revealed to the Verifier, as being discussed in the RATS working group.
 
 ## Performance and Efficiency
 
