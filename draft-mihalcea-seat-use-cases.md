@@ -199,9 +199,21 @@ A formal representation of this requirement in the form of *composition* goal ca
 
 ## Cryptographic Binding to Machine Identifier
 
-Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider to prevent **diversion** attacks {{ID-Crisis}}.
+Evidence should be cryptographically bound to the identifier of the physical machine and the infrastructure provider (owner organization) to prevent **diversion** attacks {{ID-Crisis}}.
 
-Because of absence of the binding of Evidence to physical identity of the system and to an owner organization in state-of-the-art confidential computing deployments, these attacks have been practically exploited in [TEE.fail](https://tee.fail/), [Wiretap.fail](https://wiretap.fail/), and [BadRAM](https://badram.eu/).
+The rationale for this goal is that a network adversary can divert the connection from the intended server to any server anywhere running the same software stack in the TEE.
+The server could be in a different data center controlled by a malicious entity.
+
+The confidential computing counterargument for this attack is that it does not matter where the connection is established as long as the hardware being attested is secure and the attestation procedure is successful.
+However, this argument is based on the strong assumption that no TEE is ever compromised.
+Real-world exploits, such as [TEE.fail](https://tee.fail/) and [Wiretap.fail](https://wiretap.fail/), have already proven this assumption to be incorrect.
+
+Hardware vendors, like [Intel](https://www.intel.com/content/www/us/en/security-center/announcement/intel-security-announcement-2025-10-28-001.html) and [AMD](https://www.amd.com/en/resources/product-security/bulletin/amd-sb-3040.html), have declared these attacks as out of scope of their threat model.
+Hence, this security goal mitigates the scenario where one compromised TEE in the world may lead to potential compromise of the security of all attested TLS connections.
+
+This security goal is even more important when the cloud service provider is considered malicious, as in the Confidential Computing threat model. In this case, one compromised TEE in the data center can affect the security of all attested TLS connections, since all connections can be diverted to the compromised machine. Without identifier of the physical machine, this attack may not be mitigated.
+
+In state-of-the-art confidential computing deployments today, appraisal of cryptographic binding of Evidence to the physical machine identifier and the infrastructure provider is not supported.
 
 ## Attestation Credential Freshness
 
