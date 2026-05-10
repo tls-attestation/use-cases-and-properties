@@ -5,7 +5,7 @@
 SEAT Working Group                                           I. Mihalcea
 Internet-Draft                                                       Arm
 Intended status: Informational                              M. U. Sardar
-Expires: 10 November 2026                                     TU Dresden
+Expires: 11 November 2026                                     TU Dresden
                                                               T. Fossati
                                                                   Linaro
                                                                 T. Reddy
@@ -14,7 +14,7 @@ Expires: 10 November 2026                                     TU Dresden
                                                                         
                                                                  M. Chen
                                                             China Mobile
-                                                              9 May 2026
+                                                             10 May 2026
 
 
   Security Goals and Use Cases for Integrating Remote Attestation with
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 November 2026.
+   This Internet-Draft will expire on 11 November 2026.
 
 Copyright Notice
 
@@ -269,8 +269,9 @@ Table of Contents
    RA.
 
    The negotiation of attestation capabilities must be secure.  An
-   active attacker must not be able to trick two parties that both
-   support attestation into negotiating a connection without it.
+   active attacker must not be able to cause two attestation-capable
+   peers to negotiate a connection in which attestation is not
+   performed.
 
 3.6.  Attestation Model Flexibility
 
@@ -323,12 +324,15 @@ Table of Contents
 
 3.9.1.  Verifier Trust and Privacy
 
-   In the Background Check model, the Relying Party communicates with a
-   Verifier.  This reveals to the Verifier that the Relying Party is
-   communicating with the Attester.  Depending on the scenario, this
-   could leak sensitive information about business relationships or user
-   activity.  Solutions should consider mechanisms to minimize the data
-   revealed to the Verifier.
+   In the Background Check model, the Relying Party communicates with
+   the Verifier at the time of appraisal.  This reveals the Attester's
+   identity and connection timing to the Verifier.  This also reveals to
+   the Verifier that the Relying Party is communicating with the
+   specific Attester.  If the Verifier is a third party, it can observe
+   which Attesters are being verified and when, potentially exposing
+   client identity or business relationships.  Solutions should consider
+   privacy-preserving attestation to minimize the data revealed to the
+   Verifier, as being discussed in the RATS working group.
 
 3.10.  Performance and Efficiency
 
