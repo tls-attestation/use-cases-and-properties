@@ -23,12 +23,12 @@ type: Working Group
 mail: seat@ietf.org
 
 author:
-  - fullname: Ionuț Mihalcea
-    organization: Arm
-    email: ionut.mihalcea@arm.com
   - fullname: Muhammad Usama Sardar
     organization: TU Dresden
     email: muhammad_usama.sardar@tu-dresden.de
+  - fullname: Ionuț Mihalcea
+    organization: Arm
+    email: ionut.mihalcea@arm.com
   - fullname: Thomas Fossati
     organization: Linaro
     email: thomas.fossati@linaro.org
