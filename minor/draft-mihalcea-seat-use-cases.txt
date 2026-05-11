@@ -76,7 +76,6 @@ Table of Contents
      1.1.  Establishing Trust in Secure Communications
      1.2.  The Role of Remote Attestation
      1.3.  Purpose and Scope
-       1.3.1.  Evidence Semantics
    2.  Terminology
    3.  Integration Security Goals
      3.1.  Cryptographic Binding to Communication Channel
@@ -178,15 +177,8 @@ Table of Contents
    that is agnostic to any specific attestation technology (e.g.,
    Trusted Platform Modules (TPMs), Intel TDX, AMD SEV, Arm CCA).
 
-1.3.1.  Evidence Semantics
-
-   This document does not define attestation appraisal policies.
-   However, a Relying Party must be careful when interpreting
-   Attestation Results.  A "valid" attestation only means the Evidence
-   is authentic and correctly signed; it does not automatically mean the
-   underlying system is "secure".  The Relying Party must have a clear
-   policy for what measurements, software versions, and security
-   configurations are acceptable.
+   Appraisal policies (cf. Section 8.5 of [RFC9334]) are out of scope of
+   this document.
 
 2.  Terminology
 
