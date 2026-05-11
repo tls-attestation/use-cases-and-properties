@@ -5,7 +5,7 @@
 SEAT Working Group                                           I. Mihalcea
 Internet-Draft                                                       Arm
 Intended status: Informational                              M. U. Sardar
-Expires: 11 November 2026                                     TU Dresden
+Expires: 12 November 2026                                     TU Dresden
                                                               T. Fossati
                                                                   Linaro
                                                                 T. Reddy
@@ -14,7 +14,7 @@ Expires: 11 November 2026                                     TU Dresden
                                                                         
                                                                  M. Chen
                                                             China Mobile
-                                                             10 May 2026
+                                                             11 May 2026
 
 
   Security Goals and Use Cases for Integrating Remote Attestation with
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 November 2026.
+   This Internet-Draft will expire on 12 November 2026.
 
 Copyright Notice
 
@@ -329,10 +329,10 @@ Table of Contents
    identity and connection timing to the Verifier.  This also reveals to
    the Verifier that the Relying Party is communicating with the
    specific Attester.  If the Verifier is a third party, it can observe
-   which Attesters are being verified and when, potentially exposing
-   client identity or business relationships.  Solutions should consider
-   privacy-preserving attestation to minimize the data revealed to the
-   Verifier, as being discussed in the RATS working group.
+   which Attesters are being appraised and when, potentially exposing
+   client identity and other correlation information.  Solutions should
+   consider privacy-preserving attestation to minimize the data revealed
+   to the Verifier, as being discussed in the RATS working group.
 
 3.10.  Performance and Efficiency
 
