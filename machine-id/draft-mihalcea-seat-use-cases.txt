@@ -5,7 +5,7 @@
 SEAT Working Group                                           I. Mihalcea
 Internet-Draft                                                       Arm
 Intended status: Informational                              M. U. Sardar
-Expires: 11 November 2026                                     TU Dresden
+Expires: 12 November 2026                                     TU Dresden
                                                               T. Fossati
                                                                   Linaro
                                                                 T. Reddy
@@ -14,7 +14,7 @@ Expires: 11 November 2026                                     TU Dresden
                                                                         
                                                                  M. Chen
                                                             China Mobile
-                                                             10 May 2026
+                                                             11 May 2026
 
 
 Properties and Use Cases for Integrating Remote Attestation with Secure
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 November 2026.
+   This Internet-Draft will expire on 12 November 2026.
 
 Copyright Notice
 
@@ -209,12 +209,12 @@ Table of Contents
 3.  Integration Properties
 
    This section provides a list of desirable properties for designs that
-   compose RA with secure channel protocols.  In general, properties may
-   depend on several factors, such as the system model, threat model,
-   deployment model, hardware architecture, etc.  Also, some properties
-   may not be met by the existing state-of-the-art.  Proposed protocol
-   specifications should clearly state which of these properties are
-   fulfilled and explain how.
+   compose RA with secure channel protocols.  In general, the ability to
+   satisfy a certain property may depend on several factors, such as the
+   system model, threat model, deployment model, hardware architecture,
+   etc.  Also, some properties may not be met by the existing state-of-
+   the-art.  Proposed protocol specifications should clearly state which
+   of these properties are fulfilled and explain how.
 
 3.1.  Cryptographic Binding to Communication Channel
 
@@ -285,9 +285,9 @@ Table of Contents
    This is formalized for attestation nonce in [ID-Crisis].
 
    In all state-of-the-art hardware architectures (Intel, AMD etc.) and
-   deployments today, attestation nonce does not go to the platform
+   deployments _today_, attestation nonce does not go to the platform
    level to trigger fresh Claims collection.  Hence, attestation nonce
-   in all deployments today does not provide _real_ freshness.
+   in all deployments _today_ does not provide _real_ freshness.
 
 3.5.  Negotiation and Capability Discovery
 
