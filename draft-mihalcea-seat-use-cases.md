@@ -152,14 +152,7 @@ document is to define
 requirements for a solution that is agnostic to any specific attestation
 technology (e.g., Trusted Platform Modules (TPMs), Intel TDX, AMD SEV, Arm CCA).
 
-### Evidence Semantics
-
-This document does not define attestation appraisal
-  policies. However, a Relying Party must be careful when interpreting
-  Attestation Results. A "valid" attestation only means the Evidence is
-  authentic and correctly signed; it does not automatically mean the underlying
-  system is "secure". The Relying Party must have a clear policy for what
-  measurements, software versions, and security configurations are acceptable.
+Appraisal policies (cf. {{Section 8.5 of -rats-arch}}) are out of scope of this document.
 
 # Terminology
 
