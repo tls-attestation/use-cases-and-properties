@@ -207,11 +207,6 @@ See
 {{Section 10 of -rats-arch}} for more details about freshness in the context of
 RA. This is formalized for attestation nonce in  {{ID-Crisis}}.
 
-Failure to bind attestation credentials tightly to the
-  current connection would allow an adversary to replay or relay old or stolen, yet
-  valid credentials from a compromised system, completely undermining the
-  security goals.
-
 ## Negotiation and Capability Discovery
 
 Peers have a secure mechanism to discover each other's support for RA, the
