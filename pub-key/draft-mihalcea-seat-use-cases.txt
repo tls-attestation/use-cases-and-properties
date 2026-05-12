@@ -239,11 +239,10 @@ Table of Contents
 
    Evidence should be cryptographically bound to the Target
    Environment's public key to prevent replication attacks
-   (https://ieeexplore.ieee.org/document/8806748).  This is critical in
-   use cases, such as consensus protocols like Raft, where an adversary
-   can run more VM instances than desired to launch such attacks.
-   Target Environment's public key distinguishes a specific instance of
-   the VM to mitigate such attacks.
+   [Replica-TEE].  This is critical in use cases, such as consensus
+   protocols like Raft, where an adversary can run more VM instances
+   than desired to launch such attacks.  Target Environment's public key
+   distinguishes a specific instance of the VM to mitigate such attacks.
 
 3.5.  Attestation Credential Freshness
 
@@ -631,6 +630,12 @@ Table of Contents
 
    [MigTD]    "Intel TDX Migration TD", n.d.,
               <https://github.com/intel/MigTD>.
+
+   [Replica-TEE]
+              Soriente, C., Karame, G., Li, W., and S. Fedorov,
+              "ReplicaTEE: Enabling Seamless Replication of SGX Enclaves
+              in the Cloud",
+              <https://ieeexplore.ieee.org/document/8806748>.
 
    [RFC4949]  Shirey, R., "Internet Security Glossary, Version 2",
               FYI 36, RFC 4949, DOI 10.17487/RFC4949, August 2007,

@@ -1463,7 +1463,7 @@ A formal representation of this requirement in the form of <em>composition</em> 
         <h3 id="name-cryptographic-binding-to-ta">
 <a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-cryptographic-binding-to-ta" class="section-name selfRef">Cryptographic Binding to Target Environment's Public Key</a>
         </h3>
-<p id="section-3.4-1">Evidence should be cryptographically bound to the Target Environment's public key to prevent <a href="https://ieeexplore.ieee.org/document/8806748">replication attacks</a>.
+<p id="section-3.4-1">Evidence should be cryptographically bound to the Target Environment's public key to prevent replication attacks <span>[<a href="#Replica-TEE" class="cite xref">Replica-TEE</a>]</span>.
 This is critical in use cases, such as consensus protocols like Raft, where an adversary can run more VM instances than desired to launch such attacks.
 Target Environment's public key distinguishes a specific instance of the VM to mitigate such attacks.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
 </section>
@@ -1922,6 +1922,10 @@ measurements, software versions, and security configurations are acceptable.<a h
 <dt id="MigTD">[MigTD]</dt>
       <dd>
 <span class="refTitle">"Intel TDX Migration TD"</span>, <span>n.d.</span>, <span>&lt;<a href="https://github.com/intel/MigTD">https://github.com/intel/MigTD</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Replica-TEE">[Replica-TEE]</dt>
+      <dd>
+<span class="refAuthor">Soriente, C.</span>, <span class="refAuthor">Karame, G.</span>, <span class="refAuthor">Li, W.</span>, and <span class="refAuthor">S. Fedorov</span>, <span class="refTitle">"ReplicaTEE: Enabling Seamless Replication of SGX Enclaves in the Cloud"</span>, <span>&lt;<a href="https://ieeexplore.ieee.org/document/8806748">https://ieeexplore.ieee.org/document/8806748</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC4949">[RFC4949]</dt>
       <dd>
