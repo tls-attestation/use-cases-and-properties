@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-10T03:49:19.938834+00:00",
+  "timestamp": "2026-05-12T03:42:48.648124+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -57,6 +57,26 @@
       "name": "close-candidate",
       "description": "",
       "color": "81f79e"
+    },
+    {
+      "name": "ready-to-merge in meeting",
+      "description": "",
+      "color": "7d3619"
+    },
+    {
+      "name": "authors-personal",
+      "description": "",
+      "color": "0d74c9"
+    },
+    {
+      "name": "PR submitted",
+      "description": "",
+      "color": "08eafe"
+    },
+    {
+      "name": "admin/non-technical",
+      "description": "",
+      "color": "e0b1ca"
     }
   ],
   "issues": [
@@ -69,10 +89,12 @@
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "admin/non-technical"
+      ],
       "body": "Add GitHub repo link in draft for easy issue filing ",
       "createdAt": "2025-10-26T10:06:41Z",
-      "updatedAt": "2026-05-05T17:12:21Z",
+      "updatedAt": "2026-05-11T20:25:18Z",
       "closedAt": null,
       "comments": [
         {
@@ -89,7 +111,7 @@
       "id": "I_kwDOP_9tTM7T1aV0",
       "title": "Confidential Data Collaboration, specifically SMPC",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/4",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yaronf",
       "authorAssociation": "NONE",
       "assignees": [],
@@ -98,8 +120,8 @@
       ],
       "body": "This is not an ideal use case (certainly should not appear as the first one) because SMPC, when deployed correctly, should not be vulnerable to active attackers, i.e. it should provide \"malicious security\" and not just \"semi honest security\".\n\n",
       "createdAt": "2025-10-26T13:58:50Z",
-      "updatedAt": "2026-05-09T12:38:25Z",
-      "closedAt": null,
+      "updatedAt": "2026-05-11T08:33:00Z",
+      "closedAt": "2026-05-11T08:33:00Z",
       "comments": [
         {
           "author": "muhammad-usama-sardar",
@@ -121,6 +143,13 @@
           "body": "Agree with reordering. Single party should be before multi-party. Done in my local copy.\n\n> SMPC is hard to implement, and there's usually no motivation to add the complexity of attestation on top of that, because you're getting the desired security guarantees from the cryptography.\n\nI think there is confusion here between SPMC used in cryptography vs. multiple parties communicating securely (MPC). We intended to mean the latter.",
           "createdAt": "2025-11-30T16:11:02Z",
           "updatedAt": "2025-11-30T16:11:02Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closing issue, as discussed in meeting.",
+          "createdAt": "2026-05-11T08:33:00Z",
+          "updatedAt": "2026-05-11T08:33:00Z"
         }
       ]
     },
@@ -129,7 +158,7 @@
       "id": "I_kwDOP_9tTM7T1aWR",
       "title": "High-Assurance Command Execution",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/5",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yaronf",
       "authorAssociation": "NONE",
       "assignees": [],
@@ -138,8 +167,8 @@
       ],
       "body": "The requirement is questionnable, because a malicious execution environment does not need a command to do its harm. It is actually the _operator_ that needs to be attested in this use case.\n\nA similar consideration applies to \"Securing Control and Management Planes\" where again, the vulnerable point is the administrator. In that case, we mention stealing credentials as a risk, but it is significantly easier to address credential stealing (e.g. by using PAKE) than with attestation infrastructure.\n\n",
       "createdAt": "2025-10-26T13:58:52Z",
-      "updatedAt": "2026-05-09T12:42:56Z",
-      "closedAt": null,
+      "updatedAt": "2026-05-11T08:33:50Z",
+      "closedAt": "2026-05-11T08:33:50Z",
       "comments": [
         {
           "author": "ionut-arm",
@@ -154,6 +183,13 @@
           "body": "Maybe, but see also the analysis in #23.",
           "createdAt": "2026-01-15T10:00:13Z",
           "updatedAt": "2026-01-15T10:00:13Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closing issue, as discussed in meeting.",
+          "createdAt": "2026-05-11T08:33:50Z",
+          "updatedAt": "2026-05-11T08:33:50Z"
         }
       ]
     },
@@ -257,11 +293,12 @@
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [
-        "close-candidate"
+        "close-candidate",
+        "PR submitted"
       ],
       "body": "References to slides are frowned upon. Also, this is importnat enough to justify a few paragraphs of text here.\n\nIn addition, the short sentence here makes a ton of assumptions on the deployment model (e.g. \"infrastructure provider\") that require clarification.\n\n",
       "createdAt": "2025-10-26T13:58:56Z",
-      "updatedAt": "2026-05-09T12:50:00Z",
+      "updatedAt": "2026-05-11T20:19:24Z",
       "closedAt": null,
       "comments": [
         {
@@ -427,7 +464,7 @@
       "id": "I_kwDOP_9tTM7T1aYw",
       "title": "Privacy Preservation",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/12",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yaronf",
       "authorAssociation": "NONE",
       "assignees": [],
@@ -436,9 +473,17 @@
       ],
       "body": "The solution does not degrade the privacy -> The solution must not degrade the privacy (this is a requirement).\n\nAlso I suggest to to cite the [IAB Statement](https://datatracker.ietf.org/doc/statement-iab-statement-on-the-risks-of-attestation-of-software-and-hardware-on-the-open-internet/) in this section, it is not precisey about privacy but it is closely related.\n\n",
       "createdAt": "2025-10-26T13:59:02Z",
-      "updatedAt": "2026-05-09T13:04:44Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2026-05-11T08:34:12Z",
+      "closedAt": "2026-05-11T08:34:12Z",
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closing issue, as discussed in meeting.",
+          "createdAt": "2026-05-11T08:34:12Z",
+          "updatedAt": "2026-05-11T08:34:12Z"
+        }
+      ]
     },
     {
       "number": 13,
@@ -449,10 +494,13 @@
       "author": "yaronf",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "close-candidate",
+        "PR submitted"
+      ],
       "body": "This section is confusing since it overlaps significantly with the requirements. I suggest to fold its text into the requirements section and use the stanard boilerplate: \"This whole document is about security.\"\n\n",
       "createdAt": "2025-10-26T13:59:04Z",
-      "updatedAt": "2025-10-26T13:59:04Z",
+      "updatedAt": "2026-05-11T20:19:25Z",
       "closedAt": null,
       "comments": []
     },
@@ -661,10 +709,12 @@
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "enhancement"
+      ],
       "body": "@tireddy2 proposed to add one reference for each use case. I think it will be a valuable addition.",
       "createdAt": "2025-12-08T09:37:59Z",
-      "updatedAt": "2026-01-16T12:39:47Z",
+      "updatedAt": "2026-05-11T07:18:15Z",
       "closedAt": null,
       "comments": [
         {
@@ -748,10 +798,12 @@
       "author": "ionut-arm",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "enhancement"
+      ],
       "body": "The use-cases we describe are condensed, abstract versions of what we'd expect to be deployed in the wild. Ideally, we should provide some examples that these condensed versions are accurate, by mapping our descriptions and assessments onto existing implementations.\n\nThis would act both as quality control for our write-ups, and help solidify the rationale for considering these use-cases in particular.\n\nAs an example, [CoCo's Trustee](https://github.com/confidential-containers/trustee) embodies the Runtime Secret Provisioning use-case.\n\nNote: not adding any deadline or target date, as this will likely be a \"living task\".",
       "createdAt": "2026-01-16T11:09:13Z",
-      "updatedAt": "2026-04-20T08:28:36Z",
+      "updatedAt": "2026-05-11T07:18:16Z",
       "closedAt": null,
       "comments": [
         {
@@ -818,10 +870,12 @@
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "enhancement"
+      ],
       "body": "@tireddy2 proposed to check [RFC7478](https://datatracker.ietf.org/doc/html/rfc7478) as a sample.",
       "createdAt": "2026-03-09T09:36:40Z",
-      "updatedAt": "2026-03-09T09:36:40Z",
+      "updatedAt": "2026-05-11T07:18:17Z",
       "closedAt": null,
       "comments": []
     },
@@ -914,10 +968,12 @@
       "assignees": [
         "ionut-arm"
       ],
-      "labels": [],
+      "labels": [
+        "admin/non-technical"
+      ],
       "body": "Who is the owner of this organization?\nPlease add @Maisy-ML, who is a co-author of the use cases doc.",
       "createdAt": "2026-04-18T10:32:30Z",
-      "updatedAt": "2026-04-20T08:24:00Z",
+      "updatedAt": "2026-05-11T20:25:19Z",
       "closedAt": null,
       "comments": []
     },
@@ -937,6 +993,24 @@
       "createdAt": "2026-04-30T08:06:49Z",
       "updatedAt": "2026-05-04T10:25:15Z",
       "closedAt": "2026-05-04T10:25:15Z",
+      "comments": []
+    },
+    {
+      "number": 47,
+      "id": "I_kwDOP_9tTM8AAAABB3Ga-Q",
+      "title": "Out of scope document cited as companion draft",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/47",
+      "state": "OPEN",
+      "author": "telephonicrobotics",
+      "authorAssociation": "NONE",
+      "assignees": [
+        "muhammad-usama-sardar"
+      ],
+      "labels": [],
+      "body": "See concern raised at https://github.com/tls-attestation/use-cases-and-properties/pull/37#discussion_r3217875448",
+      "createdAt": "2026-05-11T10:02:20Z",
+      "updatedAt": "2026-05-11T20:23:51Z",
+      "closedAt": null,
       "comments": []
     }
   ],
@@ -3995,7 +4069,7 @@
       "labels": [],
       "body": "Addresses @yaronf's comments in #36 ",
       "createdAt": "2026-04-16T20:01:13Z",
-      "updatedAt": "2026-04-20T08:08:02Z",
+      "updatedAt": "2026-05-11T09:56:52Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "3447396222b321101aa38938f53ce5b9aaa9823b",
@@ -4096,6 +4170,26 @@
           "createdAt": "2026-04-20T08:07:23Z",
           "updatedAt": "2026-04-20T08:07:23Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7-D8pP",
+          "commit": {
+            "abbreviatedOid": "d907ac2"
+          },
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "See comment in-line. ",
+          "createdAt": "2026-05-11T09:55:38Z",
+          "updatedAt": "2026-05-11T09:56:52Z",
+          "comments": [
+            {
+              "originalPosition": 35,
+              "body": "There is no charter mandate for a document like draft-usama-seat-intra-vs-post and is therefore inappropriate to cite as a \"companion document\" to this present draft. ",
+              "createdAt": "2026-05-11T09:55:39Z",
+              "updatedAt": "2026-05-11T09:56:52Z"
+            }
+          ]
         }
       ]
     },
@@ -4557,16 +4651,18 @@
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ready-to-merge in meeting"
+      ],
       "body": "Addresses #8 \r\n- Added def. of infrastructure provider\r\n- Added def. of diversion attack\r\n- dependency on deployment model etc.\r\n- state-of-the-art may not meet some properties\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-06T22:14:34Z",
-      "updatedAt": "2026-05-09T19:36:49Z",
+      "updatedAt": "2026-05-11T15:49:11Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "machine-id",
-      "headRefOid": "b50619cb3a6a71f1318c58a899380e038b21ff12",
+      "headRefOid": "8589c0c51f1d9d22f3299f5af909f5e4c78deeb4",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -4627,6 +4723,27 @@
           "body": "> > Evidence in any reasonably designed attested TLS is sent encrypted\r\n> \r\n> Correct, is _sent to someone who's not the attester and might be an attacker_, encrypted.\r\n\r\nCan you explain more? In particular, are you referring to MITM or simply a malicious party connecting to the same server?\r\nCan you explain the attack in more detail?",
           "createdAt": "2026-05-08T18:32:30Z",
           "updatedAt": "2026-05-08T18:32:30Z"
+        },
+        {
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "body": "Hi, I disagree this is ready to merge. I wasn't able to make the meeting unfortunately, but I'll resolve to share my specific concerns with the current text in more detail before too long. Thanks. ",
+          "createdAt": "2026-05-11T08:01:51Z",
+          "updatedAt": "2026-05-11T08:07:55Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Discussed in meeting: ready to merge",
+          "createdAt": "2026-05-11T08:26:48Z",
+          "updatedAt": "2026-05-11T08:26:48Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> A few comments inline. \r\n\r\nUpdated, please check.\r\n> Overall, as mentioned on the list, I don\u2019t think the binding to the machine identifier should be expressed as a security requirement, but rather as a defence-in-depth approach that applies to certain scenarios.\r\n\r\nI think the detailed text justifies why it is a requirement as long as hardware vendors do not address side channels.",
+          "createdAt": "2026-05-11T15:49:03Z",
+          "updatedAt": "2026-05-11T15:49:03Z"
         }
       ],
       "reviews": [
@@ -4828,6 +4945,118 @@
               "updatedAt": "2026-05-09T19:36:49Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM794dbe",
+          "commit": {
+            "abbreviatedOid": "b50619c"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-10T13:47:05Z",
+          "updatedAt": "2026-05-10T13:47:05Z",
+          "comments": [
+            {
+              "originalPosition": 28,
+              "body": "Please check the updated text.",
+              "createdAt": "2026-05-10T13:47:05Z",
+              "updatedAt": "2026-05-10T13:47:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7-BB96",
+          "commit": {
+            "abbreviatedOid": "1522f8b"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "A few comments inline.  Overall, as mentioned on the list, I don\u2019t think the binding to the machine identifier should be expressed as a security requirement, but rather as a defence-in-depth approach that applies to certain scenarios.",
+          "createdAt": "2026-05-11T08:00:03Z",
+          "updatedAt": "2026-05-11T08:09:03Z",
+          "comments": [
+            {
+              "originalPosition": 19,
+              "body": "I find the phrasing of L180-183 confusing.\nIt is not \u201cproperties\" that depend on deployments, architectures, etc.  Rather, it is \u201cthe ability to satisfy a certain property\u201d that should be the subject of this sentence. No?",
+              "createdAt": "2026-05-11T08:00:03Z",
+              "updatedAt": "2026-05-11T08:09:03Z"
+            },
+            {
+              "originalPosition": 54,
+              "body": "This addition is unnecessary and potentially controversial.",
+              "createdAt": "2026-05-11T08:06:35Z",
+              "updatedAt": "2026-05-11T08:09:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7-BuDP",
+          "commit": {
+            "abbreviatedOid": "1522f8b"
+          },
+          "author": "rafiq-m",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-05-11T08:28:48Z",
+          "updatedAt": "2026-05-11T08:28:48Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7-ByeT",
+          "commit": {
+            "abbreviatedOid": "1522f8b"
+          },
+          "author": "Moosa-Razaa",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-05-11T08:31:56Z",
+          "updatedAt": "2026-05-11T08:31:56Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7-OJPM",
+          "commit": {
+            "abbreviatedOid": "1522f8b"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-11T15:40:45Z",
+          "updatedAt": "2026-05-11T15:40:45Z",
+          "comments": [
+            {
+              "originalPosition": 19,
+              "body": "Agree, updated.",
+              "createdAt": "2026-05-11T15:40:45Z",
+              "updatedAt": "2026-05-11T15:40:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7-ON37",
+          "commit": {
+            "abbreviatedOid": "1522f8b"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-11T15:42:53Z",
+          "updatedAt": "2026-05-11T15:42:53Z",
+          "comments": [
+            {
+              "originalPosition": 54,
+              "body": "Please see if the focus fixes your concern. If not, please provide a counter-example.",
+              "createdAt": "2026-05-11T15:42:53Z",
+              "updatedAt": "2026-05-11T15:42:53Z"
+            }
+          ]
         }
       ]
     },
@@ -4843,7 +5072,7 @@
       "labels": [],
       "body": "- Public key of Target Environment\r\n- Replication attacks\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-09T10:46:07Z",
-      "updatedAt": "2026-05-09T10:47:31Z",
+      "updatedAt": "2026-05-12T00:19:20Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -4861,9 +5090,97 @@
           "body": "CC @telephonicrobotics",
           "createdAt": "2026-05-09T10:47:31Z",
           "updatedAt": "2026-05-09T10:47:31Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Discussed in meeting: ready to merge",
+          "createdAt": "2026-05-11T08:04:10Z",
+          "updatedAt": "2026-05-11T08:04:10Z"
+        },
+        {
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "body": "> Discussed in meeting: ready to merge\n\nI wasn't able to make the meeting unfortunately, but the content of this section deserves more time on-list. I'll share my thoughts when I can, but I disagree this is ready to merge as-is. ",
+          "createdAt": "2026-05-11T08:14:34Z",
+          "updatedAt": "2026-05-11T08:14:34Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Discussed in meeting: ready to merge\r\n\r\nThere are still outstanding comments.",
+          "createdAt": "2026-05-11T08:25:55Z",
+          "updatedAt": "2026-05-11T08:25:55Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": ">  I disagree this is ready to merge as-is.\r\n\r\nPlease share your technical objections.",
+          "createdAt": "2026-05-11T09:07:01Z",
+          "updatedAt": "2026-05-11T09:07:01Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM7-BvL9",
+          "commit": {
+            "abbreviatedOid": "9c21c71"
+          },
+          "author": "rafiq-m",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-05-11T08:29:36Z",
+          "updatedAt": "2026-05-11T08:29:36Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7-ByJ6",
+          "commit": {
+            "abbreviatedOid": "9c21c71"
+          },
+          "author": "Moosa-Razaa",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-05-11T08:31:42Z",
+          "updatedAt": "2026-05-11T08:31:42Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7-aSCo",
+          "commit": {
+            "abbreviatedOid": "9c21c71"
+          },
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-12T00:19:07Z",
+          "updatedAt": "2026-05-12T00:19:07Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "The \"the problem of evidence replication\" has only ever been mentioned in[ one concrete instance on-list ](https://mailarchive.ietf.org/arch/msg/seat/aW8EYY1Dc3oCRWUYaUll2omkxdc/) and so I do feel like \"**replication** attacks\" is sort of just floating in the document without proper context.",
+              "createdAt": "2026-05-12T00:19:07Z",
+              "updatedAt": "2026-05-12T00:19:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7-aSMN",
+          "commit": {
+            "abbreviatedOid": "9c21c71"
+          },
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "See comment inline.",
+          "createdAt": "2026-05-12T00:19:20Z",
+          "updatedAt": "2026-05-12T00:19:20Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 45,
@@ -4874,22 +5191,382 @@
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ready-to-merge in meeting"
+      ],
       "body": "- Addresses #13 \r\n- Move security considerations text to relevant sections\r\n- s/properties/security goals (the former is more for formal)\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-09T15:19:08Z",
-      "updatedAt": "2026-05-09T15:19:09Z",
+      "updatedAt": "2026-05-11T20:31:54Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "minor",
-      "headRefOid": "616ac4ed216f2f98676aeb67d5985cd92fc1b944",
+      "headRefOid": "449af59769d850a1b455c0fbca92d63c3995e015",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Discussed in meeting: ready to merge.",
+          "createdAt": "2026-05-11T07:50:15Z",
+          "updatedAt": "2026-05-11T07:50:15Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Discussed in meeting: ready to merge.\r\n\r\nThere are still outstanding comments.",
+          "createdAt": "2026-05-11T08:25:29Z",
+          "updatedAt": "2026-05-11T08:25:29Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> There are still outstanding comments.\r\n\r\nSure, happy to address those. Just a couple of clarifications:\r\n1. The PR just moved the text from security considerations to relevant sections, as per suggestion of #13.\r\n2. Your comments came after the discussion in the meeting. I'll check them and address them.",
+          "createdAt": "2026-05-11T09:01:43Z",
+          "updatedAt": "2026-05-11T09:01:43Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> There are still outstanding comments.\r\n\r\nAddressed all comments. Please check.",
+          "createdAt": "2026-05-11T16:34:06Z",
+          "updatedAt": "2026-05-11T16:34:06Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM7932oj",
+          "commit": {
+            "abbreviatedOid": "616ac4e"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-10T11:04:26Z",
+          "updatedAt": "2026-05-10T11:04:26Z",
+          "comments": [
+            {
+              "originalPosition": 67,
+              "body": "```suggestion\nFailure to bind attestation evidence tightly to the\n```",
+              "createdAt": "2026-05-10T11:04:26Z",
+              "updatedAt": "2026-05-10T11:04:26Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7933BN",
+          "commit": {
+            "abbreviatedOid": "616ac4e"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-10T11:06:16Z",
+          "updatedAt": "2026-05-10T11:06:16Z",
+          "comments": [
+            {
+              "originalPosition": 81,
+              "body": "I propose to modify the last line as follows:\nAn active attacker must not be able to cause two attestation-capable peers to negotiate a connection in which attestation is not performed.",
+              "createdAt": "2026-05-10T11:06:16Z",
+              "updatedAt": "2026-05-10T11:06:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7934Dh",
+          "commit": {
+            "abbreviatedOid": "616ac4e"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-10T11:11:12Z",
+          "updatedAt": "2026-05-10T11:11:13Z",
+          "comments": [
+            {
+              "originalPosition": 91,
+              "body": "I propose to update the text as follows:\nIn the Background Check model, the Relying Party contacts the Verifier at attestation time. This reveals the Attester's identity and connection timing to the Verifier. If the Verifier is a third party, it can observe which\nAttesters are being verified and when, potentially exposing client identity or business relationships. Solutions should consider privacy-preserving\nattestation as being discussed in the RATS working group.",
+              "createdAt": "2026-05-10T11:11:13Z",
+              "updatedAt": "2026-05-10T11:11:13Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7934NA",
+          "commit": {
+            "abbreviatedOid": "616ac4e"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "Proposed text for further updates. ",
+          "createdAt": "2026-05-10T11:11:54Z",
+          "updatedAt": "2026-05-10T11:11:54Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM793_r0",
+          "commit": {
+            "abbreviatedOid": "616ac4e"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-10T11:44:47Z",
+          "updatedAt": "2026-05-10T11:44:47Z",
+          "comments": [
+            {
+              "originalPosition": 67,
+              "body": "I think credentials here means both evidence and attestation results.",
+              "createdAt": "2026-05-10T11:44:47Z",
+              "updatedAt": "2026-05-10T11:44:47Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM794Ag1",
+          "commit": {
+            "abbreviatedOid": "616ac4e"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-10T11:46:20Z",
+          "updatedAt": "2026-05-10T11:46:20Z",
+          "comments": [
+            {
+              "originalPosition": 81,
+              "body": "Thanks. Used the proposed wording as is.",
+              "createdAt": "2026-05-10T11:46:20Z",
+              "updatedAt": "2026-05-10T11:46:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM794AzC",
+          "commit": {
+            "abbreviatedOid": "616ac4e"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-10T11:47:19Z",
+          "updatedAt": "2026-05-10T11:47:19Z",
+          "comments": [
+            {
+              "originalPosition": 91,
+              "body": "Thanks, used your phrasing as a baseline and slightly modified it for clarity based on RATS. Please check.",
+              "createdAt": "2026-05-10T11:47:19Z",
+              "updatedAt": "2026-05-10T11:47:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7-Alh-",
+          "commit": {
+            "abbreviatedOid": "d6db5dc"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-11T07:43:25Z",
+          "updatedAt": "2026-05-11T07:52:56Z",
+          "comments": [
+            {
+              "originalPosition": 36,
+              "body": "I am slightly confused by the fact that the title says \u201cEvidence\u201d but the body talks about Attestation Results.",
+              "createdAt": "2026-05-11T07:43:25Z",
+              "updatedAt": "2026-05-11T07:52:56Z"
+            },
+            {
+              "originalPosition": 41,
+              "body": "Can it be authentic without being correctly signed?",
+              "createdAt": "2026-05-11T07:45:20Z",
+              "updatedAt": "2026-05-11T07:52:56Z"
+            },
+            {
+              "originalPosition": 44,
+              "body": "I don\u2019t understand the reasoning behind this new section. IMO, if anything in this space needs clarifying, a single reference to \u00a78.5 of RFC9334 should be enough.",
+              "createdAt": "2026-05-11T07:48:30Z",
+              "updatedAt": "2026-05-11T07:52:56Z"
+            },
+            {
+              "originalPosition": 93,
+              "body": "```suggestion\nIf the Verifier is a third party, it can observe which Attesters are being appraised and when, potentially exposing client identity and other correlation information.\n```",
+              "createdAt": "2026-05-11T07:50:38Z",
+              "updatedAt": "2026-05-11T07:52:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7-Bu2Q",
+          "commit": {
+            "abbreviatedOid": "d6db5dc"
+          },
+          "author": "rafiq-m",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-05-11T08:29:21Z",
+          "updatedAt": "2026-05-11T08:29:21Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7-BxQx",
+          "commit": {
+            "abbreviatedOid": "d6db5dc"
+          },
+          "author": "Moosa-Razaa",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-05-11T08:31:02Z",
+          "updatedAt": "2026-05-11T08:31:02Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7-PIMZ",
+          "commit": {
+            "abbreviatedOid": "d6db5dc"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-11T16:14:37Z",
+          "updatedAt": "2026-05-11T16:14:37Z",
+          "comments": [
+            {
+              "originalPosition": 36,
+              "body": "because of https://www.ietf.org/archive/id/draft-mihalcea-seat-use-cases-02.html#section-5-2.4.1\r\n\r\nremoved now.",
+              "createdAt": "2026-05-11T16:14:37Z",
+              "updatedAt": "2026-05-11T16:29:42Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7-PMqd",
+          "commit": {
+            "abbreviatedOid": "d6db5dc"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-11T16:17:11Z",
+          "updatedAt": "2026-05-11T16:17:12Z",
+          "comments": [
+            {
+              "originalPosition": 41,
+              "body": "was the same here: https://www.ietf.org/archive/id/draft-mihalcea-seat-use-cases-02.html#section-5-2.4.1",
+              "createdAt": "2026-05-11T16:17:11Z",
+              "updatedAt": "2026-05-11T16:17:12Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7-PP_L",
+          "commit": {
+            "abbreviatedOid": "d6db5dc"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-11T16:18:59Z",
+          "updatedAt": "2026-05-11T16:18:59Z",
+          "comments": [
+            {
+              "originalPosition": 44,
+              "body": "It's not a new section: https://www.ietf.org/archive/id/draft-mihalcea-seat-use-cases-02.html#section-5-2.4.1",
+              "createdAt": "2026-05-11T16:18:59Z",
+              "updatedAt": "2026-05-11T16:18:59Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 46,
+      "id": "PR_kwDOP_9tTM7aCLmw",
+      "title": "Update Author order",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/46",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "authors-personal"
+      ],
+      "body": "Hi team,\r\nI've been doing quite some work on the draft recently. I would like this to be reflected in the author order. Does this work for everyone?\r\n\r\nCC co-author @Maisy-ML",
+      "createdAt": "2026-05-10T19:01:46Z",
+      "updatedAt": "2026-05-11T11:59:21Z",
+      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRefName": "main",
+      "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
+      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRefName": "author-order",
+      "headRefOid": "dd1af0626419ac994c85aad8fc5bdefa677eb6bf",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I am not sure what the goal of this change is. This is not an academic paper. The ordering \"rules\" that apply to typical peer-reviewed papers are completely meaningless in the context of an Internet-Draft.",
+          "createdAt": "2026-05-11T07:37:43Z",
+          "updatedAt": "2026-05-11T07:37:43Z"
+        },
+        {
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Agree with Thomas, don't see the point, especially when this won't even be published.",
+          "createdAt": "2026-05-11T08:27:09Z",
+          "updatedAt": "2026-05-11T08:27:09Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> The ordering \"rules\" that apply to typical peer-reviewed papers are completely meaningless in the context of an Internet-Draft.\r\n\r\nWell, that also means there should not be any problem in changing the order, no? It helps me justify my time that I spend on this draft. \r\n\r\n> [...] this won't even be published\r\n\r\nFor me, it does not matter.",
+          "createdAt": "2026-05-11T09:13:03Z",
+          "updatedAt": "2026-05-11T09:13:03Z"
+        },
+        {
+          "author": "henkbirkholz",
+          "authorAssociation": "NONE",
+          "body": "I am not even a contributor on this I-D, but as an advice to @muhammad-usama-sardar: I would like to kindly advice to retract this PR.",
+          "createdAt": "2026-05-11T10:11:29Z",
+          "updatedAt": "2026-05-11T10:11:29Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM7-BuZi",
+          "commit": {
+            "abbreviatedOid": "dd1af06"
+          },
+          "author": "Moosa-Razaa",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-05-11T08:29:03Z",
+          "updatedAt": "2026-05-11T08:29:03Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
