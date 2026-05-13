@@ -145,9 +145,7 @@ and its datagram-oriented variant, DTLS 1.3 {{I-D.ietf-tls-rfc9147bis}}.
 
 This document is intended as an input to the design of protocol solutions within
 the SEAT working group. It defines the "why" (the motivation) and the "what" (the requirements),
-but not the "how" (the protocol design itself). The "how" part is discussed
-in the companion document {{I-D.usama-seat-intra-vs-post}}, which serves as the
-glue between this document and the protocol specifications. A key goal of this
+but not the "how" (the protocol design itself). A key goal of this
 document is to define
 requirements for a solution that is agnostic to any specific attestation
 technology (e.g., Trusted Platform Modules (TPMs), Intel TDX, AMD SEV, Arm CCA).
