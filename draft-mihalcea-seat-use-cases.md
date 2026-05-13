@@ -337,6 +337,78 @@ network device's management interface.
   management endpoint on the network device to ensure they are not connecting to
   a compromised interface that could steal credentials or manipulate the device.
 
+## Proxy-Fronted Attested Secure Channels
+
+Goal: Support deployments in which an endpoint communicates with an attested
+application, service, or confidential workload through one or more
+intermediaries such as reverse proxies, API gateways, service-mesh components,
+load balancers, WAFs, or CDN edges.
+
+Use case: An endpoint connects to an application or confidential workload
+through an intermediary that may terminate, inspect, relay, translate, or
+otherwise mediate the secure channel for operational reasons such as routing,
+policy enforcement, DDoS protection, observability, or protocol adaptation.
+
+Two distinct sub-cases should be considered:
+
+(a) The intermediary is itself the attested endpoint. The intermediary operates
+within a TEE or otherwise provides attestable guarantees, and endpoints attest
+the intermediary directly. The origin behind the proxy need not be
+independently attested from the endpoint's perspective.
+
+(b) The intermediary is a TLS-terminating third party through which an endpoint
+seeks to attest an origin workload. The endpoint does not control the
+intermediary, and the attested properties belong to the origin, not the proxy.
+
+This use case applies symmetrically to cases where the TLS server is the
+Attester, the TLS client is the Attester, or both endpoints mutually attest.
+
+* Requirement 1: The architecture must address both sub-cases when permitted by
+implementation choice and local policy, rather than assuming only direct
+endpoint-to-endpoint paths implicitly.
+
+* Requirement 2: The architecture must make explicit which components are
+inside or outside the effective trust and confidentiality boundary for each
+sub-case, including cases where an intermediary terminates or mediates TLS.
+
+* Requirement 3: For sub-case (b), the architecture must specify how an
+endpoint can establish a channel identity that is cryptographically bound to
+the attested origin endpoint even when connection establishment traverses a
+TLS-terminating intermediary, so that remote attestation mechanisms can operate
+on a meaningful channel binding to the origin rather than on a proxy-terminated
+session.
+
+* Requirement 4: The architecture should make clear what attestation guarantees
+continue to hold in each sub-case, including whether attestation is intended to
+apply to the origin endpoint alone, to the intermediary, or to some other
+appraised set of components.
+
+* Requirement 5: The solution should support policy decisions that distinguish
+between direct attested channels, intermediary-as-attested-endpoint
+deployments, and proxy-traversal-to-attested-origin deployments, so that
+relying parties can determine whether a given deployment topology is acceptable
+for their use case.
+
+Relevant properties: Generic Integration Properties; Runtime Attestation;
+Privacy Preservation; Negotiation and Capability Discovery.
+
+## Service-Mesh Attestation
+
+Goal: Verify the runtime integrity of service-mesh components that mediate
+secure communication between application services.
+
+Use case: Microservices communicate through service-mesh proxies that perform
+TLS termination, routing, policy enforcement, and observability on behalf of
+application workloads.
+
+* Requirement: A peer must be able to obtain fresh, connection-bound Evidence
+  for the service-mesh component that terminates or mediates the secure channel,
+  so that mesh policy can distinguish an expected attested proxy from an
+  untrusted or misconfigured one.
+
+Relevant properties: Cryptographic Binding to Communication Channel; Runtime
+Attestation; Negotiation and Capability Discovery; Performance and Efficiency.
+
 ## Operation-Triggered Attestation for High-Impact Application Operations
 {: #sec-operation-triggered }
 
