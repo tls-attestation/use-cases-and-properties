@@ -199,7 +199,7 @@ A formal representation of this requirement in the form of *composition* goal ca
 
 ## Cryptographic Binding to Machine Identifier
 
-Evidence should be cryptographically bound to the identifier of the physical machine and the infrastructure provider (owner organization) to prevent **diversion** attacks {{ID-Crisis}}.
+Evidence is recommended to be cryptographically bound to the identifier of the physical machine to prevent **diversion** attacks {{ID-Crisis}}.
 
 The rationale for this goal is that a network adversary can divert the connection from the intended server to any server anywhere running the same software stack in the TEE.
 The server could be in a different data center controlled by a malicious entity.
@@ -213,7 +213,7 @@ Hence, this security goal mitigates the scenario where one compromised TEE in th
 
 This security goal is even more important when the cloud service provider is considered malicious, as in the Confidential Computing threat model. In this case, one compromised TEE in the data center can affect the security of all attested TLS connections, since all connections can be diverted to the compromised machine. Without identifier of the physical machine, this attack may not be mitigated.
 
-In state-of-the-art confidential computing deployments today, appraisal of cryptographic binding of Evidence to the physical machine identifier and the infrastructure provider is not supported.
+In state-of-the-art confidential computing deployments at the time of writing, cloud service providers do not currently offer the identifier of the physical machines for appraisal.
 
 ## Attestation Credential Freshness
 
