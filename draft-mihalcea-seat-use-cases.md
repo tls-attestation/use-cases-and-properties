@@ -225,8 +225,8 @@ See
 {{Section 10 of -rats-arch}} for more details about freshness in the context of
 RA. This is formalized for attestation nonce in  {{ID-Crisis}}.
 
-In all state-of-the-art hardware architectures (Intel, AMD etc.) and deployments *today*, attestation nonce does not go to the platform level to trigger fresh Claims collection.
-Hence, attestation nonce in all deployments *today* does not provide *real* freshness.
+In state-of-the-art hardware architectures (Intel, AMD etc.) and deployments, attestation nonce does not propagate to the platform level to trigger fresh Claims collection.
+Hence, attestation nonce in state-of-the-art deployments does not provide *real* freshness for platform Claims.
 
 ## Negotiation and Capability Discovery
 
