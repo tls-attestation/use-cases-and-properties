@@ -5,7 +5,7 @@
 SEAT Working Group                                           I. Mihalcea
 Internet-Draft                                                       Arm
 Intended status: Informational                              M. U. Sardar
-Expires: 12 November 2026                                     TU Dresden
+Expires: 14 November 2026                                     TU Dresden
                                                               T. Fossati
                                                                   Linaro
                                                                 T. Reddy
@@ -14,7 +14,7 @@ Expires: 12 November 2026                                     TU Dresden
                                                                         
                                                                  M. Chen
                                                             China Mobile
-                                                             11 May 2026
+                                                             13 May 2026
 
 
 Properties and Use Cases for Integrating Remote Attestation with Secure
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 12 November 2026.
+   This Internet-Draft will expire on 14 November 2026.
 
 Copyright Notice
 
@@ -237,9 +237,9 @@ Table of Contents
 
 3.3.  Cryptographic Binding to Machine Identifier
 
-   Evidence should be cryptographically bound to the identifier of the
-   physical machine and the infrastructure provider (owner organization)
-   to prevent *diversion* attacks [ID-Crisis].
+   Evidence is recommended to be cryptographically bound to the
+   identifier of the physical machine to prevent *diversion* attacks
+   [ID-Crisis].
 
    The rationale for this goal is that a network adversary can divert
    the connection from the intended server to any server anywhere
@@ -271,9 +271,9 @@ Table of Contents
    connections can be diverted to the compromised machine.  Without
    identifier of the physical machine, this attack may not be mitigated.
 
-   In state-of-the-art confidential computing deployments today,
-   appraisal of cryptographic binding of Evidence to the physical
-   machine identifier and the infrastructure provider is not supported.
+   In state-of-the-art confidential computing deployments at the time of
+   writing, cloud service providers do not currently offer the
+   identifier of the physical machines for appraisal.
 
 3.4.  Attestation Credential Freshness
 
