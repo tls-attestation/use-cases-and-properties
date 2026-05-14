@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-12T03:42:48.648124+00:00",
+  "timestamp": "2026-05-14T03:52:30.354603+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -960,20 +960,23 @@
     {
       "number": 38,
       "id": "I_kwDOP_9tTM7_kI4i",
-      "title": "Add Meiling Chen in tls-attestation organization",
+      "title": "Add authors and contributors in tls-attestation organization",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/38",
       "state": "OPEN",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
+        "yaronf",
+        "thomas-fossati",
+        "paulhowardarm",
         "ionut-arm"
       ],
       "labels": [
         "admin/non-technical"
       ],
-      "body": "Who is the owner of this organization?\nPlease add @Maisy-ML, who is a co-author of the use cases doc.",
+      "body": "Please add the following to `tls-attestation` organization, not individual repos.\n\n@Yuning-J and @Maisy-ML, who are co-authors of the use cases doc.\n\n@telephonicrobotics @rafiq-m @Moosa-Razaa, who are contributing to the work.",
       "createdAt": "2026-04-18T10:32:30Z",
-      "updatedAt": "2026-05-11T20:25:19Z",
+      "updatedAt": "2026-05-12T09:03:37Z",
       "closedAt": null,
       "comments": []
     },
@@ -1006,10 +1009,64 @@
       "assignees": [
         "muhammad-usama-sardar"
       ],
-      "labels": [],
+      "labels": [
+        "close-candidate"
+      ],
       "body": "See concern raised at https://github.com/tls-attestation/use-cases-and-properties/pull/37#discussion_r3217875448",
       "createdAt": "2026-05-11T10:02:20Z",
-      "updatedAt": "2026-05-11T20:23:51Z",
+      "updatedAt": "2026-05-13T22:05:02Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "If you read literally, then \"properties\" are out of scope too. ",
+          "createdAt": "2026-05-12T06:49:29Z",
+          "updatedAt": "2026-05-12T06:49:29Z"
+        },
+        {
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "body": "> If you read literally, then \"properties\" are out of scope too. \n\nI don't agree. The SEAT WG milestones list makes mention of a single document without mention of a companion document:\n\n\"A use cases document describing the scenarios that this working group will be targeting in its specification document.\"\n\nFurthermore, to consider a more literal reading of what is in scope within the charter, it states that \"the attested D(TLS) protocol extension will also describe a minimum subset of properties that the attested state must convey in order to bind the Evidence and Attestation Results to the TLS connection.\"\n\nAs such, based on the charter, properties have a natural place in the use-cases document. \n\nI see no such justification for an ancillary I-D to be elevated above any other in this way. ",
+          "createdAt": "2026-05-12T15:13:50Z",
+          "updatedAt": "2026-05-12T15:13:50Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thank you. We will discuss it in the meeting.",
+          "createdAt": "2026-05-12T15:45:12Z",
+          "updatedAt": "2026-05-12T15:45:12Z"
+        },
+        {
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "body": "> Thank you. We will discuss it in the meeting.\n\nSure. I've created a PR #50 for the authors' consideration in the meantime. I have also tracked the issue [on-list here](https://mailarchive.ietf.org/arch/msg/seat/oHUXKRyKwPyrd4UWK2C9SGGPy8o/).",
+          "createdAt": "2026-05-13T17:54:04Z",
+          "updatedAt": "2026-05-13T17:54:04Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "\nSome facts about the PR #37 on which concerns have been raised:\n\n1. It was proposed by me as author and approved by 2 other co-authors (Tiru and Ionut). So three authors agree to it.\n2. No other author objected to it for several weeks.\n3. Yaron confirmed he is okay with the changes modulo a point unrelated to this concern [[ref](https://github.com/tls-attestation/use-cases-and-properties/pull/37#pullrequestreview-4127427296)].\n4. It was discussed in our informal gathering on 20.04. which was attended by the following WG participants:\n`Carsten, Ionut, Moosa, Rafiq, Tiru, Usama`\n5. It was then quickly revisited in our informal gathering on 27.04. which was attended by the following WG participants:\n`Carsten, Moosa, Rafiq, Tiru, Usama`\n6. It was brought on the list at least three times, where there was no objection for several weeks: \n- https://mailarchive.ietf.org/arch/msg/seat/TZrGa8dWI6Ymw11h8qCv0lu-EKY/\n- https://mailarchive.ietf.org/arch/msg/seat/0NyTv6YDAYsl_KPWaqicpBs6oGQ/\n- https://mailarchive.ietf.org/arch/msg/seat/hqu7WvHrHfmfu5z6WDLnetcyiX4/\n7. The reference was intentionally informative rather than normative. The cited draft mostly captures the statements of the WG participants together with links. This is intended to bridge the gap towards solutions.\n\n---\n\nAs mentioned already, we will discuss it in the meeting.",
+          "createdAt": "2026-05-13T22:05:02Z",
+          "updatedAt": "2026-05-13T22:05:02Z"
+        }
+      ]
+    },
+    {
+      "number": 49,
+      "id": "I_kwDOP_9tTM8AAAABCKAAgg",
+      "title": "Add uses-cases and properties addressing RA and proxy interactions",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/49",
+      "state": "OPEN",
+      "author": "telephonicrobotics",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "[On-list ](https://mailarchive.ietf.org/arch/msg/seat/MCoRZuXcB-UFE0xBcuvtLbErU8M/) I proposed we add explicit treatment of proxy-fronted deployments, especially TLS-terminating intermediaries such as reverse proxies, API gateways, service-mesh components, WAFs, load balancers, and CDN edges.\n\nI created a PR for consideration here #48.\n",
+      "createdAt": "2026-05-13T16:49:02Z",
+      "updatedAt": "2026-05-13T16:49:02Z",
       "closedAt": null,
       "comments": []
     }
@@ -4656,13 +4713,13 @@
       ],
       "body": "Addresses #8 \r\n- Added def. of infrastructure provider\r\n- Added def. of diversion attack\r\n- dependency on deployment model etc.\r\n- state-of-the-art may not meet some properties\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-06T22:14:34Z",
-      "updatedAt": "2026-05-11T15:49:11Z",
+      "updatedAt": "2026-05-13T14:22:37Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "machine-id",
-      "headRefOid": "8589c0c51f1d9d22f3299f5af909f5e4c78deeb4",
+      "headRefOid": "f68c4f73e404c776f07e70fc285e2b41b9b0d6fd",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -4744,6 +4801,13 @@
           "body": "> A few comments inline. \r\n\r\nUpdated, please check.\r\n> Overall, as mentioned on the list, I don\u2019t think the binding to the machine identifier should be expressed as a security requirement, but rather as a defence-in-depth approach that applies to certain scenarios.\r\n\r\nI think the detailed text justifies why it is a requirement as long as hardware vendors do not address side channels.",
           "createdAt": "2026-05-11T15:49:03Z",
           "updatedAt": "2026-05-11T15:49:03Z"
+        },
+        {
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "body": "> > Overall, as mentioned on the list, I don\u2019t think the binding to the machine identifier should be expressed as a security requirement, but rather as a defence-in-depth approach that applies to certain scenarios.\r\n> \r\n> I think the detailed text justifies why it is a requirement as long as hardware vendors do not address side channels.\r\n\r\nCertain reservations that can be discussed later set aside, \"[...] this attack may not be mitigated\" is sufficiently flexible wording for me to be fine with the current section.",
+          "createdAt": "2026-05-13T04:40:34Z",
+          "updatedAt": "2026-05-13T04:40:34Z"
         }
       ],
       "reviews": [
@@ -4998,7 +5062,7 @@
             "abbreviatedOid": "1522f8b"
           },
           "author": "rafiq-m",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-05-11T08:28:48Z",
@@ -5057,6 +5121,26 @@
               "updatedAt": "2026-05-11T15:42:53Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7_AqSP",
+          "commit": {
+            "abbreviatedOid": "8589c0c"
+          },
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "See comment in-line",
+          "createdAt": "2026-05-13T04:44:33Z",
+          "updatedAt": "2026-05-13T04:45:04Z",
+          "comments": [
+            {
+              "originalPosition": 15,
+              "body": "I don't think *today* will age very well. Perhaps we could try a variant of:\n\n\"In state-of-the-art TEE-based architectures, nonces are bound at the point of signing and do not propagate to the platform measurement layer. This creates barriers that limit the appraisal of freshness against policy for platform Claims conveyed in Evidence.\"",
+              "createdAt": "2026-05-13T04:44:33Z",
+              "updatedAt": "2026-05-13T04:45:04Z"
+            }
+          ]
         }
       ]
     },
@@ -5069,16 +5153,18 @@
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ready-to-merge in meeting"
+      ],
       "body": "- Public key of Target Environment\r\n- Replication attacks\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-09T10:46:07Z",
-      "updatedAt": "2026-05-12T00:19:20Z",
+      "updatedAt": "2026-05-13T03:22:29Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "pub-key",
-      "headRefOid": "9c21c71dea350d9fb61b142b304df23bb844120f",
+      "headRefOid": "54d396e16ad60259d8e23718e81d353cee1afdc3",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -5118,6 +5204,27 @@
           "body": ">  I disagree this is ready to merge as-is.\r\n\r\nPlease share your technical objections.",
           "createdAt": "2026-05-11T09:07:01Z",
           "updatedAt": "2026-05-11T09:07:01Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> There are still outstanding comments.\r\n\r\nAll outstanding comments have been addressed.",
+          "createdAt": "2026-05-12T06:40:06Z",
+          "updatedAt": "2026-05-12T06:40:06Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> See nit inline. \r\n\r\nFixed.\r\n\r\n> Further, the example offered seems to greatly diminish the purpose of the property in context to the rest of the document. I propose the authors consider examples with more broadly applicable scope.\r\n\r\nConfidential computing is the prime industry that needs this work. If you have other references, please provide those references, so that we can discuss it and choose the most suitable one.\r\n\r\nAll outstanding comments have been addressed.",
+          "createdAt": "2026-05-12T15:35:04Z",
+          "updatedAt": "2026-05-12T15:35:04Z"
+        },
+        {
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "body": "> Confidential computing is the prime industry that needs this work. \r\n\r\nYup, CC is an important industry, but so is IoT for example, as per the opening lines of the charter. \r\n\r\n>  If you have other references, please provide those references, so that we can discuss it and choose the most suitable one.\r\n\r\nSure, I'll see what might fit well here.",
+          "createdAt": "2026-05-13T03:22:28Z",
+          "updatedAt": "2026-05-13T03:22:28Z"
         }
       ],
       "reviews": [
@@ -5127,7 +5234,7 @@
             "abbreviatedOid": "9c21c71"
           },
           "author": "rafiq-m",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-05-11T08:29:36Z",
@@ -5179,6 +5286,79 @@
           "createdAt": "2026-05-12T00:19:20Z",
           "updatedAt": "2026-05-12T00:19:20Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7-ftjM",
+          "commit": {
+            "abbreviatedOid": "9c21c71"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-12T06:38:51Z",
+          "updatedAt": "2026-05-12T06:38:52Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Not everyone is a fan of endlessly repeating things on the list. [Reference](https://ieeexplore.ieee.org/document/8806748/) has been added. The following text in the section provides sufficient context.",
+              "createdAt": "2026-05-12T06:38:51Z",
+              "updatedAt": "2026-05-12T06:38:52Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7-rWF3",
+          "commit": {
+            "abbreviatedOid": "384a074"
+          },
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-12T13:39:39Z",
+          "updatedAt": "2026-05-12T13:39:39Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Nit: my understanding is that inline hyperlinks don\u2019t work well with the datatracker. ",
+              "createdAt": "2026-05-12T13:39:39Z",
+              "updatedAt": "2026-05-12T13:39:39Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7-rmW2",
+          "commit": {
+            "abbreviatedOid": "384a074"
+          },
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "state": "CHANGES_REQUESTED",
+          "body": "See nit inline. Further, the example offered seems to greatly diminish the purpose of the property in context to the rest of the document. I propose the authors consider examples with more broadly applicable scope. ",
+          "createdAt": "2026-05-12T13:46:40Z",
+          "updatedAt": "2026-05-12T13:46:40Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7-vSw5",
+          "commit": {
+            "abbreviatedOid": "384a074"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-12T15:29:15Z",
+          "updatedAt": "2026-05-12T15:29:16Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "I'm confident hyperlinks work quite well with the datatracker. But I have replaced it with a reference.",
+              "createdAt": "2026-05-12T15:29:15Z",
+              "updatedAt": "2026-05-12T15:29:16Z"
+            }
+          ]
         }
       ]
     },
@@ -5511,7 +5691,7 @@
       ],
       "body": "Hi team,\r\nI've been doing quite some work on the draft recently. I would like this to be reflected in the author order. Does this work for everyone?\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-10T19:01:46Z",
-      "updatedAt": "2026-05-11T11:59:21Z",
+      "updatedAt": "2026-05-12T07:30:24Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -5550,6 +5730,34 @@
           "body": "I am not even a contributor on this I-D, but as an advice to @muhammad-usama-sardar: I would like to kindly advice to retract this PR.",
           "createdAt": "2026-05-11T10:11:29Z",
           "updatedAt": "2026-05-11T10:11:29Z"
+        },
+        {
+          "author": "Maisy-ML",
+          "authorAssociation": "NONE",
+          "body": "Thanks to Usama's contribution, the author who is placed first is responsible for the text editing (I might be wrong), and there is no other significance to the order after that.",
+          "createdAt": "2026-05-12T06:54:36Z",
+          "updatedAt": "2026-05-12T06:54:36Z"
+        },
+        {
+          "author": "Maisy-ML",
+          "authorAssociation": "NONE",
+          "body": "Whether to change the order or not, it's all fine for me.",
+          "createdAt": "2026-05-12T06:56:06Z",
+          "updatedAt": "2026-05-12T06:56:06Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> [...] the author who is placed first is responsible for the text editing (I might be wrong)\r\n\r\nHi Meiling, no, there is no such convention in IETF documents.  I have been the main editor, and sometimes the sole editor, of documents which listed me in a random position in the editors' roster.\r\n\r\nIn this case, since the pen is shared, it wouldn't even be possible to assign any meaningful and objective position in the roster based on the \u201ctext editing\" criterion :-)\r\n\r\nThis is a distraction.  Let\u2019s put this to one side and focus on making meaningful contributions to the document instead.",
+          "createdAt": "2026-05-12T07:13:12Z",
+          "updatedAt": "2026-05-12T07:13:12Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Whether to change the order or not, it's all fine for me.\r\n\r\nAs I state above, it helps me justify my time spent on it. More details [here](https://mailarchive.ietf.org/arch/msg/seat/MPQGhaX0ed_GJ7Y1orpoUI9TfnY/).",
+          "createdAt": "2026-05-12T07:30:24Z",
+          "updatedAt": "2026-05-12T07:30:24Z"
         }
       ],
       "reviews": [
@@ -5567,6 +5775,74 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 48,
+      "id": "PR_kwDOP_9tTM7bNBsx",
+      "title": "Add proxy-fronted and service-mesh attested secure channel use cases",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/48",
+      "state": "OPEN",
+      "author": "telephonicrobotics",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "* Added proxy-fronted attested secure channel use case\r\n* Added service-mesh attestation use case\r\n* Covered TLS-terminating intermediaries: reverse proxies, API gateways, service meshes, WAFs, load balancers, and CDN edges\r\n* Distinguished intermediary-as-attested-endpoint from proxy-traversal-to-attested-origin\r\n* Generalized proxy use case from client-origin to endpoint-origin\r\n* Covered server attestation, client attestation, and mutual attestation\r\n* Added requirements for explicit trust and confidentiality boundaries\r\n* Added requirements for meaningful channel binding when TLS is terminated by an intermediary\r\n* Added policy distinction between direct attested channels, attested intermediaries, and proxy-traversal deployments",
+      "createdAt": "2026-05-13T16:36:36Z",
+      "updatedAt": "2026-05-13T16:50:16Z",
+      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRefName": "main",
+      "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
+      "headRepository": "nathanaelritz/use-cases-and-properties",
+      "headRefName": "nr-proxy-interactions-2",
+      "headRefOid": "2663596399de970605e17c7ae186d05bb41b61c7",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "body": "Discussion [on-list](https://mailarchive.ietf.org/arch/msg/seat/MCoRZuXcB-UFE0xBcuvtLbErU8M/) and in issues at #49 ",
+          "createdAt": "2026-05-13T16:50:15Z",
+          "updatedAt": "2026-05-13T16:50:15Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 50,
+      "id": "PR_kwDOP_9tTM7bOdJF",
+      "title": "Updated Purpose and Scope to maintain document neutrality",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/50",
+      "state": "OPEN",
+      "author": "telephonicrobotics",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Removed individual internet-draft, to help facilitate the authors' [good-faith effort](https://mailarchive.ietf.org/arch/msg/seat/wqWHIkHsbRsx2txsNGXYaDKZITM/) to keep the use-cases document independent of solutions and maintain neutrality.\r\n",
+      "createdAt": "2026-05-13T17:46:55Z",
+      "updatedAt": "2026-05-13T23:45:03Z",
+      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRefName": "main",
+      "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
+      "headRepository": "nathanaelritz/use-cases-and-properties",
+      "headRefName": "nr-patch-1",
+      "headRefOid": "0306558fb30714d2eb1279eaeb01b1cc678fbf54",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "https://github.com/tls-attestation/use-cases-and-properties/issues/47#issuecomment-4445560687",
+          "createdAt": "2026-05-13T23:45:03Z",
+          "updatedAt": "2026-05-13T23:45:03Z"
+        }
+      ],
+      "reviews": []
     }
   ]
 }
