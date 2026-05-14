@@ -5,7 +5,7 @@
 SEAT Working Group                                           I. Mihalcea
 Internet-Draft                                                       Arm
 Intended status: Informational                              M. U. Sardar
-Expires: 12 November 2026                                     TU Dresden
+Expires: 15 November 2026                                     TU Dresden
                                                               T. Fossati
                                                                   Linaro
                                                                 T. Reddy
@@ -14,7 +14,7 @@ Expires: 12 November 2026                                     TU Dresden
                                                                         
                                                                  M. Chen
                                                             China Mobile
-                                                             11 May 2026
+                                                             14 May 2026
 
 
   Security Goals and Use Cases for Integrating Remote Attestation with
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 12 November 2026.
+   This Internet-Draft will expire on 15 November 2026.
 
 Copyright Notice
 
@@ -254,11 +254,6 @@ Table of Contents
    the attestation models they support.  This enables interoperability
    and allows for graceful fallback for endpoints that do not support
    RA.
-
-   The negotiation of attestation capabilities must be secure.  An
-   active attacker must not be able to cause two attestation-capable
-   peers to negotiate a connection in which attestation is not
-   performed.
 
 3.6.  Attestation Model Flexibility
 
