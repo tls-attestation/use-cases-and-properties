@@ -58,6 +58,15 @@ informative:
         - ins: M. U. Sardar
         - ins: M. Moustafa
         - ins: T. Aura
+    Replica-TEE:
+      title: "ReplicaTEE: Enabling Seamless Replication of SGX Enclaves in the Cloud"
+      date: 2019,
+      target: https://ieeexplore.ieee.org/document/8806748
+      author:
+        - ins: C. Soriente
+        - ins: G. Karame
+        - ins: W. Li
+        - ins: S. Fedorov
     AI-agents:
      title: "AI agents that matter"
      date: 1 July 2024,
@@ -194,6 +203,10 @@ A formal representation of this requirement in the form of *composition* goal ca
 ## Cryptographic Binding to Machine Identifier
 
 Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider to prevent **diversion** attacks {{ID-Crisis}}.
+
+## Cryptographic Binding to Target Environment's Public Key
+Evidence is recommended to be cryptographically bound to the Target Environment's public key to prevent replication attacks {{Replica-TEE}} in use cases, such as consensus protocols like Raft, where an adversary can run more VM instances than desired to launch such attacks.
+Under certain assumptions, Target Environment's public key may distinguish a specific instance of the VM to mitigate such attacks.
 
 ## Attestation Credential Freshness
 
