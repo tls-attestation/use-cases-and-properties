@@ -226,6 +226,10 @@ The solution supports using RA in conjunction with traditional PKI-based
 authentication (e.g., X.509 certificates). This provides two independent pillars
 of trust: endpoint trustworthiness (from RA) and identity (from PKI).
 
+## Navigating Diverse Trust Boundaries
+
+Remote attestation over secure channels seeks to establish the highest-assurance connections possible by ensuring that trust is derived from verifiable evidence rather than assumed from the underlying network or infrastructure. This raises the deployment complexity above that of standard secure-channel technologies, especially when a network path may be traversed by unavoidable intermediaries (such as TLS-terminating reverse proxies or API gateways) that solutions will need to anticipate. To manage this, solutions should holistically consider the specific deployment context, the nature of the peer's PKI-based identity, the scope of the attested component, and the role and reachability of the Verifier in the chosen attestation model.
+
 ## Runtime Attestation
 
 Evidence collected at certificate issuance or during the initial secure channel establishment reflects only the Target Environment’s state at that moment. It cannot guarantee that the Target Environment remains trustworthy for the lifetime of the certificate or even for the duration of the secure connection (e.g., the (D)TLS connection). As a result, such static Evidence is insufficient in environments where the Target Environment may change state after the connection is established and the connection is long-lived.
