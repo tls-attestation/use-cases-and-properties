@@ -337,6 +337,55 @@ network device's management interface.
   management endpoint on the network device to ensure they are not connecting to
   a compromised interface that could steal credentials or manipulate the device.
 
+## Proxy-Fronted Attested Secure Channels
+
+Goal: Support deployments in which an endpoint communicates with an attested
+application, service, or confidential workload through one or more intermediaries
+such as reverse proxies, API gateways, service-mesh components, load balancers, WAFs,
+or CDN edges.
+
+Use case: An endpoint connects to an application or confidential workload through an
+intermediary that may terminate, inspect, relay, translate, or otherwise mediate the
+secure channel for operational reasons such as routing, policy enforcement,
+DDoS protection, observability, or protocol adaptation. The concern is not merely
+whether attestation evidence can be conveyed over a secure channel, but whether the
+resulting trust relationship corresponds to the component the relying party
+actually intends to appraise.
+
+Two distinct sub-cases should be considered:
+
+(a) The intermediary is itself the attested endpoint. The intermediary operates within a
+TEE or otherwise provides attestable guarantees, and the relying party explicitly
+attests it as the service boundary. The origin behind the proxy need not be independently
+attested. This is mechanically equivalent to the base case of a TLS server attesting
+to a client, but introduces a key management challenge: injecting a long-term WebPKI
+identity key into the TEE runtime may be operationally or architecturally constrained,
+affecting how the attested channel can be established and how tightly the credential
+is bound to the attested workload.
+
+(b) The intermediary is a TLS-terminating component through which an endpoint seeks to
+appraise an origin workload. This sub-case presupposes that the intermediary is within
+the same administrative domain as the origin and is accepted by the relying party as
+trusted infrastructure; where it is not, the relying party should treat it as a trust
+boundary and decline to extend attestation across it. Even so, the intermediary
+represents a channel discontinuity: attestation evidence is bound to the proxy-terminated
+session rather than to the origin directly, and establishing a meaningful binding requires
+application-layer mechanisms rather than reliance on the TLS channel to the proxy.
+
+This use case applies symmetrically to cases where the TLS server is the Attester, the TLS client is the Attester, or both endpoints mutually attest.
+
+* Requirement 1: Implementations should recognize both sub-cases as distinct trust topologies and avoid implicitly assuming only direct endpoint-to-endpoint paths, so that the choice of topology is explicit rather than an artifact of what the architecture happened to model.
+
+* Requirement 2: For whichever sub-case applies, the architecture should make clear which components fall inside or outside the effective trust and confidentiality boundary, including where an intermediary terminates or mediates TLS, so that relying parties can make informed decisions rather than inherit unstated assumptions.
+
+* Requirement 3: Where sub-case (b) is in scope, the architecture should consider whether nested or layered security associations are appropriate — an inner association providing end-to-end binding to the origin that is not terminated at the intermediary, and an outer association terminated at the intermediary — and should make clear that attestation binding to the origin is only meaningful if established over the inner association.
+
+* Requirement 4: The architecture should identify what attestation guarantees continue to hold in each sub-case, including whether attestation is intended to apply to the origin endpoint alone, to the intermediary, or to some other appraised set of components.
+
+* Requirement 5: The solution should support policy decisions that distinguish between direct attested channels, intermediary-as-attested-endpoint deployments, and proxy-traversal-to-attested-origin deployments. It should also be possible to detect when a topology changes — for instance when a previously direct attested channel is replaced by a TLS-terminating intermediary — so that such a change can be identified as a distinct condition rather than silently altering the trust relationship.
+
+Relevant properties: Generic Integration Properties; Runtime Attestation; Privacy Preservation; Negotiation and Capability Discovery.
+
 ## Operation-Triggered Attestation for High-Impact Application Operations
 {: #sec-operation-triggered }
 
