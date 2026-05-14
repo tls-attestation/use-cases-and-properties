@@ -197,12 +197,12 @@ RA should complement endpoint authentication rather than replace it.
 Combining the two security measures would ensure that the introduction of attestation increases security instead of replacing one security measure by another.
 A formal representation of this requirement in the form of *composition* goal can be found in {{ID-Crisis}} for TLS 1.3 protocol.
 
-## Cryptographic Binding to Machine Identifier
+## Cryptographic Binding to Infrastructure Provider
 
-Evidence is recommended to be cryptographically bound to the identifier of the physical machine to prevent **diversion** attacks {{ID-Crisis}}.
+Evidence is recommended to be cryptographically bound to the identifier of the infrastructure provider (owner organization) to prevent **diversion** attacks {{ID-Crisis}}.
 
-The rationale for this goal is that a network adversary can divert the connection from the intended server to any server anywhere running the same software stack in the TEE.
-The server could be in a different data center controlled by a malicious entity.
+The rationale for this goal is that a network adversary can divert the connection from the intended server owned by a desired infrastructure provider to any server anywhere running the same software stack in the TEE.
+The server could be in a different data center controlled by a malicious infrastructure provider.
 
 The confidential computing counterargument for this attack is that it does not matter where the connection is established as long as the hardware being attested is secure and the attestation procedure is successful.
 However, this argument is based on the strong assumption that no TEE is ever compromised.
@@ -211,9 +211,7 @@ Real-world exploits, such as [TEE.fail](https://tee.fail/) and [Wiretap.fail](ht
 Hardware vendors, like [Intel](https://www.intel.com/content/www/us/en/security-center/announcement/intel-security-announcement-2025-10-28-001.html) and [AMD](https://www.amd.com/en/resources/product-security/bulletin/amd-sb-3040.html), have declared these attacks as out of scope of their threat model.
 Hence, this security goal mitigates the scenario where one compromised TEE in the world may lead to potential compromise of the security of all attested TLS connections.
 
-This security goal is even more important when the cloud service provider is considered malicious, as in the Confidential Computing threat model. In this case, one compromised TEE in the data center can affect the security of all attested TLS connections, since all connections can be diverted to the compromised machine. Without identifier of the physical machine, this attack may not be mitigated.
-
-In state-of-the-art confidential computing deployments at the time of writing, cloud service providers do not currently offer the identifier of the physical machines for appraisal.
+In state-of-the-art confidential computing deployments at the time of writing, cloud service providers that currently offer the identifier of the infrastructure provider use non-standard ways for appraisal.
 
 ## Attestation Credential Freshness
 
