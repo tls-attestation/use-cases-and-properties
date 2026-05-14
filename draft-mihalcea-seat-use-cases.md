@@ -78,6 +78,7 @@ informative:
      target: https://www.cve.org/CVERecord?id=CVE-2026-33697
     I-D.aylward-aiga-2:
     I-D.draft-ietf-rats-pkix-key-attestation:
+    I-D.sardar-rats-sec-cons:
 
 --- abstract
 
@@ -170,11 +171,16 @@ and invokes external tools/APIs that may read sensitive data or change
 system/network state. Its configuration (e.g., model choice, tool enablement,
 prompt template) can change independently of the binary/image and usually
 more frequently than typical platform TCB updates {{AI-agents}}.
+* Infrastructure provider: see {{I-D.sardar-rats-sec-cons}}.
+* Diversion attacks: see {{I-D.sardar-rats-sec-cons}}.
 
 # Integration Properties
 
 This section provides a list of desirable properties for designs that compose
-RA with secure channel protocols. Proposed protocol specifications should
+RA with secure channel protocols. In general, the ability to satisfy a certain property may depend on several
+factors, such as the system model, threat model, deployment model, hardware architecture, etc.
+Also, some properties may not be met by the existing state-of-the-art.
+Proposed protocol specifications should
 clearly state which of these properties are fulfilled and explain how.
 
 ## Cryptographic Binding to Communication Channel
@@ -191,9 +197,21 @@ RA should complement endpoint authentication rather than replace it.
 Combining the two security measures would ensure that the introduction of attestation increases security instead of replacing one security measure by another.
 A formal representation of this requirement in the form of *composition* goal can be found in {{ID-Crisis}} for TLS 1.3 protocol.
 
-## Cryptographic Binding to Machine Identifier
+## Cryptographic Binding to Infrastructure Provider
 
-Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider to prevent **diversion** attacks {{ID-Crisis}}.
+Evidence is recommended to be cryptographically bound to the identifier of the infrastructure provider (owner organization) to prevent **diversion** attacks {{ID-Crisis}}.
+
+The rationale for this goal is that a network adversary can divert the connection from the intended server owned by a desired infrastructure provider to any server anywhere running the same software stack in the TEE.
+The server could be in a different data center controlled by a malicious infrastructure provider.
+
+The confidential computing counterargument for this attack is that it does not matter where the connection is established as long as the hardware being attested is secure and the attestation procedure is successful.
+However, this argument is based on the strong assumption that no TEE is ever compromised.
+Real-world exploits, such as [TEE.fail](https://tee.fail/) and [Wiretap.fail](https://wiretap.fail/), have already proven this assumption to be incorrect.
+
+Hardware vendors, like [Intel](https://www.intel.com/content/www/us/en/security-center/announcement/intel-security-announcement-2025-10-28-001.html) and [AMD](https://www.amd.com/en/resources/product-security/bulletin/amd-sb-3040.html), have declared these attacks as out of scope of their threat model.
+Hence, this security goal mitigates the scenario where one compromised TEE in the world may lead to potential compromise of the security of all attested TLS connections.
+
+In state-of-the-art confidential computing deployments at the time of writing, cloud service providers that currently offer the identifier of the infrastructure provider use non-standard ways for appraisal.
 
 ## Attestation Credential Freshness
 
@@ -204,6 +222,9 @@ transient, and credentials from a previous RA interaction may no longer be valid
 See
 {{Section 10 of -rats-arch}} for more details about freshness in the context of
 RA. This is formalized for attestation nonce in  {{ID-Crisis}}.
+
+In state-of-the-art hardware architectures (Intel, AMD etc.) and deployments, attestation nonce does not propagate to the platform level to trigger fresh Claims collection.
+Hence, attestation nonce in state-of-the-art deployments does not provide *real* freshness for platform Claims.
 
 ## Negotiation and Capability Discovery
 
