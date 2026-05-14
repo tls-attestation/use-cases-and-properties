@@ -5,7 +5,7 @@
 SEAT Working Group                                           I. Mihalcea
 Internet-Draft                                                       Arm
 Intended status: Informational                              M. U. Sardar
-Expires: 13 November 2026                                     TU Dresden
+Expires: 15 November 2026                                     TU Dresden
                                                               T. Fossati
                                                                   Linaro
                                                                 T. Reddy
@@ -14,7 +14,7 @@ Expires: 13 November 2026                                     TU Dresden
                                                                         
                                                                  M. Chen
                                                             China Mobile
-                                                             12 May 2026
+                                                             14 May 2026
 
 
 Properties and Use Cases for Integrating Remote Attestation with Secure
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 November 2026.
+   This Internet-Draft will expire on 15 November 2026.
 
 Copyright Notice
 
@@ -237,12 +237,12 @@ Table of Contents
 
 3.4.  Cryptographic Binding to Target Environment's Public Key
 
-   Evidence should be cryptographically bound to the Target
-   Environment's public key to prevent replication attacks
-   [Replica-TEE].  This is critical in use cases, such as consensus
-   protocols like Raft, where an adversary can run more VM instances
-   than desired to launch such attacks.  Target Environment's public key
-   distinguishes a specific instance of the VM to mitigate such attacks.
+   Evidence is recommended to be cryptographically bound to the Target
+   Environment's public key to prevent replication attacks [Replica-TEE]
+   in use cases, such as consensus protocols like Raft, where an
+   adversary can run more VM instances than desired to launch such
+   attacks.  Target Environment's public key distinguishes a specific
+   instance of the VM to mitigate such attacks.
 
 3.5.  Attestation Credential Freshness
 
