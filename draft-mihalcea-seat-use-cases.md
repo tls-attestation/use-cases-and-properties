@@ -214,9 +214,6 @@ specific attestation formats they can produce or consume, and the attestation
 models they support. This enables interoperability and allows for graceful
 fallback for endpoints that do not support RA.
 
-The negotiation of attestation capabilities must be secure.
-An active attacker must not be able to cause two attestation-capable peers to negotiate a connection in which attestation is not performed.
-
 ## Attestation Model Flexibility
 
 The solution supports both the Background Check and Passport models as defined
