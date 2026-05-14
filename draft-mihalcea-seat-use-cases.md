@@ -206,7 +206,7 @@ Evidence should be cryptographically bound to the identifier provided to the mac
 
 ## Cryptographic Binding to Target Environment's Public Key
 Evidence is recommended to be cryptographically bound to the Target Environment's public key to prevent replication attacks {{Replica-TEE}} in use cases, such as consensus protocols like Raft, where an adversary can run more VM instances than desired to launch such attacks.
-Target Environment's public key distinguishes a specific instance of the VM to mitigate such attacks.
+Under certain assumptions, Target Environment's public key may distinguish a specific instance of the VM to mitigate such attacks.
 
 ## Attestation Credential Freshness
 
