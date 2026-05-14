@@ -5,7 +5,7 @@
 SEAT Working Group                                           I. Mihalcea
 Internet-Draft                                                       Arm
 Intended status: Informational                              M. U. Sardar
-Expires: 14 November 2026                                     TU Dresden
+Expires: 15 November 2026                                     TU Dresden
                                                               T. Fossati
                                                                   Linaro
                                                                 T. Reddy
@@ -14,7 +14,7 @@ Expires: 14 November 2026                                     TU Dresden
                                                                         
                                                                  M. Chen
                                                             China Mobile
-                                                             13 May 2026
+                                                             14 May 2026
 
 
 Properties and Use Cases for Integrating Remote Attestation with Secure
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 November 2026.
+   This Internet-Draft will expire on 15 November 2026.
 
 Copyright Notice
 
@@ -80,7 +80,7 @@ Table of Contents
    3.  Integration Properties
      3.1.  Cryptographic Binding to Communication Channel
      3.2.  Compound Authentication
-     3.3.  Cryptographic Binding to Machine Identifier
+     3.3.  Cryptographic Binding to Infrastructure Provider
      3.4.  Attestation Credential Freshness
      3.5.  Negotiation and Capability Discovery
      3.6.  Attestation Model Flexibility
@@ -235,16 +235,17 @@ Table of Contents
    requirement in the form of _composition_ goal can be found in
    [ID-Crisis] for TLS 1.3 protocol.
 
-3.3.  Cryptographic Binding to Machine Identifier
+3.3.  Cryptographic Binding to Infrastructure Provider
 
    Evidence is recommended to be cryptographically bound to the
-   identifier of the physical machine to prevent *diversion* attacks
-   [ID-Crisis].
+   identifier of the infrastructure provider (owner organization) to
+   prevent *diversion* attacks [ID-Crisis].
 
    The rationale for this goal is that a network adversary can divert
-   the connection from the intended server to any server anywhere
-   running the same software stack in the TEE.  The server could be in a
-   different data center controlled by a malicious entity.
+   the connection from the intended server owned by a desired
+   infrastructure provider to any server anywhere running the same
+   software stack in the TEE.  The server could be in a different data
+   center controlled by a malicious infrastructure provider.
 
    The confidential computing counterargument for this attack is that it
    does not matter where the connection is established as long as the
@@ -264,16 +265,9 @@ Table of Contents
    where one compromised TEE in the world may lead to potential
    compromise of the security of all attested TLS connections.
 
-   This security goal is even more important when the cloud service
-   provider is considered malicious, as in the Confidential Computing
-   threat model.  In this case, one compromised TEE in the data center
-   can affect the security of all attested TLS connections, since all
-   connections can be diverted to the compromised machine.  Without
-   identifier of the physical machine, this attack may not be mitigated.
-
    In state-of-the-art confidential computing deployments at the time of
-   writing, cloud service providers do not currently offer the
-   identifier of the physical machines for appraisal.
+   writing, cloud service providers that currently offer the identifier
+   of the infrastructure provider use non-standard ways for appraisal.
 
 3.4.  Attestation Credential Freshness
 
