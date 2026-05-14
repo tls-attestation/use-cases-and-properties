@@ -386,23 +386,6 @@ This use case applies symmetrically to cases where the TLS server is the Atteste
 
 Relevant properties: Generic Integration Properties; Runtime Attestation; Privacy Preservation; Negotiation and Capability Discovery.
 
-## Service-Mesh Attestation
-
-Goal: Verify the runtime integrity of service-mesh components that mediate
-secure communication between application services.
-
-Use case: Microservices communicate through service-mesh proxies that perform
-TLS termination, routing, policy enforcement, and observability on behalf of
-application workloads.
-
-* Requirement: A peer must be able to obtain fresh, connection-bound Evidence
-  for the service-mesh component that terminates or mediates the secure channel,
-  so that mesh policy can distinguish an expected attested proxy from an
-  untrusted or misconfigured one.
-
-Relevant properties: Cryptographic Binding to Communication Channel; Runtime
-Attestation; Negotiation and Capability Discovery; Performance and Efficiency.
-
 ## Operation-Triggered Attestation for High-Impact Application Operations
 {: #sec-operation-triggered }
 
