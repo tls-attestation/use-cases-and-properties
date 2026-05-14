@@ -1,5 +1,5 @@
 ---
-title: "Properties and Use Cases for Integrating Remote Attestation with Secure Channel Protocols"
+title: "Security Goals and Use Cases for Integrating Remote Attestation with Secure Channel Protocols"
 abbrev: "SEAT Use Cases"
 category: info
 
@@ -81,13 +81,13 @@ informative:
 
 --- abstract
 
-This document outlines desirable properties and use cases for integrating remote
+This document outlines desirable security goals and use cases for integrating remote
 attestation (RA) capabilities with secure channel establishment protocols (e.g., TLS and DTLS).
 Peer authentication in such protocols establishes trust in a peer's network identifiers but
 provides no assurance regarding the integrity of its underlying software and
 hardware stack. Remote attestation addresses this gap by enabling a peer to
 provide verifiable evidence about the current state of the Target Environment. This document specifies a set of essential
-properties the protocol solution must have, including cryptographic binding to
+security goals the protocol solution must have, including cryptographic binding to
 the secure connection, evidence freshness, and flexibility to support different
 attestation models. It then explores relevant use cases, such as confidential
 data collaboration and secure secrets provisioning, to motivate the
@@ -137,7 +137,7 @@ acceptable.
 
 ## Purpose and Scope
 
-The purpose of this document is to establish a set of essential properties
+The purpose of this document is to establish a set of essential security goals
 for composition of RA with secure channel protocols and to outline the key use
 cases that can benefit from such a composition. Most of the use cases presented in this document are provided by industry contributors in the SEAT WG, who have plans to deploy this technology. The initial focus is on
 TLS 1.3  {{I-D.ietf-tls-rfc8446bis}}
@@ -151,6 +151,8 @@ glue between this document and the protocol specifications. A key goal of this
 document is to define
 requirements for a solution that is agnostic to any specific attestation
 technology (e.g., Trusted Platform Modules (TPMs), Intel TDX, AMD SEV, Arm CCA).
+
+Appraisal policies (cf. {{Section 8.5 of -rats-arch}}) are out of scope of this document.
 
 # Terminology
 
@@ -171,11 +173,11 @@ system/network state. Its configuration (e.g., model choice, tool enablement,
 prompt template) can change independently of the binary/image and usually
 more frequently than typical platform TCB updates {{AI-agents}}.
 
-# Integration Properties
+# Integration Security Goals
 
-This section provides a list of desirable properties for designs that compose
+This section provides a list of desirable security goals for designs that compose
 RA with secure channel protocols. Proposed protocol specifications should
-clearly state which of these properties are fulfilled and explain how.
+clearly state which of these security goals are fulfilled and explain how.
 
 ## Cryptographic Binding to Communication Channel
 
@@ -243,6 +245,13 @@ software, which could be used as an advanced tracking mechanism, following a
 user across different connections and services. The design must consider how to
 minimize this leakage, especially when a third-party Verifier is involved in the
 protocol exchange.
+
+### Verifier Trust and Privacy
+In the Background Check model, the Relying Party communicates with the Verifier at the time of appraisal.
+This reveals the Attester's identity and connection timing to the Verifier.
+This also reveals to the Verifier that the Relying Party is communicating with the specific Attester.
+If the Verifier is a third party, it can observe which Attesters are being appraised and when, potentially exposing client identity and other correlation information.
+Solutions should consider privacy-preserving attestation  to minimize the data revealed to the Verifier, as being discussed in the RATS working group.
 
 ## Performance and Efficiency
 
@@ -377,10 +386,10 @@ security configuration at the time the TLS connection is established.
 
 Remote attestation is used to provide Evidence about the cryptographic module
 where the private key used for TLS authentication is stored. The Evidence may
-include claims about the security properties of the cryptographic module.
+include claims about the security goals of the cryptographic module.
 To prevent replay attacks, this Evidence has to be fresh and tied to the
 current TLS connection. Replayed Evidence could otherwise be used to falsely
-assert key protection properties that no longer hold.
+assert key security goals that no longer hold.
 
 * Requirement: The Attester must be able to produce Evidence that demonstrates
   that the private key used for secure channel authentication:
@@ -390,7 +399,7 @@ assert key protection properties that no longer hold.
   * is attested using fresh Evidence that is bound to the current TLS connection.
 
 The Relying Party uses this Evidence, potentially with the assistance of a
-Verifier, to determine whether the key protection properties satisfy its local
+Verifier, to determine whether the key security goals satisfy its local
 security policy.
 
 The approach described in {{I-D.draft-ietf-rats-pkix-key-attestation}} addresses this
@@ -431,34 +440,7 @@ Use case: See {{I-D.aylward-aiga-2}} for details. Contrary to {{sec-operation-tr
 
 # Security Considerations
 
-This document describes use cases and integration properties. The security of
-any protocol designed to fulfill these properties will depend on its specific
-mechanisms. However, any solution must address the following high-level
-considerations:
-
-* Replay and Relay Protection: The requirements for cryptographic binding and
-  freshness are critical. Failure to bind attestation credentials tightly to the
-  current connection would allow an adversary to replay or relay old or stolen, yet
-  valid credentials from a compromised system, completely undermining the
-  security goals.
-
-* Verifier Trust and Privacy: In the Background Check model, the Relying Party
-  communicates with a Verifier. This reveals to the Verifier that the Relying
-  Party is communicating with the Attester. Depending on the scenario, this
-  could leak sensitive information about business relationships or user
-  activity. Solutions should consider mechanisms to minimize the data revealed
-  to the Verifier.
-
-* Downgrade Attacks: The negotiation of attestation capabilities must be secure.
-  An active attacker must not be able to trick two parties that both support
-  attestation into negotiating a connection without it.
-
-* Evidence Semantics: This document does not define attestation appraisal
-  policies. However, a Relying Party must be careful when interpreting
-  Attestation Results. A "valid" attestation only means the Evidence is
-  authentic and correctly signed; it does not automatically mean the underlying
-  system is "secure". The Relying Party must have a clear policy for what
-  measurements, software versions, and security configurations are acceptable.
+This whole document is about security.
 
 # IANA Considerations
 
