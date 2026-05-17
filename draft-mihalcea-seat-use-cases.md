@@ -47,7 +47,6 @@ normative:
 informative:
     RFC9334: rats-arch
     RFC4949:
-    I-D.usama-seat-intra-vs-post:
     I-D.draft-ccc-wimse-twi-extensions: wimse-twi
     I-D.draft-ietf-rats-eat-measured-component: rats-measured
     ID-Crisis:
@@ -78,6 +77,7 @@ informative:
      target: https://www.cve.org/CVERecord?id=CVE-2026-33697
     I-D.aylward-aiga-2:
     I-D.draft-ietf-rats-pkix-key-attestation:
+    I-D.jiang-seat-dynamic-attestation:
 
 --- abstract
 
@@ -145,9 +145,7 @@ and its datagram-oriented variant, DTLS 1.3 {{I-D.ietf-tls-rfc9147bis}}.
 
 This document is intended as an input to the design of protocol solutions within
 the SEAT working group. It defines the "why" (the motivation) and the "what" (the requirements),
-but not the "how" (the protocol design itself). The "how" part is discussed
-in the companion document {{I-D.usama-seat-intra-vs-post}}, which serves as the
-glue between this document and the protocol specifications. A key goal of this
+but not the "how" (the protocol design itself). The "how" part is out of scope of this document. A key goal of this
 document is to define
 requirements for a solution that is agnostic to any specific attestation
 technology (e.g., Trusted Platform Modules (TPMs), Intel TDX, AMD SEV, Arm CCA).
@@ -211,6 +209,8 @@ Peers have a secure mechanism to discover each other's support for RA, the
 specific attestation formats they can produce or consume, and the attestation
 models they support. This enables interoperability and allows for graceful
 fallback for endpoints that do not support RA.
+The negotiation of formats is required because several vendors -- like Intel,
+AMD, Arm, and IBM -- have their own Evidence formats.
 
 ## Attestation Model Flexibility
 
@@ -348,6 +348,7 @@ An application service instance (e.g., AI agent) or confidential computing
 environment (which could host an AI agent) maintains a (D)TLS connection with
 a peer and must execute a high-impact action (e.g., payment initiation,
 configuration change, privileged command).
+See {{I-D.jiang-seat-dynamic-attestation}} for details.
 
 * Requirement 1: Before executing a high-impact operation over the existing
 connection, the peer must present fresh, connection-bound Evidence
