@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-14T03:52:30.354603+00:00",
+  "timestamp": "2026-05-17T03:56:42.559612+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -1014,7 +1014,7 @@
       ],
       "body": "See concern raised at https://github.com/tls-attestation/use-cases-and-properties/pull/37#discussion_r3217875448",
       "createdAt": "2026-05-11T10:02:20Z",
-      "updatedAt": "2026-05-13T22:05:02Z",
+      "updatedAt": "2026-05-14T17:33:18Z",
       "closedAt": null,
       "comments": [
         {
@@ -1051,6 +1051,13 @@
           "body": "\nSome facts about the PR #37 on which concerns have been raised:\n\n1. It was proposed by me as author and approved by 2 other co-authors (Tiru and Ionut). So three authors agree to it.\n2. No other author objected to it for several weeks.\n3. Yaron confirmed he is okay with the changes modulo a point unrelated to this concern [[ref](https://github.com/tls-attestation/use-cases-and-properties/pull/37#pullrequestreview-4127427296)].\n4. It was discussed in our informal gathering on 20.04. which was attended by the following WG participants:\n`Carsten, Ionut, Moosa, Rafiq, Tiru, Usama`\n5. It was then quickly revisited in our informal gathering on 27.04. which was attended by the following WG participants:\n`Carsten, Moosa, Rafiq, Tiru, Usama`\n6. It was brought on the list at least three times, where there was no objection for several weeks: \n- https://mailarchive.ietf.org/arch/msg/seat/TZrGa8dWI6Ymw11h8qCv0lu-EKY/\n- https://mailarchive.ietf.org/arch/msg/seat/0NyTv6YDAYsl_KPWaqicpBs6oGQ/\n- https://mailarchive.ietf.org/arch/msg/seat/hqu7WvHrHfmfu5z6WDLnetcyiX4/\n7. The reference was intentionally informative rather than normative. The cited draft mostly captures the statements of the WG participants together with links. This is intended to bridge the gap towards solutions.\n\n---\n\nAs mentioned already, we will discuss it in the meeting.",
           "createdAt": "2026-05-13T22:05:02Z",
           "updatedAt": "2026-05-13T22:05:02Z"
+        },
+        {
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "body": "\n> Some facts about the PR #37 on which concerns have been raised:\n> [...]\n\nStatements regarding providence and process do not address if the I-D is in scope or not.\n\n> As mentioned already, we will discuss it in the meeting.\n\nI do not anticipate I will be in attendance to the meeting, but here are some notes for consideration:\n\nI see no discussion on list calling for a companion document to the use-cases draft, let alone the purpose in which it would serve. \n\nhttps://mailarchive.ietf.org/arch/browse/seat/?q=companion\n\nFrom what I have found, it appears that in the earliest presentation of [draft-usama-seat-intra-vs-post-00](https://mailarchive.ietf.org/arch/msg/seat/oEzzmhOm-m0AI93z9abibOGjYz8/) to the WG does not imply any relationship to the this present draft at all, which is -- in my point of view -- a significant limitation. \n\nThat thread does expand to say in part, \"Section 6 asserts our motivation for post-handshake attestation\" and in the same thread, a post-script describes a pitch for a \"post-handshake attestation project\". This feels deeply solutions orientated to me -- which is fine in isolation as an independent artifact to present to the WG for feedback, which has produced plenty of constructive discussion already. I am much less convinced that the same document should be included in this use-cases document without further on-the-record discussion on the SEAT WG mailing list. \n\nI propose -- before acting on PR #50 -- that the WG be consulted directly on-list to see if a companion draft separate to the use-cases draft is desirable and if so, what scope the companion draft should have. Then the WG can focus on the question if an existing I-D such as draft-usama-seat-intra-vs-post is the right document to use. ",
+          "createdAt": "2026-05-14T17:33:18Z",
+          "updatedAt": "2026-05-14T17:33:18Z"
         }
       ]
     },
@@ -4713,13 +4720,13 @@
       ],
       "body": "Addresses #8 \r\n- Added def. of infrastructure provider\r\n- Added def. of diversion attack\r\n- dependency on deployment model etc.\r\n- state-of-the-art may not meet some properties\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-06T22:14:34Z",
-      "updatedAt": "2026-05-13T14:22:37Z",
+      "updatedAt": "2026-05-14T22:47:24Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "machine-id",
-      "headRefOid": "f68c4f73e404c776f07e70fc285e2b41b9b0d6fd",
+      "headRefOid": "a41166a8741e245c527020fc7c531aa307631da7",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -5075,7 +5082,7 @@
             "abbreviatedOid": "1522f8b"
           },
           "author": "Moosa-Razaa",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-05-11T08:31:56Z",
@@ -5141,6 +5148,138 @@
               "updatedAt": "2026-05-13T04:45:04Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7_oRCz",
+          "commit": {
+            "abbreviatedOid": "f68c4f7"
+          },
+          "author": "burgerdev",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-14T09:14:26Z",
+          "updatedAt": "2026-05-14T09:23:02Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "Today, the identity of the machine does not help at all if _your_ CSP is malicious. In the ideal world of CC, machine identity would not be required, as stated two paragraphs above. \n\nI'd remove this paragraph and build a link between the need for proven physical ownership (the introduction of this section) and the current lack of (a standard for) CSP appraisal of reports. \n\nNote that CSPs _are_ offering verification services, but as always the docs are sparse about what exactly is being verified, and each one is different.\n\n* https://docs.cloud.google.com/confidential-computing/docs/attestation\n* https://azure.microsoft.com/en-gb/products/azure-attestation\n* VLEK certificates, if published\n\n",
+              "createdAt": "2026-05-14T09:14:26Z",
+              "updatedAt": "2026-05-14T09:23:02Z"
+            },
+            {
+              "originalPosition": 31,
+              "body": "I'd rather phrase this in terms of ownership, rather than identity. SEV-SNP Versioned Loaded Endorsement Keys (VLEK), for example, are designed to _hide_ the physical identity, in a way that makes all machines owned by a given CSP indistinguishable.",
+              "createdAt": "2026-05-14T09:16:48Z",
+              "updatedAt": "2026-05-14T09:23:02Z"
+            },
+            {
+              "originalPosition": 54,
+              "body": "I don't understand this: what is the \"platform level\" and why do you think the nonce \"does not propagate\"? I'm putting nonces into REPORTDATA fields all day :) \n\nMaybe add a reference, or remove the paragraph as it does not seem to contribute to the requirement.",
+              "createdAt": "2026-05-14T09:20:30Z",
+              "updatedAt": "2026-05-14T09:23:02Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7_rMcr",
+          "commit": {
+            "abbreviatedOid": "f68c4f7"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-14T11:25:26Z",
+          "updatedAt": "2026-05-14T11:25:26Z",
+          "comments": [
+            {
+              "originalPosition": 31,
+              "body": "I believe VLEK alone is too weak. It does not prevent the attack in Sec. 8.2 of [ID-Crisis](https://www.researchgate.net/publication/398839141_Identity_Crisis_in_Confidential_Computing_Formal_Analysis_of_Attested_TLS).",
+              "createdAt": "2026-05-14T11:25:26Z",
+              "updatedAt": "2026-05-14T11:25:26Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7_rNSa",
+          "commit": {
+            "abbreviatedOid": "f68c4f7"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-14T11:26:05Z",
+          "updatedAt": "2026-05-14T11:26:05Z",
+          "comments": [
+            {
+              "originalPosition": 54,
+              "body": "I am using `platform` in RATS sense. Just putting the nonce vs. where it goes in the architecture and what it then triggers are separate things.\r\n\r\n> Maybe add a reference, or remove the paragraph as it does not seem to contribute to the requirement.\r\n\r\nA request was made to add state-of-the-art status to properties.",
+              "createdAt": "2026-05-14T11:26:05Z",
+              "updatedAt": "2026-05-14T11:26:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7_sP3r",
+          "commit": {
+            "abbreviatedOid": "f68c4f7"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-14T12:13:39Z",
+          "updatedAt": "2026-05-14T12:13:39Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "will be happy if you can propose some text, else I'll try",
+              "createdAt": "2026-05-14T12:13:39Z",
+              "updatedAt": "2026-05-14T12:13:39Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7_5leI",
+          "commit": {
+            "abbreviatedOid": "2d1aef9"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-14T20:42:33Z",
+          "updatedAt": "2026-05-14T20:42:33Z",
+          "comments": [
+            {
+              "originalPosition": 31,
+              "body": "ok, phrasing it as complementary to other security goals.",
+              "createdAt": "2026-05-14T20:42:33Z",
+              "updatedAt": "2026-05-14T20:42:33Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7_6HpR",
+          "commit": {
+            "abbreviatedOid": "a41166a"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-14T21:04:42Z",
+          "updatedAt": "2026-05-14T21:04:42Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "Fixed as you proposed, please check.",
+              "createdAt": "2026-05-14T21:04:42Z",
+              "updatedAt": "2026-05-14T21:04:42Z"
+            }
+          ]
         }
       ]
     },
@@ -5158,13 +5297,13 @@
       ],
       "body": "- Public key of Target Environment\r\n- Replication attacks\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-09T10:46:07Z",
-      "updatedAt": "2026-05-13T03:22:29Z",
+      "updatedAt": "2026-05-14T20:28:48Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "pub-key",
-      "headRefOid": "54d396e16ad60259d8e23718e81d353cee1afdc3",
+      "headRefOid": "aec95c9ee57b85031e0b2da9235fd092587e595b",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -5225,6 +5364,20 @@
           "body": "> Confidential computing is the prime industry that needs this work. \r\n\r\nYup, CC is an important industry, but so is IoT for example, as per the opening lines of the charter. \r\n\r\n>  If you have other references, please provide those references, so that we can discuss it and choose the most suitable one.\r\n\r\nSure, I'll see what might fit well here.",
           "createdAt": "2026-05-13T03:22:28Z",
           "updatedAt": "2026-05-13T03:22:28Z"
+        },
+        {
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "body": "[Thanks Usama for creating this PR](https://mailarchive.ietf.org/arch/msg/seat/wqWHIkHsbRsx2txsNGXYaDKZITM/). Ultimately, it went in a different direction than I anticipated, so I don't think I have any further feedback for now. I'll defer to the other participants/authors for approval.",
+          "createdAt": "2026-05-14T19:30:01Z",
+          "updatedAt": "2026-05-14T19:30:01Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Ultimately, it went in a different direction than I anticipated [...]\r\n\r\nGiven that binding to connection is in charter requirements, IMHO this is the only purpose that public key serves, as Markus also notes.\r\n\r\nI believe all comments so far have been addressed. We'll merge it after discussion in the meeting.",
+          "createdAt": "2026-05-14T20:28:48Z",
+          "updatedAt": "2026-05-14T20:28:48Z"
         }
       ],
       "reviews": [
@@ -5247,7 +5400,7 @@
             "abbreviatedOid": "9c21c71"
           },
           "author": "Moosa-Razaa",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-05-11T08:31:42Z",
@@ -5359,6 +5512,46 @@
               "updatedAt": "2026-05-12T15:29:16Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7_pVUD",
+          "commit": {
+            "abbreviatedOid": "54d396e"
+          },
+          "author": "burgerdev",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-14T09:55:16Z",
+          "updatedAt": "2026-05-14T09:55:18Z",
+          "comments": [
+            {
+              "originalPosition": 23,
+              "body": "As mentioned in a recent personal conversation, I believe a requirement for public key binding is overly restrictive (as it seems to prescribe an ephemeral private key), and also unnecessary if a TLS session binding is achieved (because possession of session keys implies possession of the TLS key, but not vice versa). \n\nI'm also not sure about the motivating example: the public key of the channel peer is known, and its possession is proven. I'd expect an application with bespoke peer requirements to sort these out at L7.",
+              "createdAt": "2026-05-14T09:55:16Z",
+              "updatedAt": "2026-05-14T09:55:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7_zHxY",
+          "commit": {
+            "abbreviatedOid": "3f6086f"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-14T16:27:31Z",
+          "updatedAt": "2026-05-14T16:27:31Z",
+          "comments": [
+            {
+              "originalPosition": 23,
+              "body": "Updated the text. See if it works.",
+              "createdAt": "2026-05-14T16:27:31Z",
+              "updatedAt": "2026-05-14T16:27:31Z"
+            }
+          ]
         }
       ]
     },
@@ -5376,13 +5569,13 @@
       ],
       "body": "- Addresses #13 \r\n- Move security considerations text to relevant sections\r\n- s/properties/security goals (the former is more for formal)\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-09T15:19:08Z",
-      "updatedAt": "2026-05-11T20:31:54Z",
+      "updatedAt": "2026-05-14T20:14:43Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "minor",
-      "headRefOid": "449af59769d850a1b455c0fbca92d63c3995e015",
+      "headRefOid": "2e2aa2f5efaf59037e76020b6958fdccc94cd152",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -5595,7 +5788,7 @@
             "abbreviatedOid": "d6db5dc"
           },
           "author": "rafiq-m",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-05-11T08:29:21Z",
@@ -5608,7 +5801,7 @@
             "abbreviatedOid": "d6db5dc"
           },
           "author": "Moosa-Razaa",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-05-11T08:31:02Z",
@@ -5680,7 +5873,7 @@
     {
       "number": 46,
       "id": "PR_kwDOP_9tTM7aCLmw",
-      "title": "Update Author order",
+      "title": "ONLY FOR AUTHORS: Update Author order",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/46",
       "state": "OPEN",
       "author": "muhammad-usama-sardar",
@@ -5691,7 +5884,7 @@
       ],
       "body": "Hi team,\r\nI've been doing quite some work on the draft recently. I would like this to be reflected in the author order. Does this work for everyone?\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-10T19:01:46Z",
-      "updatedAt": "2026-05-12T07:30:24Z",
+      "updatedAt": "2026-05-15T17:25:18Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -5758,6 +5951,48 @@
           "body": "> Whether to change the order or not, it's all fine for me.\r\n\r\nAs I state above, it helps me justify my time spent on it. More details [here](https://mailarchive.ietf.org/arch/msg/seat/MPQGhaX0ed_GJ7Y1orpoUI9TfnY/).",
           "createdAt": "2026-05-12T07:30:24Z",
           "updatedAt": "2026-05-12T07:30:24Z"
+        },
+        {
+          "author": "Maisy-ML",
+          "authorAssociation": "NONE",
+          "body": "I maintain my opinion - rankings are meaningless. However, if I have to make a choice only regarding this PR, I choose to agree. Of course, the prerequisite is that Lonut agrees to this.",
+          "createdAt": "2026-05-15T01:14:10Z",
+          "updatedAt": "2026-05-15T01:14:10Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I maintain my opinion - rankings are meaningless.\r\n\r\nThat's exactly why I don't understand why someone will disagree.\r\n>  However, if I have to make a choice only regarding this PR, I choose to agree.\r\n\r\nThanks.\r\n\r\n> Of course, the prerequisite is that Lonut agrees to this.\r\n\r\nSure, my question \"Does this work for everyone?\" surely includes him. But I don't see why he would disagree. Assuming that the IETF has no rules on author ordering, then why not help me justify my time on it? He's apparently been quite busy with other works recently and not attending the meetings for a long time. As I said, we can always change the order later on when he is available to spend more time on the draft.",
+          "createdAt": "2026-05-15T12:59:40Z",
+          "updatedAt": "2026-05-15T12:59:40Z"
+        },
+        {
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "The problem here, as I view it (and in line with what Thomas said above), is that you're using the wrong mechanism to convey what you want to convey.\r\n\r\nThe author list is not defined by IETF/RFC guidance as a ranked contribution list. Its [stated purpose](https://mailarchive.ietf.org/arch/msg/rfc-interest/SHM7dHZd_S1a-CkW2JCBvxdKmcs/) is to identify who is responsible for the technical content of the document, based on active technical contribution to the text. Applying academic first-author/last-author conventions therefore imports semantics from another domain that the IETF/RFC guidance does not provide. If the intent is to recognize a specific kind or degree of contribution, the clearer and more IETF-natural approach is to state that explicitly in an acknowledgements or contributors section, rather than relying on implied meaning from author ordering.",
+          "createdAt": "2026-05-15T13:42:20Z",
+          "updatedAt": "2026-05-15T13:42:20Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "If I understand correctly, you need to convince someone that you are the lead author of this document.\r\nHowever, as [I already stated upthread](https://github.com/tls-attestation/use-cases-and-properties/pull/46#issuecomment-4428173956), I disagree with your being characterised as the lead author:\r\n\r\n> _\"[...] In this case, since the pen is shared, it wouldn't even be possible to assign any meaningful and objective position in the roster based on the \u201ctext editing\u201d criterion\"_\r\n\r\nTherefore, I am simply not willing to be involved in fabricating information with which I disagree.",
+          "createdAt": "2026-05-15T14:00:11Z",
+          "updatedAt": "2026-05-15T14:00:11Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "TL;DR: If you are claiming that you have done more contributions than me, I am perfectly fine with it and I will simply close the PR without any further debate at all. But if you are saying something else, I still don't understand why you are unwilling to help me make the draft progress forward.\r\n\r\n\r\n> The author list is not defined by IETF/RFC guidance as a ranked contribution list. Its [stated purpose](https://mailarchive.ietf.org/arch/msg/rfc-interest/SHM7dHZd_S1a-CkW2JCBvxdKmcs/) is to identify who is responsible for the technical content of the document, based on active technical contribution to the text.\r\n\r\nMy reading is that it does not stop you from applying ranked contribution convention either. I have certainly seen author orders being changed stating this very reason. I can dig up the links too.\r\n\r\n",
+          "createdAt": "2026-05-15T14:40:39Z",
+          "updatedAt": "2026-05-15T14:40:39Z"
+        },
+        {
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "body": "If this document were brought forward for a call for adoption by the IETF, I would raise concerns about its governance.\n\nOn the public mailing list for SEAT, the author studiously reminds members that the \"informal gatherings are meant to facilitate discussion and [they have no formal standing in the IETF](https://mailarchive.ietf.org/arch/msg/seat/MPQGhaX0ed_GJ7Y1orpoUI9TfnY/) standards process.\" With this weekly reminder in context, the author shares their recent opinion that \"this discussion is not worth WG time.\" \n\n> He's apparently been quite busy with other works recently and not attending the meetings for a long time.\n\nSuch juxtaposition expressed here gives me pause, as it implies to me that attendance at these non-standing informal meetings and gatherings may have been conflated for some kind of believable measurement for assessing legitimate authorship claims.\n\nNow, of course, if it was the intention of the author to simply maintain this project as a living document right here on GitHub, as an open source reference for industry without seeking IETF consensus, then it truly wouldn't matter.",
+          "createdAt": "2026-05-15T16:59:52Z",
+          "updatedAt": "2026-05-15T16:59:52Z"
         }
       ],
       "reviews": [
@@ -5767,7 +6002,7 @@
             "abbreviatedOid": "dd1af06"
           },
           "author": "Moosa-Razaa",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-05-11T08:29:03Z",
@@ -5788,13 +6023,13 @@
       "labels": [],
       "body": "* Added proxy-fronted attested secure channel use case\r\n* Added service-mesh attestation use case\r\n* Covered TLS-terminating intermediaries: reverse proxies, API gateways, service meshes, WAFs, load balancers, and CDN edges\r\n* Distinguished intermediary-as-attested-endpoint from proxy-traversal-to-attested-origin\r\n* Generalized proxy use case from client-origin to endpoint-origin\r\n* Covered server attestation, client attestation, and mutual attestation\r\n* Added requirements for explicit trust and confidentiality boundaries\r\n* Added requirements for meaningful channel binding when TLS is terminated by an intermediary\r\n* Added policy distinction between direct attested channels, attested intermediaries, and proxy-traversal deployments",
       "createdAt": "2026-05-13T16:36:36Z",
-      "updatedAt": "2026-05-13T16:50:16Z",
+      "updatedAt": "2026-05-14T23:11:34Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
       "headRepository": "nathanaelritz/use-cases-and-properties",
       "headRefName": "nr-proxy-interactions-2",
-      "headRefOid": "2663596399de970605e17c7ae186d05bb41b61c7",
+      "headRefOid": "d7413e4342c32101fb968349cb814654d71d5e98",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -5806,9 +6041,121 @@
           "body": "Discussion [on-list](https://mailarchive.ietf.org/arch/msg/seat/MCoRZuXcB-UFE0xBcuvtLbErU8M/) and in issues at #49 ",
           "createdAt": "2026-05-13T16:50:15Z",
           "updatedAt": "2026-05-13T16:50:15Z"
+        },
+        {
+          "author": "burgerdev",
+          "authorAssociation": "NONE",
+          "body": "And after reading #51, I'm doubly confused: scope of SEAT is integrating attestation _into_ secure channels, not just conveying evidence _over_ secure channels, right?",
+          "createdAt": "2026-05-14T09:45:43Z",
+          "updatedAt": "2026-05-14T09:45:43Z"
+        },
+        {
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "body": "> And after reading #51, I'm doubly confused: scope of SEAT is integrating attestation _into_ secure channels, not just conveying evidence _over_ secure channels, right?\n\nHi Markus, thanks for taking a closer look. The proposed text is trying to surface exactly the tension you raise. Yes, within SEAT\u2019s scope, we are trying to establish what it means to have a high-assurance connection by binding attestation to secure channels. But when intermediaries are present, we need to be clear what the attestation is bound to, and whether the resulting trust relationship is the one intended for the use case. \n\nSometimes the intended attested component might be a service-mesh endpoint itself; sometimes an intermediary is deliberately trusted to speak for what sits behind it; and sometimes the relying party wants to keep an ephemeral workload\u2019s posture out of scope and instead bind the assurance for the connection to a specific device or other node. It\u2019s this complexity regarding purpose and intent that\u2019s driving the motivation for the proposed text.\n\nDoes that help clear up the confusion about the goal of the proposed text? Personally, I\u2019m trying to explore definable boundaries that proposed solutions can acknowledge and work within (or very much around).",
+          "createdAt": "2026-05-14T14:49:36Z",
+          "updatedAt": "2026-05-14T15:13:48Z"
+        },
+        {
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "body": "To put it into more blunt terms that MCR used on-list\n\n> \"Some RP will view that terminating intermediary as an attack :-)\n> Even when it's a load balancer/reverse proxy.\"\n\nThe complexity I see is hidden behind the operating word, \"some\".",
+          "createdAt": "2026-05-14T15:09:33Z",
+          "updatedAt": "2026-05-14T15:12:58Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM7_osVv",
+          "commit": {
+            "abbreviatedOid": "2663596"
+          },
+          "author": "burgerdev",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-14T09:28:16Z",
+          "updatedAt": "2026-05-14T09:43:07Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "That does not sound different from the base case, a TLS server running in a TEE and attesting to the client. What makes the proxy special here?",
+              "createdAt": "2026-05-14T09:28:16Z",
+              "updatedAt": "2026-05-14T09:43:07Z"
+            },
+            {
+              "originalPosition": 25,
+              "body": "Can you describe a scenario where this is required? I have a hard time coming up with one: the main reason I'd want to use attested TLS is to establish a secure channel between me and the attesting endpoint. \n\n1. Why would I want to allow an unverified intermediary to eavesdrop on that connection? \n2. Why would I want to tie the backend evidence to the TLS channel between me and the proxy? ",
+              "createdAt": "2026-05-14T09:37:33Z",
+              "updatedAt": "2026-05-14T09:43:07Z"
+            },
+            {
+              "originalPosition": 42,
+              "body": "You might need to describe the \"channel binding\" in more detail here, since the only TLS channel mentioned in this section is the endpoint<->proxy channel, which you say is not the \"meaningful\" one.",
+              "createdAt": "2026-05-14T09:40:14Z",
+              "updatedAt": "2026-05-14T09:43:07Z"
+            },
+            {
+              "originalPosition": 71,
+              "body": "That does not sound different from the base case?",
+              "createdAt": "2026-05-14T09:42:53Z",
+              "updatedAt": "2026-05-14T09:43:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7_skgT",
+          "commit": {
+            "abbreviatedOid": "2663596"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-14T12:25:05Z",
+          "updatedAt": "2026-05-14T12:36:20Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "What, exactly, do you mean by base case here (and below)? The use-cases we present are variations of what you seem to imply, tailored for specific needs. The difference is in what's being achieved, and expectation of what code the RP/Verifier gets to validate would be my take. An RP would ideally notice a difference between a proxy and an attester that actually provides the service it needs to talk to.\n\nHowever, there's a point to be made here, as the top goal says \"endpoint communicates with an attested application, service, or confidential workload\", which I gather is the thing behind the proxy. Yet this sub-case says \"the origin [...] need not be independently attested\".",
+              "createdAt": "2026-05-14T12:25:05Z",
+              "updatedAt": "2026-05-14T12:36:20Z"
+            },
+            {
+              "originalPosition": 25,
+              "body": "... and please include a short summary of the reply to this in the text.",
+              "createdAt": "2026-05-14T12:27:01Z",
+              "updatedAt": "2026-05-14T12:36:20Z"
+            },
+            {
+              "originalPosition": 71,
+              "body": "Not sure about \"base case\", but it seems like a more specific scenario for the use-case above.",
+              "createdAt": "2026-05-14T12:36:15Z",
+              "updatedAt": "2026-05-14T12:36:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM7_8v5C",
+          "commit": {
+            "abbreviatedOid": "f713628"
+          },
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-14T23:09:49Z",
+          "updatedAt": "2026-05-14T23:09:49Z",
+          "comments": [
+            {
+              "originalPosition": 71,
+              "body": "> That does not sound different from the base case?\n\nI do think it's better to just focus on the proxy-fronted interactions, as this is basically what I was aiming for with case (a).",
+              "createdAt": "2026-05-14T23:09:49Z",
+              "updatedAt": "2026-05-14T23:09:50Z"
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 50,
@@ -5842,6 +6189,32 @@
           "updatedAt": "2026-05-13T23:45:03Z"
         }
       ],
+      "reviews": []
+    },
+    {
+      "number": 51,
+      "id": "PR_kwDOP_9tTM7bYDFg",
+      "title": "Add framing subsection on diverse trust boundaries",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/51",
+      "state": "OPEN",
+      "author": "telephonicrobotics",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Adds a short introductory paragraph contextualising the deployment complexity that arises when RA is composed with secure channels, particularly in the presence of TLS-terminating intermediaries that are authorised and cooperative but structurally indistinguishable from adversarial positions at the protocol level.\r\n\r\nMotivates the proxy-fronted deployment discussion introduced in PR #48 and grounds the Verifier reachability discussion in the attestation model flexibility property.",
+      "createdAt": "2026-05-14T04:15:34Z",
+      "updatedAt": "2026-05-14T04:15:35Z",
+      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRefName": "main",
+      "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
+      "headRepository": "nathanaelritz/use-cases-and-properties",
+      "headRefName": "nr-diverse-trust-boundaries-1",
+      "headRefOid": "21048fb4f570016d958a2d0404ea06f9bf45a86c",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
       "reviews": []
     }
   ]
