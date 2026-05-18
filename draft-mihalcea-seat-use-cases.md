@@ -251,7 +251,7 @@ In the Background Check model, the Relying Party communicates with the Verifier 
 This reveals the Attester's identity and connection timing to the Verifier.
 This also reveals to the Verifier that the Relying Party is communicating with the specific Attester.
 If the Verifier is a third party, it can observe which Attesters are being appraised and when, potentially exposing client identity and other correlation information.
-Solutions should consider privacy-preserving attestation  to minimize the data revealed to the Verifier, as being discussed in the RATS working group.
+Solutions should consider privacy-preserving attestation techniques being developed in the RATS working group, to minimize the data revealed to the Verifier.
 
 ## Performance and Efficiency
 
