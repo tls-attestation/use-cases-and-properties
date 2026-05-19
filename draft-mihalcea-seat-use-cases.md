@@ -78,6 +78,7 @@ informative:
     I-D.aylward-aiga-2:
     I-D.draft-ietf-rats-pkix-key-attestation:
     I-D.jiang-seat-dynamic-attestation:
+    I-D.ietf-rats-msg-wrap:
 
 --- abstract
 
@@ -211,6 +212,7 @@ models they support. This enables interoperability and allows for graceful
 fallback for endpoints that do not support RA.
 The negotiation of formats is required because several vendors -- like Intel,
 AMD, Arm, and IBM -- have their own Evidence formats.
+One way to solve this problem is to use Conceptual Message Wrappers {{I-D.ietf-rats-msg-wrap}}.
 
 ## Attestation Model Flexibility
 
@@ -227,6 +229,10 @@ authentication (e.g., X.509 certificates). This provides two independent pillars
 of trust: endpoint trustworthiness (from RA) and identity (from PKI).
 
 ## Runtime Attestation
+
+Ideally, Evidence should ensure that the configuration of the attested endpoint does not change, except in certain cases, such as the explicit approval from the peer.
+However, to our knowledge, the current state-of-the-art systems do not achieve such a guarantee.
+In such cases, runtime attestation can provide some level of guarantee but with a possibility of Time-Of-Check-to-Time-Of-Use (TOCTOU) attacks within the windows.
 
 Evidence collected at certificate issuance or during the initial secure channel establishment reflects only the Target Environment’s state at that moment. It cannot guarantee that the Target Environment remains trustworthy for the lifetime of the certificate or even for the duration of the secure connection (e.g., the (D)TLS connection). As a result, such static Evidence is insufficient in environments where the Target Environment may change state after the connection is established and the connection is long-lived.
 
@@ -470,4 +476,6 @@ This document has no IANA actions.
 # Acknowledgments
 {:numbered="false"}
 
-TODO
+We would like to thank Eric Rescorla for his detailed review.
+
+Muhammad Usama Sardar is funded by German Research Foundation ("Deutsche Forschungsgemeinschaft.")
