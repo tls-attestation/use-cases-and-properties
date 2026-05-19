@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-17T03:56:42.559612+00:00",
+  "timestamp": "2026-05-19T04:02:56.511397+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -1010,11 +1010,12 @@
         "muhammad-usama-sardar"
       ],
       "labels": [
-        "close-candidate"
+        "close-candidate",
+        "PR submitted"
       ],
       "body": "See concern raised at https://github.com/tls-attestation/use-cases-and-properties/pull/37#discussion_r3217875448",
       "createdAt": "2026-05-11T10:02:20Z",
-      "updatedAt": "2026-05-14T17:33:18Z",
+      "updatedAt": "2026-05-17T20:00:21Z",
       "closedAt": null,
       "comments": [
         {
@@ -1074,6 +1075,40 @@
       "body": "[On-list ](https://mailarchive.ietf.org/arch/msg/seat/MCoRZuXcB-UFE0xBcuvtLbErU8M/) I proposed we add explicit treatment of proxy-fronted deployments, especially TLS-terminating intermediaries such as reverse proxies, API gateways, service-mesh components, WAFs, load balancers, and CDN edges.\n\nI created a PR for consideration here #48.\n",
       "createdAt": "2026-05-13T16:49:02Z",
       "updatedAt": "2026-05-13T16:49:02Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 52,
+      "id": "I_kwDOP_9tTM8AAAABCgd9xQ",
+      "title": "Ekr review of -02",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/52",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "PR submitted"
+      ],
+      "body": "[Archive link](https://mailarchive.ietf.org/arch/msg/seat/D2mIlXUtKUgKUPZmwDfwqnd7wWU/)\n\n> TL;DR. I think the WG probably should adopt this document. While\n> imperfect, the WG has a charter item to produce a use cases document\n> and this seems to be the only candidate after 7 months. Ordinarily I\n> would prefer documents to be in better shape before adoption but as\n> this is a use case document not a specification, I think it's probably\n> OK.\n> \n> With that said, I find myself unpersuaded by many of the use cases\n> here, for a variety of reasons, including:\n> \n> (1) It's not clear that they really work\n> (2) They seem to exist to shore up otherwise bad practices\n> (3) Better approaches are available\n> \n> In addition, it seems like some of the text here is requirements for\n> the use case (e.g., \" The network orchestrator must verify the\n> device's integrity (e.g., S 4.4 Req 1) and other text is about the\n> solution (e.g., S 4.4 Req 2). This is confusing.\n> \n> For these reasons, I think this document will need quite a bit of\n> work.\n> \n> \n> S 1.3.\n> \n> >    This document is intended as an input to the design of protocol\n> >    solutions within the SEAT working group.  It defines the \"why\" (the\n> >    motivation) and the \"what\" (the requirements), but not the \"how\" (the\n> >    protocol design itself).  The \"how\" part is discussed in the\n> >    companion document [I-D.usama-seat-intra-vs-post], which serves as\n> >    the glue between this document and the protocol specifications.  A\n> \n> This text will need to be removed prior to adoption unless there\n> is a contemporaneous or prior decision to adopt draft-usama.\n> \n> \n> S 3.5.\n> \n> >    Peers have a secure mechanism to discover each other's support for\n> >    RA, the specific attestation formats they can produce or consume, and\n> >    the attestation models they support.  This enables interoperability\n> >    and allows for graceful fallback for endpoints that do not support\n> >    RA.\n> \n> \n> Why do we need to support multiple attestation formats?\n> \n> \n> S 3.8\n> \n> >    It should be possible for the Relying Party to request new Evidence\n> >    periodically or on-demand during the lifetime of the connection.\n> >    This may be necessary if the Target Environment has attributes that\n> >    can change during the connection, thereby affecting its\n> >    trustworthiness.  Such changes cannot be detected using Evidence\n> >    collected earlier.  For example, the Evidence may include dynamic\n> >    parameters such as runtime configuration flags (e.g., FIPS mode),\n> >    which indicate whether the device has entered or exited an approved\n> >    mode, or measurements of critical system files.\n> \n> \n> As I indicated in the discussions that produced the charter, I don't\n> think this provides adequate security guarantees. Consider the following\n> sequence of events, in which the Server is attesting to the client.\n> \n> - Server attests to being in configuration 1, which is acceptable\n>   to the client.\n> - Client sends secret S1 to the server.\n> - Server changes to configuration 2, which is not acceptable to the\n>   client.\n> - Client sends secret S2 to the server.\n> - Client forces server to re-attest, discovers that the configuration\n>   is unacceptable, and terminates the connection.\n> \n> Unfortunately, this doesn't help the client because it's already\n> sent S1 and S2. Even if you assume that the server properly\n> disposed of S1, the client sent a secret to S2.\n> \n> The point here is that part of the attestation by the server not only\n> that it is currently in an acceptable configuration but also that it\n> will not adopt a new configuration except under certain conditions\n> (e.g., that it will notify the client and receive affirmative consent\n> and otherwise destroy all state). No amount of regular re-attestation\n> can replace this kind of guarantee.\n> \n> \n> \n> \n> S 3.9\n> \n> >    The solution must not degrade the privacy of a standard secure\n> >    connection (e.g., the (D)TLS connection).  Evidence can contain\n> >    highly specific, unique information about a device's hardware and\n> >    software, which could be used as an advanced tracking mechanism,\n> >    following a user across different connections and services.  The\n> >    design must consider how to minimize this leakage, especially when a\n> >    third-party Verifier is involved in the protocol exchange.\n> \n> \n> This seems like it's in direct conflict with the requirement to\n> bind to the machine identifier in S 4.2.\n> \n> S 4.1.\n> \n> >    An operator sends a critical command to a remote system (e.g., an\n> >    industrial controller, a financial transaction processor).\n> > \n> >    *  Requirement: The system must provide fresh Evidence to the\n> >       operator to prove its integrity before the command is dispatched.\n> >       This prevents commands from being executed on a compromised\n> >       system.\n> \n> I don't understand this case. If the system is compromised it can do\n> anything it wants, including executing commands. Is the idea that the\n> command is secret? That the operator wants to know if the command was\n> actually executed?\n> \n> \n> S 4.2.2\n> \n> >    Distributed parties collaboratively compute a function (e.g., train a\n> >    machine learning model) without sharing their local data.\n> > \n> >    *  Requirement: The central aggregator, as well as each participating\n> >       client, must be able to mutually attest to ensure all parties are\n> >       running the correct, untampered MPC algorithm in a trusted\n> >       environment.\n> \n> Why? Is this about the integrity of the result? If so, I would\n> observe that zero-knowedge proofs are a much stronger way\n> of achieving this objectives.\n> \n> \n> S 4.3.1.  Network Infrastructure Integrity\n> \n> >    *  Requirement: The network orchestrator must verify the device's\n> >       integrity (e.g., secure boot enabled, running signed OS and\n> >       firmware) before allowing it to join the network and receive\n> >       policy.  This prevents a compromised router from misdirecting\n> >       traffic or a malicious VNF from inspecting sensitive packets.\n> \n> I don't see how this works. As I understand the description here, a\n> new device joins the network and you form a TLS connection to that\n> device and require that it attest to its integrity, after which you\n> let it handle traffic. However, I don't see what stops an attacker\n> from adding a compromised device in between the network and a\n> non-compromised device, and forwarding the TLS traffic, but then\n> otherwise misbehaving. In order to prevent this, all network traffic\n> that is to be be handled by the device has to be sent over the TLS\n> channel, which is a highly unusual configuration.\n> \n> S 4.3.2.\n> \n> >    *  Requirement: The network orchestrator must verify the device's\n> >       integrity (e.g., secure boot enabled, running signed OS and\n> >       firmware) before allowing it to join the network and receive\n> >       policy.  This prevents a compromised router from misdirecting\n> >       traffic or a malicious VNF from inspecting sensitive packets.\n> \n> I don't understand what \"connecting to a compromised interface that\n> could manipulate the device means\". How does that work? As for \"could\n> steal credentials\", the better approach is to use public-key based\n> client authentication, thus removing the threat of bearer credentials.\n> \n> \n> \n> S 4.5.\n> \n> >    In this scenario, the peer acting as the Relying Party requires\n> >    additional assurance that the private key associated with the end-\n> >    entity certificate used to authenticate the TLS connection is\n> >    generated, stored, and used within an attested cryptographic module.\n> \n> This entire use case seems conclusory. Why does the TLS endpoint\n> need this?\n> \n> >    The approach described in [I-D.draft-ietf-rats-pkix-key-attestation]\n> >    addresses this use case partially by providing attestation of the\n> >    cryptographic module and associated private key at certificate\n> >    issuance time, reflecting their state when the certificate is\n> >    enrolled.  This model does not provide guarantees about the continued\n> >    state of the module at connection establishment or during the\n> >    lifetime of the TLS session.\n> \n> I don't understand the security logic: given the original assertions\n> listed above, which more or less amount to the key not available\n> outside the module, what does fresh authentication get you? In\n> order for these guarantees to be violated, you would presumably\n> need to break whatever tamper resistance is in the module, but\n> then you would also quite likely be able to forge whatever Evidence\n> you need.what am I missing?\n> \n> \n> S 5.\n> \n> >    However, any solution must\n> >    address the following high-level considerations:\n> > \n> >    ...\n> > \n> >    *  Evidence Semantics: This document does not define attestation\n> >       appraisal policies.  However, a Relying Party must be careful when\n> >       interpreting Attestation Results.  A \"valid\" attestation only\n> >       means the Evidence is authentic and correctly signed; it does not\n> >       automatically mean the underlying system is \"secure\".  The Relying\n> >       Party must have a clear policy for what measurements, software\n> >       versions, and security configurations are acceptable.\n> \n> This actually seems like a dislaimer of solving this problem, not\n> a requirement to address",
+      "createdAt": "2026-05-17T10:55:20Z",
+      "updatedAt": "2026-05-17T20:00:22Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 54,
+      "id": "I_kwDOP_9tTM8AAAABCkUX4A",
+      "title": "Define credentials",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/54",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Define credentials in terminology section",
+      "createdAt": "2026-05-18T07:50:53Z",
+      "updatedAt": "2026-05-18T07:50:53Z",
       "closedAt": null,
       "comments": []
     }
@@ -4720,7 +4755,7 @@
       ],
       "body": "Addresses #8 \r\n- Added def. of infrastructure provider\r\n- Added def. of diversion attack\r\n- dependency on deployment model etc.\r\n- state-of-the-art may not meet some properties\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-06T22:14:34Z",
-      "updatedAt": "2026-05-14T22:47:24Z",
+      "updatedAt": "2026-05-18T08:18:35Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -4815,6 +4850,13 @@
           "body": "> > Overall, as mentioned on the list, I don\u2019t think the binding to the machine identifier should be expressed as a security requirement, but rather as a defence-in-depth approach that applies to certain scenarios.\r\n> \r\n> I think the detailed text justifies why it is a requirement as long as hardware vendors do not address side channels.\r\n\r\nCertain reservations that can be discussed later set aside, \"[...] this attack may not be mitigated\" is sufficiently flexible wording for me to be fine with the current section.",
           "createdAt": "2026-05-13T04:40:34Z",
           "updatedAt": "2026-05-13T04:40:34Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Discussed in meeting: @tireddy2 to look into it and provide further comments\r\nAttendees: Camilo, Carsten, Rafiq, Moosa, Tiru, Usama",
+          "createdAt": "2026-05-18T08:18:35Z",
+          "updatedAt": "2026-05-18T08:18:35Z"
         }
       ],
       "reviews": [
@@ -5280,6 +5322,32 @@
               "updatedAt": "2026-05-14T21:04:42Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAJ6zWw",
+          "commit": {
+            "abbreviatedOid": "a41166a"
+          },
+          "author": "cayerbe",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "+1 \u2014 the clarification on infrastructure-provider identifier and the\nacknowledgment of deployment-model dependence reads well.",
+          "createdAt": "2026-05-17T11:41:51Z",
+          "updatedAt": "2026-05-17T11:41:51Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAJ7qEQ",
+          "commit": {
+            "abbreviatedOid": "a41166a"
+          },
+          "author": "cayerbe",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-05-17T11:53:23Z",
+          "updatedAt": "2026-05-17T11:53:23Z",
+          "comments": []
         }
       ]
     },
@@ -5297,7 +5365,7 @@
       ],
       "body": "- Public key of Target Environment\r\n- Replication attacks\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-09T10:46:07Z",
-      "updatedAt": "2026-05-14T20:28:48Z",
+      "updatedAt": "2026-05-18T14:35:50Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -5378,6 +5446,48 @@
           "body": "> Ultimately, it went in a different direction than I anticipated [...]\r\n\r\nGiven that binding to connection is in charter requirements, IMHO this is the only purpose that public key serves, as Markus also notes.\r\n\r\nI believe all comments so far have been addressed. We'll merge it after discussion in the meeting.",
           "createdAt": "2026-05-14T20:28:48Z",
           "updatedAt": "2026-05-14T20:28:48Z"
+        },
+        {
+          "author": "burgerdev",
+          "authorAssociation": "NONE",
+          "body": "> Given that binding to connection is in charter requirements, IMHO this is the only purpose that public key serves, as Markus also notes.\r\n\r\n@muhammad-usama-sardar: I think you misunderstood me, I did not say that the public key binds to the connection. In fact, isn't binding to the public key (instead of the session) the main enabler for the ID-crisis attack?",
+          "createdAt": "2026-05-17T17:22:43Z",
+          "updatedAt": "2026-05-17T17:22:43Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> > Given that binding to connection is in charter requirements, IMHO this is the only purpose that public key serves, as Markus also notes.\r\n> \r\n> @muhammad-usama-sardar: I think you misunderstood me, I did not say that the public key binds to the connection. In fact, isn't binding to the public key (instead of the session) the main enabler for the ID-crisis attack?\r\n\r\nMy statement was based on the assumption that if there is binding to the connection (which is required by charter, and hence absolutely necessary), what is the new thing that public key serves on top of that. That is, I was thinking on the lines: what are the attacks if binding to the connection is there but binding to the public key is not there? So I could think of replication attacks. Does that clarify? Do you agree?\r\n\r\nIn short, the public key surely does not bind to the connection.",
+          "createdAt": "2026-05-17T17:38:12Z",
+          "updatedAt": "2026-05-17T17:38:12Z"
+        },
+        {
+          "author": "burgerdev",
+          "authorAssociation": "NONE",
+          "body": "My argument is that the TLS layer can't really solve that problem, and the application layer has all the information it needs, without binding the public key. ",
+          "createdAt": "2026-05-17T17:59:51Z",
+          "updatedAt": "2026-05-17T17:59:51Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks for the clarification. \r\nAfter some reflection and closer look at key schedule: Please note that the application layer needs to put in Client's public key, since it is not part of exporters otherwise.",
+          "createdAt": "2026-05-17T18:35:46Z",
+          "updatedAt": "2026-05-18T10:25:41Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Discussed in meeting: @ionut-arm and @thomas-fossati to have a look at it. \r\nAttendees: Camilo, Carsten, Rafiq, Moosa, Tiru, Usama",
+          "createdAt": "2026-05-18T08:02:57Z",
+          "updatedAt": "2026-05-18T08:02:57Z"
+        },
+        {
+          "author": "burgerdev",
+          "authorAssociation": "NONE",
+          "body": "> Thanks for the clarification. \n> \n> After some reflection and closer look at key schedule: Please note that the application layer needs to put in Client's public key, since it is not part of exporters otherwise.\n\nHow should the application layer know an ephemeral public key up front? Why can't it take the one from the handshake? I have to say that it would help if the use case was more concrete. ",
+          "createdAt": "2026-05-18T14:35:50Z",
+          "updatedAt": "2026-05-18T14:35:50Z"
         }
       ],
       "reviews": [
@@ -5552,6 +5662,32 @@
               "updatedAt": "2026-05-14T16:27:31Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAJ6_wA",
+          "commit": {
+            "abbreviatedOid": "aec95c9"
+          },
+          "author": "cayerbe",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "+1 to adding this property.\n\nThe TRIP draft (draft-ayerbe-trip-protocol-04) exercises this property\ndirectly \u2014 Ed25519 actor identity keys serve as the bound Target\nEnvironment public key, in an actor-identity attestation context. This\nis distinct from \u00a73.3 (whether framed as machine identifier or, post-PR-#43,\nas infrastructure-provider identifier) because the actor isn't bound to\neither dimension. Addresses telephonicrobotics's earlier request for\nexamples beyond confidential computing.\n\nWill follow up with a concrete use case proposal soon.",
+          "createdAt": "2026-05-17T11:45:03Z",
+          "updatedAt": "2026-05-17T11:45:03Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAJ7mog",
+          "commit": {
+            "abbreviatedOid": "aec95c9"
+          },
+          "author": "cayerbe",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-05-17T11:52:56Z",
+          "updatedAt": "2026-05-17T11:52:56Z",
+          "comments": []
         }
       ]
     },
@@ -5569,13 +5705,13 @@
       ],
       "body": "- Addresses #13 \r\n- Move security considerations text to relevant sections\r\n- s/properties/security goals (the former is more for formal)\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-09T15:19:08Z",
-      "updatedAt": "2026-05-14T20:14:43Z",
+      "updatedAt": "2026-05-18T07:52:34Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "minor",
-      "headRefOid": "2e2aa2f5efaf59037e76020b6958fdccc94cd152",
+      "headRefOid": "f9c0b2216d42b470c57b7b7fb2fba77d401d8af7",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -5608,6 +5744,13 @@
           "body": "> There are still outstanding comments.\r\n\r\nAddressed all comments. Please check.",
           "createdAt": "2026-05-11T16:34:06Z",
           "updatedAt": "2026-05-11T16:34:06Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Discussed in meeting: ready to merge\r\nAttendees: Camilo, Carsten, Rafiq, Moosa, Tiru, Usama",
+          "createdAt": "2026-05-18T07:52:34Z",
+          "updatedAt": "2026-05-18T07:52:34Z"
         }
       ],
       "reviews": [
@@ -5867,6 +6010,65 @@
               "updatedAt": "2026-05-11T16:18:59Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAJ66JA",
+          "commit": {
+            "abbreviatedOid": "2e2aa2f"
+          },
+          "author": "cayerbe",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "+1 \u2014 the restructuring (security considerations moved inline to\nrelevant property sections, plus the s/properties/security goals\nterminology refinement) reads cleanly.",
+          "createdAt": "2026-05-17T11:43:34Z",
+          "updatedAt": "2026-05-17T11:43:34Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAJ7kFA",
+          "commit": {
+            "abbreviatedOid": "2e2aa2f"
+          },
+          "author": "cayerbe",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-05-17T11:52:38Z",
+          "updatedAt": "2026-05-17T11:52:38Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAMl3PA",
+          "commit": {
+            "abbreviatedOid": "2e2aa2f"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-18T07:42:26Z",
+          "updatedAt": "2026-05-18T07:42:45Z",
+          "comments": [
+            {
+              "originalPosition": 65,
+              "body": "```suggestion\nSolutions should consider privacy-preserving attestation techniques being developed in the RATS working group, to minimize the data revealed to the Verifier.\n```",
+              "createdAt": "2026-05-18T07:42:26Z",
+              "updatedAt": "2026-05-18T07:42:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAMpaiw",
+          "commit": {
+            "abbreviatedOid": "f9c0b22"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-05-18T07:50:33Z",
+          "updatedAt": "2026-05-18T07:50:33Z",
+          "comments": []
         }
       ]
     },
@@ -6023,7 +6225,7 @@
       "labels": [],
       "body": "* Added proxy-fronted attested secure channel use case\r\n* Added service-mesh attestation use case\r\n* Covered TLS-terminating intermediaries: reverse proxies, API gateways, service meshes, WAFs, load balancers, and CDN edges\r\n* Distinguished intermediary-as-attested-endpoint from proxy-traversal-to-attested-origin\r\n* Generalized proxy use case from client-origin to endpoint-origin\r\n* Covered server attestation, client attestation, and mutual attestation\r\n* Added requirements for explicit trust and confidentiality boundaries\r\n* Added requirements for meaningful channel binding when TLS is terminated by an intermediary\r\n* Added policy distinction between direct attested channels, attested intermediaries, and proxy-traversal deployments",
       "createdAt": "2026-05-13T16:36:36Z",
-      "updatedAt": "2026-05-14T23:11:34Z",
+      "updatedAt": "2026-05-18T17:22:29Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -6062,6 +6264,20 @@
           "body": "To put it into more blunt terms that MCR used on-list\n\n> \"Some RP will view that terminating intermediary as an attack :-)\n> Even when it's a load balancer/reverse proxy.\"\n\nThe complexity I see is hidden behind the operating word, \"some\".",
           "createdAt": "2026-05-14T15:09:33Z",
           "updatedAt": "2026-05-14T15:12:58Z"
+        },
+        {
+          "author": "burgerdev",
+          "authorAssociation": "NONE",
+          "body": "Yes, case (b) sounds like an attack, agreed. Why standardize it? Do you have a concrete scenario where this is helping?",
+          "createdAt": "2026-05-17T17:16:12Z",
+          "updatedAt": "2026-05-17T17:16:12Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "For me, the base case is [ID-Crisis](https://github.com/CCC-Attestation/formal-spec-id-crisis). What are the new properties introduced here, or what is changed in the model side?",
+          "createdAt": "2026-05-18T17:22:29Z",
+          "updatedAt": "2026-05-18T17:22:29Z"
         }
       ],
       "reviews": [
@@ -6154,6 +6370,26 @@
               "updatedAt": "2026-05-14T23:09:50Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAKdArQ",
+          "commit": {
+            "abbreviatedOid": "2663596"
+          },
+          "author": "burgerdev",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-17T17:13:41Z",
+          "updatedAt": "2026-05-17T17:13:42Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "The \"base case\" I'm thinking of: there's a server and a client, the server runs in a TEE, the client wants to establish a secure connection to the server, while simultaneously verifying the server's evidence.\r\n\r\nI don't think it's helpful to list all sorts of variations of this scenario, if it does not bring any interesting additional requirements. Granted, there are additional requirements resulting from this use case, but they are scoped to (b) and I think (b) is not a problem people have, and also not something that should be standardized (see other thread).",
+              "createdAt": "2026-05-17T17:13:41Z",
+              "updatedAt": "2026-05-17T17:13:42Z"
+            }
+          ]
         }
       ]
     },
@@ -6215,6 +6451,40 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 53,
+      "id": "PR_kwDOP_9tTM7cXsRG",
+      "title": "#52 address some of Ekr comments",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/53",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "addresses part of #52 \r\n\r\n- remove ref to intra-vs-post draft\r\n- clarify negotiation formats\r\n- add ref to I-D.jiang-seat-dynamic-attestation for use case\r\n\r\nCC co-author @Maisy-ML",
+      "createdAt": "2026-05-17T12:05:57Z",
+      "updatedAt": "2026-05-17T17:16:09Z",
+      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRefName": "main",
+      "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
+      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRefName": "ekr-comments",
+      "headRefOid": "fb573eecfaccd3594c121a8c5d338d6fbfca5e39",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "body": "A meaningful part of this PR appears to be a duplicate of PR #50, the related issue #47 of which was marked as a \"close-candidate\" by the author. Perhaps the applied labels need updating, given the new input. \n\nGiven Ekr's remarks suggested that [the text might be kept assuming WG adoption](https://mailarchive.ietf.org/arch/msg/seat/D2mIlXUtKUgKUPZmwDfwqnd7wWU/), and the already [self-attested](https://mailarchive.ietf.org/arch/msg/seat/e70xRrjygPZk2wMuWdf7KUWsZhk/) \"transparent\" process as shared by the author implying a good-faith effort, I would hold off acting on PR #50 or #53 (as submitted to to-date) until we are sure everyone on-list is okay with its removal or if the WG might wish to move for adoption as per Ekr's proposed solution. \n\nFor the authors' consideration, I offered a potential open process to gather input for the issue to the mailing list at #47 and [on-list](https://mailarchive.ietf.org/arch/msg/seat/qvkbnmXkHxC8qBpu2zNISCvSx6M/) [*], but I'll quote the relevant text here for the reader's convenience:\n\n> I propose -- before acting on PR #50 -- that the WG be consulted directly on-list to see if a companion draft separate to the use-cases draft is desirable and if so, what scope the companion draft should have. Then the WG can focus on the question if an existing I-D such as draft-usama-seat-intra-vs-post is the right document to use.\n\nThis way we can be sure everyone who might have assumed the document was ready to go is okay with its removal, or if instead the WG may be ready to consider adoption of the supplemental text instead. \n\n[*] I wish to apologize for the author again, as I regret that a clerical error inadvertently copied my own words adjacent to the author's quoted words in a way that may have caused confusion. I am grateful for the author's [gracious response](https://mailarchive.ietf.org/arch/msg/seat/FLOzOWQ-Rd-bKBFp2xbk6Z1sPjE/) to this manner, thank you. ",
+          "createdAt": "2026-05-17T17:15:17Z",
+          "updatedAt": "2026-05-17T17:16:09Z"
+        }
+      ],
       "reviews": []
     }
   ]
