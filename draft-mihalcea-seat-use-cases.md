@@ -78,7 +78,6 @@ informative:
     I-D.aylward-aiga-2:
     I-D.draft-ietf-rats-pkix-key-attestation:
     I-D.jiang-seat-dynamic-attestation:
-    I-D.ietf-rats-msg-wrap:
 
 --- abstract
 
@@ -212,7 +211,7 @@ models they support. This enables interoperability and allows for graceful
 fallback for endpoints that do not support RA.
 The negotiation of formats is required because several vendors -- like Intel,
 AMD, Arm, and IBM -- have their own Evidence formats.
-One way to solve this problem is to use Conceptual Message Wrappers {{I-D.ietf-rats-msg-wrap}}.
+A conforming solution will have to support a mechanism to identify the content type and encoding of Evidence to facilitate interoperability.
 
 ## Attestation Model Flexibility
 
