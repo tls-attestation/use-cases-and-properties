@@ -249,8 +249,9 @@ Table of Contents
    and allows for graceful fallback for endpoints that do not support
    RA.  The negotiation of formats is required because several vendors
    -- like Intel, AMD, Arm, and IBM -- have their own Evidence formats.
-   One way to solve this problem is to use Conceptual Message Wrappers
-   [I-D.ietf-rats-msg-wrap].
+   A conforming solution will have to support a mechanism to identify
+   the content type and encoding of Evidence to facilitate
+   interoperability.
 
 3.6.  Attestation Model Flexibility
 
@@ -601,13 +602,6 @@ Table of Contents
               draft-ietf-rats-pkix-key-attestation-05, 17 March 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-rats-
               pkix-key-attestation-05>.
-
-   [I-D.ietf-rats-msg-wrap]
-              Birkholz, H., Smith, N., Fossati, T., Tschofenig, H., and
-              D. Glaze, "RATS Conceptual Messages Wrapper (CMW)", Work
-              in Progress, Internet-Draft, draft-ietf-rats-msg-wrap-23,
-              11 December 2025, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-rats-msg-wrap-23>.
 
    [I-D.ietf-tls-rfc8446bis]
               Rescorla, E., "The Transport Layer Security (TLS) Protocol
