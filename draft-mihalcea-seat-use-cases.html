@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>Properties and Use Cases for Integrating Remote Attestation with Secure Channel Protocols</title>
+<title>Security Goals and Use Cases for Integrating Remote Attestation with Secure Channel Protocols</title>
 <meta content="Ionuț Mihalcea" name="author">
 <meta content="Muhammad Usama Sardar" name="author">
 <meta content="Thomas Fossati" name="author">
@@ -12,13 +12,13 @@
 <meta content="Yuning Jiang" name="author">
 <meta content="Meiling Chen" name="author">
 <meta content="
-       This document outlines desirable properties and use cases for integrating remote
+       This document outlines desirable security goals and use cases for integrating remote
 attestation (RA) capabilities with secure channel establishment protocols (e.g., TLS and DTLS).
 Peer authentication in such protocols establishes trust in a peer's network identifiers but
 provides no assurance regarding the integrity of its underlying software and
 hardware stack. Remote attestation addresses this gap by enabling a peer to
 provide verifiable evidence about the current state of the Target Environment. This document specifies a set of essential
-properties the protocol solution must have, including cryptographic binding to
+security goals the protocol solution must have, including cryptographic binding to
 the secure connection, evidence freshness, and flexibility to support different
 attestation models. It then explores relevant use cases, such as confidential
 data collaboration and secure secrets provisioning, to motivate the
@@ -1070,7 +1070,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mihalcea, et al.</td>
-<td class="center">Expires 5 November 2026</td>
+<td class="center">Expires 21 November 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1083,12 +1083,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-mihalcea-seat-use-cases-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-05-04" class="published">4 May 2026</time>
+<time datetime="2026-05-20" class="published">20 May 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-11-05">5 November 2026</time></dd>
+<dd class="expires"><time datetime="2026-11-21">21 November 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1117,16 +1117,16 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </dd>
 </dl>
 </div>
-<h1 id="title">Properties and Use Cases for Integrating Remote Attestation with Secure Channel Protocols</h1>
+<h1 id="title">Security Goals and Use Cases for Integrating Remote Attestation with Secure Channel Protocols</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This document outlines desirable properties and use cases for integrating remote
+<p id="section-abstract-1">This document outlines desirable security goals and use cases for integrating remote
 attestation (RA) capabilities with secure channel establishment protocols (e.g., TLS and DTLS).
 Peer authentication in such protocols establishes trust in a peer's network identifiers but
 provides no assurance regarding the integrity of its underlying software and
 hardware stack. Remote attestation addresses this gap by enabling a peer to
 provide verifiable evidence about the current state of the Target Environment. This document specifies a set of essential
-properties the protocol solution must have, including cryptographic binding to
+security goals the protocol solution must have, including cryptographic binding to
 the secure connection, evidence freshness, and flexibility to support different
 attestation models. It then explores relevant use cases, such as confidential
 data collaboration and secure secrets provisioning, to motivate the
@@ -1153,7 +1153,7 @@ of protocol solutions within the SEAT working group.<a href="#section-abstract-1
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 5 November 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 21 November 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1200,7 +1200,7 @@ of protocol solutions within the SEAT working group.<a href="#section-abstract-1
             <p id="section-toc.1-1.2.1"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-terminology" class="internal xref">Terminology</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-integration-properties" class="internal xref">Integration Properties</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-integration-security-goals" class="internal xref">Integration Security Goals</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
                 <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-cryptographic-binding-to-co" class="internal xref">Cryptographic Binding to Communication Channel</a></p>
@@ -1233,6 +1233,11 @@ of protocol solutions within the SEAT working group.<a href="#section-abstract-1
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.9">
                 <p id="section-toc.1-1.3.2.9.1"><a href="#section-3.9" class="auto internal xref">3.9</a>.  <a href="#name-privacy-preservation" class="internal xref">Privacy Preservation</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.9.2.1">
+                    <p id="section-toc.1-1.3.2.9.2.1.1"><a href="#section-3.9.1" class="auto internal xref">3.9.1</a>.  <a href="#name-verifier-trust-and-privacy" class="internal xref">Verifier Trust and Privacy</a></p>
+</li>
+                </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.10">
                 <p id="section-toc.1-1.3.2.10.1"><a href="#section-3.10" class="auto internal xref">3.10</a>. <a href="#name-performance-and-efficiency" class="internal xref">Performance and Efficiency</a></p>
@@ -1368,7 +1373,7 @@ acceptable.<a href="#section-1.2-4" class="pilcrow">¶</a></p>
         <h3 id="name-purpose-and-scope">
 <a href="#section-1.3" class="section-number selfRef">1.3. </a><a href="#name-purpose-and-scope" class="section-name selfRef">Purpose and Scope</a>
         </h3>
-<p id="section-1.3-1">The purpose of this document is to establish a set of essential properties
+<p id="section-1.3-1">The purpose of this document is to establish a set of essential security goals
 for composition of RA with secure channel protocols and to outline the key use
 cases that can benefit from such a composition. Most of the use cases presented in this document are provided by industry contributors in the SEAT WG, who have plans to deploy this technology. The initial focus is on
 TLS 1.3  <span>[<a href="#I-D.ietf-tls-rfc8446bis" class="cite xref">I-D.ietf-tls-rfc8446bis</a>]</span>
@@ -1381,6 +1386,7 @@ glue between this document and the protocol specifications. A key goal of this
 document is to define
 requirements for a solution that is agnostic to any specific attestation
 technology (e.g., Trusted Platform Modules (TPMs), Intel TDX, AMD SEV, Arm CCA).<a href="#section-1.3-2" class="pilcrow">¶</a></p>
+<p id="section-1.3-3">Appraisal policies (cf. <span><a href="https://rfc-editor.org/rfc/rfc9334#section-8.5" class="relref">Section 8.5</a> of [<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>) are out of scope of this document.<a href="#section-1.3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1416,14 +1422,14 @@ more frequently than typical platform TCB updates <span>[<a href="#AI-agents" cl
       </ul>
 </section>
 </div>
-<div id="integration-properties">
+<div id="integration-security-goals">
 <section id="section-3">
-      <h2 id="name-integration-properties">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-integration-properties" class="section-name selfRef">Integration Properties</a>
+      <h2 id="name-integration-security-goals">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-integration-security-goals" class="section-name selfRef">Integration Security Goals</a>
       </h2>
-<p id="section-3-1">This section provides a list of desirable properties for designs that compose
+<p id="section-3-1">This section provides a list of desirable security goals for designs that compose
 RA with secure channel protocols. Proposed protocol specifications should
-clearly state which of these properties are fulfilled and explain how.<a href="#section-3-1" class="pilcrow">¶</a></p>
+clearly state which of these security goals are fulfilled and explain how.<a href="#section-3-1" class="pilcrow">¶</a></p>
 <div id="cryptographic-binding-to-communication-channel">
 <section id="section-3.1">
         <h3 id="name-cryptographic-binding-to-co">
@@ -1531,6 +1537,18 @@ software, which could be used as an advanced tracking mechanism, following a
 user across different connections and services. The design must consider how to
 minimize this leakage, especially when a third-party Verifier is involved in the
 protocol exchange.<a href="#section-3.9-1" class="pilcrow">¶</a></p>
+<div id="verifier-trust-and-privacy">
+<section id="section-3.9.1">
+          <h4 id="name-verifier-trust-and-privacy">
+<a href="#section-3.9.1" class="section-number selfRef">3.9.1. </a><a href="#name-verifier-trust-and-privacy" class="section-name selfRef">Verifier Trust and Privacy</a>
+          </h4>
+<p id="section-3.9.1-1">In the Background Check model, the Relying Party communicates with the Verifier at the time of appraisal.
+This reveals the Attester's identity and connection timing to the Verifier.
+This also reveals to the Verifier that the Relying Party is communicating with the specific Attester.
+If the Verifier is a third party, it can observe which Attesters are being appraised and when, potentially exposing client identity and other correlation information.
+Solutions should consider privacy-preserving attestation techniques being developed in the RATS working group, to minimize the data revealed to the Verifier.<a href="#section-3.9.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="performance-and-efficiency">
@@ -1734,10 +1752,10 @@ cryptographic module, and that the module is operating in an expected
 security configuration at the time the TLS connection is established.<a href="#section-4.5-2" class="pilcrow">¶</a></p>
 <p id="section-4.5-3">Remote attestation is used to provide Evidence about the cryptographic module
 where the private key used for TLS authentication is stored. The Evidence may
-include claims about the security properties of the cryptographic module.
+include claims about the security goals of the cryptographic module.
 To prevent replay attacks, this Evidence has to be fresh and tied to the
 current TLS connection. Replayed Evidence could otherwise be used to falsely
-assert key protection properties that no longer hold.<a href="#section-4.5-3" class="pilcrow">¶</a></p>
+assert key security goals that no longer hold.<a href="#section-4.5-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.5-4.1">
             <p id="section-4.5-4.1.1">Requirement: The Attester must be able to produce Evidence that demonstrates
@@ -1757,7 +1775,7 @@ element,<a href="#section-4.5-4.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="section-4.5-5">The Relying Party uses this Evidence, potentially with the assistance of a
-Verifier, to determine whether the key protection properties satisfy its local
+Verifier, to determine whether the key security goals satisfy its local
 security policy.<a href="#section-4.5-5" class="pilcrow">¶</a></p>
 <p id="section-4.5-6">The approach described in <span>[<a href="#I-D.draft-ietf-rats-pkix-key-attestation" class="cite xref">I-D.draft-ietf-rats-pkix-key-attestation</a>]</span> addresses this
 use case partially by providing attestation of the cryptographic module and associated
@@ -1816,40 +1834,7 @@ attested TLS connection to perform the migration over.<a href="#section-4.6-3.2.
       <h2 id="name-security-considerations">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-5-1">This document describes use cases and integration properties. The security of
-any protocol designed to fulfill these properties will depend on its specific
-mechanisms. However, any solution must address the following high-level
-considerations:<a href="#section-5-1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-5-2.1">
-          <p id="section-5-2.1.1">Replay and Relay Protection: The requirements for cryptographic binding and
-freshness are critical. Failure to bind attestation credentials tightly to the
-current connection would allow an adversary to replay or relay old or stolen, yet
-valid credentials from a compromised system, completely undermining the
-security goals.<a href="#section-5-2.1.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="section-5-2.2">
-          <p id="section-5-2.2.1">Verifier Trust and Privacy: In the Background Check model, the Relying Party
-communicates with a Verifier. This reveals to the Verifier that the Relying
-Party is communicating with the Attester. Depending on the scenario, this
-could leak sensitive information about business relationships or user
-activity. Solutions should consider mechanisms to minimize the data revealed
-to the Verifier.<a href="#section-5-2.2.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="section-5-2.3">
-          <p id="section-5-2.3.1">Downgrade Attacks: The negotiation of attestation capabilities must be secure.
-An active attacker must not be able to trick two parties that both support
-attestation into negotiating a connection without it.<a href="#section-5-2.3.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="section-5-2.4">
-          <p id="section-5-2.4.1">Evidence Semantics: This document does not define attestation appraisal
-policies. However, a Relying Party must be careful when interpreting
-Attestation Results. A "valid" attestation only means the Evidence is
-authentic and correctly signed; it does not automatically mean the underlying
-system is "secure". The Relying Party must have a clear policy for what
-measurements, software versions, and security configurations are acceptable.<a href="#section-5-2.4.1" class="pilcrow">¶</a></p>
-</li>
-      </ul>
+<p id="section-5-1">This whole document is about security.<a href="#section-5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
