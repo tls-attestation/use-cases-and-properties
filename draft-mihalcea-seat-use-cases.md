@@ -457,10 +457,6 @@ identifier.
   gating a discrete authorization step over the existing connection
   rather than channel establishment itself.
 
-* Requirement 3: Cryptographic binding to a machine identifier is not
-  applicable in this use case by design, as the actor identity is
-  independent of any specific machine or infrastructure provider.
-
 * Example: {{I-D.ayerbe-trip-protocol}} (TRIP) defines a protocol for
   producing such Evidence as geographically-indexed trajectory proofs
   bound to actor identity keys.
