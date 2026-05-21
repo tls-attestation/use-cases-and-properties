@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-19T04:02:56.511397+00:00",
+  "timestamp": "2026-05-21T04:12:39.751792+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -490,7 +490,7 @@
       "id": "I_kwDOP_9tTM7T1adh",
       "title": "Security Considerations",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/13",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yaronf",
       "authorAssociation": "NONE",
       "assignees": [],
@@ -500,8 +500,8 @@
       ],
       "body": "This section is confusing since it overlaps significantly with the requirements. I suggest to fold its text into the requirements section and use the stanard boilerplate: \"This whole document is about security.\"\n\n",
       "createdAt": "2025-10-26T13:59:04Z",
-      "updatedAt": "2026-05-11T20:19:25Z",
-      "closedAt": null,
+      "updatedAt": "2026-05-20T14:39:41Z",
+      "closedAt": "2026-05-20T14:39:41Z",
       "comments": []
     },
     {
@@ -1092,9 +1092,17 @@
       ],
       "body": "[Archive link](https://mailarchive.ietf.org/arch/msg/seat/D2mIlXUtKUgKUPZmwDfwqnd7wWU/)\n\n> TL;DR. I think the WG probably should adopt this document. While\n> imperfect, the WG has a charter item to produce a use cases document\n> and this seems to be the only candidate after 7 months. Ordinarily I\n> would prefer documents to be in better shape before adoption but as\n> this is a use case document not a specification, I think it's probably\n> OK.\n> \n> With that said, I find myself unpersuaded by many of the use cases\n> here, for a variety of reasons, including:\n> \n> (1) It's not clear that they really work\n> (2) They seem to exist to shore up otherwise bad practices\n> (3) Better approaches are available\n> \n> In addition, it seems like some of the text here is requirements for\n> the use case (e.g., \" The network orchestrator must verify the\n> device's integrity (e.g., S 4.4 Req 1) and other text is about the\n> solution (e.g., S 4.4 Req 2). This is confusing.\n> \n> For these reasons, I think this document will need quite a bit of\n> work.\n> \n> \n> S 1.3.\n> \n> >    This document is intended as an input to the design of protocol\n> >    solutions within the SEAT working group.  It defines the \"why\" (the\n> >    motivation) and the \"what\" (the requirements), but not the \"how\" (the\n> >    protocol design itself).  The \"how\" part is discussed in the\n> >    companion document [I-D.usama-seat-intra-vs-post], which serves as\n> >    the glue between this document and the protocol specifications.  A\n> \n> This text will need to be removed prior to adoption unless there\n> is a contemporaneous or prior decision to adopt draft-usama.\n> \n> \n> S 3.5.\n> \n> >    Peers have a secure mechanism to discover each other's support for\n> >    RA, the specific attestation formats they can produce or consume, and\n> >    the attestation models they support.  This enables interoperability\n> >    and allows for graceful fallback for endpoints that do not support\n> >    RA.\n> \n> \n> Why do we need to support multiple attestation formats?\n> \n> \n> S 3.8\n> \n> >    It should be possible for the Relying Party to request new Evidence\n> >    periodically or on-demand during the lifetime of the connection.\n> >    This may be necessary if the Target Environment has attributes that\n> >    can change during the connection, thereby affecting its\n> >    trustworthiness.  Such changes cannot be detected using Evidence\n> >    collected earlier.  For example, the Evidence may include dynamic\n> >    parameters such as runtime configuration flags (e.g., FIPS mode),\n> >    which indicate whether the device has entered or exited an approved\n> >    mode, or measurements of critical system files.\n> \n> \n> As I indicated in the discussions that produced the charter, I don't\n> think this provides adequate security guarantees. Consider the following\n> sequence of events, in which the Server is attesting to the client.\n> \n> - Server attests to being in configuration 1, which is acceptable\n>   to the client.\n> - Client sends secret S1 to the server.\n> - Server changes to configuration 2, which is not acceptable to the\n>   client.\n> - Client sends secret S2 to the server.\n> - Client forces server to re-attest, discovers that the configuration\n>   is unacceptable, and terminates the connection.\n> \n> Unfortunately, this doesn't help the client because it's already\n> sent S1 and S2. Even if you assume that the server properly\n> disposed of S1, the client sent a secret to S2.\n> \n> The point here is that part of the attestation by the server not only\n> that it is currently in an acceptable configuration but also that it\n> will not adopt a new configuration except under certain conditions\n> (e.g., that it will notify the client and receive affirmative consent\n> and otherwise destroy all state). No amount of regular re-attestation\n> can replace this kind of guarantee.\n> \n> \n> \n> \n> S 3.9\n> \n> >    The solution must not degrade the privacy of a standard secure\n> >    connection (e.g., the (D)TLS connection).  Evidence can contain\n> >    highly specific, unique information about a device's hardware and\n> >    software, which could be used as an advanced tracking mechanism,\n> >    following a user across different connections and services.  The\n> >    design must consider how to minimize this leakage, especially when a\n> >    third-party Verifier is involved in the protocol exchange.\n> \n> \n> This seems like it's in direct conflict with the requirement to\n> bind to the machine identifier in S 4.2.\n> \n> S 4.1.\n> \n> >    An operator sends a critical command to a remote system (e.g., an\n> >    industrial controller, a financial transaction processor).\n> > \n> >    *  Requirement: The system must provide fresh Evidence to the\n> >       operator to prove its integrity before the command is dispatched.\n> >       This prevents commands from being executed on a compromised\n> >       system.\n> \n> I don't understand this case. If the system is compromised it can do\n> anything it wants, including executing commands. Is the idea that the\n> command is secret? That the operator wants to know if the command was\n> actually executed?\n> \n> \n> S 4.2.2\n> \n> >    Distributed parties collaboratively compute a function (e.g., train a\n> >    machine learning model) without sharing their local data.\n> > \n> >    *  Requirement: The central aggregator, as well as each participating\n> >       client, must be able to mutually attest to ensure all parties are\n> >       running the correct, untampered MPC algorithm in a trusted\n> >       environment.\n> \n> Why? Is this about the integrity of the result? If so, I would\n> observe that zero-knowedge proofs are a much stronger way\n> of achieving this objectives.\n> \n> \n> S 4.3.1.  Network Infrastructure Integrity\n> \n> >    *  Requirement: The network orchestrator must verify the device's\n> >       integrity (e.g., secure boot enabled, running signed OS and\n> >       firmware) before allowing it to join the network and receive\n> >       policy.  This prevents a compromised router from misdirecting\n> >       traffic or a malicious VNF from inspecting sensitive packets.\n> \n> I don't see how this works. As I understand the description here, a\n> new device joins the network and you form a TLS connection to that\n> device and require that it attest to its integrity, after which you\n> let it handle traffic. However, I don't see what stops an attacker\n> from adding a compromised device in between the network and a\n> non-compromised device, and forwarding the TLS traffic, but then\n> otherwise misbehaving. In order to prevent this, all network traffic\n> that is to be be handled by the device has to be sent over the TLS\n> channel, which is a highly unusual configuration.\n> \n> S 4.3.2.\n> \n> >    *  Requirement: The network orchestrator must verify the device's\n> >       integrity (e.g., secure boot enabled, running signed OS and\n> >       firmware) before allowing it to join the network and receive\n> >       policy.  This prevents a compromised router from misdirecting\n> >       traffic or a malicious VNF from inspecting sensitive packets.\n> \n> I don't understand what \"connecting to a compromised interface that\n> could manipulate the device means\". How does that work? As for \"could\n> steal credentials\", the better approach is to use public-key based\n> client authentication, thus removing the threat of bearer credentials.\n> \n> \n> \n> S 4.5.\n> \n> >    In this scenario, the peer acting as the Relying Party requires\n> >    additional assurance that the private key associated with the end-\n> >    entity certificate used to authenticate the TLS connection is\n> >    generated, stored, and used within an attested cryptographic module.\n> \n> This entire use case seems conclusory. Why does the TLS endpoint\n> need this?\n> \n> >    The approach described in [I-D.draft-ietf-rats-pkix-key-attestation]\n> >    addresses this use case partially by providing attestation of the\n> >    cryptographic module and associated private key at certificate\n> >    issuance time, reflecting their state when the certificate is\n> >    enrolled.  This model does not provide guarantees about the continued\n> >    state of the module at connection establishment or during the\n> >    lifetime of the TLS session.\n> \n> I don't understand the security logic: given the original assertions\n> listed above, which more or less amount to the key not available\n> outside the module, what does fresh authentication get you? In\n> order for these guarantees to be violated, you would presumably\n> need to break whatever tamper resistance is in the module, but\n> then you would also quite likely be able to forge whatever Evidence\n> you need.what am I missing?\n> \n> \n> S 5.\n> \n> >    However, any solution must\n> >    address the following high-level considerations:\n> > \n> >    ...\n> > \n> >    *  Evidence Semantics: This document does not define attestation\n> >       appraisal policies.  However, a Relying Party must be careful when\n> >       interpreting Attestation Results.  A \"valid\" attestation only\n> >       means the Evidence is authentic and correctly signed; it does not\n> >       automatically mean the underlying system is \"secure\".  The Relying\n> >       Party must have a clear policy for what measurements, software\n> >       versions, and security configurations are acceptable.\n> \n> This actually seems like a dislaimer of solving this problem, not\n> a requirement to address",
       "createdAt": "2026-05-17T10:55:20Z",
-      "updatedAt": "2026-05-17T20:00:22Z",
+      "updatedAt": "2026-05-20T11:14:11Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Clarifications [here](https://mailarchive.ietf.org/arch/msg/seat/r7TDFXi2MEJA1zLrfp6hMXk_vkc/)",
+          "createdAt": "2026-05-20T11:14:11Z",
+          "updatedAt": "2026-05-20T11:14:11Z"
+        }
+      ]
     },
     {
       "number": 54,
@@ -5696,7 +5704,7 @@
       "id": "PR_kwDOP_9tTM7Z3XJA",
       "title": "Fixes #13 Security Considerations",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/45",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -5705,17 +5713,19 @@
       ],
       "body": "- Addresses #13 \r\n- Move security considerations text to relevant sections\r\n- s/properties/security goals (the former is more for formal)\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-09T15:19:08Z",
-      "updatedAt": "2026-05-18T07:52:34Z",
+      "updatedAt": "2026-05-20T14:37:02Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "minor",
       "headRefOid": "f9c0b2216d42b470c57b7b7fb2fba77d401d8af7",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2026-05-20T14:37:02Z",
+      "mergedAt": "2026-05-20T14:37:02Z",
+      "mergedBy": "tireddy2",
+      "mergeCommit": {
+        "oid": "cb7084620685a9a7560d9b7dd624083b77d1c560"
+      },
       "comments": [
         {
           "author": "muhammad-usama-sardar",
@@ -6465,13 +6475,13 @@
       "labels": [],
       "body": "addresses part of #52 \r\n\r\n- remove ref to intra-vs-post draft\r\n- clarify negotiation formats\r\n- add ref to I-D.jiang-seat-dynamic-attestation for use case\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-17T12:05:57Z",
-      "updatedAt": "2026-05-17T17:16:09Z",
+      "updatedAt": "2026-05-20T15:41:39Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "ekr-comments",
-      "headRefOid": "fb573eecfaccd3594c121a8c5d338d6fbfca5e39",
+      "headRefOid": "7739fbfd65d309444148259d59b66e194e2d80e3",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -6485,7 +6495,234 @@
           "updatedAt": "2026-05-17T17:16:09Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAc1BUA",
+          "commit": {
+            "abbreviatedOid": "f85f8da"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T04:34:23Z",
+          "updatedAt": "2026-05-20T04:36:04Z",
+          "comments": [
+            {
+              "originalPosition": 42,
+              "body": "I propose following change to align with RATS:\n\nIdeally, attestation should provide assurance that the configuration of the Target Environment does not change between successive appraisals. However, to our knowledge, current state-of-the-art systems do not achieve such a guarantee. In such cases, frequent re-attestation by the Verifier can reduce the exposure window, though the risk of a configuration change occurring between the time Evidence is collected and the time the Appraisal Policy is applied, a Time-Of-Check-To-Time-Of-Use (TOCTOU) vulnerability cannot be entirely eliminated.",
+              "createdAt": "2026-05-20T04:34:23Z",
+              "updatedAt": "2026-05-20T04:36:04Z"
+            },
+            {
+              "originalPosition": 34,
+              "body": "The last line is not appropriate for this draft. ",
+              "createdAt": "2026-05-20T04:35:51Z",
+              "updatedAt": "2026-05-20T04:36:04Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAfJaEg",
+          "commit": {
+            "abbreviatedOid": "f85f8da"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T10:40:12Z",
+          "updatedAt": "2026-05-20T10:40:12Z",
+          "comments": [
+            {
+              "originalPosition": 34,
+              "body": "It's just offering one possibility, no? We can rephrase it. ",
+              "createdAt": "2026-05-20T10:40:12Z",
+              "updatedAt": "2026-05-20T10:40:12Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAfLLFg",
+          "commit": {
+            "abbreviatedOid": "f85f8da"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T10:44:05Z",
+          "updatedAt": "2026-05-20T10:44:05Z",
+          "comments": [
+            {
+              "originalPosition": 42,
+              "body": "Fixed as proposed.",
+              "createdAt": "2026-05-20T10:44:05Z",
+              "updatedAt": "2026-05-20T10:44:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAg_ryA",
+          "commit": {
+            "abbreviatedOid": "f85f8da"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T14:45:11Z",
+          "updatedAt": "2026-05-20T14:45:11Z",
+          "comments": [
+            {
+              "originalPosition": 34,
+              "body": "Sure, re-phrase it but don't discuss any solutions. we can say something like:\r\nA conforming solution will have to support a mechanism to identify the content type and encoding of Evidence to facilitate interoperability\r\n",
+              "createdAt": "2026-05-20T14:45:11Z",
+              "updatedAt": "2026-05-20T14:45:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAhaeiA",
+          "commit": {
+            "abbreviatedOid": "7739fbf"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T15:41:39Z",
+          "updatedAt": "2026-05-20T15:41:39Z",
+          "comments": [
+            {
+              "originalPosition": 34,
+              "body": "Done, please check.",
+              "createdAt": "2026-05-20T15:41:39Z",
+              "updatedAt": "2026-05-20T15:41:39Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 55,
+      "id": "PR_kwDOP_9tTM7dB8Dx",
+      "title": "Add \u00a74.8: Actor Identity Continuity via Longitudinal Trajectory Attestation",
+      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/55",
+      "state": "OPEN",
+      "author": "cayerbe",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Adds \u00a74.8 capturing the actor-identity continuity use case presented in the informal gathering on 18 May 2026 (see [meeting notes](https://github.com/tls-attestation/use-cases-and-properties/wiki/InformalGatherings)).\r\n\r\nThe use case follows the \u00a74.4 template (Goal / Use case / Requirements / Example):\r\n\r\n- **Goal**: bind a (D)TLS peer's claimed actor identity (human or AI agent) to verifiable longitudinal physical-world presence\r\n- **Exercises**: Cryptographic Binding to Communication Channel, Attestation Credential Freshness, Runtime Attestation, Privacy Preservation, plus the Target Environment public key property introduced in #44\r\n- **\u00a73.3 (Cryptographic Binding to Machine Identifier) is explicitly not applicable by design** \u2014 the actor is not machine-bound\r\n- **Example**: draft-ayerbe-trip-protocol (TRIP)\r\n\r\nCross-references `sec-operation-triggered` (\u00a74.4) to position this use case relative to operation-triggered attestation. Open to feedback on placement \u2014 as a new \u00a74.8 or as an extension of \u00a74.4. Per the meeting plan, this will be discussed in the next informal gathering's Q&A session.",
+      "createdAt": "2026-05-19T10:44:20Z",
+      "updatedAt": "2026-05-20T12:55:16Z",
+      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRefName": "main",
+      "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
+      "headRepository": "cayerbe/use-cases-and-properties",
+      "headRefName": "cayerbe/use-case-actor-identity-continuity",
+      "headRefOid": "5c1cbf5c784c5ef77b3b81143595ed38cd911827",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAfOE_g",
+          "commit": {
+            "abbreviatedOid": "c2f593e"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T10:50:50Z",
+          "updatedAt": "2026-05-20T10:50:50Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "Did you make any text changes here? or is it just reformatting? It may divert the focus from the actual use case to this one. Unless there is any substantive change here, I suggest to keep it as is, so folks can focus on the actual use case.",
+              "createdAt": "2026-05-20T10:50:50Z",
+              "updatedAt": "2026-05-20T10:50:50Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAfPB9A",
+          "commit": {
+            "abbreviatedOid": "c2f593e"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T10:52:59Z",
+          "updatedAt": "2026-05-20T10:52:59Z",
+          "comments": [
+            {
+              "originalPosition": 56,
+              "body": "I suggest removing the 'negation' requirement. Machine identifier may itself be removed from the draft.",
+              "createdAt": "2026-05-20T10:52:59Z",
+              "updatedAt": "2026-05-20T10:52:59Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAgAYlw",
+          "commit": {
+            "abbreviatedOid": "c2f593e"
+          },
+          "author": "cayerbe",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T12:40:55Z",
+          "updatedAt": "2026-05-20T12:40:56Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "Fixed \u2014 that was an accidental reformatting on my end, the wording is \r\nunchanged. The diff is now just the \u00a74.8 addition and the TRIP \r\nreference. Thanks for catching it.",
+              "createdAt": "2026-05-20T12:40:55Z",
+              "updatedAt": "2026-05-20T12:40:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAgAuYQ",
+          "commit": {
+            "abbreviatedOid": "c2f593e"
+          },
+          "author": "cayerbe",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T12:41:42Z",
+          "updatedAt": "2026-05-20T12:41:42Z",
+          "comments": [
+            {
+              "originalPosition": 56,
+              "body": "Good point \u2014 didn't realize the machine-identifier property might be \r\nremoved. Dropped Requirement 3 entirely; the two positive requirements \r\ncarry the use case better without the negation.thanks",
+              "createdAt": "2026-05-20T12:41:42Z",
+              "updatedAt": "2026-05-20T12:41:42Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAgG6Cw",
+          "commit": {
+            "abbreviatedOid": "5c1cbf5"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM.",
+          "createdAt": "2026-05-20T12:55:16Z",
+          "updatedAt": "2026-05-20T12:55:16Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
