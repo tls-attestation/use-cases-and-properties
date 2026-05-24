@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-21T04:12:39.751792+00:00",
+  "timestamp": "2026-05-24T04:06:34.547491+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -6096,7 +6096,7 @@
       ],
       "body": "Hi team,\r\nI've been doing quite some work on the draft recently. I would like this to be reflected in the author order. Does this work for everyone?\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-10T19:01:46Z",
-      "updatedAt": "2026-05-15T17:25:18Z",
+      "updatedAt": "2026-05-21T14:09:33Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -6205,6 +6205,13 @@
           "body": "If this document were brought forward for a call for adoption by the IETF, I would raise concerns about its governance.\n\nOn the public mailing list for SEAT, the author studiously reminds members that the \"informal gatherings are meant to facilitate discussion and [they have no formal standing in the IETF](https://mailarchive.ietf.org/arch/msg/seat/MPQGhaX0ed_GJ7Y1orpoUI9TfnY/) standards process.\" With this weekly reminder in context, the author shares their recent opinion that \"this discussion is not worth WG time.\" \n\n> He's apparently been quite busy with other works recently and not attending the meetings for a long time.\n\nSuch juxtaposition expressed here gives me pause, as it implies to me that attendance at these non-standing informal meetings and gatherings may have been conflated for some kind of believable measurement for assessing legitimate authorship claims.\n\nNow, of course, if it was the intention of the author to simply maintain this project as a living document right here on GitHub, as an open source reference for industry without seeking IETF consensus, then it truly wouldn't matter.",
           "createdAt": "2026-05-15T16:59:52Z",
           "updatedAt": "2026-05-15T16:59:52Z"
+        },
+        {
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I agree with others that IETF has no ranked author ordering convention. ",
+          "createdAt": "2026-05-21T14:09:32Z",
+          "updatedAt": "2026-05-21T14:09:32Z"
         }
       ],
       "reviews": [
@@ -6475,7 +6482,7 @@
       "labels": [],
       "body": "addresses part of #52 \r\n\r\n- remove ref to intra-vs-post draft\r\n- clarify negotiation formats\r\n- add ref to I-D.jiang-seat-dynamic-attestation for use case\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-17T12:05:57Z",
-      "updatedAt": "2026-05-20T15:41:39Z",
+      "updatedAt": "2026-05-21T22:07:43Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -6599,6 +6606,59 @@
               "body": "Done, please check.",
               "createdAt": "2026-05-20T15:41:39Z",
               "updatedAt": "2026-05-20T15:41:39Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAm03Wg",
+          "commit": {
+            "abbreviatedOid": "7739fbf"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-05-21T09:27:51Z",
+          "updatedAt": "2026-05-21T09:27:51Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAm-wGQ",
+          "commit": {
+            "abbreviatedOid": "7739fbf"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-05-21T09:52:00Z",
+          "updatedAt": "2026-05-21T09:52:40Z",
+          "comments": [
+            {
+              "originalPosition": 41,
+              "body": "> remote attestation should provide assurance that the configuration of the Target Environment does not change between successive appraisals\n\nDon't think that's true, but can live with the phrasing. The assurance should be that the way those configuration changes are done is transparent to the RP so it can determine if it would trust a system both before and after the change.\n\n```suggestion\nIdeally, remote attestation should allow the Relying Party to assess the configuration change policy present in the Attester. This enables more nuanced trust decisions based on how the Attester's state might change after appraisal. However, to our knowledge, current state-of-the-art systems do not achieve such a guarantee. In such cases, frequent runtime attestation by the Verifier can reduce the exposure window, though the risk of a malicious configuration change occurring between the time Evidence is collected and the time the Appraisal Policy is applied, a Time-Of-Check-To-Time-Of-Use (TOCTOU) vulnerability cannot be entirely eliminated.\n```",
+              "createdAt": "2026-05-21T09:52:00Z",
+              "updatedAt": "2026-05-21T09:52:40Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABAr-i8Q",
+          "commit": {
+            "abbreviatedOid": "7739fbf"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-21T22:07:43Z",
+          "updatedAt": "2026-05-21T22:07:43Z",
+          "comments": [
+            {
+              "originalPosition": 41,
+              "body": "Is it the change of configuration or the policy that it assesses?",
+              "createdAt": "2026-05-21T22:07:43Z",
+              "updatedAt": "2026-05-21T22:07:44Z"
             }
           ]
         }
