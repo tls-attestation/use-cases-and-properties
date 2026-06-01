@@ -433,9 +433,9 @@ Use case: See {{I-D.aylward-aiga-2}} for details. Contrary to {{sec-operation-tr
 ## Actor Identity Continuity via Longitudinal Trajectory Attestation
 {: #sec-actor-identity-continuity }
 
-Goal: Bind a (D)TLS peer's claimed actor identity (human or AI agent)
-to verifiable longitudinal physical-world presence, where the actor
-identity is not bound to a specific machine.
+Goal: Use remote attestation to bind a (D)TLS peer's claimed actor
+identity (human or AI agent) to verifiable longitudinal physical-world
+presence, where the actor identity is not bound to a specific machine.
 
 Use case: **Actor Identity Continuity Across Platforms**:
 A TLS peer presents Evidence about the longitudinal trajectory of an
