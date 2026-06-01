@@ -438,8 +438,9 @@ identity (human or AI agent) to verifiable longitudinal physical-world
 presence, where the actor identity is not bound to a specific machine.
 
 Use case: **Actor Identity Continuity Across Platforms**:
-A TLS peer presents Evidence about the longitudinal trajectory of an
-actor whose identity persists across multiple platforms over time.
+A TLS peer presents remote attestation Evidence about the longitudinal
+trajectory of an actor whose identity persists across multiple platforms
+over time.
 Applications include autonomous AI agents operating across deployments
 and human authentication where presence history is policy-relevant.
 Contrary to {{sec-operation-triggered}}, the relevant identity
