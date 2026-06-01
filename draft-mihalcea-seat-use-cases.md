@@ -78,6 +78,7 @@ informative:
      target: https://www.cve.org/CVERecord?id=CVE-2026-33697
     I-D.aylward-aiga-2:
     I-D.draft-ietf-rats-pkix-key-attestation:
+    I-D.ayerbe-trip-protocol:
 
 --- abstract
 
@@ -437,6 +438,38 @@ Goal: Design framework for governing autonomous AI agents.
 Use case: See {{I-D.aylward-aiga-2}} for details. Contrary to {{sec-operation-triggered}}, the entity verifying the Evidence in this case is the governance body and for the purposes of ensuring that no unethical or harmful action is performed.
 
 * Requirement: Runtime attestation based on agent risk tiers defined in {{Section 2.2 of I-D.aylward-aiga-2}}
+
+## Actor Identity Continuity via Longitudinal Trajectory Attestation
+{: #sec-actor-identity-continuity }
+
+Goal: Use remote attestation to bind a (D)TLS peer's claimed actor
+identity (human or AI agent) to verifiable longitudinal physical-world
+presence, where the actor identity is not bound to a specific machine.
+
+Use case: **Actor Identity Continuity Across Platforms**:
+A TLS peer presents remote attestation Evidence about the longitudinal
+trajectory of an actor whose identity persists across multiple platforms
+over time.
+Applications include autonomous AI agents operating across deployments
+and human authentication where presence history is policy-relevant.
+Contrary to {{sec-operation-triggered}}, the relevant identity
+dimension is the actor's rather than the machine's; the actor is not
+anchored to a specific confidential computing environment or hardware
+identifier.
+
+* Requirement 1: Evidence must be cryptographically bound to a public
+  key associated with the actor, enabling the Relying Party to verify
+  that the trajectory is attributable to a specific actor identity
+  rather than being transplantable across identities.
+
+* Requirement 2: Cryptographic binding to the (D)TLS connection and
+  freshness per attestation interval are required, with each interval
+  gating a discrete authorization step over the existing connection
+  rather than channel establishment itself.
+
+* Example: {{I-D.ayerbe-trip-protocol}} (TRIP) defines a protocol for
+  producing such Evidence as geographically-indexed trajectory proofs
+  bound to actor identity keys.
 
 # Security Considerations
 
