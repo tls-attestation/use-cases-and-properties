@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-24T04:06:34.547491+00:00",
+  "timestamp": "2026-06-02T04:27:07.986677+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -4763,7 +4763,7 @@
       ],
       "body": "Addresses #8 \r\n- Added def. of infrastructure provider\r\n- Added def. of diversion attack\r\n- dependency on deployment model etc.\r\n- state-of-the-art may not meet some properties\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-06T22:14:34Z",
-      "updatedAt": "2026-05-18T08:18:35Z",
+      "updatedAt": "2026-06-01T07:52:09Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -4865,6 +4865,13 @@
           "body": "Discussed in meeting: @tireddy2 to look into it and provide further comments\r\nAttendees: Camilo, Carsten, Rafiq, Moosa, Tiru, Usama",
           "createdAt": "2026-05-18T08:18:35Z",
           "updatedAt": "2026-05-18T08:18:35Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Discussed in meeting: @tireddy2 to look into it and provide further comments\r\nAttendees: Camilo, Carsten, Rafiq, Moosa, Tiru, Usama\r\nTiru's main concern: RATS or SEAT: RATS has shown no interest so far in email thread.",
+          "createdAt": "2026-06-01T07:52:09Z",
+          "updatedAt": "2026-06-01T07:52:09Z"
         }
       ],
       "reviews": [
@@ -5373,7 +5380,7 @@
       ],
       "body": "- Public key of Target Environment\r\n- Replication attacks\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-09T10:46:07Z",
-      "updatedAt": "2026-05-18T14:35:50Z",
+      "updatedAt": "2026-06-01T08:10:46Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -5496,6 +5503,13 @@
           "body": "> Thanks for the clarification. \n> \n> After some reflection and closer look at key schedule: Please note that the application layer needs to put in Client's public key, since it is not part of exporters otherwise.\n\nHow should the application layer know an ephemeral public key up front? Why can't it take the one from the handshake? I have to say that it would help if the use case was more concrete. ",
           "createdAt": "2026-05-18T14:35:50Z",
           "updatedAt": "2026-05-18T14:35:50Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Discussed in meeting: @tireddy2 needs time until next week to digest the attack vector in the paper. \r\nTiru's concern: Is the requirement only applicable without client authentication? Yes, as per SEAT charter. `with and without client TLS authentication to faciliate anonymous client attestation`\r\n\r\nWho issued the public key to the client?\r\nAttendees: Camilo, Carsten, Rafiq, Moosa, Tiru, Usama",
+          "createdAt": "2026-06-01T07:54:50Z",
+          "updatedAt": "2026-06-01T08:10:46Z"
         }
       ],
       "reviews": [
@@ -6087,7 +6101,7 @@
       "id": "PR_kwDOP_9tTM7aCLmw",
       "title": "ONLY FOR AUTHORS: Update Author order",
       "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/46",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -6096,14 +6110,14 @@
       ],
       "body": "Hi team,\r\nI've been doing quite some work on the draft recently. I would like this to be reflected in the author order. Does this work for everyone?\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-10T19:01:46Z",
-      "updatedAt": "2026-05-21T14:09:33Z",
+      "updatedAt": "2026-06-01T08:48:49Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "author-order",
       "headRefOid": "dd1af0626419ac994c85aad8fc5bdefa677eb6bf",
-      "closedAt": null,
+      "closedAt": "2026-06-01T08:48:49Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -6419,10 +6433,12 @@
       "author": "telephonicrobotics",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "duplicate"
+      ],
       "body": "Removed individual internet-draft, to help facilitate the authors' [good-faith effort](https://mailarchive.ietf.org/arch/msg/seat/wqWHIkHsbRsx2txsNGXYaDKZITM/) to keep the use-cases document independent of solutions and maintain neutrality.\r\n",
       "createdAt": "2026-05-13T17:46:55Z",
-      "updatedAt": "2026-05-13T23:45:03Z",
+      "updatedAt": "2026-06-01T09:50:14Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -6479,10 +6495,12 @@
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ready-to-merge in meeting"
+      ],
       "body": "addresses part of #52 \r\n\r\n- remove ref to intra-vs-post draft\r\n- clarify negotiation formats\r\n- add ref to I-D.jiang-seat-dynamic-attestation for use case\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-17T12:05:57Z",
-      "updatedAt": "2026-05-21T22:07:43Z",
+      "updatedAt": "2026-06-01T09:21:38Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -6674,20 +6692,35 @@
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
-      "body": "Adds \u00a74.8 capturing the actor-identity continuity use case presented in the informal gathering on 18 May 2026 (see [meeting notes](https://github.com/tls-attestation/use-cases-and-properties/wiki/InformalGatherings)).\r\n\r\nThe use case follows the \u00a74.4 template (Goal / Use case / Requirements / Example):\r\n\r\n- **Goal**: bind a (D)TLS peer's claimed actor identity (human or AI agent) to verifiable longitudinal physical-world presence\r\n- **Exercises**: Cryptographic Binding to Communication Channel, Attestation Credential Freshness, Runtime Attestation, Privacy Preservation, plus the Target Environment public key property introduced in #44\r\n- **\u00a73.3 (Cryptographic Binding to Machine Identifier) is explicitly not applicable by design** \u2014 the actor is not machine-bound\r\n- **Example**: draft-ayerbe-trip-protocol (TRIP)\r\n\r\nCross-references `sec-operation-triggered` (\u00a74.4) to position this use case relative to operation-triggered attestation. Open to feedback on placement \u2014 as a new \u00a74.8 or as an extension of \u00a74.4. Per the meeting plan, this will be discussed in the next informal gathering's Q&A session.",
+      "body": "Adds \u00a74.8 capturing the actor-identity continuity use case presented in the informal gathering on 18 May 2026 (see [meeting notes](https://github.com/tls-attestation/use-cases-and-properties/wiki/InformalGatherings)).\r\n\r\nThe use case follows the \u00a74.4 template (Goal / Use case / Requirements / Example):\r\n\r\n- **Goal**: bind a (D)TLS peer's claimed actor identity (human or AI agent) to verifiable longitudinal physical-world presence\r\n- **Exercises**: Cryptographic Binding to Communication Channel, Attestation Credential Freshness, Runtime Attestation, Privacy Preservation, plus the Target Environment public key property introduced in #44\r\n- **Example**: draft-ayerbe-trip-protocol (TRIP)\r\n\r\nCross-references `sec-operation-triggered` (\u00a74.4) to position this use case relative to operation-triggered attestation. Open to feedback on placement \u2014 as a new \u00a74.8 or as an extension of \u00a74.4. Per the meeting plan, this will be discussed in the next informal gathering's Q&A session.",
       "createdAt": "2026-05-19T10:44:20Z",
-      "updatedAt": "2026-05-20T12:55:16Z",
+      "updatedAt": "2026-06-01T09:11:23Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
       "headRepository": "cayerbe/use-cases-and-properties",
       "headRefName": "cayerbe/use-case-actor-identity-continuity",
-      "headRefOid": "5c1cbf5c784c5ef77b3b81143595ed38cd911827",
+      "headRefOid": "5aaff5dd49c3f1e53285eeaff908e38c3596b957",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Discussed in meeting: Camilo, Carsten, Moosa, Rafiq, Usama\r\n\r\n> \u00a73.3 (Cryptographic Binding to Machine Identifier) is explicitly not applicable by design \u2014 the actor is not machine-bound\r\n\r\nRemove this part. \r\n\r\n- Highlight attestation in \"goal\" and \"use case\" sections to show relevance.\r\n\r\n",
+          "createdAt": "2026-06-01T08:31:03Z",
+          "updatedAt": "2026-06-01T08:31:03Z"
+        },
+        {
+          "author": "cayerbe",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@muhammad-usama-sardar \u2014 done in both places:\r\n\r\n- \u00a74.8 Use case sentence: added \"remote attestation\" in commit 5aaff5d.\r\n- PR description: removed the outdated \u00a73.3 bullet (Requirement 3 was \r\n  already dropped in 5c1cbf5).",
+          "createdAt": "2026-06-01T09:11:23Z",
+          "updatedAt": "2026-06-01T09:11:23Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOP_9tTM8AAAABAfOE_g",
