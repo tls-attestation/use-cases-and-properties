@@ -229,7 +229,10 @@ of trust: endpoint trustworthiness (from RA) and identity (from PKI).
 
 ## Runtime Attestation
 
-Ideally, remote attestation should provide assurance that the configuration of the Target Environment does not change between successive appraisals. However, to our knowledge, current state-of-the-art systems do not achieve such a guarantee. In such cases, frequent runtime attestation by the Verifier can reduce the exposure window, though the risk of a configuration change occurring between the time Evidence is collected and the time the Appraisal Policy is applied, a Time-Of-Check-To-Time-Of-Use (TOCTOU) vulnerability cannot be entirely eliminated.
+Ideally, remote attestation should allow the Relying Party to assess that configuration change of the Attester is in accordance with a policy that the Relying Party accepts.
+This enables more nuanced trust decisions based on how the Attester's state might change over time.
+However, to our knowledge, current state-of-the-art systems do not achieve such a guarantee.
+In such cases, frequent runtime attestation by the Verifier may reduce the exposure window, though the risk of a malicious configuration change occurring between the time Evidence is collected and the time of re-attestation, a Time-Of-Check-To-Time-Of-Use (TOCTOU) vulnerability cannot be entirely eliminated.
 
 Evidence collected at certificate issuance or during the initial secure channel establishment reflects only the Target Environment’s state at that moment. It cannot guarantee that the Target Environment remains trustworthy for the lifetime of the certificate or even for the duration of the secure connection (e.g., the (D)TLS connection). As a result, such static Evidence is insufficient in environments where the Target Environment may change state after the connection is established and the connection is long-lived.
 
