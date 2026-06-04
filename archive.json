@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-06-02T04:27:07.986677+00:00",
+  "timestamp": "2026-06-04T04:41:02.218274+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -4763,7 +4763,7 @@
       ],
       "body": "Addresses #8 \r\n- Added def. of infrastructure provider\r\n- Added def. of diversion attack\r\n- dependency on deployment model etc.\r\n- state-of-the-art may not meet some properties\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-06T22:14:34Z",
-      "updatedAt": "2026-06-01T07:52:09Z",
+      "updatedAt": "2026-06-03T06:35:20Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -5363,6 +5363,26 @@
           "createdAt": "2026-05-17T11:53:23Z",
           "updatedAt": "2026-05-17T11:53:23Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABBzhMcg",
+          "commit": {
+            "abbreviatedOid": "a41166a"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-03T06:35:14Z",
+          "updatedAt": "2026-06-03T06:35:20Z",
+          "comments": [
+            {
+              "originalPosition": 31,
+              "body": "The intel/arm papers refer to a scenario is where the attacker has physical access to the victim's legitimate server. In this case, the attacker just reads the victim's secrets; I don't see the need for the attacker to launch a diversion attack.\n\nThe other attack is the attacker holds a different box of the same type, it is not possible to launch the attack unless TLS authentication is broken.",
+              "createdAt": "2026-06-03T06:35:14Z",
+              "updatedAt": "2026-06-03T06:35:20Z"
+            }
+          ]
         }
       ]
     },
@@ -5380,7 +5400,7 @@
       ],
       "body": "- Public key of Target Environment\r\n- Replication attacks\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-09T10:46:07Z",
-      "updatedAt": "2026-06-01T08:10:46Z",
+      "updatedAt": "2026-06-03T06:45:28Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -5710,6 +5730,26 @@
           "createdAt": "2026-05-17T11:52:56Z",
           "updatedAt": "2026-05-17T11:52:56Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABBzkIjA",
+          "commit": {
+            "abbreviatedOid": "aec95c9"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-03T06:45:24Z",
+          "updatedAt": "2026-06-03T06:45:28Z",
+          "comments": [
+            {
+              "originalPosition": 20,
+              "body": "we need to discuss what the \"Target Environment's public key\" actually refers to ?\nIf it's the key used for authentication, then TLS already authenticates it during the handshake. \n\nIf it's some other key not used for authentication, the text needs to say what it is and why you'd have an key you don't authenticate with.",
+              "createdAt": "2026-06-03T06:45:24Z",
+              "updatedAt": "2026-06-03T06:45:28Z"
+            }
+          ]
         }
       ]
     },
@@ -6500,13 +6540,13 @@
       ],
       "body": "addresses part of #52 \r\n\r\n- remove ref to intra-vs-post draft\r\n- clarify negotiation formats\r\n- add ref to I-D.jiang-seat-dynamic-attestation for use case\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-17T12:05:57Z",
-      "updatedAt": "2026-06-01T09:21:38Z",
+      "updatedAt": "2026-06-03T13:37:02Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
       "headRepository": "tls-attestation/use-cases-and-properties",
       "headRefName": "ekr-comments",
-      "headRefOid": "7739fbfd65d309444148259d59b66e194e2d80e3",
+      "headRefOid": "2feb3886d6085f4ac58a560b0dc8fc1a8ffda9a9",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -6677,6 +6717,106 @@
               "body": "Is it the change of configuration or the policy that it assesses?",
               "createdAt": "2026-05-21T22:07:43Z",
               "updatedAt": "2026-05-21T22:07:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABBtpPYg",
+          "commit": {
+            "abbreviatedOid": "7739fbf"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-02T13:12:56Z",
+          "updatedAt": "2026-06-02T13:12:56Z",
+          "comments": [
+            {
+              "originalPosition": 41,
+              "body": "It's the policy for how configuration changes can happen, so... a mix of both, I guess. What I expect would be reflected is something like \"All configuration changes / updates have to be signed by the certified key X\", which the RP could trust.",
+              "createdAt": "2026-06-02T13:12:56Z",
+              "updatedAt": "2026-06-02T13:12:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABBu456w",
+          "commit": {
+            "abbreviatedOid": "7739fbf"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-02T15:33:55Z",
+          "updatedAt": "2026-06-02T15:33:55Z",
+          "comments": [
+            {
+              "originalPosition": 41,
+              "body": "+1 to @ionut-arm's suggestion",
+              "createdAt": "2026-06-02T15:33:55Z",
+              "updatedAt": "2026-06-02T15:33:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABBw4ZNw",
+          "commit": {
+            "abbreviatedOid": "7739fbf"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-02T20:20:34Z",
+          "updatedAt": "2026-06-02T20:20:35Z",
+          "comments": [
+            {
+              "originalPosition": 41,
+              "body": "would something 'configuration change is in accordance with the policy' capture your point more precisely?",
+              "createdAt": "2026-06-02T20:20:35Z",
+              "updatedAt": "2026-06-02T20:20:35Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABB2HFaA",
+          "commit": {
+            "abbreviatedOid": "7739fbf"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-03T13:11:14Z",
+          "updatedAt": "2026-06-03T13:11:14Z",
+          "comments": [
+            {
+              "originalPosition": 41,
+              "body": "Yeah, I think that works - maybe a bit more explicit, \"configuration change is in accordance with a policy that the RP accepts\", or something along those lines.",
+              "createdAt": "2026-06-03T13:11:14Z",
+              "updatedAt": "2026-06-03T13:11:15Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABB2T9eA",
+          "commit": {
+            "abbreviatedOid": "7739fbf"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-03T13:37:01Z",
+          "updatedAt": "2026-06-03T13:37:02Z",
+          "comments": [
+            {
+              "originalPosition": 41,
+              "body": "Thanks, see if the new text works for you.",
+              "createdAt": "2026-06-03T13:37:01Z",
+              "updatedAt": "2026-06-03T13:37:02Z"
             }
           ]
         }
