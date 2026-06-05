@@ -47,7 +47,6 @@ normative:
 informative:
     RFC9334: rats-arch
     RFC4949:
-    I-D.usama-seat-intra-vs-post:
     I-D.draft-ccc-wimse-twi-extensions: wimse-twi
     I-D.draft-ietf-rats-eat-measured-component: rats-measured
     ID-Crisis:
@@ -78,6 +77,7 @@ informative:
      target: https://www.cve.org/CVERecord?id=CVE-2026-33697
     I-D.aylward-aiga-2:
     I-D.draft-ietf-rats-pkix-key-attestation:
+    I-D.jiang-seat-dynamic-attestation:
 
 --- abstract
 
@@ -145,9 +145,7 @@ and its datagram-oriented variant, DTLS 1.3 {{I-D.ietf-tls-rfc9147bis}}.
 
 This document is intended as an input to the design of protocol solutions within
 the SEAT working group. It defines the "why" (the motivation) and the "what" (the requirements),
-but not the "how" (the protocol design itself). The "how" part is discussed
-in the companion document {{I-D.usama-seat-intra-vs-post}}, which serves as the
-glue between this document and the protocol specifications. A key goal of this
+but not the "how" (the protocol design itself). The "how" part is out of scope of this document. A key goal of this
 document is to define
 requirements for a solution that is agnostic to any specific attestation
 technology (e.g., Trusted Platform Modules (TPMs), Intel TDX, AMD SEV, Arm CCA).
@@ -213,6 +211,9 @@ Peers have a secure mechanism to discover each other's support for RA, the
 specific attestation formats they can produce or consume, and the attestation
 models they support. This enables interoperability and allows for graceful
 fallback for endpoints that do not support RA.
+The negotiation of formats is required because several vendors -- like Intel,
+AMD, Arm, and IBM -- have their own Evidence formats.
+A conforming solution will have to support a mechanism to identify the content type and encoding of Evidence to facilitate interoperability.
 
 ## Attestation Model Flexibility
 
@@ -229,6 +230,11 @@ authentication (e.g., X.509 certificates). This provides two independent pillars
 of trust: endpoint trustworthiness (from RA) and identity (from PKI).
 
 ## Runtime Attestation
+
+Ideally, remote attestation should allow the Relying Party to assess that configuration change of the Attester is in accordance with a policy that the Relying Party accepts.
+This enables more nuanced trust decisions based on how the Attester's state might change over time.
+However, to our knowledge, current state-of-the-art systems do not achieve such a guarantee.
+In such cases, frequent runtime attestation by the Verifier may reduce the exposure window, though the risk of a malicious configuration change occurring between the time Evidence is collected and the time of re-attestation, a Time-Of-Check-To-Time-Of-Use (TOCTOU) vulnerability cannot be entirely eliminated.
 
 Evidence collected at certificate issuance or during the initial secure channel establishment reflects only the Target Environment’s state at that moment. It cannot guarantee that the Target Environment remains trustworthy for the lifetime of the certificate or even for the duration of the secure connection (e.g., the (D)TLS connection). As a result, such static Evidence is insufficient in environments where the Target Environment may change state after the connection is established and the connection is long-lived.
 
@@ -357,6 +363,7 @@ An application service instance (e.g., AI agent) or confidential computing
 environment (which could host an AI agent) maintains a (D)TLS connection with
 a peer and must execute a high-impact action (e.g., payment initiation,
 configuration change, privileged command).
+See {{I-D.jiang-seat-dynamic-attestation}} for details.
 
 * Requirement 1: Before executing a high-impact operation over the existing
 connection, the peer must present fresh, connection-bound Evidence
@@ -451,4 +458,6 @@ This document has no IANA actions.
 # Acknowledgments
 {:numbered="false"}
 
-TODO
+We would like to thank Eric Rescorla for his detailed review.
+
+Muhammad Usama Sardar is funded by German Research Foundation ("Deutsche Forschungsgemeinschaft.")
