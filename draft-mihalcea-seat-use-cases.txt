@@ -5,7 +5,7 @@
 SEAT Working Group                                           I. Mihalcea
 Internet-Draft                                                       Arm
 Intended status: Informational                              M. U. Sardar
-Expires: 21 November 2026                                     TU Dresden
+Expires: 7 December 2026                                      TU Dresden
                                                               T. Fossati
                                                                   Linaro
                                                                 T. Reddy
@@ -14,7 +14,7 @@ Expires: 21 November 2026                                     TU Dresden
                                                                         
                                                                  M. Chen
                                                             China Mobile
-                                                             20 May 2026
+                                                             5 June 2026
 
 
   Security Goals and Use Cases for Integrating Remote Attestation with
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 November 2026.
+   This Internet-Draft will expire on 7 December 2026.
 
 Copyright Notice
 
@@ -170,12 +170,10 @@ Table of Contents
    This document is intended as an input to the design of protocol
    solutions within the SEAT working group.  It defines the "why" (the
    motivation) and the "what" (the requirements), but not the "how" (the
-   protocol design itself).  The "how" part is discussed in the
-   companion document [I-D.usama-seat-intra-vs-post], which serves as
-   the glue between this document and the protocol specifications.  A
-   key goal of this document is to define requirements for a solution
-   that is agnostic to any specific attestation technology (e.g.,
-   Trusted Platform Modules (TPMs), Intel TDX, AMD SEV, Arm CCA).
+   protocol design itself).  The "how" part is out of scope of this
+   document.  A key goal of this document is to define requirements for
+   a solution that is agnostic to any specific attestation technology
+   (e.g., Trusted Platform Modules (TPMs), Intel TDX, AMD SEV, Arm CCA).
 
    Appraisal policies (cf. Section 8.5 of [RFC9334]) are out of scope of
    this document.
@@ -253,7 +251,11 @@ Table of Contents
    RA, the specific attestation formats they can produce or consume, and
    the attestation models they support.  This enables interoperability
    and allows for graceful fallback for endpoints that do not support
-   RA.
+   RA.  The negotiation of formats is required because several vendors
+   -- like Intel, AMD, Arm, and IBM -- have their own Evidence formats.
+   A conforming solution will have to support a mechanism to identify
+   the content type and encoding of Evidence to facilitate
+   interoperability.
 
 3.6.  Attestation Model Flexibility
 
@@ -272,6 +274,18 @@ Table of Contents
    identity (from PKI).
 
 3.8.  Runtime Attestation
+
+   Ideally, remote attestation should allow the Relying Party to assess
+   that configuration change of the Attester is in accordance with a
+   policy that the Relying Party accepts.  This enables more nuanced
+   trust decisions based on how the Attester's state might change over
+   time.  However, to our knowledge, current state-of-the-art systems do
+   not achieve such a guarantee.  In such cases, frequent runtime
+   attestation by the Verifier may reduce the exposure window, though
+   the risk of a malicious configuration change occurring between the
+   time Evidence is collected and the time of re-attestation, a Time-Of-
+   Check-To-Time-Of-Use (TOCTOU) vulnerability cannot be entirely
+   eliminated.
 
    Evidence collected at certificate issuance or during the initial
    secure channel establishment reflects only the Target Environment’s
@@ -426,7 +440,8 @@ Table of Contents
    confidential computing environment (which could host an AI agent)
    maintains a (D)TLS connection with a peer and must execute a high-
    impact action (e.g., payment initiation, configuration change,
-   privileged command).
+   privileged command).  See [I-D.jiang-seat-dynamic-attestation] for
+   details.
 
    *  Requirement 1: Before executing a high-impact operation over the
       existing connection, the peer must present fresh, connection-bound
@@ -591,12 +606,12 @@ Table of Contents
               <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
               rfc9147bis-01>.
 
-   [I-D.usama-seat-intra-vs-post]
-              Sardar, M. U., "Pre-, Intra- and Post-handshake
-              Attestation", Work in Progress, Internet-Draft, draft-
-              usama-seat-intra-vs-post-03, 22 January 2026,
-              <https://datatracker.ietf.org/doc/html/draft-usama-seat-
-              intra-vs-post-03>.
+   [I-D.jiang-seat-dynamic-attestation]
+              Jiang, Y. and Wangdonghui, "Dynamic Attestation for AI
+              Agent Communication", Work in Progress, Internet-Draft,
+              draft-jiang-seat-dynamic-attestation-00, 13 November 2025,
+              <https://datatracker.ietf.org/doc/html/draft-jiang-seat-
+              dynamic-attestation-00>.
 
    [ID-Crisis]
               Sardar, M. U., Moustafa, M., and T. Aura, "Identity Crisis
@@ -618,7 +633,10 @@ Table of Contents
 
 Acknowledgments
 
-   TODO
+   We would like to thank Eric Rescorla for his detailed review.
+
+   Muhammad Usama Sardar is funded by German Research Foundation
+   ("Deutsche Forschungsgemeinschaft.")
 
 Authors' Addresses
 
