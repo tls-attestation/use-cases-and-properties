@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-06-07T04:24:19.726531+00:00",
+  "timestamp": "2026-06-09T04:00:46.645888+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -6512,7 +6512,7 @@
       "labels": [],
       "body": "Adds a short introductory paragraph contextualising the deployment complexity that arises when RA is composed with secure channels, particularly in the presence of TLS-terminating intermediaries that are authorised and cooperative but structurally indistinguishable from adversarial positions at the protocol level.\r\n\r\nMotivates the proxy-fronted deployment discussion introduced in PR #48 and grounds the Verifier reachability discussion in the attestation model flexibility property.",
       "createdAt": "2026-05-14T04:15:34Z",
-      "updatedAt": "2026-05-14T04:15:35Z",
+      "updatedAt": "2026-06-08T12:16:10Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -6524,7 +6524,28 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABCTN_mQ",
+          "commit": {
+            "abbreviatedOid": "21048fb"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "I'm in favour of supporting proxies, but don't know if we've discussed the topic thoroughly enough in the WG so far.\n\nOne thing I wanted to ask was about the last bit: \"the role and reachability of the Verifier in the chosen attestation model\". Can you talk a bit more about this? I (think I) understand the other considerations.",
+          "createdAt": "2026-06-08T12:12:19Z",
+          "updatedAt": "2026-06-08T12:16:10Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\nRemote attestation over secure channels seeks to establish the highest-assurance connections possible by ensuring that trust is derived from verifiable evidence rather than assumed from the underlying network or infrastructure. This raises the deployment complexity above that of standard secure-channel technologies, especially when a network path may traverse unavoidable intermediaries (such as TLS-terminating reverse proxies or API gateways) that solutions will need to anticipate. To manage this, solutions should holistically consider the specific deployment context, the nature of the peer's PKI-based identity, the scope of the attested component, and the role and reachability of the Verifier in the chosen attestation model.\n```",
+              "createdAt": "2026-06-08T12:12:19Z",
+              "updatedAt": "2026-06-08T12:16:10Z"
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 53,
