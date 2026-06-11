@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-06-09T04:00:46.645888+00:00",
+  "timestamp": "2026-06-11T04:25:15.625357+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -4763,7 +4763,7 @@
       ],
       "body": "Addresses #8 \r\n- Added def. of infrastructure provider\r\n- Added def. of diversion attack\r\n- dependency on deployment model etc.\r\n- state-of-the-art may not meet some properties\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-06T22:14:34Z",
-      "updatedAt": "2026-06-03T06:35:20Z",
+      "updatedAt": "2026-06-10T16:16:34Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -4872,6 +4872,13 @@
           "body": "Discussed in meeting: @tireddy2 to look into it and provide further comments\r\nAttendees: Camilo, Carsten, Rafiq, Moosa, Tiru, Usama\r\nTiru's main concern: RATS or SEAT: RATS has shown no interest so far in email thread.",
           "createdAt": "2026-06-01T07:52:09Z",
           "updatedAt": "2026-06-01T07:52:09Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This PR has been open for over a month, with no sign of it converging.\r\n\r\nI propose that we close it.",
+          "createdAt": "2026-06-10T16:16:34Z",
+          "updatedAt": "2026-06-10T16:16:34Z"
         }
       ],
       "reviews": [
@@ -5400,7 +5407,7 @@
       ],
       "body": "- Public key of Target Environment\r\n- Replication attacks\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-09T10:46:07Z",
-      "updatedAt": "2026-06-03T06:45:28Z",
+      "updatedAt": "2026-06-10T14:59:50Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -5750,6 +5757,39 @@
               "updatedAt": "2026-06-03T06:45:28Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABCbHZTg",
+          "commit": {
+            "abbreviatedOid": "aec95c9"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-09T10:14:37Z",
+          "updatedAt": "2026-06-09T10:14:37Z",
+          "comments": [
+            {
+              "originalPosition": 20,
+              "body": "You seem to describe the problem in one of your drafts: \r\nhttps://www.ietf.org/archive/id/draft-reddy-rats-key-binding-01.html#section-1-3\r\n\r\nSo, something constructive is to present your draft at the next gathering.",
+              "createdAt": "2026-06-09T10:14:37Z",
+              "updatedAt": "2026-06-09T10:14:38Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABCmCmyA",
+          "commit": {
+            "abbreviatedOid": "aec95c9"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "I'm not convinced that this is a use case worth discussing.  It seems too low-level to be of general interest.",
+          "createdAt": "2026-06-10T14:59:50Z",
+          "updatedAt": "2026-06-10T14:59:50Z",
+          "comments": []
         }
       ]
     },
