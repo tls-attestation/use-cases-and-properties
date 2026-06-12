@@ -228,7 +228,7 @@ of trust: endpoint trustworthiness (from RA) and identity (from PKI).
 
 ## Navigating Diverse Trust Boundaries
 
-Remote attestation over secure channels seeks to establish the highest-assurance connections possible by ensuring that trust is derived from verifiable evidence rather than assumed from the underlying network or infrastructure. This raises the deployment complexity above that of standard secure-channel technologies, especially when a network path may traverse unavoidable intermediaries (such as TLS-terminating reverse proxies or API gateways) that solutions will need to anticipate. To manage this, solutions should holistically consider the specific deployment context, the nature of the peer's PKI-based identity, the scope of the attested component, and the role and reachability of the Verifier in the chosen attestation model.
+Remote attestation over secure channels seeks to establish the highest-assurance connections possible by ensuring that trust is derived from verifiable evidence rather than assumed from the underlying network or infrastructure. This raises the deployment complexity above that of standard secure-channel technologies, especially when a network path may traverse unavoidable intermediaries (such as TLS-terminating reverse proxies or API gateways) that solutions will need to anticipate. To manage this, solutions should holistically consider the specific deployment context, the nature of the peer's PKI-based identity, the scope of the attested component, and the role and reachability of the Attester in the chosen attestation model.
 
 ## Runtime Attestation
 
