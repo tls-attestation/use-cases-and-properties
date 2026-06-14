@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-06-11T04:25:15.625357+00:00",
+  "timestamp": "2026-06-14T04:43:41.545763+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -6336,7 +6336,7 @@
       "labels": [],
       "body": "* Added proxy-fronted attested secure channel use case\r\n* Added service-mesh attestation use case\r\n* Covered TLS-terminating intermediaries: reverse proxies, API gateways, service meshes, WAFs, load balancers, and CDN edges\r\n* Distinguished intermediary-as-attested-endpoint from proxy-traversal-to-attested-origin\r\n* Generalized proxy use case from client-origin to endpoint-origin\r\n* Covered server attestation, client attestation, and mutual attestation\r\n* Added requirements for explicit trust and confidentiality boundaries\r\n* Added requirements for meaningful channel binding when TLS is terminated by an intermediary\r\n* Added policy distinction between direct attested channels, attested intermediaries, and proxy-traversal deployments",
       "createdAt": "2026-05-13T16:36:36Z",
-      "updatedAt": "2026-05-18T17:22:29Z",
+      "updatedAt": "2026-06-12T04:04:38Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -6389,6 +6389,13 @@
           "body": "For me, the base case is [ID-Crisis](https://github.com/CCC-Attestation/formal-spec-id-crisis). What are the new properties introduced here, or what is changed in the model side?",
           "createdAt": "2026-05-18T17:22:29Z",
           "updatedAt": "2026-05-18T17:22:29Z"
+        },
+        {
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "body": "> Yes, case (b) sounds like an attack, agreed. Why standardize it? Do you have a concrete scenario where this is helping?\r\n\r\n@burgerdev I have a concept for how to allow an attestation aware proxy to cooperate without requiring nested encryption, but if that was not to pan out for any number of reasons, then the property would basically just affirm that the protocol should abort the connection if intercepted by a malicious intermediary. \r\n\r\nThat's the fallback; but like I said, I have some ideas on how an attestation aware proxy might operate. However Ionut makes a fair point that we likely haven't \"discussed the topic thoroughly enough in the WG so far.\" https://github.com/tls-attestation/use-cases-and-properties/pull/51#pullrequestreview-4449337241\r\n\r\nSo, I would be fine with deferring #48 and #51 until more discussion on-list has happened anyway. \r\n\r\n\r\n\r\n\r\n",
+          "createdAt": "2026-06-12T04:04:38Z",
+          "updatedAt": "2026-06-12T04:04:38Z"
         }
       ],
       "reviews": [
@@ -6552,18 +6559,26 @@
       "labels": [],
       "body": "Adds a short introductory paragraph contextualising the deployment complexity that arises when RA is composed with secure channels, particularly in the presence of TLS-terminating intermediaries that are authorised and cooperative but structurally indistinguishable from adversarial positions at the protocol level.\r\n\r\nMotivates the proxy-fronted deployment discussion introduced in PR #48 and grounds the Verifier reachability discussion in the attestation model flexibility property.",
       "createdAt": "2026-05-14T04:15:34Z",
-      "updatedAt": "2026-06-08T12:16:10Z",
+      "updatedAt": "2026-06-12T03:54:07Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
       "headRepository": "nathanaelritz/use-cases-and-properties",
       "headRefName": "nr-diverse-trust-boundaries-1",
-      "headRefOid": "21048fb4f570016d958a2d0404ea06f9bf45a86c",
+      "headRefOid": "8e590764f328c67380da3409bcb6c9d13bec84c1",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "body": "> One thing I wanted to ask was about the last bit: \"the role and reachability of the Verifier in the chosen attestation model\". Can you talk a bit more about this? I (think I) understand the other considerations.\r\n\r\nLooking back at this, I am sure this is just a simple miss by me; it should actually say \"the role and reachability of the Attester\".\r\n\r\nThis sentence is meant to tee up the proxy-fronted deployment complexities I discuss in PR #48. When unavoidable intermediaries like TLS-terminating reverse proxies are involved, the primary challenge becomes defining the role of the Attester (e.g., is the proxy generating the evidence, or the origin workload?) and its reachability (e.g., how does the Relying Party securely bind to an origin Attester across a proxy-terminated session?). If not anything else, the expected outcome may just be that the protocol affirms that the connection should abort if the connection is intercepted by an unexpected or uncooperative proxy.\r\n\r\nI'll push an update to correct this.\r\n",
+          "createdAt": "2026-06-12T03:51:24Z",
+          "updatedAt": "2026-06-12T03:51:24Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOP_9tTM8AAAABCTN_mQ",
