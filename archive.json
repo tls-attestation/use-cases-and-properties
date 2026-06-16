@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-06-14T04:43:41.545763+00:00",
+  "timestamp": "2026-06-16T04:59:18.365643+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -4763,7 +4763,7 @@
       ],
       "body": "Addresses #8 \r\n- Added def. of infrastructure provider\r\n- Added def. of diversion attack\r\n- dependency on deployment model etc.\r\n- state-of-the-art may not meet some properties\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-06T22:14:34Z",
-      "updatedAt": "2026-06-10T16:16:34Z",
+      "updatedAt": "2026-06-14T22:35:10Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -4879,6 +4879,20 @@
           "body": "This PR has been open for over a month, with no sign of it converging.\r\n\r\nI propose that we close it.",
           "createdAt": "2026-06-10T16:16:34Z",
           "updatedAt": "2026-06-10T16:16:34Z"
+        },
+        {
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Similarly to #44 , I think this isn't SEAT-shaped and that's partly why we struggle to converge, as Thomas says. If RATS isn't a good place to deal with this issue, SEAT is even worse-suited for it.",
+          "createdAt": "2026-06-14T22:02:01Z",
+          "updatedAt": "2026-06-14T22:02:01Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Can you propose the minimal change that you both can live with?",
+          "createdAt": "2026-06-14T22:35:09Z",
+          "updatedAt": "2026-06-14T22:35:09Z"
         }
       ],
       "reviews": [
@@ -5390,6 +5404,26 @@
               "updatedAt": "2026-06-03T06:35:20Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABC9hyPw",
+          "commit": {
+            "abbreviatedOid": "a41166a"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-14T22:21:44Z",
+          "updatedAt": "2026-06-14T22:21:44Z",
+          "comments": [
+            {
+              "originalPosition": 31,
+              "body": "The point is: when you have TLS authentication, it means the cloud provider is **trusted**. So there seems to be a need to agree on the threat model.",
+              "createdAt": "2026-06-14T22:21:44Z",
+              "updatedAt": "2026-06-14T22:21:44Z"
+            }
+          ]
         }
       ]
     },
@@ -5407,7 +5441,7 @@
       ],
       "body": "- Public key of Target Environment\r\n- Replication attacks\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-09T10:46:07Z",
-      "updatedAt": "2026-06-10T14:59:50Z",
+      "updatedAt": "2026-06-14T21:48:46Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -5537,6 +5571,20 @@
           "body": "Discussed in meeting: @tireddy2 needs time until next week to digest the attack vector in the paper. \r\nTiru's concern: Is the requirement only applicable without client authentication? Yes, as per SEAT charter. `with and without client TLS authentication to faciliate anonymous client attestation`\r\n\r\nWho issued the public key to the client?\r\nAttendees: Camilo, Carsten, Rafiq, Moosa, Tiru, Usama",
           "createdAt": "2026-06-01T07:54:50Z",
           "updatedAt": "2026-06-01T08:10:46Z"
+        },
+        {
+          "author": "ionut-arm",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Agree with Thomas. Point in case, the key binding draft is aimed at the RATS community. Maybe we need another short section in the draft that references these details that are tackled by other WGs and which are worth knowing for SEAT, but that's something to tackle further on.",
+          "createdAt": "2026-06-14T21:32:22Z",
+          "updatedAt": "2026-06-14T21:32:22Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I'm not convinced that this is a use case worth discussing. \r\n\r\nAs the title of PR clearly says and the text is added in properties in the draft, it is a property and NOT a use case. \r\n\r\n> Point in case, the key binding draft is aimed at the RATS community. Maybe we need another short section in the draft that references these details that are tackled by other WGs and which are worth knowing for SEAT, but that's something to tackle further on.\r\n\r\nAs far as I see, it's sent to both [SEAT](https://mailarchive.ietf.org/arch/msg/seat/CRQO0yoNQX0SRizb_OxZ-yDHx5w/) and RATS. RATS has not yet taken any ownership of that draft. So I don't see why you presuming that RATS will actually take ownership. The key point is that it's an important property; whether RATS or SEAT take it, attacks are possible if it is not there. If RATS take it, it is an input for us. If they don't, we need to do something. Putting it in here should not hurt the draft.",
+          "createdAt": "2026-06-14T21:48:45Z",
+          "updatedAt": "2026-06-14T21:48:45Z"
         }
       ],
       "reviews": [
@@ -6336,7 +6384,7 @@
       "labels": [],
       "body": "* Added proxy-fronted attested secure channel use case\r\n* Added service-mesh attestation use case\r\n* Covered TLS-terminating intermediaries: reverse proxies, API gateways, service meshes, WAFs, load balancers, and CDN edges\r\n* Distinguished intermediary-as-attested-endpoint from proxy-traversal-to-attested-origin\r\n* Generalized proxy use case from client-origin to endpoint-origin\r\n* Covered server attestation, client attestation, and mutual attestation\r\n* Added requirements for explicit trust and confidentiality boundaries\r\n* Added requirements for meaningful channel binding when TLS is terminated by an intermediary\r\n* Added policy distinction between direct attested channels, attested intermediaries, and proxy-traversal deployments",
       "createdAt": "2026-05-13T16:36:36Z",
-      "updatedAt": "2026-06-12T04:04:38Z",
+      "updatedAt": "2026-06-14T22:17:16Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -6559,7 +6607,7 @@
       "labels": [],
       "body": "Adds a short introductory paragraph contextualising the deployment complexity that arises when RA is composed with secure channels, particularly in the presence of TLS-terminating intermediaries that are authorised and cooperative but structurally indistinguishable from adversarial positions at the protocol level.\r\n\r\nMotivates the proxy-fronted deployment discussion introduced in PR #48 and grounds the Verifier reachability discussion in the attestation model flexibility property.",
       "createdAt": "2026-05-14T04:15:34Z",
-      "updatedAt": "2026-06-12T03:54:07Z",
+      "updatedAt": "2026-06-14T22:16:33Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -6577,6 +6625,13 @@
           "body": "> One thing I wanted to ask was about the last bit: \"the role and reachability of the Verifier in the chosen attestation model\". Can you talk a bit more about this? I (think I) understand the other considerations.\r\n\r\nLooking back at this, I am sure this is just a simple miss by me; it should actually say \"the role and reachability of the Attester\".\r\n\r\nThis sentence is meant to tee up the proxy-fronted deployment complexities I discuss in PR #48. When unavoidable intermediaries like TLS-terminating reverse proxies are involved, the primary challenge becomes defining the role of the Attester (e.g., is the proxy generating the evidence, or the origin workload?) and its reachability (e.g., how does the Relying Party securely bind to an origin Attester across a proxy-terminated session?). If not anything else, the expected outcome may just be that the protocol affirms that the connection should abort if the connection is intercepted by an unexpected or uncooperative proxy.\r\n\r\nI'll push an update to correct this.\r\n",
           "createdAt": "2026-06-12T03:51:24Z",
           "updatedAt": "2026-06-12T03:51:24Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I'm in favour of supporting proxies, but don't know if we've discussed the topic thoroughly enough in the WG so far.\r\n\r\nI don't remember having such a condition for the other use cases. So what's changed? If you are fine, please approve this and we can merge this to let this be discussed in the version for adoption.",
+          "createdAt": "2026-06-14T22:15:54Z",
+          "updatedAt": "2026-06-14T22:15:54Z"
         }
       ],
       "reviews": [
@@ -6925,7 +6980,7 @@
       "labels": [],
       "body": "Adds \u00a74.8 capturing the actor-identity continuity use case presented in the informal gathering on 18 May 2026 (see [meeting notes](https://github.com/tls-attestation/use-cases-and-properties/wiki/InformalGatherings)).\r\n\r\nThe use case follows the \u00a74.4 template (Goal / Use case / Requirements / Example):\r\n\r\n- **Goal**: bind a (D)TLS peer's claimed actor identity (human or AI agent) to verifiable longitudinal physical-world presence\r\n- **Exercises**: Cryptographic Binding to Communication Channel, Attestation Credential Freshness, Runtime Attestation, Privacy Preservation, plus the Target Environment public key property introduced in #44\r\n- **Example**: draft-ayerbe-trip-protocol (TRIP)\r\n\r\nCross-references `sec-operation-triggered` (\u00a74.4) to position this use case relative to operation-triggered attestation. Open to feedback on placement \u2014 as a new \u00a74.8 or as an extension of \u00a74.4. Per the meeting plan, this will be discussed in the next informal gathering's Q&A session.",
       "createdAt": "2026-05-19T10:44:20Z",
-      "updatedAt": "2026-06-01T09:11:23Z",
+      "updatedAt": "2026-06-14T21:57:39Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
@@ -6950,6 +7005,13 @@
           "body": "@muhammad-usama-sardar \u2014 done in both places:\r\n\r\n- \u00a74.8 Use case sentence: added \"remote attestation\" in commit 5aaff5d.\r\n- PR description: removed the outdated \u00a73.3 bullet (Requirement 3 was \r\n  already dropped in 5c1cbf5).",
           "createdAt": "2026-06-01T09:11:23Z",
           "updatedAt": "2026-06-01T09:11:23Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@ionut-arm @thomas-fossati can you have a look so that we wrap it up?",
+          "createdAt": "2026-06-14T21:57:39Z",
+          "updatedAt": "2026-06-14T21:57:39Z"
         }
       ],
       "reviews": [
