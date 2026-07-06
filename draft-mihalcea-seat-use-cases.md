@@ -418,11 +418,11 @@ the TLS connection.
 
 ## Web PKI Identity Injection for Ephemeral Containers
 
-Goal: Provide per-session freshness for externally provisioned identity 
-credentials by binding the transport layer session material directly to the 
+Goal: Provide per-session freshness for externally provisioned identity
+credentials by binding the transport layer session material directly to the
 target execution environment.
 
-Use case: An operator runs short-lived container workloads inside 
+Use case: An operator runs short-lived container workloads inside
 hardware-isolated Trusted Execution Environments (TEEs) and requires them
 to authenticate their secure channels using standard certificates that chain
 to a public Web PKI. Because these container workloads are highly temporary,
@@ -432,7 +432,7 @@ certificate and its corresponding private key are pre-obtained by an external
 utility operating in the cluster orchestration plane (such as a certificate
 manager) and loaded directly into the virtual machine upon instantiation.
 
-*  Requirement: Provide per-session freshness with cryptographic binding to 
+*  Requirement: Provide per-session freshness with cryptographic binding to
    communication channel.
 
 ## Platform-to-platform communication
