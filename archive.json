@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-07-09T03:46:47.097106+00:00",
+  "timestamp": "2026-07-12T03:26:39.469436+00:00",
   "repo": "tls-attestation/use-cases-and-properties",
   "labels": [
     {
@@ -7122,7 +7122,7 @@
       "labels": [],
       "body": "Adds a new use case based on [Markus Rudy's feedback ](https://mailarchive.ietf.org/arch/msg/seat/GcrnRi81zcpZUOG_213U2ongrnc/)regarding short-lived container workloads in TEEs.\r\n\r\n---\r\n\r\n* Documents ephemeral container workloads authenticating via public Web PKI.\r\n\r\n* Addresses the prohibitive latency of fetching certificates dynamically for temporary instances by supporting external provisioning (e.g., via cert manager).\r\n\r\n*  Mandates per-session freshness and cryptographic binding to the communication channel",
       "createdAt": "2026-07-06T21:49:52Z",
-      "updatedAt": "2026-07-07T04:22:15Z",
+      "updatedAt": "2026-07-10T17:17:18Z",
       "baseRepository": "tls-attestation/use-cases-and-properties",
       "baseRefName": "main",
       "baseRefOid": "7455def379e8833f22edc36579f07ca9cb9c159f",
@@ -7142,7 +7142,21 @@
           "updatedAt": "2026-07-07T04:22:15Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABFpBOdw",
+          "commit": {
+            "abbreviatedOid": "71d0bf7"
+          },
+          "author": "burgerdev",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "Thanks a lot for writing that up - LGTM!",
+          "createdAt": "2026-07-10T17:17:18Z",
+          "updatedAt": "2026-07-10T17:17:18Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
