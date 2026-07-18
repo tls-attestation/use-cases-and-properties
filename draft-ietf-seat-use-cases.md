@@ -3,7 +3,7 @@ title: "Security Goals and Use Cases for Integrating Remote Attestation with Sec
 abbrev: "SEAT Use Cases"
 category: info
 
-docname: draft-mihalcea-seat-use-cases-latest
+docname: draft-ietf-seat-use-cases-latest
 submissiontype: IETF
 number:
 date:
@@ -26,21 +26,7 @@ author:
   - fullname: Ionuț Mihalcea
     organization: Arm
     email: ionut.mihalcea@arm.com
-  - fullname: Muhammad Usama Sardar
-    organization: TU Dresden
-    email: muhammad_usama.sardar@tu-dresden.de
-  - fullname: Thomas Fossati
-    organization: Linaro
-    email: thomas.fossati@linaro.org
-  -
-    fullname: Tirumaleswar Reddy
-    organization: Nokia
-    email: "kondtir@gmail.com"
-  - fullname: Yuning Jiang
-    email: jiangyuning2@h-partners.com
-  - fullname: Meiling Chen
-    organization: China Mobile
-    email: chenmeiling@chinamobile.com
+    role: editor
 
 normative:
 
@@ -458,6 +444,6 @@ This document has no IANA actions.
 # Acknowledgments
 {:numbered="false"}
 
-We would like to thank Eric Rescorla for his detailed review.
+We would like to thank Muhammad Usama Sardar, Thomas Fossati, Tirumaleswar Reddy, Yuning Jiang, and Meiling Chen for their work on establishing this document and enabling its adoption.
 
-Muhammad Usama Sardar is funded by German Research Foundation ("Deutsche Forschungsgemeinschaft.")
+We would like to thank Eric Rescorla for his detailed review.
