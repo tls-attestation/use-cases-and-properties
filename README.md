@@ -4,16 +4,16 @@
 
 This is the working area for the individual Internet-Draft, "Use Cases and Properties for Integrating Remote Attestation with Secure Channel Protocols".
 
-* [Editor's Copy](https://tls-attestation.github.io/use-cases-and-properties/#go.draft-mihalcea-seat-use-cases.html)
-* [Datatracker Page](https://datatracker.ietf.org/doc/draft-mihalcea-seat-use-cases)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-mihalcea-seat-use-cases)
-* [Compare Editor's Copy to Individual Draft](https://tls-attestation.github.io/use-cases-and-properties/#go.draft-mihalcea-seat-use-cases.diff)
+* [Editor's Copy](https://ietf-wg-seat.github.io/draft-ietf-seat-use-cases/#go.draft-ietf-seat-use-cases.html)
+* [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-seat-use-cases)
+* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-ietf-seat-use-cases)
+* [Compare Editor's Copy to Individual Draft](https://ietf-wg-seat.github.io/draft-ietf-seat-use-cases/#go.draft-ietf-seat-use-cases.diff)
 
 
 ## Contributing
 
 See the
-[guidelines for contributions](https://github.com/tls-attestation/use-cases-and-properties/blob/main/CONTRIBUTING.md).
+[guidelines for contributions](https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/blob/main/CONTRIBUTING.md).
 
 The contributing file also has tips on how to make contributions, if you
 don't already know how to do that.
