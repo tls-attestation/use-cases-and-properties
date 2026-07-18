@@ -4,21 +4,16 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>Properties and Use Cases for Integrating Remote Attestation with Secure Channel Protocols</title>
+<title>Security Goals and Use Cases for Integrating Remote Attestation with Secure Channel Protocols</title>
 <meta content="Ionuț Mihalcea" name="author">
-<meta content="Muhammad Usama Sardar" name="author">
-<meta content="Thomas Fossati" name="author">
-<meta content="Tirumaleswar Reddy" name="author">
-<meta content="Yuning Jiang" name="author">
-<meta content="Meiling Chen" name="author">
 <meta content="
-       This document outlines desirable properties and use cases for integrating remote
+       This document outlines desirable security goals and use cases for integrating remote
 attestation (RA) capabilities with secure channel establishment protocols (e.g., TLS and DTLS).
 Peer authentication in such protocols establishes trust in a peer's network identifiers but
 provides no assurance regarding the integrity of its underlying software and
 hardware stack. Remote attestation addresses this gap by enabling a peer to
 provide verifiable evidence about the current state of the Target Environment. This document specifies a set of essential
-properties the protocol solution must have, including cryptographic binding to
+security goals the protocol solution must have, including cryptographic binding to
 the secure connection, evidence freshness, and flexibility to support different
 attestation models. It then explores relevant use cases, such as confidential
 data collaboration and secure secrets provisioning, to motivate the
@@ -26,28 +21,29 @@ need for this integration.  This document is intended
 to serve as an input to the design
 of protocol solutions within the SEAT working group. 
     " name="description">
-<meta content="xml2rfc 3.33.0" name="generator">
+<meta content="xml2rfc 3.34.0" name="generator">
 <meta content="remote attestation" name="keyword">
 <meta content="TLS" name="keyword">
 <meta content="confidential computing" name="keyword">
 <meta content="IoT" name="keyword">
 <meta content="RATS" name="keyword">
-<meta content="draft-mihalcea-seat-use-cases-latest" name="ietf.draft">
+<meta content="draft-ietf-seat-use-cases-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.33.0
-    Python 3.12.13
-    ConfigArgParse 1.7
+  xml2rfc 3.34.0
+    Python 3.14.5
+    ConfigArgParse 1.7.5
     google-i18n-address 3.1.1
     intervaltree 3.2.1
     Jinja2 3.1.6
-    lxml 6.0.2
-    platformdirs 4.9.6
+    lxml 6.1.1
+    natsort 8.4.0
+    platformdirs 4.10.1
     pycountry 24.6.1
     PyYAML 6.0.3
     requests 2.33.1
-    wcwidth 0.7.0
+    wcwidth 0.8.2
 -->
-<link href="draft-mihalcea-seat-use-cases.xml" rel="alternate" type="application/rfc+xml">
+<link href="draft-ietf-seat-use-cases.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">@font-face {
   font-family: 'Lora';
@@ -312,16 +308,19 @@ h1, h2, h3, h4, h5, h6 {
   font-size-adjust: 0.5;
   color: var(--title-color);
 }
-h1#title {
-  font-size: 32px;
-  line-height: 40px;
-  clear: both;
-}
-h1#title, h1#rfcnum {
-  margin: 1.5em 0 0.2em;
-}
-h1#rfcnum + h1#title {
-  margin: 0.2em 0;
+h1 {
+  &#title {
+    font-size: 32px;
+    line-height: 40px;
+    clear: both;
+    margin: 1.5em 0 0.2em;
+  }
+  &#rfcnum {
+    margin: 1.5em 0 0.2em;
+    & + h1#title {
+      margin: 0.2em 0;
+    }
+  }
 }
 
 h1, h2, h3 {
@@ -341,10 +340,10 @@ h4, h5, h6 {
 #abstract+p {
   font-size: 18px;
   line-height: 24px;
-}
-#abstract+p code, #abstract+p samp, #abstract+p tt {
-  font-size: 16px;
-  line-height: 0;
+  & code, & samp, & tt {
+    font-size: 16px;
+    line-height: 0;
+  }
 }
 
 p {
@@ -355,59 +354,59 @@ p {
 div {
   margin: 0;
 }
-.alignRight.art-text {
-  background-color: var(--highlight-color);
-  border: 1px solid var(--line-color);
-  border-radius: 3px;
-  padding: 0.5em 1em 0;
-  margin-bottom: 0.5em;
-}
-.alignRight.art-text pre {
-  padding: 0;
-  width: auto;
-}
 .alignRight {
   margin: 1em 0;
-}
-.alignRight > *:first-child {
-  border: none;
-  margin: 0;
-  float: right;
-  clear: both;
-}
-.alignRight > *:nth-child(2) {
-  clear: both;
-  display: block;
-  border: none;
+  &.art-text {
+    background-color: var(--highlight-color);
+    border: 1px solid var(--line-color);
+    border-radius: 3px;
+    padding: 0.5em 1em 0;
+    margin-bottom: 0.5em;
+    & pre {
+      padding: 0;
+      width: auto;
+    }
+  }
+  & > *:first-child {
+    border: none;
+    margin: 0;
+    float: right;
+    clear: both;
+  }
+  & > *:nth-child(2) {
+    clear: both;
+    display: block;
+    border: none;
+  }
 }
 svg {
   display: block;
-}
-/* font-family isn't space-separated, but =~ will have to do */
-svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
-  font-family: var(--font-mono);
-}
-.alignCenter.art-text {
-  background-color: var(--highlight-color);
-  border: 1px solid var(--line-color);
-  border-radius: 3px;
-  padding: 0.5em 1em 0;
-  margin-bottom: 0.5em;
-}
-.alignCenter.art-text pre {
-  padding: 0;
-  width: auto;
+  /* font-family isn't space-separated, but =~ will have to do */
+  &[font-family~="monospace" i], & [font-family~="monospace" i] {
+    font-family: var(--font-mono);
+  }
 }
 .alignCenter {
   margin: 1em 0;
-}
-.alignCenter > *:first-child {
-  border: none;
-  /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
-     support flexbox yet.
-  */
-  display: table;
-  margin: 0 auto;
+  &.art-text {
+    background-color: var(--highlight-color);
+    border: 1px solid var(--line-color);
+    border-radius: 3px;
+    padding: 0.5em 1em 0;
+    margin-bottom: 0.5em;
+    & pre {
+      padding: 0;
+      width: auto;
+    }
+  }
+  & > *:first-child {
+    border: none;
+    /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
+       support flexbox yet.
+    */
+    display: table;
+    margin: 0 auto;
+  }
 }
 
 /* lists */
@@ -445,26 +444,25 @@ dl {
     --indent: 5ch;
     & > dt {
       min-width: calc(var(--indent) - 2ch);
+      float: none;
     }
-  }
-  &.olPercent > dt {
-    float: none;
   }
 
   dl > dd > & {
     margin-top: 0.5em;
     margin-bottom: 0;
   }
-}
-dl:not(.dlNewline) > dt {
-  float: left;
-  margin-right: 2ch;
-  min-width: 8ch;
-}
-dl > dd {
-  margin-bottom: .8em;
-  margin-left: var(--indent) !important; /* stupid element overrides */
-  min-height: 2ex;
+
+  &:not(.dlNewline) > dt {
+    float: left;
+    margin-right: 2ch;
+    min-width: 8ch;
+  }
+  & > dd {
+    margin-bottom: .8em;
+    margin-left: var(--indent) !important; /* stupid element overrides */
+    min-height: 2ex;
+  }
 }
 :is(dl.compact, .dlCompact) > dd {
   margin-bottom: 0;
@@ -480,20 +478,22 @@ dl > dd {
 }
 
 /* links */
-a, a[href].selfRef:hover {
+a {
   text-decoration: none;
+  &[href] {
+    color: var(--link-color);
+    &:hover { text-decoration: underline; }
+    &.selfRef {
+      color: var(--text-color);
+      &:hover {
+        text-decoration: none;
+        background-color: var(--highlight-color);
+      }
+    }
+  }
 }
-a[href] {
-  color: var(--link-color);
-}
-a[href].selfRef, .iref + a[href].internal {
+.iref + a[href].internal {
   color: var(--text-color);
-}
-a[href]:hover {
-  text-decoration: underline;
-}
-a[href].selfRef:hover {
-  background-color: var(--highlight-color);
 }
 a.xref:is(.cite, .auto), :is(#status-of-memo, #copyright) a {
   white-space: nowrap;
@@ -529,9 +529,9 @@ img {
 figure {
   margin: 0.5em 0;
   padding: 0;
-}
-figure blockquote {
-  margin: 0.8em 0.4em 0.4em;
+  & blockquote {
+    margin: 0.8em 0.4em 0.4em;
+  }
 }
 figcaption, caption {
   font-style: italic;
@@ -541,17 +541,19 @@ figcaption, caption {
 }
 @media screen {
   /* Auto-collapse boilerplate. */
-  :is(#status-of-memo, #copyright) p {
-    margin: -2px 0;
-    max-height: 0;
-    transition: max-height 2s ease, margin 0.5s ease 0.5s;
-    overflow: hidden;
-  }
-  :is(#status-of-memo, #copyright):hover p,
-  :is(#status-of-memo, #copyright) h2:target ~ p {
-    margin: 0.5em 0;
-    max-height: 500px;
-    overflow: auto;
+  :is(#status-of-memo, #copyright) {
+    & p {
+      margin: -2px 0;
+      max-height: 0;
+      transition: max-height 2s ease, margin 0.5s ease 0.5s;
+      overflow: hidden;
+    }
+    &:hover p,
+    & h2:target ~ p {
+      margin: 0.5em 0;
+      max-height: 500px;
+      overflow: auto;
+    }
   }
   pre, svg {
     display: inline-block;
@@ -601,25 +603,17 @@ table {
   max-width: 100%;
   margin: 0 0 1em;
   border-collapse: collapse;
-}
-table.right {
-  margin-left: auto;
-}
-table.center {
-  margin-left: auto;
-  margin-right: auto;
-}
-table.left {
-  margin-right: auto;
-}
-table .text-left {
-  text-align: left;
-}
-table .text-center {
-  text-align: center;
-}
-table .text-right {
-  text-align: right;
+  &.right { margin-left: auto; }
+  &.center { margin-left: auto; margin-right: auto; }
+  &.left { margin-right: auto; }
+  & .text-left { text-align: left; }
+  & .text-center { text-align: center; }
+  & .text-right { text-align: right; }
+  & caption {
+    margin: 0;
+    padding: 3px 0 3px 1em;
+  }
+  & p { margin: 0; }
 }
 
 thead, tbody {
@@ -639,13 +633,6 @@ th {
 :is(tr:nth-child(2n+1), thead+tbody > tr:nth-child(2n)) > td {
   background-color: var(--highlight-color);
 }
-table caption {
-  margin: 0;
-  padding: 3px 0 3px 1em;
-}
-table p {
-  margin: 0;
-}
 
 /* pilcrow */
 a.pilcrow {
@@ -656,18 +643,16 @@ a.pilcrow {
     color: var(--pilcrow-weak);
     &:hover { text-decoration: none; }
   }
-}
-@media not print {
-  :hover > a.pilcrow, a.pilcrow:focus {
-    opacity: 1;
+  @media not print {
+    :hover > &, &:focus {
+      opacity: 1;
+    }
+    &[href]:hover {
+      color: var(--pilcrow-strong);
+      background-color: transparent;
+    }
   }
-  a.pilcrow[href]:hover {
-    color: var(--pilcrow-strong);
-    background-color: transparent;
-  }
-}
-@media print {
-  a.pilcrow {
+  @media print {
     display: none;
   }
 }
@@ -726,9 +711,9 @@ sub, sup {
   font-size: 0.9em;
   font-style: italic;
   margin-top: 2em;
-}
-.docInfo .prepared {
-  float: right;
+  & .prepared {
+    float: right;
+  }
 }
 
 /* table of contents */
@@ -818,23 +803,27 @@ hr.addr {
   max-width: calc(100% - 16px);
 }
 @media (min-width: 500px) {
-  #authors-addresses > section {
-    column-count: 2;
-    column-gap: 20px;
-  }
-  #authors-addresses > section > h2 {
-    column-span: all;
-  }
-  /* hack for break-inside: avoid-column */
-  #authors-addresses address {
-    display: inline-block;
-    break-inside: avoid-column;
+  #authors-addresses {
+    & > section {
+      column-count: 2;
+      column-gap: 20px;
+    }
+    & > section > h2 {
+      column-span: all;
+    }
+    /* hack for break-inside: avoid-column */
+    & address {
+      display: inline-block;
+      break-inside: avoid-column;
+    }
   }
 }
 
 /* Comments */
-.rfcEditorRemove p:first-of-type {
-  font-style: italic;
+.rfcEditorRemove {
+  & p:first-of-type {
+    font-style: italic;
+  }
 }
 .cref {
   background-color: rgba(249, 232, 105, 0.3);
@@ -845,19 +834,21 @@ hr.addr {
 }
 
 @media screen {
-  #toc nav {
-    font-family: var(--font-title);
-    font-weight: 360;
-    & > ul { margin-bottom: 2em; }
-    & ul {
-      margin: 0 0 0 4px;
-      & :is(p, li) {
-        margin: 2px 0;
+  #toc {
+    & nav {
+      font-family: var(--font-title);
+      font-weight: 360;
+      & > ul { margin-bottom: 2em; }
+      & ul {
+        margin: 0 0 0 4px;
+        & :is(p, li) {
+          margin: 2px 0;
+        }
       }
     }
-  }
-  #toc a.toplink {
-    float: right;
+    & a.toplink {
+      float: right;
+    }
   }
 }
 @media not screen {
@@ -878,54 +869,54 @@ hr.addr {
     margin: 0;
     border-bottom: 1px solid #ccc;
     opacity: 0.6;
-  }
-  #toc h2 {
-    margin: 0;
-    padding: 2px 0 2px 6px;
-    padding-right: 1em;
-    font-size: 18px;
-    line-height: 24px;
-    min-width: 190px;
-    text-align: right;
-    background-color: #444;
-    color: white;
-    cursor: pointer;
-    &::before { /* css hamburger */
-      float: right;
-      position: relative;
-      width: 1em;
-      height: 1px;
-      left: -164px;
-      margin: 8px 0 0 0;
-      background: white none repeat scroll 0 0;
-      box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
-      content: "";
+    & h2 {
+      margin: 0;
+      padding: 2px 0 2px 6px;
+      padding-right: 1em;
+      font-size: 18px;
+      line-height: 24px;
+      min-width: 190px;
+      text-align: right;
+      background-color: #444;
+      color: white;
+      cursor: pointer;
+      &::before { /* css hamburger */
+        float: right;
+        position: relative;
+        width: 1em;
+        height: 1px;
+        left: -164px;
+        margin: 8px 0 0 0;
+        background: white none repeat scroll 0 0;
+        box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+        content: "";
+      }
     }
-  }
-  #toc nav {
-    display: none;
-    background-color: var(--background-color);
-    padding: 0.5em 1em 1em;
-    overflow: auto;
-    overscroll-behavior: contain;
-    height: calc(100vh - 48px);
-    border-left: 1px solid #ddd;
-  }
-  #toc.active {
-    opacity: 1;
-    & nav { display: block; }
-  }
-  /* Make the collapsed ToC header render white on gray also when it's a link */
-  #toc h2 a,
-  #toc h2 a:is(:link, :focus, :hover),
-  #toc a.toplink,
-  #toc a.toplink:hover {
-    color: white;
-    background-color: #444;
-    text-decoration: none;
-  }
-  #toc a.toplink {
-    margin: 2px 0.5em 0;
+    & nav {
+      display: none;
+      background-color: var(--background-color);
+      padding: 0.5em 1em 1em;
+      overflow: auto;
+      overscroll-behavior: contain;
+      height: calc(100vh - 48px);
+      border-left: 1px solid #ddd;
+    }
+    &.active {
+      opacity: 1;
+      & nav { display: block; }
+    }
+    /* Make the collapsed ToC header render white on gray also when it's a link */
+    & h2 a,
+    & h2 a:is(:link, :focus, :hover),
+    & a.toplink,
+    & a.toplink:hover {
+      color: white;
+      background-color: #444;
+      text-decoration: none;
+    }
+    & a.toplink {
+      margin: 2px 0.5em 0;
+    }
   }
 }
 
@@ -944,26 +935,26 @@ hr.addr {
     margin: 0;
     padding: 0;
     z-index: 1;
-  }
-  #toc h2 {
-    margin: 0;
-    padding: 0.25em 1em 1em 0;
-  }
-  #toc nav {
-    display: block;
-    height: calc(90vh - 84px);
-    bottom: 0;
-    padding: 0.5em 0 2em;
-    overflow: auto;
-    overscroll-behavior: contain;
-    scrollbar-width: thin;
+    & h2 {
+      margin: 0;
+      padding: 0.25em 1em 1em 0;
+    }
+    & nav {
+      display: block;
+      height: calc(90vh - 84px);
+      bottom: 0;
+      padding: 0.5em 0 2em;
+      overflow: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+    }
+    & a.toplink {
+      margin: 8px 0.5em 0;
+    }
   }
   img { /* future proofing */
     max-width: 100%;
     height: auto;
-  }
-  #toc a.toplink {
-    margin: 8px 0.5em 0;
   }
 }
 
@@ -979,12 +970,13 @@ hr.addr {
   #n-copyright-notice {
     border-bottom: none;
   }
-  #toc, #n-introduction {
-    page-break-before: always;
-  }
   #toc {
+    page-break-before: always;
     border-top: none;
     padding-top: 0;
+  }
+  #n-introduction {
+    page-break-before: always;
   }
   figure, pre, .vcard {
     page-break-inside: avoid;
@@ -1046,17 +1038,19 @@ hr.addr {
 }
 
 /* SVG Trick: a prefix match works because only black and white are allowed */
-svg :is([stroke="black"], [stroke^="#000"]) {
-  stroke: var(--text-color);
-}
-svg :is([stroke="white"], [stroke^="#fff"]) {
-  stroke: var(--background-color);
-}
-svg :is([fill="black"], [fill^="#000"], :not([fill])) {
-  fill: var(--text-color);
-}
-svg :is([fill="white"], [fill^="#fff"]) {
-  fill: var(--background-color);
+svg {
+  & :is([stroke="black"], [stroke^="#000"]) {
+    stroke: var(--text-color);
+  }
+  & :is([stroke="white"], [stroke^="#fff"]) {
+    stroke: var(--background-color);
+  }
+  & :is([fill="black"], [fill^="#000"], :not([fill])) {
+    fill: var(--text-color);
+  }
+  & :is([fill="white"], [fill^="#fff"]) {
+    fill: var(--background-color);
+  }
 }
 </style>
 
@@ -1066,11 +1060,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">SEAT Use Cases</td>
-<td class="right">May 2026</td>
+<td class="right">July 2026</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Mihalcea, et al.</td>
-<td class="center">Expires 15 November 2026</td>
+<td class="left">Mihalcea</td>
+<td class="center">Expires 19 January 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1080,53 +1074,35 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">SEAT Working Group</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-mihalcea-seat-use-cases-latest</dd>
+<dd class="internet-draft">draft-ietf-seat-use-cases-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-05-14" class="published">14 May 2026</time>
+<time datetime="2026-07-18" class="published">18 July 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-11-15">15 November 2026</time></dd>
-<dt class="label-authors">Authors:</dt>
+<dd class="expires"><time datetime="2027-01-19">19 January 2027</time></dd>
+<dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
-      <div class="author-name">I. Mihalcea</div>
+      <div class="author-name">I. Mihalcea, <span class="editor">Ed.</span>
+</div>
 <div class="org">Arm</div>
-</div>
-<div class="author">
-      <div class="author-name">M. U. Sardar</div>
-<div class="org">TU Dresden</div>
-</div>
-<div class="author">
-      <div class="author-name">T. Fossati</div>
-<div class="org">Linaro</div>
-</div>
-<div class="author">
-      <div class="author-name">T. Reddy</div>
-<div class="org">Nokia</div>
-</div>
-<div class="author">
-      <div class="author-name">Y. Jiang</div>
-</div>
-<div class="author">
-      <div class="author-name">M. Chen</div>
-<div class="org">China Mobile</div>
 </div>
 </dd>
 </dl>
 </div>
-<h1 id="title">Properties and Use Cases for Integrating Remote Attestation with Secure Channel Protocols</h1>
+<h1 id="title">Security Goals and Use Cases for Integrating Remote Attestation with Secure Channel Protocols</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This document outlines desirable properties and use cases for integrating remote
+<p id="section-abstract-1">This document outlines desirable security goals and use cases for integrating remote
 attestation (RA) capabilities with secure channel establishment protocols (e.g., TLS and DTLS).
 Peer authentication in such protocols establishes trust in a peer's network identifiers but
 provides no assurance regarding the integrity of its underlying software and
 hardware stack. Remote attestation addresses this gap by enabling a peer to
 provide verifiable evidence about the current state of the Target Environment. This document specifies a set of essential
-properties the protocol solution must have, including cryptographic binding to
+security goals the protocol solution must have, including cryptographic binding to
 the secure connection, evidence freshness, and flexibility to support different
 attestation models. It then explores relevant use cases, such as confidential
 data collaboration and secure secrets provisioning, to motivate the
@@ -1153,7 +1129,7 @@ of protocol solutions within the SEAT working group.<a href="#section-abstract-1
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 15 November 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 19 January 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1200,7 +1176,7 @@ of protocol solutions within the SEAT working group.<a href="#section-abstract-1
             <p id="section-toc.1-1.2.1"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-terminology" class="internal xref">Terminology</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-integration-properties" class="internal xref">Integration Properties</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-integration-security-goals" class="internal xref">Integration Security Goals</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
                 <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-cryptographic-binding-to-co" class="internal xref">Cryptographic Binding to Communication Channel</a></p>
@@ -1209,7 +1185,7 @@ of protocol solutions within the SEAT working group.<a href="#section-abstract-1
                 <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-compound-authentication" class="internal xref">Compound Authentication</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
-                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-cryptographic-binding-to-in" class="internal xref">Cryptographic Binding to Infrastructure Provider</a></p>
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-cryptographic-binding-to-ma" class="internal xref">Cryptographic Binding to Machine Identifier</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4">
                 <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-attestation-credential-fres" class="internal xref">Attestation Credential Freshness</a></p>
@@ -1233,6 +1209,11 @@ of protocol solutions within the SEAT working group.<a href="#section-abstract-1
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.9">
                 <p id="section-toc.1-1.3.2.9.1"><a href="#section-3.9" class="auto internal xref">3.9</a>.  <a href="#name-privacy-preservation" class="internal xref">Privacy Preservation</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.9.2.1">
+                    <p id="section-toc.1-1.3.2.9.2.1.1"><a href="#section-3.9.1" class="auto internal xref">3.9.1</a>.  <a href="#name-verifier-trust-and-privacy" class="internal xref">Verifier Trust and Privacy</a></p>
+</li>
+                </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.10">
                 <p id="section-toc.1-1.3.2.10.1"><a href="#section-3.10" class="auto internal xref">3.10</a>. <a href="#name-performance-and-efficiency" class="internal xref">Performance and Efficiency</a></p>
@@ -1302,7 +1283,7 @@ of protocol solutions within the SEAT working group.<a href="#section-abstract-1
             <p id="section-toc.1-1.8.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
 </li>
         </ul>
 </nav>
@@ -1368,19 +1349,18 @@ acceptable.<a href="#section-1.2-4" class="pilcrow">¶</a></p>
         <h3 id="name-purpose-and-scope">
 <a href="#section-1.3" class="section-number selfRef">1.3. </a><a href="#name-purpose-and-scope" class="section-name selfRef">Purpose and Scope</a>
         </h3>
-<p id="section-1.3-1">The purpose of this document is to establish a set of essential properties
+<p id="section-1.3-1">The purpose of this document is to establish a set of essential security goals
 for composition of RA with secure channel protocols and to outline the key use
 cases that can benefit from such a composition. Most of the use cases presented in this document are provided by industry contributors in the SEAT WG, who have plans to deploy this technology. The initial focus is on
 TLS 1.3  <span>[<a href="#I-D.ietf-tls-rfc8446bis" class="cite xref">I-D.ietf-tls-rfc8446bis</a>]</span>
 and its datagram-oriented variant, DTLS 1.3 <span>[<a href="#I-D.ietf-tls-rfc9147bis" class="cite xref">I-D.ietf-tls-rfc9147bis</a>]</span>.<a href="#section-1.3-1" class="pilcrow">¶</a></p>
 <p id="section-1.3-2">This document is intended as an input to the design of protocol solutions within
 the SEAT working group. It defines the "why" (the motivation) and the "what" (the requirements),
-but not the "how" (the protocol design itself). The "how" part is discussed
-in the companion document <span>[<a href="#I-D.usama-seat-intra-vs-post" class="cite xref">I-D.usama-seat-intra-vs-post</a>]</span>, which serves as the
-glue between this document and the protocol specifications. A key goal of this
+but not the "how" (the protocol design itself). The "how" part is out of scope of this document. A key goal of this
 document is to define
 requirements for a solution that is agnostic to any specific attestation
 technology (e.g., Trusted Platform Modules (TPMs), Intel TDX, AMD SEV, Arm CCA).<a href="#section-1.3-2" class="pilcrow">¶</a></p>
+<p id="section-1.3-3">Appraisal policies (cf. <span><a href="https://rfc-editor.org/rfc/rfc9334#section-8.5" class="relref">Section 8.5</a> of [<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>) are out of scope of this document.<a href="#section-1.3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1413,26 +1393,17 @@ system/network state. Its configuration (e.g., model choice, tool enablement,
 prompt template) can change independently of the binary/image and usually
 more frequently than typical platform TCB updates <span>[<a href="#AI-agents" class="cite xref">AI-agents</a>]</span>.<a href="#section-2-3.4.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-2-3.5">
-          <p id="section-2-3.5.1">Infrastructure provider: see <span>[<a href="#I-D.sardar-rats-sec-cons" class="cite xref">I-D.sardar-rats-sec-cons</a>]</span>.<a href="#section-2-3.5.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="section-2-3.6">
-          <p id="section-2-3.6.1">Diversion attacks: see <span>[<a href="#I-D.sardar-rats-sec-cons" class="cite xref">I-D.sardar-rats-sec-cons</a>]</span>.<a href="#section-2-3.6.1" class="pilcrow">¶</a></p>
-</li>
       </ul>
 </section>
 </div>
-<div id="integration-properties">
+<div id="integration-security-goals">
 <section id="section-3">
-      <h2 id="name-integration-properties">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-integration-properties" class="section-name selfRef">Integration Properties</a>
+      <h2 id="name-integration-security-goals">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-integration-security-goals" class="section-name selfRef">Integration Security Goals</a>
       </h2>
-<p id="section-3-1">This section provides a list of desirable properties for designs that compose
-RA with secure channel protocols. In general, the ability to satisfy a certain property may depend on several
-factors, such as the system model, threat model, deployment model, hardware architecture, etc.
-Also, some properties may not be met by the existing state-of-the-art.
-Proposed protocol specifications should
-clearly state which of these properties are fulfilled and explain how.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-1">This section provides a list of desirable security goals for designs that compose
+RA with secure channel protocols. Proposed protocol specifications should
+clearly state which of these security goals are fulfilled and explain how.<a href="#section-3-1" class="pilcrow">¶</a></p>
 <div id="cryptographic-binding-to-communication-channel">
 <section id="section-3.1">
         <h3 id="name-cryptographic-binding-to-co">
@@ -1456,20 +1427,12 @@ Combining the two security measures would ensure that the introduction of attest
 A formal representation of this requirement in the form of <em>composition</em> goal can be found in <span>[<a href="#ID-Crisis" class="cite xref">ID-Crisis</a>]</span> for TLS 1.3 protocol.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="cryptographic-binding-to-infrastructure-provider">
+<div id="cryptographic-binding-to-machine-identifier">
 <section id="section-3.3">
-        <h3 id="name-cryptographic-binding-to-in">
-<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-cryptographic-binding-to-in" class="section-name selfRef">Cryptographic Binding to Infrastructure Provider</a>
+        <h3 id="name-cryptographic-binding-to-ma">
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-cryptographic-binding-to-ma" class="section-name selfRef">Cryptographic Binding to Machine Identifier</a>
         </h3>
-<p id="section-3.3-1">Evidence is recommended to be cryptographically bound to the identifier of the infrastructure provider (owner organization) to prevent <strong>diversion</strong> attacks <span>[<a href="#ID-Crisis" class="cite xref">ID-Crisis</a>]</span>.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
-<p id="section-3.3-2">The rationale for this goal is that a network adversary can divert the connection from the intended server owned by a desired infrastructure provider to any server anywhere running the same software stack in the TEE.
-The server could be in a different data center controlled by a malicious infrastructure provider.<a href="#section-3.3-2" class="pilcrow">¶</a></p>
-<p id="section-3.3-3">The confidential computing counterargument for this attack is that it does not matter where the connection is established as long as the hardware being attested is secure and the attestation procedure is successful.
-However, this argument is based on the strong assumption that no TEE is ever compromised.
-Real-world exploits, such as <a href="https://tee.fail/">TEE.fail</a> and <a href="https://wiretap.fail/">Wiretap.fail</a>, have already proven this assumption to be incorrect.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
-<p id="section-3.3-4">Hardware vendors, like <a href="https://www.intel.com/content/www/us/en/security-center/announcement/intel-security-announcement-2025-10-28-001.html">Intel</a> and <a href="https://www.amd.com/en/resources/product-security/bulletin/amd-sb-3040.html">AMD</a>, have declared these attacks as out of scope of their threat model.
-Hence, this security goal mitigates the scenario where one compromised TEE in the world may lead to potential compromise of the security of all attested TLS connections.<a href="#section-3.3-4" class="pilcrow">¶</a></p>
-<p id="section-3.3-5">In state-of-the-art confidential computing deployments at the time of writing, cloud service providers that currently offer the identifier of the infrastructure provider use non-standard ways for appraisal.<a href="#section-3.3-5" class="pilcrow">¶</a></p>
+<p id="section-3.3-1">Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider to prevent <strong>diversion</strong> attacks <span>[<a href="#ID-Crisis" class="cite xref">ID-Crisis</a>]</span>.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="attestation-credential-freshness">
@@ -1484,8 +1447,6 @@ transient, and credentials from a previous RA interaction may no longer be valid
 See
 <span><a href="https://rfc-editor.org/rfc/rfc9334#section-10" class="relref">Section 10</a> of [<a href="#RFC9334" class="cite xref">RFC9334</a>]</span> for more details about freshness in the context of
 RA. This is formalized for attestation nonce in  <span>[<a href="#ID-Crisis" class="cite xref">ID-Crisis</a>]</span>.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
-<p id="section-3.4-2">In state-of-the-art hardware architectures (Intel, AMD etc.) and deployments, attestation nonce does not propagate to the platform level to trigger fresh Claims collection.
-Hence, attestation nonce in state-of-the-art deployments does not provide <em>real</em> freshness for platform Claims.<a href="#section-3.4-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="negotiation-and-capability-discovery">
@@ -1496,7 +1457,10 @@ Hence, attestation nonce in state-of-the-art deployments does not provide <em>re
 <p id="section-3.5-1">Peers have a secure mechanism to discover each other's support for RA, the
 specific attestation formats they can produce or consume, and the attestation
 models they support. This enables interoperability and allows for graceful
-fallback for endpoints that do not support RA.<a href="#section-3.5-1" class="pilcrow">¶</a></p>
+fallback for endpoints that do not support RA.
+The negotiation of formats is required because several vendors -- like Intel,
+AMD, Arm, and IBM -- have their own Evidence formats.
+A conforming solution will have to support a mechanism to identify the content type and encoding of Evidence to facilitate interoperability.<a href="#section-3.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="attestation-model-flexibility">
@@ -1526,7 +1490,11 @@ of trust: endpoint trustworthiness (from RA) and identity (from PKI).<a href="#s
         <h3 id="name-runtime-attestation">
 <a href="#section-3.8" class="section-number selfRef">3.8. </a><a href="#name-runtime-attestation" class="section-name selfRef">Runtime Attestation</a>
         </h3>
-<p id="section-3.8-1">Evidence collected at certificate issuance or during the initial secure channel establishment reflects only the Target Environment’s state at that moment. It cannot guarantee that the Target Environment remains trustworthy for the lifetime of the certificate or even for the duration of the secure connection (e.g., the (D)TLS connection). As a result, such static Evidence is insufficient in environments where the Target Environment may change state after the connection is established and the connection is long-lived.<a href="#section-3.8-1" class="pilcrow">¶</a></p>
+<p id="section-3.8-1">Ideally, remote attestation should allow the Relying Party to assess that configuration change of the Attester is in accordance with a policy that the Relying Party accepts.
+This enables more nuanced trust decisions based on how the Attester's state might change over time.
+However, to our knowledge, current state-of-the-art systems do not achieve such a guarantee.
+In such cases, frequent runtime attestation by the Verifier may reduce the exposure window, though the risk of a malicious configuration change occurring between the time Evidence is collected and the time of re-attestation, a Time-Of-Check-To-Time-Of-Use (TOCTOU) vulnerability cannot be entirely eliminated.<a href="#section-3.8-1" class="pilcrow">¶</a></p>
+<p id="section-3.8-2">Evidence collected at certificate issuance or during the initial secure channel establishment reflects only the Target Environment’s state at that moment. It cannot guarantee that the Target Environment remains trustworthy for the lifetime of the certificate or even for the duration of the secure connection (e.g., the (D)TLS connection). As a result, such static Evidence is insufficient in environments where the Target Environment may change state after the connection is established and the connection is long-lived.<a href="#section-3.8-2" class="pilcrow">¶</a></p>
 <div id="periodic-vs-on-demand-attestation">
 <section id="section-3.8.1">
           <h4 id="name-periodic-vs-on-demand-attes">
@@ -1550,6 +1518,18 @@ software, which could be used as an advanced tracking mechanism, following a
 user across different connections and services. The design must consider how to
 minimize this leakage, especially when a third-party Verifier is involved in the
 protocol exchange.<a href="#section-3.9-1" class="pilcrow">¶</a></p>
+<div id="verifier-trust-and-privacy">
+<section id="section-3.9.1">
+          <h4 id="name-verifier-trust-and-privacy">
+<a href="#section-3.9.1" class="section-number selfRef">3.9.1. </a><a href="#name-verifier-trust-and-privacy" class="section-name selfRef">Verifier Trust and Privacy</a>
+          </h4>
+<p id="section-3.9.1-1">In the Background Check model, the Relying Party communicates with the Verifier at the time of appraisal.
+This reveals the Attester's identity and connection timing to the Verifier.
+This also reveals to the Verifier that the Relying Party is communicating with the specific Attester.
+If the Verifier is a third party, it can observe which Attesters are being appraised and when, potentially exposing client identity and other correlation information.
+Solutions should consider privacy-preserving attestation techniques being developed in the RATS working group, to minimize the data revealed to the Verifier.<a href="#section-3.9.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="performance-and-efficiency">
@@ -1717,7 +1697,8 @@ when security posture may change after initial channel establishment.<a href="#s
 An application service instance (e.g., AI agent) or confidential computing
 environment (which could host an AI agent) maintains a (D)TLS connection with
 a peer and must execute a high-impact action (e.g., payment initiation,
-configuration change, privileged command).<a href="#section-4.4-2" class="pilcrow">¶</a></p>
+configuration change, privileged command).
+See <span>[<a href="#I-D.jiang-seat-dynamic-attestation" class="cite xref">I-D.jiang-seat-dynamic-attestation</a>]</span> for details.<a href="#section-4.4-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.4-3.1">
             <p id="section-4.4-3.1.1">Requirement 1: Before executing a high-impact operation over the existing
@@ -1753,10 +1734,10 @@ cryptographic module, and that the module is operating in an expected
 security configuration at the time the TLS connection is established.<a href="#section-4.5-2" class="pilcrow">¶</a></p>
 <p id="section-4.5-3">Remote attestation is used to provide Evidence about the cryptographic module
 where the private key used for TLS authentication is stored. The Evidence may
-include claims about the security properties of the cryptographic module.
+include claims about the security goals of the cryptographic module.
 To prevent replay attacks, this Evidence has to be fresh and tied to the
 current TLS connection. Replayed Evidence could otherwise be used to falsely
-assert key protection properties that no longer hold.<a href="#section-4.5-3" class="pilcrow">¶</a></p>
+assert key security goals that no longer hold.<a href="#section-4.5-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.5-4.1">
             <p id="section-4.5-4.1.1">Requirement: The Attester must be able to produce Evidence that demonstrates
@@ -1776,7 +1757,7 @@ element,<a href="#section-4.5-4.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="section-4.5-5">The Relying Party uses this Evidence, potentially with the assistance of a
-Verifier, to determine whether the key protection properties satisfy its local
+Verifier, to determine whether the key security goals satisfy its local
 security policy.<a href="#section-4.5-5" class="pilcrow">¶</a></p>
 <p id="section-4.5-6">The approach described in <span>[<a href="#I-D.draft-ietf-rats-pkix-key-attestation" class="cite xref">I-D.draft-ietf-rats-pkix-key-attestation</a>]</span> addresses this
 use case partially by providing attestation of the cryptographic module and associated
@@ -1835,40 +1816,7 @@ attested TLS connection to perform the migration over.<a href="#section-4.6-3.2.
       <h2 id="name-security-considerations">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-5-1">This document describes use cases and integration properties. The security of
-any protocol designed to fulfill these properties will depend on its specific
-mechanisms. However, any solution must address the following high-level
-considerations:<a href="#section-5-1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-5-2.1">
-          <p id="section-5-2.1.1">Replay and Relay Protection: The requirements for cryptographic binding and
-freshness are critical. Failure to bind attestation credentials tightly to the
-current connection would allow an adversary to replay or relay old or stolen, yet
-valid credentials from a compromised system, completely undermining the
-security goals.<a href="#section-5-2.1.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="section-5-2.2">
-          <p id="section-5-2.2.1">Verifier Trust and Privacy: In the Background Check model, the Relying Party
-communicates with a Verifier. This reveals to the Verifier that the Relying
-Party is communicating with the Attester. Depending on the scenario, this
-could leak sensitive information about business relationships or user
-activity. Solutions should consider mechanisms to minimize the data revealed
-to the Verifier.<a href="#section-5-2.2.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="section-5-2.3">
-          <p id="section-5-2.3.1">Downgrade Attacks: The negotiation of attestation capabilities must be secure.
-An active attacker must not be able to trick two parties that both support
-attestation into negotiating a connection without it.<a href="#section-5-2.3.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="section-5-2.4">
-          <p id="section-5-2.4.1">Evidence Semantics: This document does not define attestation appraisal
-policies. However, a Relying Party must be careful when interpreting
-Attestation Results. A "valid" attestation only means the Evidence is
-authentic and correctly signed; it does not automatically mean the underlying
-system is "secure". The Relying Party must have a clear policy for what
-measurements, software versions, and security configurations are acceptable.<a href="#section-5-2.4.1" class="pilcrow">¶</a></p>
-</li>
-      </ul>
+<p id="section-5-1">This whole document is about security.<a href="#section-5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
@@ -1907,7 +1855,7 @@ measurements, software versions, and security configurations are acceptable.<a h
 <dd class="break"></dd>
 <dt id="I-D.draft-ietf-rats-pkix-key-attestation">[I-D.draft-ietf-rats-pkix-key-attestation]</dt>
       <dd>
-<span class="refAuthor">Ounsworth, M.</span>, <span class="refAuthor">Fiset, J.</span>, <span class="refAuthor">Tschofenig, H.</span>, <span class="refAuthor">Birkholz, H.</span>, <span class="refAuthor">Wiseman, M.</span>, and <span class="refAuthor">N. Smith</span>, <span class="refTitle">"Evidence Encoding for Hardware Security Modules"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-rats-pkix-key-attestation-05</span>, <time datetime="2026-03-17" class="refDate">17 March 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-pkix-key-attestation-05">https://datatracker.ietf.org/doc/html/draft-ietf-rats-pkix-key-attestation-05</a>&gt;</span>. </dd>
+<span class="refAuthor">Fiset, J.</span>, <span class="refAuthor">Ounsworth, M.</span>, <span class="refAuthor">Tschofenig, H.</span>, <span class="refAuthor">Birkholz, H.</span>, <span class="refAuthor">Wiseman, M.</span>, and <span class="refAuthor">N. Smith</span>, <span class="refTitle">"Evidence Encoding for Hardware Security Modules"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-rats-pkix-key-attestation-07</span>, <time datetime="2026-07-05" class="refDate">5 July 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-pkix-key-attestation-07">https://datatracker.ietf.org/doc/html/draft-ietf-rats-pkix-key-attestation-07</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-tls-rfc8446bis">[I-D.ietf-tls-rfc8446bis]</dt>
       <dd>
@@ -1915,15 +1863,11 @@ measurements, software versions, and security configurations are acceptable.<a h
 <dd class="break"></dd>
 <dt id="I-D.ietf-tls-rfc9147bis">[I-D.ietf-tls-rfc9147bis]</dt>
       <dd>
-<span class="refAuthor">Rescorla, E.</span>, <span class="refAuthor">Tschofenig, H.</span>, and <span class="refAuthor">N. Modadugu</span>, <span class="refTitle">"The Datagram Transport Layer Security (DTLS) Protocol Version 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-rfc9147bis-01</span>, <time datetime="2025-10-20" class="refDate">20 October 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc9147bis-01">https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc9147bis-01</a>&gt;</span>. </dd>
+<span class="refAuthor">Rescorla, E.</span>, <span class="refAuthor">Tschofenig, H.</span>, and <span class="refAuthor">N. Modadugu</span>, <span class="refTitle">"The Datagram Transport Layer Security (DTLS) Protocol Version 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-rfc9147bis-02</span>, <time datetime="2026-07-06" class="refDate">6 July 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc9147bis-02">https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc9147bis-02</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="I-D.sardar-rats-sec-cons">[I-D.sardar-rats-sec-cons]</dt>
+<dt id="I-D.jiang-seat-dynamic-attestation">[I-D.jiang-seat-dynamic-attestation]</dt>
       <dd>
-<span class="refAuthor">Sardar, M. U.</span>, <span class="refTitle">"Guidelines for Security Considerations of RATS"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-sardar-rats-sec-cons-03</span>, <time datetime="2026-04-29" class="refDate">29 April 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-sardar-rats-sec-cons-03">https://datatracker.ietf.org/doc/html/draft-sardar-rats-sec-cons-03</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="I-D.usama-seat-intra-vs-post">[I-D.usama-seat-intra-vs-post]</dt>
-      <dd>
-<span class="refAuthor">Sardar, M. U.</span>, <span class="refTitle">"Pre-, Intra- and Post-handshake Attestation"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-usama-seat-intra-vs-post-03</span>, <time datetime="2026-01-22" class="refDate">22 January 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-usama-seat-intra-vs-post-03">https://datatracker.ietf.org/doc/html/draft-usama-seat-intra-vs-post-03</a>&gt;</span>. </dd>
+<span class="refAuthor">Jiang, Y.</span> and <span class="refAuthor">Wangdonghui</span>, <span class="refTitle">"Dynamic Attestation for AI Agent Communication"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-jiang-seat-dynamic-attestation-00</span>, <time datetime="2025-11-13" class="refDate">13 November 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-jiang-seat-dynamic-attestation-00">https://datatracker.ietf.org/doc/html/draft-jiang-seat-dynamic-attestation-00</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="ID-Crisis">[ID-Crisis]</dt>
       <dd>
@@ -1949,59 +1893,21 @@ measurements, software versions, and security configurations are acceptable.<a h
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="appendix-A-1">TODO<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-1">We would like to thank Muhammad Usama Sardar, Thomas Fossati, Tirumaleswar Reddy, Yuning Jiang, and Meiling Chen for their work on establishing this document and getting it adopted.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-2">We would like to thank Eric Rescorla for his detailed review.<a href="#appendix-A-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
 <section id="appendix-B">
-      <h2 id="name-authors-addresses">
-<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
+      <h2 id="name-authors-address">
+<a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
       </h2>
 <address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Ionuț Mihalcea</span></div>
+        <div dir="auto" class="left"><span class="fn nameRole">Ionuț Mihalcea (<span class="role">editor</span>)</span></div>
 <div dir="auto" class="left"><span class="org">Arm</span></div>
 <div class="email">
 <span>Email:</span>
 <a href="mailto:ionut.mihalcea@arm.com" class="email">ionut.mihalcea@arm.com</a>
-</div>
-</address>
-<address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Muhammad Usama Sardar</span></div>
-<div dir="auto" class="left"><span class="org">TU Dresden</span></div>
-<div class="email">
-<span>Email:</span>
-<a href="mailto:muhammad_usama.sardar@tu-dresden.de" class="email">muhammad_usama.sardar@tu-dresden.de</a>
-</div>
-</address>
-<address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Thomas Fossati</span></div>
-<div dir="auto" class="left"><span class="org">Linaro</span></div>
-<div class="email">
-<span>Email:</span>
-<a href="mailto:thomas.fossati@linaro.org" class="email">thomas.fossati@linaro.org</a>
-</div>
-</address>
-<address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Tirumaleswar Reddy</span></div>
-<div dir="auto" class="left"><span class="org">Nokia</span></div>
-<div class="email">
-<span>Email:</span>
-<a href="mailto:kondtir@gmail.com" class="email">kondtir@gmail.com</a>
-</div>
-</address>
-<address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Yuning Jiang</span></div>
-<div class="email">
-<span>Email:</span>
-<a href="mailto:jiangyuning2@h-partners.com" class="email">jiangyuning2@h-partners.com</a>
-</div>
-</address>
-<address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Meiling Chen</span></div>
-<div dir="auto" class="left"><span class="org">China Mobile</span></div>
-<div class="email">
-<span>Email:</span>
-<a href="mailto:chenmeiling@chinamobile.com" class="email">chenmeiling@chinamobile.com</a>
 </div>
 </address>
 </section>
