@@ -1,7 +1,7 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-07-14T02:51:39.660425+00:00",
-  "repo": "tls-attestation/use-cases-and-properties",
+  "timestamp": "2026-07-19T03:22:25.625032+00:00",
+  "repo": "ietf-wg-seat/draft-ietf-seat-use-cases",
   "labels": [
     {
       "name": "bug",
@@ -84,10 +84,10 @@
       "number": 3,
       "id": "I_kwDOP_9tTM7T0Smo",
       "title": "Add GitHub repo link in draft",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/3",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/3",
       "state": "OPEN",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [
         "admin/non-technical"
@@ -99,7 +99,7 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Added in \"additional resources\" of draft. But also add in draft itself.",
           "createdAt": "2026-05-05T17:12:21Z",
           "updatedAt": "2026-05-05T17:12:21Z"
@@ -110,7 +110,7 @@
       "number": 4,
       "id": "I_kwDOP_9tTM7T1aV0",
       "title": "Confidential Data Collaboration, specifically SMPC",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/4",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/4",
       "state": "CLOSED",
       "author": "yaronf",
       "authorAssociation": "NONE",
@@ -125,7 +125,7 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> This is not an ideal use case (certainly should not appear as the first one) \n\nWould reversing the order of first two use cases address this? \n\n> SMPC, when deployed correctly, should not be vulnerable to active attackers, i.e. it should provide \"malicious security\" and not just \"semi honest security\".\n\nCould you explain? The protocol is indeed being designed to protect against active attackers. I don't see why this is particularly a problem with SMPC.",
           "createdAt": "2025-11-30T15:04:14Z",
           "updatedAt": "2025-11-30T15:04:14Z"
@@ -139,14 +139,14 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Agree with reordering. Single party should be before multi-party. Done in my local copy.\n\n> SMPC is hard to implement, and there's usually no motivation to add the complexity of attestation on top of that, because you're getting the desired security guarantees from the cryptography.\n\nI think there is confusion here between SPMC used in cryptography vs. multiple parties communicating securely (MPC). We intended to mean the latter.",
           "createdAt": "2025-11-30T16:11:02Z",
           "updatedAt": "2025-11-30T16:11:02Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Closing issue, as discussed in meeting.",
           "createdAt": "2026-05-11T08:33:00Z",
           "updatedAt": "2026-05-11T08:33:00Z"
@@ -157,7 +157,7 @@
       "number": 5,
       "id": "I_kwDOP_9tTM7T1aWR",
       "title": "High-Assurance Command Execution",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/5",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/5",
       "state": "CLOSED",
       "author": "yaronf",
       "authorAssociation": "NONE",
@@ -172,7 +172,7 @@
       "comments": [
         {
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "Yeah, I agree with that. Do you reckon we should just drop those use-cases?",
           "createdAt": "2026-01-14T23:04:38Z",
           "updatedAt": "2026-01-14T23:04:38Z"
@@ -186,7 +186,7 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Closing issue, as discussed in meeting.",
           "createdAt": "2026-05-11T08:33:50Z",
           "updatedAt": "2026-05-11T08:33:50Z"
@@ -197,7 +197,7 @@
       "number": 6,
       "id": "I_kwDOP_9tTM7T1aWv",
       "title": "Use Cases vs. Properties",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/6",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/6",
       "state": "CLOSED",
       "author": "yaronf",
       "authorAssociation": "NONE",
@@ -210,14 +210,14 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Sure, I believe properties are much more useful than high-level use cases.",
           "createdAt": "2025-11-30T15:07:47Z",
           "updatedAt": "2025-11-30T15:07:47Z"
         },
         {
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "> I believe properties are much more useful than high-level use cases.\n\nFunnily enough, the charter only asks for a use-cases document.\n\nAgree that there's no explicit connection between the two - the only logical connection is that both use-cases and properties are meant to be generic over the solutions produced by the WG.",
           "createdAt": "2025-12-01T10:49:17Z",
           "updatedAt": "2025-12-01T10:49:17Z"
@@ -231,14 +231,14 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> Funnily enough, the charter only asks for a use-cases document.\n\nBut in AD's interpretation, I don't think it actually means just \"use cases\" per se. \n\n> From a reader's perspective, it is strange to read a document where properties are disconnected from use cases.\n\nAgree, we will add that glue.",
           "createdAt": "2025-12-01T13:07:03Z",
           "updatedAt": "2025-12-01T13:07:03Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Addressed in -02",
           "createdAt": "2026-05-09T12:44:28Z",
           "updatedAt": "2026-05-09T12:44:28Z"
@@ -249,7 +249,7 @@
       "number": 7,
       "id": "I_kwDOP_9tTM7T1aXI",
       "title": "Valid but Old",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/7",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/7",
       "state": "CLOSED",
       "author": "yaronf",
       "authorAssociation": "NONE",
@@ -262,7 +262,7 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Are you proposing this?\n> attacks where an attacker presents valid Evidence from a different connection or context",
           "createdAt": "2025-11-30T15:11:27Z",
           "updatedAt": "2025-11-30T15:11:27Z"
@@ -276,7 +276,7 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Yes, clocks in TEEs are untrustworthy. \nClosing this issue. ",
           "createdAt": "2025-11-30T16:03:50Z",
           "updatedAt": "2025-11-30T16:03:50Z"
@@ -287,7 +287,7 @@
       "number": 8,
       "id": "I_kwDOP_9tTM7T1aXb",
       "title": "Binding to Machine Identifier",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/8",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/8",
       "state": "OPEN",
       "author": "yaronf",
       "authorAssociation": "NONE",
@@ -303,21 +303,21 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> References to slides are frowned upon.\n\nUnfortunately, we could not manage to complete the pre-print for the formal analysis work until the cutoff. The link will be replaced by that in the future.",
           "createdAt": "2025-10-27T20:24:15Z",
           "updatedAt": "2025-10-27T20:24:15Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Clarified in https://mailarchive.ietf.org/arch/msg/seat/HzEf7V5KGHhM8htlQ0p9ACXQ_4g/",
           "createdAt": "2026-05-05T18:52:55Z",
           "updatedAt": "2026-05-05T18:52:55Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "and in case you missed, [follow-up](https://github.com/tls-attestation/use-cases-and-properties/pull/37#issuecomment-4273176972) was requesting you to make your case more convincingly. ",
           "createdAt": "2026-05-05T18:58:54Z",
           "updatedAt": "2026-05-05T18:58:54Z"
@@ -328,7 +328,7 @@
       "number": 9,
       "id": "I_kwDOP_9tTM7T1aXu",
       "title": "Attestation Credential Freshness",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/9",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/9",
       "state": "CLOSED",
       "author": "yaronf",
       "authorAssociation": "NONE",
@@ -341,7 +341,7 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "The pre-print (to be finalized this week) provides the formal reasoning behind this. We can add a reference to that. ",
           "createdAt": "2025-10-27T20:29:49Z",
           "updatedAt": "2025-10-27T20:29:49Z"
@@ -355,7 +355,7 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Addressed in #43 ",
           "createdAt": "2026-05-09T12:48:57Z",
           "updatedAt": "2026-05-09T12:48:57Z"
@@ -366,7 +366,7 @@
       "number": 10,
       "id": "I_kwDOP_9tTM7T1aX9",
       "title": "Negotiation and Capability Discovery: Fallback",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/10",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/10",
       "state": "OPEN",
       "author": "yaronf",
       "authorAssociation": "NONE",
@@ -379,7 +379,7 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Do you have a pointer to one concrete security issue?",
           "createdAt": "2025-10-27T20:36:43Z",
           "updatedAt": "2025-10-27T20:36:43Z"
@@ -393,7 +393,7 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> More recent:\n\nCould you share the source of this table?",
           "createdAt": "2025-10-28T14:33:44Z",
           "updatedAt": "2025-10-28T14:33:44Z"
@@ -407,7 +407,7 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "ChatGPT often hallucinates :) and maybe this is the case here. I think graceful fallback here is referring to standard TLS 1.3. ",
           "createdAt": "2025-11-30T15:27:58Z",
           "updatedAt": "2025-11-30T15:27:58Z"
@@ -421,7 +421,7 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> clarify where fallback [...] does not result in huge security issues.\n\nPlease clarify where fallback results in huge security issues. Explain a concrete scenario.",
           "createdAt": "2026-05-09T12:59:09Z",
           "updatedAt": "2026-05-09T12:59:09Z"
@@ -432,7 +432,7 @@
       "number": 11,
       "id": "I_kwDOP_9tTM7T1aYa",
       "title": "Negotiation and Capability Discovery: Formats",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/11",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/11",
       "state": "OPEN",
       "author": "yaronf",
       "authorAssociation": "NONE",
@@ -445,7 +445,7 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Preference here is not to define concrete solutions like CMW in this doc. ",
           "createdAt": "2025-11-30T15:30:01Z",
           "updatedAt": "2025-11-30T15:30:01Z"
@@ -463,7 +463,7 @@
       "number": 12,
       "id": "I_kwDOP_9tTM7T1aYw",
       "title": "Privacy Preservation",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/12",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/12",
       "state": "CLOSED",
       "author": "yaronf",
       "authorAssociation": "NONE",
@@ -478,7 +478,7 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Closing issue, as discussed in meeting.",
           "createdAt": "2026-05-11T08:34:12Z",
           "updatedAt": "2026-05-11T08:34:12Z"
@@ -489,7 +489,7 @@
       "number": 13,
       "id": "I_kwDOP_9tTM7T1adh",
       "title": "Security Considerations",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/13",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/13",
       "state": "CLOSED",
       "author": "yaronf",
       "authorAssociation": "NONE",
@@ -508,10 +508,10 @@
       "number": 14,
       "id": "I_kwDOP_9tTM7XmQEt",
       "title": "How do we do secure channel to RA binding?",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/14",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/14",
       "state": "CLOSED",
       "author": "ionut-arm",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [
         "Interim"
@@ -523,56 +523,56 @@
       "comments": [
         {
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "In our draft, the attestation evidence or attestation results are carried inside the Certificate message. The CertificateVerify signature also covers the Handshake Context defined in RFC 9261, which is derived from exporter-secret\u2013based values taken from the TLS session. This means the signature is bound both to the webPKI certificate and to the TLS session in which the authenticator is generated. Only the entity that holds the private key corresponding to the webPKI certificate and that has access to the exporter-secret of the session can produce a valid CertificateVerify.\n\nHowever, the binding described above does not by itself prevent a server from obtaining attestation evidence from a different TEE and presenting it as its own. A malicious server that legitimately holds the webPKI  certificate private key and controls the TLS session can export the session-specific exporter values and forward them to a remote TEE, which can in turn produce attestation evidence that verifies correctly inside the Certificate message. To ensure that the attestation evidence originates from the same environment that holds the certificate private key, the attestation evidence will have to include the public key of the webPKI certificate used in the Certificate message, together with claims that the corresponding private key is generated and protected within the TEE. ",
           "createdAt": "2025-11-14T13:39:44Z",
           "updatedAt": "2025-11-14T13:39:44Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> Is TLS to RA crypto binding needed?\n\nYes, as the formal analysis has shown, it is critical to avoid relay attacks. That's why it was explicitly stated in the [charter](https://datatracker.ietf.org/wg/seat/about/): \n\n> A Standards Track document defining an attested (D)TLS protocol extension supporting remote peer and mutual attestation **bound** to the (D)TLS connection.\n\n> This effort will be restricted to leveraging the (D)TLS 1.3 protocol\nand an attestation **binding** to a (D)TLS 1.3 connection. \n\n> The attested D(TLS) protocol extension will also describe a minimum\nsubset of properties that the attested state must convey in order\nto **bind** the Evidence and Attestation Results to the TLS connection.",
           "createdAt": "2025-11-17T22:12:41Z",
           "updatedAt": "2025-11-17T22:12:41Z"
         },
         {
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "@tireddy2 :\n\n> A malicious server that legitimately holds the webPKI certificate private key and controls the TLS session can export the session-specific exporter values and forward them to a remote TEE, which can in turn produce attestation evidence that verifies correctly inside the Certificate message.\n\nI don't think that's feasible, because attestation evidence coming from that TEE would show that it accepts the exporter on some interface and just uses that to produce attestation evidence. Instead, the TEE measurements should point to a TLS stack that generates evidence for its own use _only_ through internal means. Basically, the measurements should _never_ get accepted if the TEE can just receive the exporter from some other machine, and just includes that in its attestation evidence. Perhaps this is another property that we need to make explicit.\n\n> the attestation evidence will have to include the public key of the webPKI certificate used in the Certificate message, together with claims that the corresponding private key is generated and protected within the TEE.\n\nI think if the property above holds (evidence contains an exporter value, and can never be generated through some externally-driven mechanism), then this part isn't strictly needed. Am I missing some context here, though?\n\n@muhammad-usama-sardar :\n\n> That's why it was explicitly stated in the [charter](https://datatracker.ietf.org/wg/seat/about/):\n\nSure! I guess we have the \"easy\" task of defining what it means / how it should be achieved now. Unfortunately \"binding\", or even \"cryptographic binding\" is quite loose as a concept, so we need to be aligned.\n",
           "createdAt": "2025-11-18T15:21:13Z",
           "updatedAt": "2025-11-18T15:21:13Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> Sure! I guess we have the \"easy\" task of defining what it means / how it should be achieved now. Unfortunately \"binding\", or even \"cryptographic binding\" is quite loose as a concept, so we need to be aligned.\n\nStill, in light of the charter, the title of this issue is misleading at best. Please update it to something more appropriate.\n\nAnd from your response, I am very confused. In the email pointing to this issue, you said that the purpose of this draft is not to go into specifics of TLS, and the comment above is implying towards that.",
           "createdAt": "2025-11-18T16:33:51Z",
           "updatedAt": "2025-11-18T16:33:51Z"
         },
         {
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "> Still, in light of the charter, the title of this issue is misleading at best. Please update it to something more appropriate.\n\nThanks, done.\n\n> In the email pointing to this issue, you said that the purpose of this draft is not to go into specifics of TLS, and the comment above is implying towards that.\n\nYeah, it's a bit difficult to balance this, because it's hard to discuss about how binding should be done or what it means without having an example where we can compare different approaches. Basically, we want the property to be more generic, but to explain and understand it better it makes more sense to discuss concrete examples.",
           "createdAt": "2025-11-18T17:06:57Z",
           "updatedAt": "2025-11-18T17:06:57Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> Do we need this property? To us it seems critical, but maybe we're mistaken.\n\n[Same arguments](https://github.com/tls-attestation/use-cases-and-properties/issues/14#issuecomment-3544058676) apply here as well. Please remove it.",
           "createdAt": "2025-11-21T15:42:55Z",
           "updatedAt": "2025-11-21T15:42:55Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> Bind the AC to the attester's webPKI cert ...\n> Bind the webPKI cert to the (unique) attesting platform. ...\n\nWhy do you think these two options fulfill the charter requirements mentioned [here](https://github.com/tls-attestation/use-cases-and-properties/issues/14#issuecomment-3544058676)?",
           "createdAt": "2025-11-22T18:10:04Z",
           "updatedAt": "2025-11-22T18:10:04Z"
         },
         {
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "> Please remove it.\n\nDone.\n\n> Why do you think these two options fulfill the charter requirements mentioned here?\n\nBecause the charter doesn't explicitly state how the binding is achieved - it doesn't say it has to be through exported material. If the attestation credential is cryptographically bound to the TLS credential (let's say, the public part of the identity key), and that credential is used to sign the handshake transcript, I'd call that cryptographic binding.",
           "createdAt": "2025-11-28T14:25:37Z",
           "updatedAt": "2025-11-28T14:25:37Z"
@@ -586,21 +586,21 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> Because the charter doesn't explicitly state how the binding is achieved - it doesn't say it has to be through exported material. If the attestation credential is cryptographically bound to the TLS credential (let's say, the public part of the identity key), and that credential is used to sign the handshake transcript, I'd call that cryptographic binding.\n\nI disagree. Please draw and share a complete protocol diagram.\nMany use cases require runtime posture assessment. How do you do that?",
           "createdAt": "2025-12-01T08:18:50Z",
           "updatedAt": "2025-12-01T08:18:50Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> I guess we have the \"easy\" task of defining what it means / how it should be achieved now. Unfortunately \"binding\", or even \"cryptographic binding\" is quite loose as a concept, so we need to be aligned.\n\nThat's wrong. See [RFC5056](https://www.rfc-editor.org/rfc/rfc5056.html) and [RFC9266](https://www.rfc-editor.org/rfc/rfc9266.html). ",
           "createdAt": "2026-01-03T21:53:12Z",
           "updatedAt": "2026-01-03T21:53:12Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Addressed in https://www.ietf.org/archive/id/draft-mihalcea-seat-use-cases-02.html#section-1.3-2. \n\n> The \"how\" part is discussed in the companion document [[I-D.usama-seat-intra-vs-post](https://www.ietf.org/archive/id/draft-mihalcea-seat-use-cases-02.html#I-D.usama-seat-intra-vs-post)], which serves as the glue between this document and the protocol specifications.",
           "createdAt": "2026-05-09T12:32:36Z",
           "updatedAt": "2026-05-09T12:32:36Z"
@@ -611,10 +611,10 @@
       "number": 15,
       "id": "I_kwDOP_9tTM7YuLLc",
       "title": "Add a new operation-triggered use case of attested TLS",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/15",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/15",
       "state": "CLOSED",
       "author": "Yuning-J",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "Hi,\n\nI propose the following operation-triggered use case of attested TLS, to be added into your existing use case draft [here](https://datatracker.ietf.org/doc/draft-mihalcea-seat-use-cases/):\n\n----------------------------------------------------\n3.4. Operation-Triggered Attestation for High-Impact Application Operations\n\nGoal: Ensure the integrity of application services at operation time, when security posture may change after initial channel establishment.\n\nUse case: High-Assurance Operation Execution in Dynamic Application Services: An application service instance (e.g., AI agent) or confidential computing environment (which could host an AI agent) maintains a (D)TLS connection with a peer and must execute a high-impact action (e.g., payment initiation, configuration change, privileged command).\n\nRequirement 1: Before executing a high-impact operation over the existing connection, the peer must presents fresh, connection-bound attestation evidence reflecting the current behavior-affecting posture (e.g., enabled capabilities, policy configuration, runtime permissions). \n\nRequirement 2: The mechanism SHOULD support lightweight, dynamic attestation within the existing connection, without necessarily requiring a full new TLS handshake, so that behavior-affecting posture changes are visible to relying parties when required by local policy.\n\n----------------------------------------------------\n\nAny comment and feedback are welcome to refine the descriptions.\n\n/Yuning",
@@ -624,14 +624,14 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Thanks @Yuning-J. I've moved this to PR #16. For any further changes, please make comments there.",
           "createdAt": "2025-11-18T09:09:18Z",
           "updatedAt": "2025-11-18T09:09:18Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Addressed and merged #16 ",
           "createdAt": "2025-11-30T14:59:10Z",
           "updatedAt": "2025-11-30T14:59:10Z"
@@ -642,10 +642,10 @@
       "number": 17,
       "id": "I_kwDOP_9tTM7aoR8I",
       "title": "Paul's proposal of intra-handshake attestation",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/17",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/17",
       "state": "CLOSED",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [
         "tireddy2"
       ],
@@ -659,21 +659,21 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Based on meeting: (Attendees: Ionut, Thomas, Tiru, Yuning, Carsten, Usama, Yaron, Meiling Chen)\n\nTiru: No attested CSR solution does that. Point to RATS draft \nTiru: How is Attester proving to Verifier that the private key is stored in the key vault? How does Verifier know that it is actually stored in TEE?\n- Thomas: ad hoc appraisal on verifier side\n\nUsama: Could someone convert it to a protocol diagram that I can verify?\n",
           "createdAt": "2025-12-01T10:19:37Z",
           "updatedAt": "2025-12-01T10:32:08Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Based on meeting: (Attendees: Meiling, Tiru, Usama, Yuning)\n\n@ionut-arm can you make a protocol diagram for this? ",
           "createdAt": "2025-12-15T09:05:33Z",
           "updatedAt": "2025-12-15T09:05:33Z"
         },
         {
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "The solution to address the attack does not require to modify the end-entity certificates, for instance see https://datatracker.ietf.org/doc/draft-reddy-rats-key-binding/",
           "createdAt": "2026-04-27T10:23:45Z",
           "updatedAt": "2026-04-27T10:23:45Z"
@@ -684,10 +684,10 @@
       "number": 20,
       "id": "I_kwDOP_9tTM7bX39J",
       "title": "Add use-cases diagrams",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/20",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/20",
       "state": "OPEN",
       "author": "ionut-arm",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [
         "ionut-arm"
       ],
@@ -704,10 +704,10 @@
       "number": 21,
       "id": "I_kwDOP_9tTM7c3a74",
       "title": "Reference for use cases",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/21",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/21",
       "state": "OPEN",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [
         "enhancement"
@@ -719,14 +719,14 @@
       "comments": [
         {
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "By reference do you mean an example of where it's implemented or used in industry (right now)? Trying to figure out if #24 is a dupe of this.",
           "createdAt": "2026-01-16T11:13:18Z",
           "updatedAt": "2026-01-16T11:13:18Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Well, @tireddy2 can tell what was his original idea.\n\nMy PoV: Not necessarily, it could also be a pointer to existing spec. Something which shows that the use case is real and has some need, and not just made up.",
           "createdAt": "2026-01-16T12:39:47Z",
           "updatedAt": "2026-01-16T12:39:47Z"
@@ -737,10 +737,10 @@
       "number": 23,
       "id": "I_kwDOP_9tTM7gRRoj",
       "title": "Analyze the role of attester/RP in each use case",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/23",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/23",
       "state": "OPEN",
       "author": "Yuning-J",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "NONE",
       "assignees": [
         "Yuning-J"
       ],
@@ -754,21 +754,21 @@
       "comments": [
         {
           "author": "Yuning-J",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "body": "Building on the attester role mapping I shared above (client/server/mutual across the use cases), I've extended the analysis to consider whether each scenario is best addressed via **intra-handshake** (e.g., one-time verification at connection establishment), **post-handshake** (e.g., dynamic/fresh evidence over existing sessions without renegotiation), or a hybrid. This is inferred from the use cases' emphasis on timing, freshness, and dynamics (e.g., runtime checks or phased processes).\n\nNot all use cases fit neatly into one category, some prioritize efficiency at setup (intra), while others need runtime updates (post). \n\nA fuller mapping is below for discussion:\n\n| Use Case | Best Approach | Reasoning |\n|----------|---------------|-----------|\n| 3.1.1 Runtime Secret Provisioning | Hybrid (intra + post) | One-time attestation during initial setup, but could benefit from post for ongoing or refreshed secret management in long sessions. |\n| 3.1.2 High-Assurance Command Execution | Post-handshake | Requires fresh evidence over potentially long-lived connections; avoids renegotiation for efficiency. |\n| 3.2.1 Data Clean Rooms | Hybrid (intra + post) | Focus on pre-data-sharing verification, intra suffices for setup; post enables re-checks in long sessions or ongoing data flows. |\n| 3.2.2 Secure Multi-Party Computation (MPC) | Intra-handshake | Mutual setup-phase attestation; no explicit runtime elements. |\n| 3.3.1 Attestation of Network Functions | Intra-handshake | Tied to joining/onboarding; one-time baseline check. |\n| 3.3.2 Securing Control and Management Planes | Intra-handshake | Verification at connection time to the management interface; initial trust focus. |\n| 3.4.1 High-Assurance Operation Execution in Dynamic Application Services | Post-handshake | Explicit need for lightweight, dynamic attestation without full handshakes for posture changes. |\n| 3.5.1 Integrity Attestation During Software/Firmware Upgrade Deployment | Hybrid (intra + post) | Initial baseline via intra; continuous pre/during/post verification benefits from post-handshake freshness. |\n\nI'd appreciate input from the use case authors on this intra/post mapping\u2014does it align with your scenarios? Any adjustments, or should we add explicit guidance in the draft on preferred mechanisms per use case?\n\nThanks!  \nYuning",
           "createdAt": "2026-01-11T04:20:59Z",
           "updatedAt": "2026-01-11T04:20:59Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "I like the approach but there are factual errors in this table, as pointed [here](https://mailarchive.ietf.org/arch/msg/seat/-hrVLla9pyWGrcTxzBvNkf6MfBY/). As the expat draft mentions, you should do post-handshake attestation round immediately after the handshake. Moreover, all use cases are covered by post-handshake attestation by doing a one-time attestation round just after handshake, as Microsoft, Google and SCONE are using it in all cases. \n\nMoreover, criteria for \"Best\" needs to be discussed. Seems to be making a lot of assumptions. Security seems completely ignored.",
           "createdAt": "2026-01-12T11:34:01Z",
           "updatedAt": "2026-01-15T20:01:50Z"
         },
         {
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "Hi @Yuning-J !\n\nA few notes on the role analysis:\n\n> 3.1.2.Use case: High-Assurance Command Execution\n\nI think I'd agree with @yaronf on this one (#5), it felt a bit weird to begin with. The issue I see is that a compromised system doesn't really need an admin to send a command for it to do Bad Things \u2122\ufe0f , it can just do them, unless it needs some secret or sensitive value to begin with. This would turn the \"high-assurance command execution\" framing into another \"secret provisioning\" use-case, just that the secret provider is now the TLS client. Thoughts?\n\n> 3.2.1.Use case: Data Clean Rooms. --> Require: Both (mutual attestation). Could clarify if mutual is always required?\n> Reasoning: Data providers (TLS clients) and consumers (TLS server) must each verify that a shared confidential workload runs authorized code in a secure TEE before sharing or processing data.\n\nFor this use-case I had understood both data providers and consumers as TLS clients, with the clean room surfacing API endpoints for either of them. But this isn't really coming from some idiomatic pattern for structuring these deployments.\nI don't know if \"mutual attestation\" would be needed here, since I don't think there's much of a reason for the data clean room to attest either providers or clients.\n\n> 3.3.1.Use case: Attestation of Network Functions. --> Require: Both (mutual attestation)?\n> Reasoning: The use case describes device integrity verification by the orchestrator, implying device as client/attester. However, in some management flows (e.g., orchestrator-initiated connections), roles might switch or require mutual attestation.\n\nCan you expand on that need for mutual attestation here, I'm not sure I follow?\nI do wonder whether this would be better understood as \"client wishing to use network functions attesting their platform\"?\n\nRegarding intra/post/hybrid classification, I'm not entirely sure. It depends on details that I'm not familiar with, regarding how the connections for these operations are set up, how long they stay up etc. I've just raised #24 which would help me (and probably others in the community) make better sense of how we reached these conclusions!\n",
           "createdAt": "2026-01-16T11:10:54Z",
           "updatedAt": "2026-01-16T11:10:54Z"
@@ -782,7 +782,7 @@
         },
         {
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "Indeed, I think the \"intra-\" / \"post-\" / \"hybrid\" framing isn't the best option here. Trying to think how to convey what the requirement is while maintaining the point of the observations.\n\nThe first idea was to label when the attestation is (first) needed, with regards to the establishment of the secure channel (i.e., do we need to attest before any data is sent over the channel, or is it only needed at specific times before you send over some sensitive data?). However, that would not cover the (lightweight?) \"reattestation\" point of view, which is equally important.",
           "createdAt": "2026-01-19T15:33:17Z",
           "updatedAt": "2026-01-19T15:33:41Z"
@@ -793,10 +793,10 @@
       "number": 24,
       "id": "I_kwDOP_9tTM7jyIsU",
       "title": "Add examples to use-cases",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/24",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/24",
       "state": "OPEN",
       "author": "ionut-arm",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [
         "enhancement"
@@ -808,7 +808,7 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "wherever possible, possibly a duplicate of #21 ",
           "createdAt": "2026-04-20T08:27:39Z",
           "updatedAt": "2026-04-20T08:28:36Z"
@@ -819,10 +819,10 @@
       "number": 25,
       "id": "I_kwDOP_9tTM7jyLT7",
       "title": "Workload migration use-case",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/25",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/25",
       "state": "OPEN",
       "author": "ionut-arm",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [
         "ionut-arm"
       ],
@@ -836,7 +836,7 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Recheck and close if addressed.",
           "createdAt": "2026-04-20T08:26:14Z",
           "updatedAt": "2026-04-20T08:26:14Z"
@@ -847,10 +847,10 @@
       "number": 27,
       "id": "I_kwDOP_9tTM7kH10x",
       "title": "AI Governance and Accountability Protocol (AIGA)",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/27",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/27",
       "state": "CLOSED",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [
         "muhammad-usama-sardar"
       ],
@@ -865,10 +865,10 @@
       "number": 29,
       "id": "I_kwDOP_9tTM7xEePd",
       "title": "Use cases sample",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/29",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/29",
       "state": "OPEN",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [
         "enhancement"
@@ -883,10 +883,10 @@
       "number": 31,
       "id": "I_kwDOP_9tTM74jBWk",
       "title": "Terminology",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/31",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/31",
       "state": "CLOSED",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [
         "muhammad-usama-sardar"
       ],
@@ -898,7 +898,7 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Addressed in #39 ",
           "createdAt": "2026-04-27T08:20:11Z",
           "updatedAt": "2026-04-27T08:20:11Z"
@@ -909,10 +909,10 @@
       "number": 32,
       "id": "I_kwDOP_9tTM74jNMN",
       "title": "Review ID-crisis related text",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/32",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/32",
       "state": "CLOSED",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [
         "muhammad-usama-sardar"
       ],
@@ -924,7 +924,7 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Discussed in meeting:\n\nRA-only: is freshness also not RA-only? We have to convey freshness. We have to convey machine ID as well.\nShort-lived connection with HTTP: \n- Why is re-attestation required?\n- Why is freshness required?\nClaims are fresh OR there is freshness nonce.\n",
           "createdAt": "2026-04-20T08:23:48Z",
           "updatedAt": "2026-04-20T08:23:48Z"
@@ -935,10 +935,10 @@
       "number": 36,
       "id": "I_kwDOP_9tTM7-oAiJ",
       "title": "Yaron's feedback",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/36",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/36",
       "state": "CLOSED",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [
         "muhammad-usama-sardar"
       ],
@@ -950,7 +950,7 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Response https://mailarchive.ietf.org/arch/msg/seat/OB6ERG-aiY1xpxJEVY7xmVu2v_U/",
           "createdAt": "2026-04-16T19:59:43Z",
           "updatedAt": "2026-04-16T19:59:43Z"
@@ -961,10 +961,10 @@
       "number": 38,
       "id": "I_kwDOP_9tTM7_kI4i",
       "title": "Add authors and contributors in tls-attestation organization",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/38",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/38",
       "state": "OPEN",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [
         "yaronf",
         "thomas-fossati",
@@ -984,10 +984,10 @@
       "number": 42,
       "id": "I_kwDOP_9tTM8AAAABA6mo8Q",
       "title": "IoT Question",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/42",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/42",
       "state": "CLOSED",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [
         "muhammad-usama-sardar"
       ],
@@ -1002,7 +1002,7 @@
       "number": 47,
       "id": "I_kwDOP_9tTM8AAAABB3Ga-Q",
       "title": "Out of scope document cited as companion draft",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/47",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/47",
       "state": "CLOSED",
       "author": "telephonicrobotics",
       "authorAssociation": "NONE",
@@ -1020,7 +1020,7 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "If you read literally, then \"properties\" are out of scope too. ",
           "createdAt": "2026-05-12T06:49:29Z",
           "updatedAt": "2026-05-12T06:49:29Z"
@@ -1034,7 +1034,7 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Thank you. We will discuss it in the meeting.",
           "createdAt": "2026-05-12T15:45:12Z",
           "updatedAt": "2026-05-12T15:45:12Z"
@@ -1048,7 +1048,7 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "\nSome facts about the PR #37 on which concerns have been raised:\n\n1. It was proposed by me as author and approved by 2 other co-authors (Tiru and Ionut). So three authors agree to it.\n2. No other author objected to it for several weeks.\n3. Yaron confirmed he is okay with the changes modulo a point unrelated to this concern [[ref](https://github.com/tls-attestation/use-cases-and-properties/pull/37#pullrequestreview-4127427296)].\n4. It was discussed in our informal gathering on 20.04. which was attended by the following WG participants:\n`Carsten, Ionut, Moosa, Rafiq, Tiru, Usama`\n5. It was then quickly revisited in our informal gathering on 27.04. which was attended by the following WG participants:\n`Carsten, Moosa, Rafiq, Tiru, Usama`\n6. It was brought on the list at least three times, where there was no objection for several weeks: \n- https://mailarchive.ietf.org/arch/msg/seat/TZrGa8dWI6Ymw11h8qCv0lu-EKY/\n- https://mailarchive.ietf.org/arch/msg/seat/0NyTv6YDAYsl_KPWaqicpBs6oGQ/\n- https://mailarchive.ietf.org/arch/msg/seat/hqu7WvHrHfmfu5z6WDLnetcyiX4/\n7. The reference was intentionally informative rather than normative. The cited draft mostly captures the statements of the WG participants together with links. This is intended to bridge the gap towards solutions.\n\n---\n\nAs mentioned already, we will discuss it in the meeting.",
           "createdAt": "2026-05-13T22:05:02Z",
           "updatedAt": "2026-05-13T22:05:02Z"
@@ -1066,7 +1066,7 @@
       "number": 49,
       "id": "I_kwDOP_9tTM8AAAABCKAAgg",
       "title": "Add uses-cases and properties addressing RA and proxy interactions",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/49",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/49",
       "state": "OPEN",
       "author": "telephonicrobotics",
       "authorAssociation": "NONE",
@@ -1082,10 +1082,10 @@
       "number": 52,
       "id": "I_kwDOP_9tTM8AAAABCgd9xQ",
       "title": "Ekr review of -02",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/52",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/52",
       "state": "OPEN",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [
         "PR submitted"
@@ -1097,7 +1097,7 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Clarifications [here](https://mailarchive.ietf.org/arch/msg/seat/r7TDFXi2MEJA1zLrfp6hMXk_vkc/)",
           "createdAt": "2026-05-20T11:14:11Z",
           "updatedAt": "2026-05-20T11:14:11Z"
@@ -1108,10 +1108,10 @@
       "number": 54,
       "id": "I_kwDOP_9tTM8AAAABCkUX4A",
       "title": "Define credentials",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/issues/54",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/54",
       "state": "OPEN",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Define credentials in terminology section",
@@ -1126,7 +1126,7 @@
       "number": 1,
       "id": "PR_kwDOP_9tTM6tdQ-K",
       "title": "update CODEOWNERS",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/1",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/1",
       "state": "MERGED",
       "author": "thomas-fossati",
       "authorAssociation": "CONTRIBUTOR",
@@ -1135,10 +1135,10 @@
       "body": "Add Usama and Thomas to the CODEOWNERS\r\n\r\nThis should make it easier for any of us to submit via the release button.",
       "createdAt": "2025-10-13T12:46:59Z",
       "updatedAt": "2025-10-13T14:28:16Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "60b0b83275daf225d204523527912b2bb8536756",
-      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "headRefName": "codeownerz",
       "headRefOid": "d94b5bf3f22f480b35bcc08ac8d35ce7404003cb",
       "closedAt": "2025-10-13T14:28:12Z",
@@ -1155,7 +1155,7 @@
             "abbreviatedOid": "d94b5bf"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2025-10-13T14:05:52Z",
@@ -1168,7 +1168,7 @@
       "number": 2,
       "id": "PR_kwDOP_9tTM6tiKkV",
       "title": "Binding property + minor terminology update",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/2",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/2",
       "state": "MERGED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "CONTRIBUTOR",
@@ -1177,7 +1177,7 @@
       "body": "s/session/connection",
       "createdAt": "2025-10-13T20:19:34Z",
       "updatedAt": "2025-10-19T17:34:22Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "080e68a1f8ee3ff7d4a416091fe00952073286b7",
       "headRepository": "muhammad-usama-sardar/use-cases-and-properties",
@@ -1257,7 +1257,7 @@
             "abbreviatedOid": "e25abe7"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-10-14T09:12:14Z",
@@ -1297,7 +1297,7 @@
             "abbreviatedOid": "48b4eb7"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-10-14T09:36:03Z",
@@ -1337,7 +1337,7 @@
             "abbreviatedOid": "48b4eb7"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-10-14T09:52:54Z",
@@ -1377,7 +1377,7 @@
             "abbreviatedOid": "48b4eb7"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-10-14T10:13:45Z",
@@ -1477,7 +1477,7 @@
             "abbreviatedOid": "48b4eb7"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-10-14T12:54:16Z",
@@ -1537,7 +1537,7 @@
             "abbreviatedOid": "f238c49"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-10-15T09:13:54Z",
@@ -1657,7 +1657,7 @@
             "abbreviatedOid": "f238c49"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-10-15T13:52:46Z",
@@ -1730,7 +1730,7 @@
             "abbreviatedOid": "f238c49"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-10-19T17:34:00Z",
@@ -1750,19 +1750,19 @@
       "number": 16,
       "id": "PR_kwDOP_9tTM60DK-I",
       "title": "AI agent use case by Yuning: issue #15",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/16",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/16",
       "state": "MERGED",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Just relaying the text from Yuning in issue #15\r\n\r\nSummary of changes in Yuning's text: \r\n- Replaced normative SHOULD by should (I think informative doc cannot have normative SHOULD) \r\n- Applied some formatting (such as line breaks) for readability\r\n- Added Yuning as co-author",
       "createdAt": "2025-11-18T09:06:40Z",
       "updatedAt": "2025-12-01T02:21:14Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "95ebd4c911c22cf2f732561fdde4b1f2de15b81a",
-      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "headRefName": "ai-agent",
       "headRefOid": "bdf6cae198a63eb5cbf5a74ba5e652f7152a4eab",
       "closedAt": "2025-11-30T14:58:19Z",
@@ -1774,7 +1774,7 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Thanks very much once again @Yuning-J. Ready to merge from my side. ",
           "createdAt": "2025-11-30T14:54:54Z",
           "updatedAt": "2025-11-30T14:54:54Z"
@@ -1787,7 +1787,7 @@
             "abbreviatedOid": "4c092bc"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "some questions need to be clarified before merging.",
           "createdAt": "2025-11-21T15:59:01Z",
@@ -1819,7 +1819,7 @@
             "abbreviatedOid": "17d6556"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "more questions",
           "createdAt": "2025-11-22T21:14:48Z",
@@ -1845,7 +1845,7 @@
             "abbreviatedOid": "17d6556"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-24T09:03:48Z",
@@ -1865,7 +1865,7 @@
             "abbreviatedOid": "4c092bc"
           },
           "author": "Yuning-J",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-28T08:27:30Z",
@@ -1885,7 +1885,7 @@
             "abbreviatedOid": "4c092bc"
           },
           "author": "Yuning-J",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-28T08:28:33Z",
@@ -1905,7 +1905,7 @@
             "abbreviatedOid": "17d6556"
           },
           "author": "Yuning-J",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-28T08:28:52Z",
@@ -1925,7 +1925,7 @@
             "abbreviatedOid": "17d6556"
           },
           "author": "Yuning-J",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-28T08:38:51Z",
@@ -1945,7 +1945,7 @@
             "abbreviatedOid": "17d6556"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "Thanks for the use-case! Left a couple of comments, but overall it sounds like a good addition to me already.",
           "createdAt": "2025-11-28T14:36:02Z",
@@ -1971,7 +1971,7 @@
             "abbreviatedOid": "17d6556"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-28T14:46:12Z",
@@ -1991,7 +1991,7 @@
             "abbreviatedOid": "17d6556"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-28T14:46:28Z",
@@ -2011,7 +2011,7 @@
             "abbreviatedOid": "17d6556"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-28T14:48:21Z",
@@ -2031,7 +2031,7 @@
             "abbreviatedOid": "17d6556"
           },
           "author": "Yuning-J",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-29T02:32:41Z",
@@ -2051,7 +2051,7 @@
             "abbreviatedOid": "17d6556"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-29T20:39:51Z",
@@ -2071,7 +2071,7 @@
             "abbreviatedOid": "17d6556"
           },
           "author": "Yuning-J",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-30T10:29:05Z",
@@ -2091,7 +2091,7 @@
             "abbreviatedOid": "17d6556"
           },
           "author": "Yuning-J",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-30T10:53:09Z",
@@ -2111,7 +2111,7 @@
             "abbreviatedOid": "4c092bc"
           },
           "author": "Yuning-J",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-30T11:21:18Z",
@@ -2131,7 +2131,7 @@
             "abbreviatedOid": "17d6556"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-30T14:26:30Z",
@@ -2151,7 +2151,7 @@
             "abbreviatedOid": "17d6556"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-30T14:29:38Z",
@@ -2171,7 +2171,7 @@
             "abbreviatedOid": "17d6556"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-30T14:51:38Z",
@@ -2191,7 +2191,7 @@
             "abbreviatedOid": "17d6556"
           },
           "author": "Yuning-J",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-12-01T02:21:14Z",
@@ -2211,19 +2211,19 @@
       "number": 18,
       "id": "PR_kwDOP_9tTM62RpZw",
       "title": "#4, #12 and Use case by Meiling Chen",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/18",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/18",
       "state": "MERGED",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "- #4 Reordering first two use cases  \r\n- #12 phrase as requirement \r\n- Relaying the text from Chen Meiling with small formatting changes",
       "createdAt": "2025-12-01T07:34:34Z",
       "updatedAt": "2025-12-22T08:42:08Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "4cf46b26ed00e502eec0895b2b448c7bda9d685f",
-      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "headRefName": "ai-agent",
       "headRefOid": "cd00c0a3caefcfa5f5917c8087ea889a35e0dddd",
       "closedAt": "2025-12-22T08:42:08Z",
@@ -2235,7 +2235,7 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "No one objected on the list since last meeting. So based on our agreement in last meeting, we are merging it.",
           "createdAt": "2025-12-22T08:42:04Z",
           "updatedAt": "2025-12-22T08:42:04Z"
@@ -2248,7 +2248,7 @@
             "abbreviatedOid": "a4c986d"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-12-01T09:28:41Z",
@@ -2268,7 +2268,7 @@
             "abbreviatedOid": "fa0cea7"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-12-01T12:29:55Z",
@@ -2288,7 +2288,7 @@
             "abbreviatedOid": "cd00c0a"
           },
           "author": "Yuning-J",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2025-12-22T08:39:59Z",
@@ -2301,16 +2301,16 @@
       "number": 19,
       "id": "PR_kwDOP_9tTM62SXvT",
       "title": "Added a new section to discuss run-time attestation",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/19",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/19",
       "state": "MERGED",
       "author": "tireddy2",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-12-01T08:35:32Z",
       "updatedAt": "2025-12-02T04:50:55Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "4cf46b26ed00e502eec0895b2b448c7bda9d685f",
       "headRepository": "tireddy2/use-cases-and-properties",
@@ -2330,7 +2330,7 @@
             "abbreviatedOid": "02b4fd3"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "Could you also remove the property before yours (`Credential Lifecycle Management`) - that was intended to convey basically what you're proposing, just more succinctly. Your write-up is better, though!\r\n\r\nI also wonder whether there should be a mention somewhere that runtime attestation should be performant or lightweight.",
           "createdAt": "2025-12-01T09:50:38Z",
@@ -2356,7 +2356,7 @@
             "abbreviatedOid": "02b4fd3"
           },
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-12-01T14:01:56Z",
@@ -2376,7 +2376,7 @@
             "abbreviatedOid": "02b4fd3"
           },
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-12-01T14:03:15Z",
@@ -2396,7 +2396,7 @@
             "abbreviatedOid": "02b4fd3"
           },
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-12-01T14:04:27Z",
@@ -2416,7 +2416,7 @@
             "abbreviatedOid": "02b4fd3"
           },
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-12-01T14:13:45Z",
@@ -2436,7 +2436,7 @@
             "abbreviatedOid": "02b4fd3"
           },
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "LGTM.  I added a few edits to improve precision.\r\n\r\nI suggest we use the NLNS (new line, new sentence) convention rather than splitting the line at an arbitrary number of columns.\r\nIME, once a line is modified, this helps focusing on the semantic change rather than having to reconstruct the fragmented flow.",
           "createdAt": "2025-12-01T14:19:59Z",
@@ -2449,7 +2449,7 @@
             "abbreviatedOid": "ce507a1"
           },
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-12-01T14:29:04Z",
@@ -2469,7 +2469,7 @@
             "abbreviatedOid": "ce507a1"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-12-01T15:11:53Z",
@@ -2489,7 +2489,7 @@
             "abbreviatedOid": "ce507a1"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-12-02T04:50:29Z",
@@ -2509,19 +2509,19 @@
       "number": 22,
       "id": "PR_kwDOP_9tTM642xeo",
       "title": "New use case \"Attestation of Certificate Private Key\"",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/22",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/22",
       "state": "MERGED",
       "author": "tireddy2",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-12-15T07:34:22Z",
       "updatedAt": "2026-01-19T08:06:29Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "c935adf36ef0004667472e4393726d491af7947f",
-      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "headRefName": "tireddy2-patch-1",
       "headRefOid": "0b70554995bfa56761876841b876254d2a5d0138",
       "closedAt": "2026-01-19T08:06:29Z",
@@ -2533,7 +2533,7 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "@tireddy2 could you resolve the merge conflicts?",
           "createdAt": "2026-01-05T10:46:56Z",
           "updatedAt": "2026-01-05T10:46:56Z"
@@ -2546,7 +2546,7 @@
             "abbreviatedOid": "31f180f"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "CHANGES_REQUESTED",
           "body": "as discussed in the meeting today",
           "createdAt": "2026-01-12T09:08:43Z",
@@ -2572,7 +2572,7 @@
             "abbreviatedOid": "c7912d2"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "Thanks, looks good! Just one minor comment about the heading",
           "createdAt": "2026-01-16T11:44:27Z",
@@ -2592,7 +2592,7 @@
             "abbreviatedOid": "c7912d2"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-01-19T08:02:29Z",
@@ -2612,7 +2612,7 @@
             "abbreviatedOid": "31f180f"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-01-19T08:03:24Z",
@@ -2632,7 +2632,7 @@
             "abbreviatedOid": "31f180f"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-01-19T08:05:25Z",
@@ -2652,19 +2652,19 @@
       "number": 26,
       "id": "PR_kwDOP_9tTM69pZrs",
       "title": "Add migration use-case.",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/26",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/26",
       "state": "MERGED",
       "author": "ionut-arm",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2026-01-16T15:42:10Z",
       "updatedAt": "2026-01-19T14:09:12Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "c935adf36ef0004667472e4393726d491af7947f",
-      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "headRefName": "migration",
       "headRefOid": "1e5af69750134fc4f9b0e5dc82e2cbf6f1cc7531",
       "closedAt": "2026-01-19T14:09:05Z",
@@ -2681,7 +2681,7 @@
             "abbreviatedOid": "2944d53"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "Looks good to me. ",
           "createdAt": "2026-01-19T08:07:52Z",
@@ -2713,7 +2713,7 @@
             "abbreviatedOid": "2944d53"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-01-19T10:16:06Z",
@@ -2733,7 +2733,7 @@
             "abbreviatedOid": "6fb8381"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-01-19T10:48:48Z",
@@ -2753,7 +2753,7 @@
             "abbreviatedOid": "6fb8381"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-01-19T10:50:09Z",
@@ -2773,7 +2773,7 @@
             "abbreviatedOid": "6fb8381"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-01-19T10:51:34Z",
@@ -2793,7 +2793,7 @@
             "abbreviatedOid": "6fb8381"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-01-19T10:52:14Z",
@@ -2813,7 +2813,7 @@
             "abbreviatedOid": "6fb8381"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-01-19T11:06:38Z",
@@ -2833,7 +2833,7 @@
             "abbreviatedOid": "6fb8381"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-01-19T11:07:44Z",
@@ -2853,7 +2853,7 @@
             "abbreviatedOid": "6fb8381"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-01-19T11:32:20Z",
@@ -2873,7 +2873,7 @@
             "abbreviatedOid": "6fb8381"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-01-19T11:34:42Z",
@@ -2893,7 +2893,7 @@
             "abbreviatedOid": "2944d53"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-01-19T11:35:29Z",
@@ -2913,7 +2913,7 @@
             "abbreviatedOid": "6fb8381"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-01-19T11:36:43Z",
@@ -2933,7 +2933,7 @@
             "abbreviatedOid": "1e5af69"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-01-19T11:36:58Z",
@@ -2953,7 +2953,7 @@
             "abbreviatedOid": "6fb8381"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-01-19T11:40:15Z",
@@ -2973,7 +2973,7 @@
             "abbreviatedOid": "1e5af69"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "LGTM",
           "createdAt": "2026-01-19T12:36:03Z",
@@ -2986,19 +2986,19 @@
       "number": 28,
       "id": "PR_kwDOP_9tTM7HMMhE",
       "title": "Change use-cases to be IETF-centric",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/28",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/28",
       "state": "CLOSED",
       "author": "ionut-arm",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2026-03-01T22:41:14Z",
       "updatedAt": "2026-03-09T10:34:23Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "54a685fda22aaf6176dc6ce01509b5d2d9b64d26",
-      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "headRefName": "ietf-use-cases",
       "headRefOid": "52f4587bd56bd7572ddfdbe65d0be9560167dfc8",
       "closedAt": "2026-03-09T10:34:23Z",
@@ -3008,7 +3008,7 @@
       "comments": [
         {
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "As discussed, I'm closing this and will come back with an appropriate PR that blends the previous use-cases with the IETF-centric view of \"properties and requirements\"",
           "createdAt": "2026-03-09T10:34:23Z",
           "updatedAt": "2026-03-09T10:34:23Z"
@@ -3021,7 +3021,7 @@
             "abbreviatedOid": "102ad60"
           },
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "LGTM, thanks!\n\nI\u2019ve left an editorial comment inline.",
           "createdAt": "2026-03-02T09:53:03Z",
@@ -3041,7 +3041,7 @@
             "abbreviatedOid": "52f4587"
           },
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-03-02T12:27:11Z",
@@ -3054,7 +3054,7 @@
             "abbreviatedOid": "52f4587"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "CHANGES_REQUESTED",
           "body": "That's a lot of changes with only a few hours left in the cutoff and no discussion in the meetings. Let's discuss first before merging.",
           "createdAt": "2026-03-02T17:31:32Z",
@@ -3067,7 +3067,7 @@
             "abbreviatedOid": "52f4587"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "This PR needs more discussion. ",
           "createdAt": "2026-03-08T07:54:54Z",
@@ -3111,7 +3111,7 @@
             "abbreviatedOid": "52f4587"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-09T09:02:37Z",
@@ -3131,7 +3131,7 @@
             "abbreviatedOid": "52f4587"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-09T09:03:38Z",
@@ -3151,7 +3151,7 @@
             "abbreviatedOid": "52f4587"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-09T09:05:38Z",
@@ -3171,19 +3171,19 @@
       "number": 30,
       "id": "PR_kwDOP_9tTM7K9ukS",
       "title": "Respin draft around integration properties",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/30",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/30",
       "state": "CLOSED",
       "author": "ionut-arm",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Moving Integration Properties at the top.\r\nSeparating properties into generic and per-use-case. \r\nPolishing some of the properties to match our current understanding.\r\nReferencing required and generic properties for each use-case.",
       "createdAt": "2026-03-16T15:49:41Z",
       "updatedAt": "2026-04-26T21:55:16Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "54a685fda22aaf6176dc6ce01509b5d2d9b64d26",
-      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "headRefName": "properties-focus",
       "headRefOid": "a464b9affbc960defc15c1f7a9e779c8bd12bcaa",
       "closedAt": "2026-04-26T21:55:16Z",
@@ -3193,35 +3193,35 @@
       "comments": [
         {
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "Note: most properties have just been copied without any change, but some changes were made to a few: Integration with Authentication (dropped RA-only, renamed); Privacy Preservation (rewording); Cryptographic Binding to Machine Identifier (rewording).",
           "createdAt": "2026-03-16T15:51:47Z",
           "updatedAt": "2026-03-16T15:51:47Z"
         },
         {
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "One simple comment: if we are reflowing the body, we should adjust the abstract to reflect this.",
           "createdAt": "2026-03-16T17:15:08Z",
           "updatedAt": "2026-03-16T17:15:08Z"
         },
         {
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "> One simple comment: if we are reflowing the body, we should adjust the abstract to reflect this.\r\n\r\nGood point, I've updated the abstract too now!",
           "createdAt": "2026-03-16T17:32:31Z",
           "updatedAt": "2026-03-16T17:32:31Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Discussed in the meeting:\r\n\r\nRuntime attestation is clearly in all use cases. \r\nRevert it back to the older pattern, since not clarified why the two properties are use-cases dependent.\r\n\r\nCan do this in future if justified why these properties are use case dependent. ",
           "createdAt": "2026-04-13T08:19:23Z",
           "updatedAt": "2026-04-13T08:21:10Z"
         },
         {
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "Closing this, remaining issues will be addressed in other issues / PRs",
           "createdAt": "2026-04-26T21:55:16Z",
           "updatedAt": "2026-04-26T21:55:16Z"
@@ -3234,7 +3234,7 @@
             "abbreviatedOid": "906b8d3"
           },
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-16T17:29:29Z",
@@ -3278,7 +3278,7 @@
             "abbreviatedOid": "c8f50f1"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-16T22:35:53Z",
@@ -3322,7 +3322,7 @@
             "abbreviatedOid": "97c7715"
           },
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "Thanks very much for the changes!  LGTM.\n\nI've added a couple more comments inline.",
           "createdAt": "2026-03-17T12:20:54Z",
@@ -3348,7 +3348,7 @@
             "abbreviatedOid": "906b8d3"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-17T12:57:31Z",
@@ -3368,7 +3368,7 @@
             "abbreviatedOid": "97c7715"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "Thanks Ionut for driving the changes. ",
           "createdAt": "2026-03-17T13:01:48Z",
@@ -3430,7 +3430,7 @@
             "abbreviatedOid": "97c7715"
           },
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-17T13:29:02Z",
@@ -3450,7 +3450,7 @@
             "abbreviatedOid": "97c7715"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-20T10:22:32Z",
@@ -3524,7 +3524,7 @@
             "abbreviatedOid": "2b2deff"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-20T23:46:25Z",
@@ -3544,7 +3544,7 @@
             "abbreviatedOid": "2b2deff"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-20T23:47:04Z",
@@ -3564,7 +3564,7 @@
             "abbreviatedOid": "97c7715"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-21T07:58:09Z",
@@ -3584,7 +3584,7 @@
             "abbreviatedOid": "97c7715"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-21T08:01:05Z",
@@ -3604,7 +3604,7 @@
             "abbreviatedOid": "97c7715"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-21T08:17:32Z",
@@ -3624,7 +3624,7 @@
             "abbreviatedOid": "2b2deff"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-26T06:56:27Z",
@@ -3644,7 +3644,7 @@
             "abbreviatedOid": "2b2deff"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-26T15:55:15Z",
@@ -3664,7 +3664,7 @@
             "abbreviatedOid": "97c7715"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-26T15:59:58Z",
@@ -3684,7 +3684,7 @@
             "abbreviatedOid": "97c7715"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-26T16:03:26Z",
@@ -3704,7 +3704,7 @@
             "abbreviatedOid": "97c7715"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-26T16:06:34Z",
@@ -3724,7 +3724,7 @@
             "abbreviatedOid": "a464b9a"
           },
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-26T16:40:37Z",
@@ -3744,7 +3744,7 @@
             "abbreviatedOid": "97c7715"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-27T07:16:10Z",
@@ -3764,7 +3764,7 @@
             "abbreviatedOid": "97c7715"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-27T07:18:35Z",
@@ -3784,7 +3784,7 @@
             "abbreviatedOid": "2b2deff"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-27T07:21:35Z",
@@ -3804,7 +3804,7 @@
             "abbreviatedOid": "a464b9a"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "CHANGES_REQUESTED",
           "body": "Unfortunately, I don't see much value in generic vs. use-case dependent story. What is helpful is which properties are verifiable and which ones are not.",
           "createdAt": "2026-03-29T20:59:28Z",
@@ -3848,7 +3848,7 @@
             "abbreviatedOid": "a464b9a"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-03-30T11:39:49Z",
@@ -3868,7 +3868,7 @@
             "abbreviatedOid": "906b8d3"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-04-13T07:51:44Z",
@@ -3888,7 +3888,7 @@
             "abbreviatedOid": "97c7715"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-04-13T08:00:50Z",
@@ -3908,7 +3908,7 @@
             "abbreviatedOid": "97c7715"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-04-13T08:02:05Z",
@@ -3928,7 +3928,7 @@
             "abbreviatedOid": "2b2deff"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-04-13T08:17:51Z",
@@ -3948,7 +3948,7 @@
             "abbreviatedOid": "a464b9a"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-04-13T08:26:08Z",
@@ -3968,19 +3968,19 @@
       "number": 33,
       "id": "PR_kwDOP_9tTM7R_8wF",
       "title": "reorder props and use cases",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/33",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/33",
       "state": "MERGED",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "- only reordering without any changes\r\n- further changes in upcoming PR",
       "createdAt": "2026-04-13T13:53:16Z",
       "updatedAt": "2026-04-14T04:56:28Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "54a685fda22aaf6176dc6ce01509b5d2d9b64d26",
-      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "headRefName": "reorder",
       "headRefOid": "4a870fe4183be9290e31622d75353f78f82ee799",
       "closedAt": "2026-04-14T04:56:28Z",
@@ -3997,7 +3997,7 @@
             "abbreviatedOid": "4a870fe"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-04-14T04:56:21Z",
@@ -4010,19 +4010,19 @@
       "number": 34,
       "id": "PR_kwDOP_9tTM7SU2Cq",
       "title": "Update abstract for reordering and add ID-Crisis ref",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/34",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/34",
       "state": "MERGED",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "- update abstract for reordering \r\n- replace TLS slides by ID-Crisis ref",
       "createdAt": "2026-04-14T13:47:33Z",
       "updatedAt": "2026-04-15T07:40:01Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "506a28302530e28dcd06949271dc06f0374d78d9",
-      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "headRefName": "text-for-reordering",
       "headRefOid": "fdb1a12132e23a2ce74457e4ffd3e41401c502a1",
       "closedAt": "2026-04-15T07:40:01Z",
@@ -4039,7 +4039,7 @@
             "abbreviatedOid": "09b4729"
           },
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-04-14T13:57:50Z",
@@ -4059,7 +4059,7 @@
             "abbreviatedOid": "fdb1a12"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-04-15T07:39:42Z",
@@ -4072,10 +4072,10 @@
       "number": 35,
       "id": "PR_kwDOP_9tTM7SjzDG",
       "title": "Properties independent of TLS",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/35",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/35",
       "state": "MERGED",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [
         "muhammad-usama-sardar"
       ],
@@ -4083,10 +4083,10 @@
       "body": "- Properties independent of TLS\r\n- (D)TLS 1.3 as examples\r\n- Added refs for (D)TLS 1.3",
       "createdAt": "2026-04-15T08:05:40Z",
       "updatedAt": "2026-04-16T05:43:19Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "339c6ea9ce1f03d0c76bfbc264462a8d017f179e",
-      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "headRefName": "protocol-ind",
       "headRefOid": "e262c820bcfa34960c2a6aff44dbe7c938bd90a9",
       "closedAt": "2026-04-16T05:43:19Z",
@@ -4098,7 +4098,7 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "CC @burgerdev who requested it a while ago",
           "createdAt": "2026-04-15T08:19:33Z",
           "updatedAt": "2026-04-15T08:19:33Z"
@@ -4111,7 +4111,7 @@
             "abbreviatedOid": "7ac7a7f"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-04-15T08:58:03Z",
@@ -4155,7 +4155,7 @@
             "abbreviatedOid": "e262c82"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-04-15T09:45:54Z",
@@ -4168,19 +4168,19 @@
       "number": 37,
       "id": "PR_kwDOP_9tTM7TF0VZ",
       "title": "Addresses #36 (Yaron's feedback)",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/37",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/37",
       "state": "MERGED",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Addresses @yaronf's comments in #36 ",
       "createdAt": "2026-04-16T20:01:13Z",
       "updatedAt": "2026-05-11T09:56:52Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "3447396222b321101aa38938f53ce5b9aaa9823b",
-      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "headRefName": "yaron-comments",
       "headRefOid": "d907ac2bd6c6ff3a82eb8b96dbba48007af789ce",
       "closedAt": "2026-04-20T08:08:01Z",
@@ -4192,14 +4192,14 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> I'm OK with these changes. However I still disagree with requirement https://github.com/tls-attestation/use-cases-and-properties/pull/2.\r\n\r\n@tireddy2 @ionut-arm @thomas-fossati @Yuning-J Since @yaronf is ok with the changes, I propose to merge this PR and then discuss #2 separately in a new issue. This will help us proceed with other work while he frames his concern on #2 in more convincing way.",
           "createdAt": "2026-04-18T07:54:52Z",
           "updatedAt": "2026-04-18T07:54:52Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Merging as per discussion in meeting. See #2 afterwards as per above comment. ",
           "createdAt": "2026-04-20T08:07:50Z",
           "updatedAt": "2026-04-20T08:07:50Z"
@@ -4225,7 +4225,7 @@
             "abbreviatedOid": "692ff73"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-04-20T08:00:10Z",
@@ -4245,7 +4245,7 @@
             "abbreviatedOid": "692ff73"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "One nit; rest of the changes look good. ",
           "createdAt": "2026-04-20T08:00:56Z",
@@ -4258,7 +4258,7 @@
             "abbreviatedOid": "d907ac2"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-04-20T08:06:54Z",
@@ -4271,7 +4271,7 @@
             "abbreviatedOid": "d907ac2"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-04-20T08:07:23Z",
@@ -4304,19 +4304,19 @@
       "number": 39,
       "id": "PR_kwDOP_9tTM7VxGN5",
       "title": "intro and props",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/39",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/39",
       "state": "MERGED",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Updated introduction and properties:\r\n\r\n- Terminology consistent with the existing literature\r\n- Addresses #31 ",
       "createdAt": "2026-04-26T20:38:31Z",
       "updatedAt": "2026-04-27T08:19:51Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "206ec3837f0278f2d2f6c3697335ef9d6faeae9f",
-      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "headRefName": "formal",
       "headRefOid": "d71794d22565512897faf7321c63d0650132dfe5",
       "closedAt": "2026-04-27T08:19:51Z",
@@ -4328,7 +4328,7 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "CC @Maisy-ML",
           "createdAt": "2026-04-26T20:39:35Z",
           "updatedAt": "2026-04-26T20:39:35Z"
@@ -4341,7 +4341,7 @@
             "abbreviatedOid": "2f97031"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "CHANGES_REQUESTED",
           "body": "",
           "createdAt": "2026-04-26T22:02:23Z",
@@ -4373,7 +4373,7 @@
             "abbreviatedOid": "2f97031"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-04-27T07:18:11Z",
@@ -4393,7 +4393,7 @@
             "abbreviatedOid": "2f97031"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-04-27T07:19:11Z",
@@ -4413,7 +4413,7 @@
             "abbreviatedOid": "2f97031"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-04-27T07:19:43Z",
@@ -4433,7 +4433,7 @@
             "abbreviatedOid": "2f97031"
           },
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "CHANGES_REQUESTED",
           "body": "",
           "createdAt": "2026-04-27T06:59:40Z",
@@ -4495,7 +4495,7 @@
             "abbreviatedOid": "55908f6"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-04-27T07:38:08Z",
@@ -4515,7 +4515,7 @@
             "abbreviatedOid": "55908f6"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-04-27T07:48:17Z",
@@ -4535,7 +4535,7 @@
             "abbreviatedOid": "2f97031"
           },
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-04-27T08:15:27Z",
@@ -4555,7 +4555,7 @@
             "abbreviatedOid": "d71794d"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-04-27T08:19:06Z",
@@ -4568,19 +4568,19 @@
       "number": 40,
       "id": "PR_kwDOP_9tTM7V47Gp",
       "title": "RA and Attester's TCB",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/40",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/40",
       "state": "MERGED",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "as discussed in meeting today\r\n\r\nCC co-author @Maisy-ML ",
       "createdAt": "2026-04-27T08:48:36Z",
       "updatedAt": "2026-04-27T10:21:11Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "628746b85ff9e2b5628cbe1bd594e2cd57f746a4",
-      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "headRefName": "TCB",
       "headRefOid": "28d638a5817281207b6cc01762d54c4f9c3d8101",
       "closedAt": "2026-04-27T10:21:11Z",
@@ -4597,7 +4597,7 @@
             "abbreviatedOid": "893605e"
           },
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "LGTM, thanks",
           "createdAt": "2026-04-27T09:10:38Z",
@@ -4623,7 +4623,7 @@
             "abbreviatedOid": "28d638a"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-04-27T10:21:01Z",
@@ -4636,19 +4636,19 @@
       "number": 41,
       "id": "PR_kwDOP_9tTM7WWKe7",
       "title": "Use cases",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/41",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/41",
       "state": "MERGED",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "- Organized use cases\r\n- Some terminology update for clarity\r\n- Addresses #27 \r\n- Addresses #32 \r\n- Addresses #42 \r\n\r\nCC co-author @Maisy-ML\r\n",
       "createdAt": "2026-04-28T13:13:51Z",
       "updatedAt": "2026-05-04T10:30:50Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "c0980300bcfc85958f99dfb4aecafb9e8ad597d0",
-      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "headRefName": "use-cases",
       "headRefOid": "b9617c684984ddc7264d7769c1385b8912404a91",
       "closedAt": "2026-05-04T10:30:50Z",
@@ -4660,14 +4660,14 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Thanks, fixed. Please check and merge. ",
           "createdAt": "2026-05-04T10:02:56Z",
           "updatedAt": "2026-05-04T10:02:56Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Merging it based on discussion in meeting today and approval.",
           "createdAt": "2026-05-04T10:29:48Z",
           "updatedAt": "2026-05-04T10:29:48Z"
@@ -4680,7 +4680,7 @@
             "abbreviatedOid": "6eafe6e"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-04T07:33:54Z",
@@ -4700,7 +4700,7 @@
             "abbreviatedOid": "6eafe6e"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-04T08:25:26Z",
@@ -4720,7 +4720,7 @@
             "abbreviatedOid": "8844570"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-04T09:59:43Z",
@@ -4740,7 +4740,7 @@
             "abbreviatedOid": "8844570"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "Looks good with a Nit. ",
           "createdAt": "2026-05-04T09:59:55Z",
@@ -4753,10 +4753,10 @@
       "number": 43,
       "id": "PR_kwDOP_9tTM7Y8Pze",
       "title": "Clarification for Issue #8",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/43",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/43",
       "state": "OPEN",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [
         "ready-to-merge in meeting"
@@ -4764,10 +4764,10 @@
       "body": "Addresses #8 \r\n- Added def. of infrastructure provider\r\n- Added def. of diversion attack\r\n- dependency on deployment model etc.\r\n- state-of-the-art may not meet some properties\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-06T22:14:34Z",
       "updatedAt": "2026-06-14T22:35:10Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
-      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "headRefName": "machine-id",
       "headRefOid": "a41166a8741e245c527020fc7c531aa307631da7",
       "closedAt": null,
@@ -4777,7 +4777,7 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> Can you add text to the specific requirement (Sec. 3.3) to a similar effect: some real-life deployment architectures make this property impossible to meet.\r\n\r\nThat's a very strong statement. On similar lines, I am not aware of any architecture which allows the nonce to go all the way to the platform, hence my question: why only this specific property? If this property, then we need to revisit all other properties, like freshness.",
           "createdAt": "2026-05-07T12:48:56Z",
           "updatedAt": "2026-05-07T12:48:56Z"
@@ -4791,28 +4791,28 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Basically, what you are requesting seems like splitting hair to me. It is not clear to me how we will know **all** the deployment architectures to check against whether the properties hold in all or limited ones? Can you share the deployment architectures that you are aware of?",
           "createdAt": "2026-05-07T19:29:18Z",
           "updatedAt": "2026-05-07T19:29:18Z"
         },
         {
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "> lack of an exposed machine identifier is not a bug, it's an actual feature of the cloud architecture where the CSP does not expose the underlying physical details\r\n\r\nIndeed, even more specifically (and this is probably only one of the reasons), it's a security feature, as exposing it makes it easier for an attacker to determine if they're co-located with a potential victim.",
           "createdAt": "2026-05-08T12:51:26Z",
           "updatedAt": "2026-05-08T12:51:26Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> > lack of an exposed machine identifier is not a bug, it's an actual feature of the cloud architecture where the CSP does not expose the underlying physical details\r\n> \r\n> Indeed, even more specifically (and this is probably only one of the reasons), it's a security feature, as exposing it makes it easier for an attacker to determine if they're co-located with a potential victim.\r\n\r\nEvidence in any reasonably designed attested TLS is sent encrypted, so I don't really see the point you are trying to make.",
           "createdAt": "2026-05-08T12:55:11Z",
           "updatedAt": "2026-05-08T12:55:11Z"
         },
         {
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "> Evidence in any reasonably designed attested TLS is sent encrypted\r\n\r\nCorrect, is _sent to someone who's not the attester and might be an attacker_, encrypted.\r\n\r\n> I don't really see the point you are trying to make.\r\n\r\nI know :)",
           "createdAt": "2026-05-08T13:13:02Z",
           "updatedAt": "2026-05-08T13:13:02Z"
@@ -4826,7 +4826,7 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> > Evidence in any reasonably designed attested TLS is sent encrypted\r\n> \r\n> Correct, is _sent to someone who's not the attester and might be an attacker_, encrypted.\r\n\r\nCan you explain more? In particular, are you referring to MITM or simply a malicious party connecting to the same server?\r\nCan you explain the attack in more detail?",
           "createdAt": "2026-05-08T18:32:30Z",
           "updatedAt": "2026-05-08T18:32:30Z"
@@ -4840,14 +4840,14 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Discussed in meeting: ready to merge",
           "createdAt": "2026-05-11T08:26:48Z",
           "updatedAt": "2026-05-11T08:26:48Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> A few comments inline. \r\n\r\nUpdated, please check.\r\n> Overall, as mentioned on the list, I don\u2019t think the binding to the machine identifier should be expressed as a security requirement, but rather as a defence-in-depth approach that applies to certain scenarios.\r\n\r\nI think the detailed text justifies why it is a requirement as long as hardware vendors do not address side channels.",
           "createdAt": "2026-05-11T15:49:03Z",
           "updatedAt": "2026-05-11T15:49:03Z"
@@ -4861,35 +4861,35 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Discussed in meeting: @tireddy2 to look into it and provide further comments\r\nAttendees: Camilo, Carsten, Rafiq, Moosa, Tiru, Usama",
           "createdAt": "2026-05-18T08:18:35Z",
           "updatedAt": "2026-05-18T08:18:35Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Discussed in meeting: @tireddy2 to look into it and provide further comments\r\nAttendees: Camilo, Carsten, Rafiq, Moosa, Tiru, Usama\r\nTiru's main concern: RATS or SEAT: RATS has shown no interest so far in email thread.",
           "createdAt": "2026-06-01T07:52:09Z",
           "updatedAt": "2026-06-01T07:52:09Z"
         },
         {
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "This PR has been open for over a month, with no sign of it converging.\r\n\r\nI propose that we close it.",
           "createdAt": "2026-06-10T16:16:34Z",
           "updatedAt": "2026-06-10T16:16:34Z"
         },
         {
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "Similarly to #44 , I think this isn't SEAT-shaped and that's partly why we struggle to converge, as Thomas says. If RATS isn't a good place to deal with this issue, SEAT is even worse-suited for it.",
           "createdAt": "2026-06-14T22:02:01Z",
           "updatedAt": "2026-06-14T22:02:01Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Can you propose the minimal change that you both can live with?",
           "createdAt": "2026-06-14T22:35:09Z",
           "updatedAt": "2026-06-14T22:35:09Z"
@@ -4948,7 +4948,7 @@
             "abbreviatedOid": "b50619c"
           },
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-08T19:18:20Z",
@@ -4968,7 +4968,7 @@
             "abbreviatedOid": "b50619c"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-08T19:28:31Z",
@@ -5001,7 +5001,7 @@
             "abbreviatedOid": "b50619c"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-08T23:57:49Z",
@@ -5041,7 +5041,7 @@
             "abbreviatedOid": "b50619c"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-09T09:10:49Z",
@@ -5061,7 +5061,7 @@
             "abbreviatedOid": "b50619c"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-09T10:48:46Z",
@@ -5101,7 +5101,7 @@
             "abbreviatedOid": "b50619c"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-10T13:47:05Z",
@@ -5121,7 +5121,7 @@
             "abbreviatedOid": "1522f8b"
           },
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "A few comments inline.  Overall, as mentioned on the list, I don\u2019t think the binding to the machine identifier should be expressed as a security requirement, but rather as a defence-in-depth approach that applies to certain scenarios.",
           "createdAt": "2026-05-11T08:00:03Z",
@@ -5147,7 +5147,7 @@
             "abbreviatedOid": "1522f8b"
           },
           "author": "rafiq-m",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-05-11T08:28:48Z",
@@ -5160,7 +5160,7 @@
             "abbreviatedOid": "1522f8b"
           },
           "author": "Moosa-Razaa",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-05-11T08:31:56Z",
@@ -5173,7 +5173,7 @@
             "abbreviatedOid": "1522f8b"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-11T15:40:45Z",
@@ -5193,7 +5193,7 @@
             "abbreviatedOid": "1522f8b"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-11T15:42:53Z",
@@ -5265,7 +5265,7 @@
             "abbreviatedOid": "f68c4f7"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-14T11:25:26Z",
@@ -5285,7 +5285,7 @@
             "abbreviatedOid": "f68c4f7"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-14T11:26:05Z",
@@ -5305,7 +5305,7 @@
             "abbreviatedOid": "f68c4f7"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-14T12:13:39Z",
@@ -5325,7 +5325,7 @@
             "abbreviatedOid": "2d1aef9"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-14T20:42:33Z",
@@ -5345,7 +5345,7 @@
             "abbreviatedOid": "a41166a"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-14T21:04:42Z",
@@ -5365,7 +5365,7 @@
             "abbreviatedOid": "a41166a"
           },
           "author": "cayerbe",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "COMMENTED",
           "body": "+1 \u2014 the clarification on infrastructure-provider identifier and the\nacknowledgment of deployment-model dependence reads well.",
           "createdAt": "2026-05-17T11:41:51Z",
@@ -5378,7 +5378,7 @@
             "abbreviatedOid": "a41166a"
           },
           "author": "cayerbe",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-05-17T11:53:23Z",
@@ -5391,7 +5391,7 @@
             "abbreviatedOid": "a41166a"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-06-03T06:35:14Z",
@@ -5411,7 +5411,7 @@
             "abbreviatedOid": "a41166a"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-06-14T22:21:44Z",
@@ -5431,10 +5431,10 @@
       "number": 44,
       "id": "PR_kwDOP_9tTM7Z1QG6",
       "title": "New property: Target Environment's pub key",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/44",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/44",
       "state": "OPEN",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [
         "ready-to-merge in meeting"
@@ -5442,10 +5442,10 @@
       "body": "- Public key of Target Environment\r\n- Replication attacks\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-09T10:46:07Z",
       "updatedAt": "2026-06-14T21:48:46Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
-      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "headRefName": "pub-key",
       "headRefOid": "aec95c9ee57b85031e0b2da9235fd092587e595b",
       "closedAt": null,
@@ -5455,14 +5455,14 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "CC @telephonicrobotics",
           "createdAt": "2026-05-09T10:47:31Z",
           "updatedAt": "2026-05-09T10:47:31Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Discussed in meeting: ready to merge",
           "createdAt": "2026-05-11T08:04:10Z",
           "updatedAt": "2026-05-11T08:04:10Z"
@@ -5476,28 +5476,28 @@
         },
         {
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> Discussed in meeting: ready to merge\r\n\r\nThere are still outstanding comments.",
           "createdAt": "2026-05-11T08:25:55Z",
           "updatedAt": "2026-05-11T08:25:55Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": ">  I disagree this is ready to merge as-is.\r\n\r\nPlease share your technical objections.",
           "createdAt": "2026-05-11T09:07:01Z",
           "updatedAt": "2026-05-11T09:07:01Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> There are still outstanding comments.\r\n\r\nAll outstanding comments have been addressed.",
           "createdAt": "2026-05-12T06:40:06Z",
           "updatedAt": "2026-05-12T06:40:06Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> See nit inline. \r\n\r\nFixed.\r\n\r\n> Further, the example offered seems to greatly diminish the purpose of the property in context to the rest of the document. I propose the authors consider examples with more broadly applicable scope.\r\n\r\nConfidential computing is the prime industry that needs this work. If you have other references, please provide those references, so that we can discuss it and choose the most suitable one.\r\n\r\nAll outstanding comments have been addressed.",
           "createdAt": "2026-05-12T15:35:04Z",
           "updatedAt": "2026-05-12T15:35:04Z"
@@ -5518,7 +5518,7 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> Ultimately, it went in a different direction than I anticipated [...]\r\n\r\nGiven that binding to connection is in charter requirements, IMHO this is the only purpose that public key serves, as Markus also notes.\r\n\r\nI believe all comments so far have been addressed. We'll merge it after discussion in the meeting.",
           "createdAt": "2026-05-14T20:28:48Z",
           "updatedAt": "2026-05-14T20:28:48Z"
@@ -5532,7 +5532,7 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> > Given that binding to connection is in charter requirements, IMHO this is the only purpose that public key serves, as Markus also notes.\r\n> \r\n> @muhammad-usama-sardar: I think you misunderstood me, I did not say that the public key binds to the connection. In fact, isn't binding to the public key (instead of the session) the main enabler for the ID-crisis attack?\r\n\r\nMy statement was based on the assumption that if there is binding to the connection (which is required by charter, and hence absolutely necessary), what is the new thing that public key serves on top of that. That is, I was thinking on the lines: what are the attacks if binding to the connection is there but binding to the public key is not there? So I could think of replication attacks. Does that clarify? Do you agree?\r\n\r\nIn short, the public key surely does not bind to the connection.",
           "createdAt": "2026-05-17T17:38:12Z",
           "updatedAt": "2026-05-17T17:38:12Z"
@@ -5546,14 +5546,14 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Thanks for the clarification. \r\nAfter some reflection and closer look at key schedule: Please note that the application layer needs to put in Client's public key, since it is not part of exporters otherwise.",
           "createdAt": "2026-05-17T18:35:46Z",
           "updatedAt": "2026-05-18T10:25:41Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Discussed in meeting: @ionut-arm and @thomas-fossati to have a look at it. \r\nAttendees: Camilo, Carsten, Rafiq, Moosa, Tiru, Usama",
           "createdAt": "2026-05-18T08:02:57Z",
           "updatedAt": "2026-05-18T08:02:57Z"
@@ -5567,21 +5567,21 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Discussed in meeting: @tireddy2 needs time until next week to digest the attack vector in the paper. \r\nTiru's concern: Is the requirement only applicable without client authentication? Yes, as per SEAT charter. `with and without client TLS authentication to faciliate anonymous client attestation`\r\n\r\nWho issued the public key to the client?\r\nAttendees: Camilo, Carsten, Rafiq, Moosa, Tiru, Usama",
           "createdAt": "2026-06-01T07:54:50Z",
           "updatedAt": "2026-06-01T08:10:46Z"
         },
         {
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "Agree with Thomas. Point in case, the key binding draft is aimed at the RATS community. Maybe we need another short section in the draft that references these details that are tackled by other WGs and which are worth knowing for SEAT, but that's something to tackle further on.",
           "createdAt": "2026-06-14T21:32:22Z",
           "updatedAt": "2026-06-14T21:32:22Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> I'm not convinced that this is a use case worth discussing. \r\n\r\nAs the title of PR clearly says and the text is added in properties in the draft, it is a property and NOT a use case. \r\n\r\n> Point in case, the key binding draft is aimed at the RATS community. Maybe we need another short section in the draft that references these details that are tackled by other WGs and which are worth knowing for SEAT, but that's something to tackle further on.\r\n\r\nAs far as I see, it's sent to both [SEAT](https://mailarchive.ietf.org/arch/msg/seat/CRQO0yoNQX0SRizb_OxZ-yDHx5w/) and RATS. RATS has not yet taken any ownership of that draft. So I don't see why you presuming that RATS will actually take ownership. The key point is that it's an important property; whether RATS or SEAT take it, attacks are possible if it is not there. If RATS take it, it is an input for us. If they don't, we need to do something. Putting it in here should not hurt the draft.",
           "createdAt": "2026-06-14T21:48:45Z",
           "updatedAt": "2026-06-14T21:48:45Z"
@@ -5594,7 +5594,7 @@
             "abbreviatedOid": "9c21c71"
           },
           "author": "rafiq-m",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-05-11T08:29:36Z",
@@ -5607,7 +5607,7 @@
             "abbreviatedOid": "9c21c71"
           },
           "author": "Moosa-Razaa",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-05-11T08:31:42Z",
@@ -5653,7 +5653,7 @@
             "abbreviatedOid": "9c21c71"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-12T06:38:51Z",
@@ -5706,7 +5706,7 @@
             "abbreviatedOid": "384a074"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-12T15:29:15Z",
@@ -5746,7 +5746,7 @@
             "abbreviatedOid": "3f6086f"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-14T16:27:31Z",
@@ -5766,7 +5766,7 @@
             "abbreviatedOid": "aec95c9"
           },
           "author": "cayerbe",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "COMMENTED",
           "body": "+1 to adding this property.\n\nThe TRIP draft (draft-ayerbe-trip-protocol-04) exercises this property\ndirectly \u2014 Ed25519 actor identity keys serve as the bound Target\nEnvironment public key, in an actor-identity attestation context. This\nis distinct from \u00a73.3 (whether framed as machine identifier or, post-PR-#43,\nas infrastructure-provider identifier) because the actor isn't bound to\neither dimension. Addresses telephonicrobotics's earlier request for\nexamples beyond confidential computing.\n\nWill follow up with a concrete use case proposal soon.",
           "createdAt": "2026-05-17T11:45:03Z",
@@ -5779,7 +5779,7 @@
             "abbreviatedOid": "aec95c9"
           },
           "author": "cayerbe",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-05-17T11:52:56Z",
@@ -5792,7 +5792,7 @@
             "abbreviatedOid": "aec95c9"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-06-03T06:45:24Z",
@@ -5812,7 +5812,7 @@
             "abbreviatedOid": "aec95c9"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-06-09T10:14:37Z",
@@ -5832,7 +5832,7 @@
             "abbreviatedOid": "aec95c9"
           },
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "I'm not convinced that this is a use case worth discussing.  It seems too low-level to be of general interest.",
           "createdAt": "2026-06-10T14:59:50Z",
@@ -5845,10 +5845,10 @@
       "number": 45,
       "id": "PR_kwDOP_9tTM7Z3XJA",
       "title": "Fixes #13 Security Considerations",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/45",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/45",
       "state": "MERGED",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [
         "ready-to-merge in meeting"
@@ -5856,10 +5856,10 @@
       "body": "- Addresses #13 \r\n- Move security considerations text to relevant sections\r\n- s/properties/security goals (the former is more for formal)\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-09T15:19:08Z",
       "updatedAt": "2026-05-20T14:37:02Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
-      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "headRefName": "minor",
       "headRefOid": "f9c0b2216d42b470c57b7b7fb2fba77d401d8af7",
       "closedAt": "2026-05-20T14:37:02Z",
@@ -5871,35 +5871,35 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Discussed in meeting: ready to merge.",
           "createdAt": "2026-05-11T07:50:15Z",
           "updatedAt": "2026-05-11T07:50:15Z"
         },
         {
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> Discussed in meeting: ready to merge.\r\n\r\nThere are still outstanding comments.",
           "createdAt": "2026-05-11T08:25:29Z",
           "updatedAt": "2026-05-11T08:25:29Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> There are still outstanding comments.\r\n\r\nSure, happy to address those. Just a couple of clarifications:\r\n1. The PR just moved the text from security considerations to relevant sections, as per suggestion of #13.\r\n2. Your comments came after the discussion in the meeting. I'll check them and address them.",
           "createdAt": "2026-05-11T09:01:43Z",
           "updatedAt": "2026-05-11T09:01:43Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> There are still outstanding comments.\r\n\r\nAddressed all comments. Please check.",
           "createdAt": "2026-05-11T16:34:06Z",
           "updatedAt": "2026-05-11T16:34:06Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Discussed in meeting: ready to merge\r\nAttendees: Camilo, Carsten, Rafiq, Moosa, Tiru, Usama",
           "createdAt": "2026-05-18T07:52:34Z",
           "updatedAt": "2026-05-18T07:52:34Z"
@@ -5912,7 +5912,7 @@
             "abbreviatedOid": "616ac4e"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-10T11:04:26Z",
@@ -5932,7 +5932,7 @@
             "abbreviatedOid": "616ac4e"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-10T11:06:16Z",
@@ -5952,7 +5952,7 @@
             "abbreviatedOid": "616ac4e"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-10T11:11:12Z",
@@ -5972,7 +5972,7 @@
             "abbreviatedOid": "616ac4e"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "Proposed text for further updates. ",
           "createdAt": "2026-05-10T11:11:54Z",
@@ -5985,7 +5985,7 @@
             "abbreviatedOid": "616ac4e"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-10T11:44:47Z",
@@ -6005,7 +6005,7 @@
             "abbreviatedOid": "616ac4e"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-10T11:46:20Z",
@@ -6025,7 +6025,7 @@
             "abbreviatedOid": "616ac4e"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-10T11:47:19Z",
@@ -6045,7 +6045,7 @@
             "abbreviatedOid": "d6db5dc"
           },
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-11T07:43:25Z",
@@ -6083,7 +6083,7 @@
             "abbreviatedOid": "d6db5dc"
           },
           "author": "rafiq-m",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-05-11T08:29:21Z",
@@ -6096,7 +6096,7 @@
             "abbreviatedOid": "d6db5dc"
           },
           "author": "Moosa-Razaa",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-05-11T08:31:02Z",
@@ -6109,7 +6109,7 @@
             "abbreviatedOid": "d6db5dc"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-11T16:14:37Z",
@@ -6129,7 +6129,7 @@
             "abbreviatedOid": "d6db5dc"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-11T16:17:11Z",
@@ -6149,7 +6149,7 @@
             "abbreviatedOid": "d6db5dc"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-11T16:18:59Z",
@@ -6169,7 +6169,7 @@
             "abbreviatedOid": "2e2aa2f"
           },
           "author": "cayerbe",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "COMMENTED",
           "body": "+1 \u2014 the restructuring (security considerations moved inline to\nrelevant property sections, plus the s/properties/security goals\nterminology refinement) reads cleanly.",
           "createdAt": "2026-05-17T11:43:34Z",
@@ -6182,7 +6182,7 @@
             "abbreviatedOid": "2e2aa2f"
           },
           "author": "cayerbe",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-05-17T11:52:38Z",
@@ -6195,7 +6195,7 @@
             "abbreviatedOid": "2e2aa2f"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-18T07:42:26Z",
@@ -6215,7 +6215,7 @@
             "abbreviatedOid": "f9c0b22"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-05-18T07:50:33Z",
@@ -6228,10 +6228,10 @@
       "number": 46,
       "id": "PR_kwDOP_9tTM7aCLmw",
       "title": "ONLY FOR AUTHORS: Update Author order",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/46",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/46",
       "state": "CLOSED",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [
         "authors-personal"
@@ -6239,10 +6239,10 @@
       "body": "Hi team,\r\nI've been doing quite some work on the draft recently. I would like this to be reflected in the author order. Does this work for everyone?\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-10T19:01:46Z",
       "updatedAt": "2026-06-01T08:48:49Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
-      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "headRefName": "author-order",
       "headRefOid": "dd1af0626419ac994c85aad8fc5bdefa677eb6bf",
       "closedAt": "2026-06-01T08:48:49Z",
@@ -6252,21 +6252,21 @@
       "comments": [
         {
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "I am not sure what the goal of this change is. This is not an academic paper. The ordering \"rules\" that apply to typical peer-reviewed papers are completely meaningless in the context of an Internet-Draft.",
           "createdAt": "2026-05-11T07:37:43Z",
           "updatedAt": "2026-05-11T07:37:43Z"
         },
         {
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "Agree with Thomas, don't see the point, especially when this won't even be published.",
           "createdAt": "2026-05-11T08:27:09Z",
           "updatedAt": "2026-05-11T08:27:09Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> The ordering \"rules\" that apply to typical peer-reviewed papers are completely meaningless in the context of an Internet-Draft.\r\n\r\nWell, that also means there should not be any problem in changing the order, no? It helps me justify my time that I spend on this draft. \r\n\r\n> [...] this won't even be published\r\n\r\nFor me, it does not matter.",
           "createdAt": "2026-05-11T09:13:03Z",
           "updatedAt": "2026-05-11T09:13:03Z"
@@ -6294,14 +6294,14 @@
         },
         {
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> [...] the author who is placed first is responsible for the text editing (I might be wrong)\r\n\r\nHi Meiling, no, there is no such convention in IETF documents.  I have been the main editor, and sometimes the sole editor, of documents which listed me in a random position in the editors' roster.\r\n\r\nIn this case, since the pen is shared, it wouldn't even be possible to assign any meaningful and objective position in the roster based on the \u201ctext editing\" criterion :-)\r\n\r\nThis is a distraction.  Let\u2019s put this to one side and focus on making meaningful contributions to the document instead.",
           "createdAt": "2026-05-12T07:13:12Z",
           "updatedAt": "2026-05-12T07:13:12Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> Whether to change the order or not, it's all fine for me.\r\n\r\nAs I state above, it helps me justify my time spent on it. More details [here](https://mailarchive.ietf.org/arch/msg/seat/MPQGhaX0ed_GJ7Y1orpoUI9TfnY/).",
           "createdAt": "2026-05-12T07:30:24Z",
           "updatedAt": "2026-05-12T07:30:24Z"
@@ -6315,28 +6315,28 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> I maintain my opinion - rankings are meaningless.\r\n\r\nThat's exactly why I don't understand why someone will disagree.\r\n>  However, if I have to make a choice only regarding this PR, I choose to agree.\r\n\r\nThanks.\r\n\r\n> Of course, the prerequisite is that Lonut agrees to this.\r\n\r\nSure, my question \"Does this work for everyone?\" surely includes him. But I don't see why he would disagree. Assuming that the IETF has no rules on author ordering, then why not help me justify my time on it? He's apparently been quite busy with other works recently and not attending the meetings for a long time. As I said, we can always change the order later on when he is available to spend more time on the draft.",
           "createdAt": "2026-05-15T12:59:40Z",
           "updatedAt": "2026-05-15T12:59:40Z"
         },
         {
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "The problem here, as I view it (and in line with what Thomas said above), is that you're using the wrong mechanism to convey what you want to convey.\r\n\r\nThe author list is not defined by IETF/RFC guidance as a ranked contribution list. Its [stated purpose](https://mailarchive.ietf.org/arch/msg/rfc-interest/SHM7dHZd_S1a-CkW2JCBvxdKmcs/) is to identify who is responsible for the technical content of the document, based on active technical contribution to the text. Applying academic first-author/last-author conventions therefore imports semantics from another domain that the IETF/RFC guidance does not provide. If the intent is to recognize a specific kind or degree of contribution, the clearer and more IETF-natural approach is to state that explicitly in an acknowledgements or contributors section, rather than relying on implied meaning from author ordering.",
           "createdAt": "2026-05-15T13:42:20Z",
           "updatedAt": "2026-05-15T13:42:20Z"
         },
         {
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "If I understand correctly, you need to convince someone that you are the lead author of this document.\r\nHowever, as [I already stated upthread](https://github.com/tls-attestation/use-cases-and-properties/pull/46#issuecomment-4428173956), I disagree with your being characterised as the lead author:\r\n\r\n> _\"[...] In this case, since the pen is shared, it wouldn't even be possible to assign any meaningful and objective position in the roster based on the \u201ctext editing\u201d criterion\"_\r\n\r\nTherefore, I am simply not willing to be involved in fabricating information with which I disagree.",
           "createdAt": "2026-05-15T14:00:11Z",
           "updatedAt": "2026-05-15T14:00:11Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "TL;DR: If you are claiming that you have done more contributions than me, I am perfectly fine with it and I will simply close the PR without any further debate at all. But if you are saying something else, I still don't understand why you are unwilling to help me make the draft progress forward.\r\n\r\n\r\n> The author list is not defined by IETF/RFC guidance as a ranked contribution list. Its [stated purpose](https://mailarchive.ietf.org/arch/msg/rfc-interest/SHM7dHZd_S1a-CkW2JCBvxdKmcs/) is to identify who is responsible for the technical content of the document, based on active technical contribution to the text.\r\n\r\nMy reading is that it does not stop you from applying ranked contribution convention either. I have certainly seen author orders being changed stating this very reason. I can dig up the links too.\r\n\r\n",
           "createdAt": "2026-05-15T14:40:39Z",
           "updatedAt": "2026-05-15T14:40:39Z"
@@ -6350,7 +6350,7 @@
         },
         {
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "I agree with others that IETF has no ranked author ordering convention. ",
           "createdAt": "2026-05-21T14:09:32Z",
           "updatedAt": "2026-05-21T14:09:32Z"
@@ -6363,7 +6363,7 @@
             "abbreviatedOid": "dd1af06"
           },
           "author": "Moosa-Razaa",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-05-11T08:29:03Z",
@@ -6376,7 +6376,7 @@
       "number": 48,
       "id": "PR_kwDOP_9tTM7bNBsx",
       "title": "Add proxy-fronted and service-mesh attested secure channel use cases",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/48",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/48",
       "state": "OPEN",
       "author": "telephonicrobotics",
       "authorAssociation": "NONE",
@@ -6385,7 +6385,7 @@
       "body": "* Added proxy-fronted attested secure channel use case\r\n* Added service-mesh attestation use case\r\n* Covered TLS-terminating intermediaries: reverse proxies, API gateways, service meshes, WAFs, load balancers, and CDN edges\r\n* Distinguished intermediary-as-attested-endpoint from proxy-traversal-to-attested-origin\r\n* Generalized proxy use case from client-origin to endpoint-origin\r\n* Covered server attestation, client attestation, and mutual attestation\r\n* Added requirements for explicit trust and confidentiality boundaries\r\n* Added requirements for meaningful channel binding when TLS is terminated by an intermediary\r\n* Added policy distinction between direct attested channels, attested intermediaries, and proxy-traversal deployments",
       "createdAt": "2026-05-13T16:36:36Z",
       "updatedAt": "2026-06-14T22:17:16Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
       "headRepository": "nathanaelritz/use-cases-and-properties",
@@ -6433,7 +6433,7 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "For me, the base case is [ID-Crisis](https://github.com/CCC-Attestation/formal-spec-id-crisis). What are the new properties introduced here, or what is changed in the model side?",
           "createdAt": "2026-05-18T17:22:29Z",
           "updatedAt": "2026-05-18T17:22:29Z"
@@ -6491,7 +6491,7 @@
             "abbreviatedOid": "2663596"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-14T12:25:05Z",
@@ -6563,7 +6563,7 @@
       "number": 50,
       "id": "PR_kwDOP_9tTM7bOdJF",
       "title": "Updated Purpose and Scope to maintain document neutrality",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/50",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/50",
       "state": "CLOSED",
       "author": "telephonicrobotics",
       "authorAssociation": "NONE",
@@ -6574,7 +6574,7 @@
       "body": "Removed individual internet-draft, to help facilitate the authors' [good-faith effort](https://mailarchive.ietf.org/arch/msg/seat/wqWHIkHsbRsx2txsNGXYaDKZITM/) to keep the use-cases document independent of solutions and maintain neutrality.\r\n",
       "createdAt": "2026-05-13T17:46:55Z",
       "updatedAt": "2026-06-05T13:59:51Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
       "headRepository": "nathanaelritz/use-cases-and-properties",
@@ -6587,7 +6587,7 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "https://github.com/tls-attestation/use-cases-and-properties/issues/47#issuecomment-4445560687",
           "createdAt": "2026-05-13T23:45:03Z",
           "updatedAt": "2026-05-13T23:45:03Z"
@@ -6599,7 +6599,7 @@
       "number": 51,
       "id": "PR_kwDOP_9tTM7bYDFg",
       "title": "Add framing subsection on diverse trust boundaries",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/51",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/51",
       "state": "OPEN",
       "author": "telephonicrobotics",
       "authorAssociation": "NONE",
@@ -6608,7 +6608,7 @@
       "body": "Adds a short introductory paragraph contextualising the deployment complexity that arises when RA is composed with secure channels, particularly in the presence of TLS-terminating intermediaries that are authorised and cooperative but structurally indistinguishable from adversarial positions at the protocol level.\r\n\r\nMotivates the proxy-fronted deployment discussion introduced in PR #48 and grounds the Verifier reachability discussion in the attestation model flexibility property.",
       "createdAt": "2026-05-14T04:15:34Z",
       "updatedAt": "2026-06-14T22:16:33Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
       "headRepository": "nathanaelritz/use-cases-and-properties",
@@ -6628,7 +6628,7 @@
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> I'm in favour of supporting proxies, but don't know if we've discussed the topic thoroughly enough in the WG so far.\r\n\r\nI don't remember having such a condition for the other use cases. So what's changed? If you are fine, please approve this and we can merge this to let this be discussed in the version for adoption.",
           "createdAt": "2026-06-14T22:15:54Z",
           "updatedAt": "2026-06-14T22:15:54Z"
@@ -6641,7 +6641,7 @@
             "abbreviatedOid": "21048fb"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "I'm in favour of supporting proxies, but don't know if we've discussed the topic thoroughly enough in the WG so far.\n\nOne thing I wanted to ask was about the last bit: \"the role and reachability of the Verifier in the chosen attestation model\". Can you talk a bit more about this? I (think I) understand the other considerations.",
           "createdAt": "2026-06-08T12:12:19Z",
@@ -6661,10 +6661,10 @@
       "number": 53,
       "id": "PR_kwDOP_9tTM7cXsRG",
       "title": "#52 address some of Ekr comments",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/53",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/53",
       "state": "MERGED",
       "author": "muhammad-usama-sardar",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [
         "ready-to-merge in meeting"
@@ -6672,10 +6672,10 @@
       "body": "addresses part of #52 \r\n\r\n- remove ref to intra-vs-post draft\r\n- clarify negotiation formats\r\n- add ref to I-D.jiang-seat-dynamic-attestation for use case\r\n\r\nCC co-author @Maisy-ML",
       "createdAt": "2026-05-17T12:05:57Z",
       "updatedAt": "2026-06-05T13:54:40Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
-      "headRepository": "tls-attestation/use-cases-and-properties",
+      "headRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "headRefName": "ekr-comments",
       "headRefOid": "2feb3886d6085f4ac58a560b0dc8fc1a8ffda9a9",
       "closedAt": "2026-06-05T13:54:40Z",
@@ -6700,7 +6700,7 @@
             "abbreviatedOid": "f85f8da"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-20T04:34:23Z",
@@ -6726,7 +6726,7 @@
             "abbreviatedOid": "f85f8da"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-20T10:40:12Z",
@@ -6746,7 +6746,7 @@
             "abbreviatedOid": "f85f8da"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-20T10:44:05Z",
@@ -6766,7 +6766,7 @@
             "abbreviatedOid": "f85f8da"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-20T14:45:11Z",
@@ -6786,7 +6786,7 @@
             "abbreviatedOid": "7739fbf"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-20T15:41:39Z",
@@ -6806,7 +6806,7 @@
             "abbreviatedOid": "7739fbf"
           },
           "author": "tireddy2",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-05-21T09:27:51Z",
@@ -6819,7 +6819,7 @@
             "abbreviatedOid": "7739fbf"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-05-21T09:52:00Z",
@@ -6839,7 +6839,7 @@
             "abbreviatedOid": "7739fbf"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-21T22:07:43Z",
@@ -6859,7 +6859,7 @@
             "abbreviatedOid": "7739fbf"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-06-02T13:12:56Z",
@@ -6879,7 +6879,7 @@
             "abbreviatedOid": "7739fbf"
           },
           "author": "thomas-fossati",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-06-02T15:33:55Z",
@@ -6899,7 +6899,7 @@
             "abbreviatedOid": "7739fbf"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-06-02T20:20:34Z",
@@ -6919,7 +6919,7 @@
             "abbreviatedOid": "7739fbf"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-06-03T13:11:14Z",
@@ -6939,7 +6939,7 @@
             "abbreviatedOid": "7739fbf"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-06-03T13:37:01Z",
@@ -6959,7 +6959,7 @@
             "abbreviatedOid": "2feb388"
           },
           "author": "ionut-arm",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "Thanks!",
           "createdAt": "2026-06-05T13:54:22Z",
@@ -6972,16 +6972,16 @@
       "number": 55,
       "id": "PR_kwDOP_9tTM7dB8Dx",
       "title": "Add \u00a74.8: Actor Identity Continuity via Longitudinal Trajectory Attestation",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/55",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/55",
       "state": "OPEN",
       "author": "cayerbe",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "Adds \u00a74.8 capturing the actor-identity continuity use case presented in the informal gathering on 18 May 2026 (see [meeting notes](https://github.com/tls-attestation/use-cases-and-properties/wiki/InformalGatherings)).\r\n\r\nThe use case follows the \u00a74.4 template (Goal / Use case / Requirements / Example):\r\n\r\n- **Goal**: bind a (D)TLS peer's claimed actor identity (human or AI agent) to verifiable longitudinal physical-world presence\r\n- **Exercises**: Cryptographic Binding to Communication Channel, Attestation Credential Freshness, Runtime Attestation, Privacy Preservation, plus the Target Environment public key property introduced in #44\r\n- **Example**: draft-ayerbe-trip-protocol (TRIP)\r\n\r\nCross-references `sec-operation-triggered` (\u00a74.4) to position this use case relative to operation-triggered attestation. Open to feedback on placement \u2014 as a new \u00a74.8 or as an extension of \u00a74.4. Per the meeting plan, this will be discussed in the next informal gathering's Q&A session.",
       "createdAt": "2026-05-19T10:44:20Z",
       "updatedAt": "2026-06-14T21:57:39Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "4775778e3fceb856680abf15327fc0f78b92c0db",
       "headRepository": "cayerbe/use-cases-and-properties",
@@ -6994,21 +6994,21 @@
       "comments": [
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Discussed in meeting: Camilo, Carsten, Moosa, Rafiq, Usama\r\n\r\n> \u00a73.3 (Cryptographic Binding to Machine Identifier) is explicitly not applicable by design \u2014 the actor is not machine-bound\r\n\r\nRemove this part. \r\n\r\n- Highlight attestation in \"goal\" and \"use case\" sections to show relevance.\r\n\r\n",
           "createdAt": "2026-06-01T08:31:03Z",
           "updatedAt": "2026-06-01T08:31:03Z"
         },
         {
           "author": "cayerbe",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "body": "@muhammad-usama-sardar \u2014 done in both places:\r\n\r\n- \u00a74.8 Use case sentence: added \"remote attestation\" in commit 5aaff5d.\r\n- PR description: removed the outdated \u00a73.3 bullet (Requirement 3 was \r\n  already dropped in 5c1cbf5).",
           "createdAt": "2026-06-01T09:11:23Z",
           "updatedAt": "2026-06-01T09:11:23Z"
         },
         {
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "@ionut-arm @thomas-fossati can you have a look so that we wrap it up?",
           "createdAt": "2026-06-14T21:57:39Z",
           "updatedAt": "2026-06-14T21:57:39Z"
@@ -7021,7 +7021,7 @@
             "abbreviatedOid": "c2f593e"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-20T10:50:50Z",
@@ -7041,7 +7041,7 @@
             "abbreviatedOid": "c2f593e"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-20T10:52:59Z",
@@ -7061,7 +7061,7 @@
             "abbreviatedOid": "c2f593e"
           },
           "author": "cayerbe",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-20T12:40:55Z",
@@ -7081,7 +7081,7 @@
             "abbreviatedOid": "c2f593e"
           },
           "author": "cayerbe",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "NONE",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-05-20T12:41:42Z",
@@ -7101,7 +7101,7 @@
             "abbreviatedOid": "5c1cbf5"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "LGTM.",
           "createdAt": "2026-05-20T12:55:16Z",
@@ -7114,7 +7114,7 @@
       "number": 56,
       "id": "PR_kwDOP_9tTM7ujzb8",
       "title": "Add Web PKI identity injection use case for ephemeral containers",
-      "url": "https://github.com/tls-attestation/use-cases-and-properties/pull/56",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/56",
       "state": "OPEN",
       "author": "telephonicrobotics",
       "authorAssociation": "NONE",
@@ -7123,7 +7123,7 @@
       "body": "Adds a new use case based on [Markus Rudy's feedback ](https://mailarchive.ietf.org/arch/msg/seat/GcrnRi81zcpZUOG_213U2ongrnc/)regarding short-lived container workloads in TEEs.\r\n\r\n---\r\n\r\n* Documents ephemeral container workloads authenticating via public Web PKI.\r\n\r\n* Addresses the prohibitive latency of fetching certificates dynamically for temporary instances by supporting external provisioning (e.g., via cert manager).\r\n\r\n*  Mandates per-session freshness and cryptographic binding to the communication channel",
       "createdAt": "2026-07-06T21:49:52Z",
       "updatedAt": "2026-07-13T19:16:03Z",
-      "baseRepository": "tls-attestation/use-cases-and-properties",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "7455def379e8833f22edc36579f07ca9cb9c159f",
       "headRepository": "nathanaelritz/use-cases-and-properties",
@@ -7162,11 +7162,53 @@
             "abbreviatedOid": "71d0bf7"
           },
           "author": "muhammad-usama-sardar",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2026-07-13T19:16:03Z",
           "updatedAt": "2026-07-13T19:16:03Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 57,
+      "id": "PR_kwDOP_9tTM7zZh_A",
+      "title": "Update draft post-adoption",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/57",
+      "state": "MERGED",
+      "author": "ionut-arm",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-07-18T19:58:52Z",
+      "updatedAt": "2026-07-18T23:43:49Z",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
+      "baseRefName": "main",
+      "baseRefOid": "7455def379e8833f22edc36579f07ca9cb9c159f",
+      "headRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
+      "headRefName": "adoption-changes",
+      "headRefOid": "5e93c8a546b7b95c9ee112ec3ae949501a175560",
+      "closedAt": "2026-07-18T23:43:41Z",
+      "mergedAt": "2026-07-18T23:43:41Z",
+      "mergedBy": "ionut-arm",
+      "mergeCommit": {
+        "oid": "3bd870604738e6d594b65ecf3656b22adf333ecd"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABGeVslg",
+          "commit": {
+            "abbreviatedOid": "5e93c8a"
+          },
+          "author": "yaroslavros",
+          "authorAssociation": "MEMBER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-07-18T22:53:01Z",
+          "updatedAt": "2026-07-18T22:53:01Z",
           "comments": []
         }
       ]
