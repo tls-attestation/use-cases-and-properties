@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-07-19T03:22:25.625032+00:00",
+  "timestamp": "2026-07-21T03:17:03.771640+00:00",
   "repo": "ietf-wg-seat/draft-ietf-seat-use-cases",
   "labels": [
     {
@@ -7212,6 +7212,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 58,
+      "id": "PR_kwDOP_9tTM7zoOmB",
+      "title": "Introduce contributors section",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/58",
+      "state": "OPEN",
+      "author": "ionut-arm",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-07-19T22:49:24Z",
+      "updatedAt": "2026-07-19T22:49:24Z",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
+      "baseRefName": "main",
+      "baseRefOid": "3bd870604738e6d594b65ecf3656b22adf333ecd",
+      "headRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
+      "headRefName": "contributors",
+      "headRefOid": "b612df96024d827abd9dcdfff96e513e5f02cd63",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
