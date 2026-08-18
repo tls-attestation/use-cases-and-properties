@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-07-21T03:17:03.771640+00:00",
+  "timestamp": "2026-08-18T01:27:02.645921+00:00",
   "repo": "ietf-wg-seat/draft-ietf-seat-use-cases",
   "labels": [
     {
@@ -7238,6 +7238,157 @@
       "mergeCommit": null,
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 59,
+      "id": "PR_kwDOP_9tTM7__-oL",
+      "title": "Add attacker model",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/59",
+      "state": "OPEN",
+      "author": "ionut-arm",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Courtesy of @tireddy2 ",
+      "createdAt": "2026-08-17T09:25:28Z",
+      "updatedAt": "2026-08-17T16:48:15Z",
+      "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
+      "baseRefName": "main",
+      "baseRefOid": "3bd870604738e6d594b65ecf3656b22adf333ecd",
+      "headRepository": "tireddy2/use-cases-and-properties",
+      "headRefName": "main",
+      "headRefOid": "ae7267b37ef62dce32fbf248c6308057286bc3de",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Missing many fundamental properties of attested TLS.\r\n\r\nThis is not introducing properties of attested TLS.",
+          "createdAt": "2026-08-17T14:31:43Z",
+          "updatedAt": "2026-08-17T14:31:43Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABJyuLfw",
+          "commit": {
+            "abbreviatedOid": "ae7267b"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "Missing many fundamental properties of attested TLS. See this [thread](https://mailarchive.ietf.org/arch/msg/seat/6v_mzjg6dyv8QlHUFV13v-b8wFI/), particularly [this](https://www.researchgate.net/publication/398839141_Identity_Crisis_in_Confidential_Computing_Formal_Analysis_of_Attested_TLS) and [this](https://www.researchgate.net/publication/408219182_Intra-handshakefail_CVE-2026-33697_High-severity_CVE_in_Attested_TLS).\n\n",
+          "createdAt": "2026-08-17T13:32:56Z",
+          "updatedAt": "2026-08-17T14:06:35Z",
+          "comments": [
+            {
+              "originalPosition": 24,
+              "body": "```suggestion\n* Cross-connection replay: Evidence obtained from an Attesting Environment in one\n```",
+              "createdAt": "2026-08-17T13:32:56Z",
+              "updatedAt": "2026-08-17T14:06:35Z"
+            },
+            {
+              "originalPosition": 27,
+              "body": "I find the description of \"Cross-peer relay\" hard to read. ",
+              "createdAt": "2026-08-17T13:36:37Z",
+              "updatedAt": "2026-08-17T14:06:35Z"
+            },
+            {
+              "originalPosition": 55,
+              "body": "Which traffic secrets: handshake or application?",
+              "createdAt": "2026-08-17T13:39:22Z",
+              "updatedAt": "2026-08-17T14:06:35Z"
+            },
+            {
+              "originalPosition": 35,
+              "body": "It was hard to read for me. A figure would help. ",
+              "createdAt": "2026-08-17T13:41:28Z",
+              "updatedAt": "2026-08-17T14:06:35Z"
+            },
+            {
+              "originalPosition": 64,
+              "body": "Clarify \"Posture\" vs. state?",
+              "createdAt": "2026-08-17T13:50:04Z",
+              "updatedAt": "2026-08-17T14:06:35Z"
+            },
+            {
+              "originalPosition": 86,
+              "body": "What is stripping? Use terminology consistent with RFC9846.",
+              "createdAt": "2026-08-17T13:54:28Z",
+              "updatedAt": "2026-08-17T14:06:35Z"
+            },
+            {
+              "originalPosition": 93,
+              "body": "Add a reference to that section. ",
+              "createdAt": "2026-08-17T13:57:14Z",
+              "updatedAt": "2026-08-17T14:06:35Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABJzMPeA",
+          "commit": {
+            "abbreviatedOid": "ae7267b"
+          },
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-17T16:25:37Z",
+          "updatedAt": "2026-08-17T16:25:37Z",
+          "comments": [
+            {
+              "originalPosition": 86,
+              "body": "> What is stripping? Use terminology consistent with RFC9846.\r\n\r\nI believe stripping is a commonly understood term of art regarding MiTM threat models. For example, in academic literature associated with TLS, I\u2019ve seen it here, see page 7 https://www.ieee-security.org/TC/SP2013/papers/4977a511.pdf\r\n",
+              "createdAt": "2026-08-17T16:25:37Z",
+              "updatedAt": "2026-08-17T16:25:38Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABJzRP_g",
+          "commit": {
+            "abbreviatedOid": "ae7267b"
+          },
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-17T16:38:30Z",
+          "updatedAt": "2026-08-17T16:38:30Z",
+          "comments": [
+            {
+              "originalPosition": 55,
+              "body": "It would apply to both, right? If the TLS signing key cannot be trusted until after remote attestation completes, in the case an active attacker has compromised the TLS signing key and is exploiting it, then Evidence will be exposed to the attacker even when conveyed during a post-TLS Authenticator handshake \u2014even when otherwise fully encrypted under the derived ephemeral application traffic keys of that session. \r\n\r\n",
+              "createdAt": "2026-08-17T16:38:30Z",
+              "updatedAt": "2026-08-17T16:38:30Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABJzVMEw",
+          "commit": {
+            "abbreviatedOid": "ae7267b"
+          },
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-17T16:48:15Z",
+          "updatedAt": "2026-08-17T16:48:15Z",
+          "comments": [
+            {
+              "originalPosition": 92,
+              "body": "I think graceful fallback for remote attestation does defeat the point. If a client asks for remote attestation and does not receive it, it should not proceed with the connection, since the endpoint refused (for whatever reason) to attest. That\u2019s not feedback for this PR in particular other than affirming the note is useful in contrast to what the document already specifies elsewhere. But I suppose that may be an implementation detail?",
+              "createdAt": "2026-08-17T16:48:15Z",
+              "updatedAt": "2026-08-17T16:48:15Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
