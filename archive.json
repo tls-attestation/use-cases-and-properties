@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-08-18T01:27:02.645921+00:00",
+  "timestamp": "2026-08-20T01:34:08.048010+00:00",
   "repo": "ietf-wg-seat/draft-ietf-seat-use-cases",
   "labels": [
     {
@@ -7251,13 +7251,13 @@
       "labels": [],
       "body": "Courtesy of @tireddy2 ",
       "createdAt": "2026-08-17T09:25:28Z",
-      "updatedAt": "2026-08-17T16:48:15Z",
+      "updatedAt": "2026-08-18T05:31:13Z",
       "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "3bd870604738e6d594b65ecf3656b22adf333ecd",
       "headRepository": "tireddy2/use-cases-and-properties",
       "headRefName": "main",
-      "headRefOid": "ae7267b37ef62dce32fbf248c6308057286bc3de",
+      "headRefOid": "707780f8e838895fe2e900dda2ab233be26c1d7b",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -7385,6 +7385,26 @@
               "body": "I think graceful fallback for remote attestation does defeat the point. If a client asks for remote attestation and does not receive it, it should not proceed with the connection, since the endpoint refused (for whatever reason) to attest. That\u2019s not feedback for this PR in particular other than affirming the note is useful in contrast to what the document already specifies elsewhere. But I suppose that may be an implementation detail?",
               "createdAt": "2026-08-17T16:48:15Z",
               "updatedAt": "2026-08-17T16:48:15Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABJ34eZQ",
+          "commit": {
+            "abbreviatedOid": "ae7267b"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-18T05:31:13Z",
+          "updatedAt": "2026-08-18T05:31:13Z",
+          "comments": [
+            {
+              "originalPosition": 92,
+              "body": "Good point, I propose to fix the last line as follows:\r\n\r\nThis is the adversarial counterpart to the graceful fallback under the Negotiation and Capability Discovery goal; the end goal is that a Relying Party requiring attestation rejects a peer that does not attest. ",
+              "createdAt": "2026-08-18T05:31:13Z",
+              "updatedAt": "2026-08-18T05:31:13Z"
             }
           ]
         }
