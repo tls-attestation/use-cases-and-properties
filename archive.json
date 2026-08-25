@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-08-20T01:34:08.048010+00:00",
+  "timestamp": "2026-08-25T01:34:51.850184+00:00",
   "repo": "ietf-wg-seat/draft-ietf-seat-use-cases",
   "labels": [
     {
@@ -7251,13 +7251,13 @@
       "labels": [],
       "body": "Courtesy of @tireddy2 ",
       "createdAt": "2026-08-17T09:25:28Z",
-      "updatedAt": "2026-08-18T05:31:13Z",
+      "updatedAt": "2026-08-23T13:06:45Z",
       "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "3bd870604738e6d594b65ecf3656b22adf333ecd",
       "headRepository": "tireddy2/use-cases-and-properties",
       "headRefName": "main",
-      "headRefOid": "707780f8e838895fe2e900dda2ab233be26c1d7b",
+      "headRefOid": "51d922b3e40bb4e90367326f6efd533b3def987d",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -7269,6 +7269,27 @@
           "body": "> Missing many fundamental properties of attested TLS.\r\n\r\nThis is not introducing properties of attested TLS.",
           "createdAt": "2026-08-17T14:31:43Z",
           "updatedAt": "2026-08-17T14:31:43Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "What exactly is the difference between \"threat model\" and \"attacker model?\"",
+          "createdAt": "2026-08-23T11:03:44Z",
+          "updatedAt": "2026-08-23T11:03:44Z"
+        },
+        {
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> What exactly is the difference between \"threat model\" and \"attacker model?\"\r\n\r\nAn attacker model describes the types of attacks one might expect for some given design or system: what capabilities, resources, and access the attackers might have, what they're trying to achieve...\r\n\r\nThe threat model is significantly wider in scope and covers a more concrete system: it shows what assets there are to protect, what attackers can do, what mitigations are (or can be) deployed, likelihood of attacks or issues, etc. The attacker model is one of the inputs to that. It's also more concrete, as it needs a more concrete description of the deployed system.\r\n\r\nFor an IETF protocol specification, a deployment-independent attacker model may be more useful than a comprehensive deployment-specific threat model. It establishes the adversary capabilities and security assumptions that apply across anticipated use-cases, while individual deployments can extend it with threats arising from their architecture, trust relationships, and operational environment.",
+          "createdAt": "2026-08-23T12:14:37Z",
+          "updatedAt": "2026-08-23T12:14:37Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Okay thanks. I am still reading the thread, but it seems there may be a terminology misunderstanding. I feel like if someone had defined it in the draft/thread, it might have avoided at least a few emails. Anyway, do you have a reference for me?\r\n\r\nIs there any other dispute in the WG -- in your opinion -- that I should focus on?",
+          "createdAt": "2026-08-23T13:01:00Z",
+          "updatedAt": "2026-08-23T13:01:00Z"
         }
       ],
       "reviews": [
@@ -7405,6 +7426,26 @@
               "body": "Good point, I propose to fix the last line as follows:\r\n\r\nThis is the adversarial counterpart to the graceful fallback under the Negotiation and Capability Discovery goal; the end goal is that a Relying Party requiring attestation rejects a peer that does not attest. ",
               "createdAt": "2026-08-18T05:31:13Z",
               "updatedAt": "2026-08-18T05:31:13Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABKis51Q",
+          "commit": {
+            "abbreviatedOid": "51d922b"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-23T13:06:45Z",
+          "updatedAt": "2026-08-23T13:06:45Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "This does not seem to align with [this](https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/59#issuecomment-5385942401). \"Internet Threat Model\" contains threat model in it.",
+              "createdAt": "2026-08-23T13:06:45Z",
+              "updatedAt": "2026-08-23T13:06:45Z"
             }
           ]
         }
