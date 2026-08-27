@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-08-25T01:34:51.850184+00:00",
+  "timestamp": "2026-08-27T08:32:25.273801+00:00",
   "repo": "ietf-wg-seat/draft-ietf-seat-use-cases",
   "labels": [
     {
@@ -7251,13 +7251,13 @@
       "labels": [],
       "body": "Courtesy of @tireddy2 ",
       "createdAt": "2026-08-17T09:25:28Z",
-      "updatedAt": "2026-08-23T13:06:45Z",
+      "updatedAt": "2026-08-27T08:00:57Z",
       "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "3bd870604738e6d594b65ecf3656b22adf333ecd",
       "headRepository": "tireddy2/use-cases-and-properties",
       "headRefName": "main",
-      "headRefOid": "51d922b3e40bb4e90367326f6efd533b3def987d",
+      "headRefOid": "25747ca2fafb4c3984d4f65a7f3ecf9bb3788cd4",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -7290,6 +7290,13 @@
           "body": "Okay thanks. I am still reading the thread, but it seems there may be a terminology misunderstanding. I feel like if someone had defined it in the draft/thread, it might have avoided at least a few emails. Anyway, do you have a reference for me?\r\n\r\nIs there any other dispute in the WG -- in your opinion -- that I should focus on?",
           "createdAt": "2026-08-23T13:01:00Z",
           "updatedAt": "2026-08-23T13:01:00Z"
+        },
+        {
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Okay thanks. I am still reading the thread, but it seems there may be a terminology misunderstanding. I feel like if someone had defined it in the draft/thread, it might have avoided at least a few emails. Anyway, do you have a reference for me?\r\n\r\nI don't think the IETF has a clear definition, but you can see the same reasoning being deployed [here](https://www.rfc-editor.org/rfc/rfc9700.html#section-3).\r\n\r\n> Is there any other dispute in the WG -- in your opinion -- that I should focus on?\r\n\r\nI think the important point for this PR is that we described all the attacks that are reasonable. The relay attack is probably the most contentious one, so it'd be good to confirm that we're all on the same page about what that attack means.",
+          "createdAt": "2026-08-26T10:00:09Z",
+          "updatedAt": "2026-08-26T10:00:09Z"
         }
       ],
       "reviews": [
@@ -7446,6 +7453,90 @@
               "body": "This does not seem to align with [this](https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/59#issuecomment-5385942401). \"Internet Threat Model\" contains threat model in it.",
               "createdAt": "2026-08-23T13:06:45Z",
               "updatedAt": "2026-08-23T13:06:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABKlP5Eg",
+          "commit": {
+            "abbreviatedOid": "25747ca"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-24T06:37:21Z",
+          "updatedAt": "2026-08-26T10:39:22Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "Right, but the Internet Threat Model assumes a very specific attacker, with very specific capabilities. The first few paragraphs of [section 3 of RFC3552](https://www.rfc-editor.org/info/rfc3552/#section-3) (up to sec. 3.1) describe that attacker. What I think this is saying is that the \"baseline\" attacker (\"network attacker\" underneath) has the capabilities assumed by that threat model. I'll try to make this clearer.",
+              "createdAt": "2026-08-26T10:27:02Z",
+              "updatedAt": "2026-08-26T10:39:22Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABLE05Tg",
+          "commit": {
+            "abbreviatedOid": "25747ca"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "Thanks, Ionut, for covering this critical aspect in the draft. The changes look good to me. I have suggested a few text improvements.",
+          "createdAt": "2026-08-27T07:22:29Z",
+          "updatedAt": "2026-08-27T07:49:13Z",
+          "comments": [
+            {
+              "originalPosition": 53,
+              "body": "Malicious peer: One TLS peer may be compromised and may deviate arbitrarily from the protocol. The other peer, including its Attesting Environment and Attestation Key, is assumed to remain uncompromised.",
+              "createdAt": "2026-08-27T07:22:29Z",
+              "updatedAt": "2026-08-27T07:49:13Z"
+            },
+            {
+              "originalPosition": 124,
+              "body": "Attacker capabilities: The attacker, acting as a malicious TLS peer, can establish a TLS connection with a Relying Party and can obtain Evidence about a separate Target Environment that contains the correct binder for the attacker's connection as its challenge value. How the attacker obtains such Evidence is not constrained by this model. The attacker does not need to control or collude with the Attesting or Target Environment.",
+              "createdAt": "2026-08-27T07:33:11Z",
+              "updatedAt": "2026-08-27T07:49:13Z"
+            },
+            {
+              "originalPosition": 131,
+              "body": "Targeted assurance: The Relying Party incorrectly assumes that the authentication private key has the key protection properties asserted by the Evidence.",
+              "createdAt": "2026-08-27T07:37:17Z",
+              "updatedAt": "2026-08-27T07:49:13Z"
+            },
+            {
+              "originalPosition": 141,
+              "body": "Why validation succeeds: Proof of possession establishes that the peer controls the private key, and Evidence establishes properties of the Target Environment. Neither check establishes that this particular private key was generated, is stored, and is used strictly within the Attesting Environment.",
+              "createdAt": "2026-08-27T07:38:11Z",
+              "updatedAt": "2026-08-27T07:49:13Z"
+            },
+            {
+              "originalPosition": 201,
+              "body": "Required invariant: Ephemeral key-establishment secrets are protected and erased when no longer needed. A design that claims recovery from compromise of such a secret provides Post-Compromise Security (PCS) by establishing new traffic secrets using fresh key-establishment input independent of the compromised secret before sending further Evidence.",
+              "createdAt": "2026-08-27T07:40:02Z",
+              "updatedAt": "2026-08-27T07:49:13Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABLFG8KA",
+          "commit": {
+            "abbreviatedOid": "25747ca"
+          },
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-27T08:00:57Z",
+          "updatedAt": "2026-08-27T08:00:57Z",
+          "comments": [
+            {
+              "originalPosition": 53,
+              "body": "This one in particular has taken a couple of rounds of re-reading to try and be sure I fully understand it. I think the word 'peer' is hitting semantic oversaturation for me, in this particular case.\r\n\r\nIs this meant to say that a \"malicious peer\" may be either one or the other the attesting instance or a spoofed RP, just as likely? Even trying to rephrase it in my own words makes me feel like I'm struggling. So your own phrasing may be fine. ",
+              "createdAt": "2026-08-27T08:00:57Z",
+              "updatedAt": "2026-08-27T08:00:58Z"
             }
           ]
         }
