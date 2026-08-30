@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-08-27T08:32:25.273801+00:00",
+  "timestamp": "2026-08-30T04:45:21.589700+00:00",
   "repo": "ietf-wg-seat/draft-ietf-seat-use-cases",
   "labels": [
     {
@@ -7251,13 +7251,13 @@
       "labels": [],
       "body": "Courtesy of @tireddy2 ",
       "createdAt": "2026-08-17T09:25:28Z",
-      "updatedAt": "2026-08-27T08:00:57Z",
+      "updatedAt": "2026-08-29T23:04:51Z",
       "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "3bd870604738e6d594b65ecf3656b22adf333ecd",
       "headRepository": "tireddy2/use-cases-and-properties",
       "headRefName": "main",
-      "headRefOid": "25747ca2fafb4c3984d4f65a7f3ecf9bb3788cd4",
+      "headRefOid": "48226b23dd64ebd6aa105315e00bcc6d477fc325",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -7297,6 +7297,34 @@
           "body": "> Okay thanks. I am still reading the thread, but it seems there may be a terminology misunderstanding. I feel like if someone had defined it in the draft/thread, it might have avoided at least a few emails. Anyway, do you have a reference for me?\r\n\r\nI don't think the IETF has a clear definition, but you can see the same reasoning being deployed [here](https://www.rfc-editor.org/rfc/rfc9700.html#section-3).\r\n\r\n> Is there any other dispute in the WG -- in your opinion -- that I should focus on?\r\n\r\nI think the important point for this PR is that we described all the attacks that are reasonable. The relay attack is probably the most contentious one, so it'd be good to confirm that we're all on the same page about what that attack means.",
           "createdAt": "2026-08-26T10:00:09Z",
           "updatedAt": "2026-08-26T10:00:09Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Threat model seems the right word -- see, for example, [this](https://datatracker.ietf.org/doc/html/rfc3552) and [this](https://datatracker.ietf.org/doc/html/rfc7132). ",
+          "createdAt": "2026-08-28T14:20:38Z",
+          "updatedAt": "2026-08-28T14:20:38Z"
+        },
+        {
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Threat model seems the right word -- see, for example, [this](https://datatracker.ietf.org/doc/html/rfc3552) and [this](https://datatracker.ietf.org/doc/html/rfc7132).\r\n\r\nYour second link is actually a good argument against. We do not provide any details about threats more broadly (as sec 3 in 7312), nor an analysis of residual vulnerabilities (sec 5 of 7312). See also [Section 3 of RFC9700](https://datatracker.ietf.org/doc/html/rfc9700#name-the-updated-oauth-20-attack), and its wording around threat vs attacker model. Note that RFC9700 and [RFC6819](https://datatracker.ietf.org/doc/html/rfc6819) (which 9700 updates) do present a threat model, but by being again more comprehensive and describing countermeasures for the given attacks. We only present a high-level property that would need to be fulfilled as a mitigation, without proposing exhaustive countermeasures.\r\n\r\nThe reason we even need an \"attacker model\" in this context is that the properties we need to encode are motivated by very specific attacker profiles and capabilities. This attacker model could one day be spun out and expanded into a threat model like the other documents shared, but at the moment this is not a threat model.",
+          "createdAt": "2026-08-29T11:46:12Z",
+          "updatedAt": "2026-08-29T11:46:12Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> We do not provide any details about threats more broadly\r\n\r\nThe question is not about this PR. The question is what the goal is. Sophie was clearly talking about a threat model.",
+          "createdAt": "2026-08-29T19:52:46Z",
+          "updatedAt": "2026-08-29T19:52:46Z"
+        },
+        {
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> The question is not about this PR. The question is what the goal is.\r\n\r\nI'm pretty sure I explicitly stated what the goal was above: The reason we even need an \"attacker model\" in this context is that the properties we need to encode are motivated by very specific attacker profiles and capabilities.\r\n\r\n> Sophie was clearly talking about a threat model.\r\n\r\nDo you mean in [this email](https://mailarchive.ietf.org/arch/msg/seat/t8aobzB374lWiLzrVrORY7kGYyQ/)? If so, it's because we explicitly asked what the threat model was for her research, so that we understand how it might apply to our work. I do not see a request there for us to define a \"threat model\", or an offer for her to help guide such an effort. Happy to hear otherwise from her.",
+          "createdAt": "2026-08-29T23:04:51Z",
+          "updatedAt": "2026-08-29T23:04:51Z"
         }
       ],
       "reviews": [
@@ -7537,6 +7565,357 @@
               "body": "This one in particular has taken a couple of rounds of re-reading to try and be sure I fully understand it. I think the word 'peer' is hitting semantic oversaturation for me, in this particular case.\r\n\r\nIs this meant to say that a \"malicious peer\" may be either one or the other the attesting instance or a spoofed RP, just as likely? Even trying to rephrase it in my own words makes me feel like I'm struggling. So your own phrasing may be fine. ",
               "createdAt": "2026-08-27T08:00:57Z",
               "updatedAt": "2026-08-27T08:00:58Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABLGHm6g",
+          "commit": {
+            "abbreviatedOid": "25747ca"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-27T10:07:57Z",
+          "updatedAt": "2026-08-27T10:35:32Z",
+          "comments": [
+            {
+              "originalPosition": 53,
+              "body": "I think this is trying to say that the entity trying to prove itself through remote attestation may be malicious, but that doesn't imply they have full control over an attesting environment or its attestation key (to sign arbitrary evidence, basically).\n\n@tireddy2 - I don't think your proposed text has the same properties in mind. You seem to imply that the malicious peer controls everything on its side, including the RoT of the attester, but the other party is untouched.\n\nHow about:\n\n> Malicious peer: Controls a TLS endpoint and can deviate arbitrarily from the protocol. The TLS endpoint is NOT running in an environment that can produce Evidence that is acceptable to the Relying Party. Control of this endpoint also does not, by itself, imply compromise of any Attesting Environment or its Attestation Key.",
+              "createdAt": "2026-08-27T10:07:57Z",
+              "updatedAt": "2026-08-27T10:35:32Z"
+            },
+            {
+              "originalPosition": 131,
+              "body": "I can add the part about the authentication private key to the assurance, but the general point about the attested endpoint is needed regardless, because the appraisal is not strictly about the key.",
+              "createdAt": "2026-08-27T10:13:07Z",
+              "updatedAt": "2026-08-27T10:35:32Z"
+            },
+            {
+              "originalPosition": 141,
+              "body": "This might be correct in some deployments, but as a general statement the mechanical check that fails is for the actual binding between attestation and TLS.\n\nYou can still have relay even if you have key attestation. For example, if the TEE is both an attestation oracle and a signing oracle, it can give you both valid evidence proving that the key is secure, and a signature with that key for whatever the malicious TLS endpoint wants (like a CertificateVerify). The underlying problem is that the evidence is in no way bound to the execution of the TLS peer using it. This is also the counterargument for the comment above regarding the assurance.",
+              "createdAt": "2026-08-27T10:14:23Z",
+              "updatedAt": "2026-08-27T10:35:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABLGfyrQ",
+          "commit": {
+            "abbreviatedOid": "25747ca"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-27T10:58:47Z",
+          "updatedAt": "2026-08-27T10:58:47Z",
+          "comments": [
+            {
+              "originalPosition": 53,
+              "body": "> I think this is trying to say that the entity trying to prove itself through remote attestation may be malicious, but that doesn't imply they have full control over an attesting environment or its attestation key (to sign arbitrary evidence, basically).\r\n> \r\n> @tireddy2 - I don't think your proposed text has the same properties in mind. You seem to imply that the malicious peer controls everything on its side, including the RoT of the attester, but the other party is untouched.\r\n\r\nNo, I meant that only one TLS peer is malicious and can deviate arbitrarily from the protocol, but it does not control or compromise the Attesting Environment or its Attestation Key. The other TLS peer, including its Attesting Environment and Attestation Key, remains uncompromised.\r\n\r\n> \r\n> How about:\r\n> \r\n> > Malicious peer: Controls a TLS endpoint and can deviate arbitrarily from the protocol. The TLS endpoint is NOT running in an environment that can produce Evidence that is acceptable to the Relying Party. Control of this endpoint also does not, by itself, imply compromise of any Attesting Environment or its Attestation Key.\r\n\r\nMalicious peer: Controls a TLS endpoint and can deviate arbitrarily from the protocol. The TLS endpoint is not running in an environment that can produce Evidence acceptable to the Relying Party. The attacker does not control or compromise the Attesting Environment or its Attestation Key.",
+              "createdAt": "2026-08-27T10:58:47Z",
+              "updatedAt": "2026-08-27T10:58:47Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABLGjJ0A",
+          "commit": {
+            "abbreviatedOid": "25747ca"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-27T11:06:16Z",
+          "updatedAt": "2026-08-27T11:06:17Z",
+          "comments": [
+            {
+              "originalPosition": 141,
+              "body": "I agree that the key issue is binding the Evidence to the TLS execution. However, I don't think we should assume that a TEE can act as a signing oracle. We should make that an explicit assumption if it is required for the attack.",
+              "createdAt": "2026-08-27T11:06:16Z",
+              "updatedAt": "2026-08-27T11:06:17Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABLHYDww",
+          "commit": {
+            "abbreviatedOid": "25747ca"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-27T12:45:08Z",
+          "updatedAt": "2026-08-27T12:45:08Z",
+          "comments": [
+            {
+              "originalPosition": 141,
+              "body": "> However, I don't think we should assume that a TEE can act as a signing oracle. \r\n\r\nI think that depends on the relationships within the system, and what we want to consider as valid. I agree that if the RP and TEE-owner are part of the same organisation, or within the same trust boundary, then it doesn't make sense for the TEE to do random stuff.\r\n\r\nBut if the TEE-owner and RP are mutually-distrusting, then the RP has to be a lot more thorough. A malicious TEE-owner can run anything they like in the TEE. They might want to pretend they're running some specific service inside, while only using it for the oracles I mentioned. It's up to the RP to determine what's valid.\r\n\r\nSo my question is: do we want to restrict this to situations where the TEE-owner is trustworthy by definition?",
+              "createdAt": "2026-08-27T12:45:08Z",
+              "updatedAt": "2026-08-27T12:45:08Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABLHgHdA",
+          "commit": {
+            "abbreviatedOid": "25747ca"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-27T12:59:00Z",
+          "updatedAt": "2026-08-27T12:59:00Z",
+          "comments": [
+            {
+              "originalPosition": 131,
+              "body": "Agreed. \r\nTargeted assurance: The Relying Party incorrectly attributes the claims asserted by the Evidence to the TLS endpoint and assumes that the authentication private key has the protection properties asserted by the Evidence.",
+              "createdAt": "2026-08-27T12:59:00Z",
+              "updatedAt": "2026-08-27T12:59:00Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABLHjkHQ",
+          "commit": {
+            "abbreviatedOid": "25747ca"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-27T13:05:11Z",
+          "updatedAt": "2026-08-27T13:05:11Z",
+          "comments": [
+            {
+              "originalPosition": 141,
+              "body": "I think the trustworthiness of the TEE owner is ultimately determined by the verifier's appraisal policy. The protocol should not assume that the TEE owner is trustworthy by definition.",
+              "createdAt": "2026-08-27T13:05:11Z",
+              "updatedAt": "2026-08-27T13:05:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABLH3VTQ",
+          "commit": {
+            "abbreviatedOid": "25747ca"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-27T13:38:08Z",
+          "updatedAt": "2026-08-27T13:38:08Z",
+          "comments": [
+            {
+              "originalPosition": 141,
+              "body": "I agree, but then this supports my earlier statement that just proving the key is protected is not enough, because the \"attestation + signing oracle\" attester passes that assessment. The verifier has to establish whether the attester's TEE is the one running the TLS stack or not. That can't be done just by binding to or attesting the CertificateVerify-signing key, because those can be relayed too.",
+              "createdAt": "2026-08-27T13:38:08Z",
+              "updatedAt": "2026-08-27T13:38:09Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABLIB0Zg",
+          "commit": {
+            "abbreviatedOid": "25747ca"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-27T13:53:45Z",
+          "updatedAt": "2026-08-27T13:53:45Z",
+          "comments": [
+            {
+              "originalPosition": 141,
+              "body": "Hmm, I think I get where the confusion is now. I think your \"key attestation\" requirement subsumes my requirement, implicitly: you're requiring proof not just that the key was created in this TEE and is not exported, but that it can only be used for TLS CertificateVerify signing for this protocol. If that holds, there's no possibility for relay, I agree, but we should make this second part clear too.",
+              "createdAt": "2026-08-27T13:53:45Z",
+              "updatedAt": "2026-08-27T13:53:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABLInbUA",
+          "commit": {
+            "abbreviatedOid": "25747ca"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-27T14:49:53Z",
+          "updatedAt": "2026-08-27T14:49:53Z",
+          "comments": [
+            {
+              "originalPosition": 141,
+              "body": "> Hmm, I think I get where the confusion is now. I think your \"key attestation\" requirement subsumes my requirement, implicitly: you're requiring proof not just that the key was created in this TEE and is not exported, but that it can only be used for TLS CertificateVerify signing for this protocol. If that holds, there's no possibility for relay, I agree, but we should make this second part clear too.\r\n\r\nAgreed.",
+              "createdAt": "2026-08-27T14:49:53Z",
+              "updatedAt": "2026-08-27T14:49:53Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABLQKBmg",
+          "commit": {
+            "abbreviatedOid": "51d922b"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-28T10:09:12Z",
+          "updatedAt": "2026-08-28T10:09:12Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "Please have a look again and see if the current text makes it clearer!",
+              "createdAt": "2026-08-28T10:09:12Z",
+              "updatedAt": "2026-08-28T10:09:12Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABLQKP2w",
+          "commit": {
+            "abbreviatedOid": "ae7267b"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-28T10:09:43Z",
+          "updatedAt": "2026-08-28T10:09:43Z",
+          "comments": [
+            {
+              "originalPosition": 86,
+              "body": "It has been removed now.",
+              "createdAt": "2026-08-28T10:09:43Z",
+              "updatedAt": "2026-08-28T10:09:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABLQKtYQ",
+          "commit": {
+            "abbreviatedOid": "ae7267b"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-28T10:10:44Z",
+          "updatedAt": "2026-08-28T10:10:45Z",
+          "comments": [
+            {
+              "originalPosition": 64,
+              "body": "Changing to state since we already use it in the text underneath instead of posture.",
+              "createdAt": "2026-08-28T10:10:44Z",
+              "updatedAt": "2026-08-28T10:10:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABLQK1Xw",
+          "commit": {
+            "abbreviatedOid": "ae7267b"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-28T10:11:00Z",
+          "updatedAt": "2026-08-28T10:11:01Z",
+          "comments": [
+            {
+              "originalPosition": 35,
+              "body": "Is it still the case after the rewrite?",
+              "createdAt": "2026-08-28T10:11:00Z",
+              "updatedAt": "2026-08-28T10:11:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABLQK5-Q",
+          "commit": {
+            "abbreviatedOid": "ae7267b"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-28T10:11:10Z",
+          "updatedAt": "2026-08-28T10:11:11Z",
+          "comments": [
+            {
+              "originalPosition": 55,
+              "body": "Clarified.",
+              "createdAt": "2026-08-28T10:11:10Z",
+              "updatedAt": "2026-08-28T10:11:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABLQK_og",
+          "commit": {
+            "abbreviatedOid": "ae7267b"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-08-28T10:11:24Z",
+          "updatedAt": "2026-08-28T10:11:24Z",
+          "comments": [
+            {
+              "originalPosition": 27,
+              "body": "Has been changed",
+              "createdAt": "2026-08-28T10:11:24Z",
+              "updatedAt": "2026-08-28T10:11:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABLQl5xQ",
+          "commit": {
+            "abbreviatedOid": "48226b2"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "Update looks good to me. ",
+          "createdAt": "2026-08-28T11:17:02Z",
+          "updatedAt": "2026-08-28T11:17:02Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABLY4z7g",
+          "commit": {
+            "abbreviatedOid": "48226b2"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "Rest later",
+          "createdAt": "2026-08-29T21:43:42Z",
+          "updatedAt": "2026-08-29T22:26:32Z",
+          "comments": [
+            {
+              "originalPosition": 38,
+              "body": "This has started to collude the threat model with the properties.",
+              "createdAt": "2026-08-29T21:43:42Z",
+              "updatedAt": "2026-08-29T22:26:32Z"
+            },
+            {
+              "originalPosition": 52,
+              "body": "I don't understand this sentence with 'not.' Why can't you say it without negation? Is it running in Target Environment? Something like: \n\nThe TLS endpoint is running in Target Environment.",
+              "createdAt": "2026-08-29T22:21:56Z",
+              "updatedAt": "2026-08-29T22:26:32Z"
             }
           ]
         }
