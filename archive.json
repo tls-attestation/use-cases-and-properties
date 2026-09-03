@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-08-30T04:45:21.589700+00:00",
+  "timestamp": "2026-09-03T03:50:48.722572+00:00",
   "repo": "ietf-wg-seat/draft-ietf-seat-use-cases",
   "labels": [
     {
@@ -7251,7 +7251,7 @@
       "labels": [],
       "body": "Courtesy of @tireddy2 ",
       "createdAt": "2026-08-17T09:25:28Z",
-      "updatedAt": "2026-08-29T23:04:51Z",
+      "updatedAt": "2026-09-02T08:52:42Z",
       "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "3bd870604738e6d594b65ecf3656b22adf333ecd",
@@ -7916,6 +7916,106 @@
               "body": "I don't understand this sentence with 'not.' Why can't you say it without negation? Is it running in Target Environment? Something like: \n\nThe TLS endpoint is running in Target Environment.",
               "createdAt": "2026-08-29T22:21:56Z",
               "updatedAt": "2026-08-29T22:26:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABLzmWtw",
+          "commit": {
+            "abbreviatedOid": "48226b2"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-09-02T08:20:36Z",
+          "updatedAt": "2026-09-02T08:20:36Z",
+          "comments": [
+            {
+              "originalPosition": 35,
+              "body": "```suggestion\nentity , which holds the Attestation key, which is used to sign Evidence for the\n```",
+              "createdAt": "2026-09-02T08:20:36Z",
+              "updatedAt": "2026-09-02T08:20:36Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABLznJ9g",
+          "commit": {
+            "abbreviatedOid": "48226b2"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "left some comments for you to look at..",
+          "createdAt": "2026-09-02T08:22:07Z",
+          "updatedAt": "2026-09-02T08:52:41Z",
+          "comments": [
+            {
+              "originalPosition": 38,
+              "body": "No, this reference is correct, as baseline security of TLS 1.3 is required here, otherwise, there is a risk of polluting this document with security and attacks of TLS 1.3",
+              "createdAt": "2026-09-02T08:22:07Z",
+              "updatedAt": "2026-09-02T08:52:41Z"
+            },
+            {
+              "originalPosition": 47,
+              "body": "ok, drop my comment, I think we need to insert a new line, else we flow seamleasly",
+              "createdAt": "2026-09-02T08:28:23Z",
+              "updatedAt": "2026-09-02T08:52:41Z"
+            },
+            {
+              "originalPosition": 50,
+              "body": "```suggestion\n  secrets. This closely follows the attacker model of {{-int-threat-model}}.\n  \n```",
+              "createdAt": "2026-09-02T08:28:39Z",
+              "updatedAt": "2026-09-02T08:52:41Z"
+            },
+            {
+              "originalPosition": 52,
+              "body": "Yes, it is better to say, the TLS Stack is running in an Environment which do not offer any security guarantees.",
+              "createdAt": "2026-09-02T08:29:54Z",
+              "updatedAt": "2026-09-02T08:52:41Z"
+            },
+            {
+              "originalPosition": 54,
+              "body": "```suggestion\n  or compromise the Attesting Environment or its Attestation Key.\n  \n```",
+              "createdAt": "2026-09-02T08:30:27Z",
+              "updatedAt": "2026-09-02T08:52:41Z"
+            },
+            {
+              "originalPosition": 56,
+              "body": "```suggestion\n  for  session establishment in a particular secure-channel handshake. Given the\n```",
+              "createdAt": "2026-09-02T08:30:55Z",
+              "updatedAt": "2026-09-02T08:52:41Z"
+            },
+            {
+              "originalPosition": 66,
+              "body": "```suggestion\n  Key.\n  \n```",
+              "createdAt": "2026-09-02T08:31:41Z",
+              "updatedAt": "2026-09-02T08:52:41Z"
+            },
+            {
+              "originalPosition": 83,
+              "body": "This Attack description needs to be re-worded or explained properly ..\n\nWhat we are trying to state.\n\nRelying party cannot appraise the Security Claims so may be the actor who performs the Security Validation needs to be introduced in the description!",
+              "createdAt": "2026-09-02T08:41:50Z",
+              "updatedAt": "2026-09-02T08:52:41Z"
+            },
+            {
+              "originalPosition": 93,
+              "body": "Should we not call this at line 235 as Mitigation Strategy",
+              "createdAt": "2026-09-02T08:46:34Z",
+              "updatedAt": "2026-09-02T08:52:41Z"
+            },
+            {
+              "originalPosition": 244,
+              "body": "Is it correct to state, whether RP appraises the Evidenc?",
+              "createdAt": "2026-09-02T08:50:27Z",
+              "updatedAt": "2026-09-02T08:52:41Z"
+            },
+            {
+              "originalPosition": 260,
+              "body": "And should we say, the Appraisa Policies should consider freshness of Appraisal, as a key parameter to mitigation?",
+              "createdAt": "2026-09-02T08:51:42Z",
+              "updatedAt": "2026-09-02T08:52:41Z"
             }
           ]
         }
