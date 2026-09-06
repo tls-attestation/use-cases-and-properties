@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-09-03T03:50:48.722572+00:00",
+  "timestamp": "2026-09-06T03:54:57.229196+00:00",
   "repo": "ietf-wg-seat/draft-ietf-seat-use-cases",
   "labels": [
     {
@@ -1117,6 +1117,22 @@
       "body": "Define credentials in terminology section",
       "createdAt": "2026-05-18T07:50:53Z",
       "updatedAt": "2026-05-18T07:50:53Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 60,
+      "id": "I_kwDOP_9tTM8AAAABPsZdaw",
+      "title": "Clarify key non-exportability to allow secure replication/migration",
+      "url": "https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/issues/60",
+      "state": "OPEN",
+      "author": "yaronf",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Section 4.5 requires Evidence that the TLS private key:\n\n> is generated and stored within a specific cryptographic module or secure element\n\nand\n\n> is protected against export or software extraction\n\nIs the intention to require that a private key can never leave the particular cryptographic module in which it was generated?\n\nThat seems too restrictive for clustered/HA TLS deployments. For example, HSM clusters commonly support secure replication of a TLS private key between HSMs, while ensuring that the key is never exposed in plaintext outside the trusted cryptographic boundary. A similar requirement may arise when a confidential workload is migrated between platforms (cf. Section 4.6).\n\nI think the desired security property is instead that the private key cannot be extracted into an untrusted environment. Secure transfer or replication directly between attested/trusted cryptographic environments should not necessarily violate that property.\n\nCould Section 4.5 distinguish **software/plaintext extraction** from **secure key migration or replication between qualifying trusted environments**?\n\nFor example, the requirements might say that the key:\n\n* is generated within, or securely provisioned into, an attested cryptographic module or secure element;\n* is stored and used only within cryptographic environments satisfying the applicable security policy; and\n* is protected against disclosure outside those environments, including extraction into ordinary software.\n\nA deployment could still impose the stronger policy that a particular key is non-migratable and remains bound to one physical module, but that would not be a fundamental requirement of the SEAT use case.\n",
+      "createdAt": "2026-09-04T12:38:18Z",
+      "updatedAt": "2026-09-04T12:38:18Z",
       "closedAt": null,
       "comments": []
     }
@@ -7251,7 +7267,7 @@
       "labels": [],
       "body": "Courtesy of @tireddy2 ",
       "createdAt": "2026-08-17T09:25:28Z",
-      "updatedAt": "2026-09-02T08:52:42Z",
+      "updatedAt": "2026-09-04T23:03:32Z",
       "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "3bd870604738e6d594b65ecf3656b22adf333ecd",
@@ -8016,6 +8032,126 @@
               "body": "And should we say, the Appraisa Policies should consider freshness of Appraisal, as a key parameter to mitigation?",
               "createdAt": "2026-09-02T08:51:42Z",
               "updatedAt": "2026-09-02T08:52:41Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABMECMfw",
+          "commit": {
+            "abbreviatedOid": "48226b2"
+          },
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-09-03T16:45:56Z",
+          "updatedAt": "2026-09-03T16:45:56Z",
+          "comments": [
+            {
+              "originalPosition": 83,
+              "body": "In many of the evaluated cases, the Verifier process is co-located with the RP/client. However, that is not exclusively so. In any case, I don't disagree with you that the distinction ought to be made. ",
+              "createdAt": "2026-09-03T16:45:56Z",
+              "updatedAt": "2026-09-03T16:45:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABMI_uhg",
+          "commit": {
+            "abbreviatedOid": "48226b2"
+          },
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "Proposing a new subsection that helps address a (non-invariant) remark regarding authorization in the SEAT charter:\n\n\"Remote attestation bound to the authenticated TLS connection provides an\nadditional assurance of trustworthiness that can prevent communication\nto a compromised or *unauthorized* system.\"",
+          "createdAt": "2026-09-04T06:03:18Z",
+          "updatedAt": "2026-09-04T06:05:37Z",
+          "comments": [
+            {
+              "originalPosition": 324,
+              "body": "\n### Unauthorized System Hosting of Valid Credentials\n\n**Attacker capabilities:** A malicious peer possesses a valid, CA-endorsed authentication private key for an authorized peer identity and controls an endorsed Target Environment capable of producing authentic, fresh Evidence.\n\n**Targeted assurance:** The Relying Party verifies that the specific Target Environment is authorized to execute operations under the authenticated peer identity, preventing communication with an unauthorized system.\n\n**Preconditions and attack:** The Relying Party validates identity credentials and platform Evidence independently. The attacker hosts the valid key inside an unapproved confidential workload, completes the cryptographic transcript binding, and establishes the TLS connection. When the Relying Party's policy checks pass in isolation, it authorizes the session.\n\n**Why validation succeeds:** TLS proof of possession and platform Evidence verify against their respective independent trust roots, and the connection binder confirms channel co-location. Validation succeeds because neither root evaluates the other's domain, and the Relying Party lacks a policy rule linking them. Cryptographic channel binding alone is insufficient to establish that an attested environment is an authorized system for a given identity.\n\n**Required invariant:** To prevent communication with an unauthorized system,\ncompound authentication requires joint evaluation of the peer identity and\nplatform measurements.\n",
+              "createdAt": "2026-09-04T06:03:18Z",
+              "updatedAt": "2026-09-04T06:05:37Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABMKc7Og",
+          "commit": {
+            "abbreviatedOid": "48226b2"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-09-04T09:21:11Z",
+          "updatedAt": "2026-09-04T09:21:11Z",
+          "comments": [
+            {
+              "originalPosition": 324,
+              "body": "I think this is basically identical to the `Key Substitution` attack described above, but your focus seems to be on how the RP makes decisions about which attesting platform is (or is not) legitimate, i.e. what the appraisal policy looks like for the RP.\n\nMy problem with this framing is in the `Required invariant` - we can't use it as a basis for a new property in this document, because it cannot be fulfilled / resolved by the aTLS protocol directly. (The goal of this section is to describe the attacks that _can_ be mitigated by the protocol.) At best, solution documents can say something along the lines of \"the RP must properly authenticate the entity from which it receives appraisal policies\", but this text would be identical to all solutions. Hence, I think it is better suited in an architecture document for SEAT.",
+              "createdAt": "2026-09-04T09:21:11Z",
+              "updatedAt": "2026-09-04T09:21:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABMOzv1w",
+          "commit": {
+            "abbreviatedOid": "48226b2"
+          },
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-09-04T16:56:45Z",
+          "updatedAt": "2026-09-04T16:56:46Z",
+          "comments": [
+            {
+              "originalPosition": 324,
+              "body": "> [...] but your focus seems to be on how the RP makes decisions about which attesting platform is (or is not) legitimate, i.e. what the appraisal policy looks like for the RP.\r\n> \r\n> [...] > At best, solution documents can say something along the lines of \"the RP must properly authenticate the entity from which it receives appraisal policies\",\r\n\r\nHrm, the intent may be misunderstood here. This is a different risk than configuring the appraisal policy appropriately and then having it tampered with later. \r\n\r\nThis risk about _not_ doing the check in the first place, and I am trying to establish the boundary of what compound authentication with aTLS means in practice. \r\n\r\nMy concern is that it was not initially obvious to me that these two checks (even when completely healthy) happen in isolated-silos, and someone may choose to forgo any configuration in the first place intended to tie the two disparate checks together. This may happen because one may assume erroneously (via either timing window) that the protocol achieves this cross-referencing for them automatically through the cryptography or inherent nature of the composed protocol design.\r\n\r\n> My problem with this framing is in the `Required invariant` - we can't use it as a basis for a new property in this document, because it cannot be fulfilled / resolved by the aTLS protocol directly. (The goal of this section is to describe the attacks that _can_ be mitigated by the protocol.) [...]\r\n\r\n> Hence, I think it is better suited in an architecture document for SEAT.\r\n\r\nAs I just affirmed, you are right that there is no cryptographic solution available that I have been able to find, and I am happy to redirect this to further architectural discussion and guidance. \r\n\r\nBut, even if we can't produce a 'new property', this feels like an attack that is easier to miss specifically *because* we are composing with TLS 1.3. If you still disagree that it belongs here, that's fine, but I wonder if augmenting  the \"Compound Authentication\" subsection in Integrated Security Goals may still be appropriate?\r\n\r\n\r\n",
+              "createdAt": "2026-09-04T16:56:45Z",
+              "updatedAt": "2026-09-04T16:56:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABMO97hg",
+          "commit": {
+            "abbreviatedOid": "48226b2"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-09-04T17:18:03Z",
+          "updatedAt": "2026-09-04T17:18:04Z",
+          "comments": [
+            {
+              "originalPosition": 324,
+              "body": "> My concern is that it was not initially obvious to me that these two checks (even when completely healthy) happen in isolated-silos, and someone may choose to forgo any configuration in the first place intended to tie the two disparate checks together. This may happen because one may assume erroneously (via either timing window) that the protocol achieves this cross-referencing for them automatically through the cryptography or inherent nature of the composed protocol design.\r\n\r\nOk, I'm listening! To try to reword this (mostly for my own benefit), you're worried that the appraisal policy contains no rule that says something along the lines of \"for the peer with network identity X, expect an attestation credential from one of the following platform profiles: [A, B, C...]\"?",
+              "createdAt": "2026-09-04T17:18:04Z",
+              "updatedAt": "2026-09-04T17:18:04Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABMRXCqw",
+          "commit": {
+            "abbreviatedOid": "48226b2"
+          },
+          "author": "telephonicrobotics",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-09-04T23:03:31Z",
+          "updatedAt": "2026-09-04T23:03:32Z",
+          "comments": [
+            {
+              "originalPosition": 324,
+              "body": "> Ok, I'm listening! To try to reword this (mostly for my own benefit), you're worried that the appraisal policy contains no rule that says something along the lines of \"for the peer with network identity X, expect an attestation credential from one of the following platform profiles: [A, B, C...]\"?\r\n\r\nRight. Whether that rule maps identity X to platform classes like [A, B, C] or to specific software/workload measurements, that specificity depends entirely on what a given deployment defines as \"authorized\" (if they indeed care about enforcing that boundary at all).\r\n\r\nThe core point would be that, if an RP cares about preventing communication with an unauthorized system, that assurance hinges on having an explicit policy rule connecting the semantic concept of TLS 1.3 identity with the semantic concept of authenticity of the Target Environment, which the cryptography of aTLS cannot establish on its own. My guess is that most appraisal policies in the real world likely already do this cross-referencing incidentally. \r\n\r\nBut to reiterate my primary concern: implementers may otherwise conflate compound authentication with authorization, eroding what may be existing incidental checks in their appraisal policies, without a clear reminder that they do mean different things and are accomplished in separate steps, even with aTLS. \r\n",
+              "createdAt": "2026-09-04T23:03:31Z",
+              "updatedAt": "2026-09-04T23:03:32Z"
             }
           ]
         }
