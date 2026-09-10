@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-09-06T03:54:57.229196+00:00",
+  "timestamp": "2026-09-10T04:00:43.972873+00:00",
   "repo": "ietf-wg-seat/draft-ietf-seat-use-cases",
   "labels": [
     {
@@ -7267,13 +7267,13 @@
       "labels": [],
       "body": "Courtesy of @tireddy2 ",
       "createdAt": "2026-08-17T09:25:28Z",
-      "updatedAt": "2026-09-04T23:03:32Z",
+      "updatedAt": "2026-09-09T15:51:43Z",
       "baseRepository": "ietf-wg-seat/draft-ietf-seat-use-cases",
       "baseRefName": "main",
       "baseRefOid": "3bd870604738e6d594b65ecf3656b22adf333ecd",
       "headRepository": "tireddy2/use-cases-and-properties",
       "headRefName": "main",
-      "headRefOid": "48226b23dd64ebd6aa105315e00bcc6d477fc325",
+      "headRefOid": "786a8c560438969d8bb0c796b30ff4b5b3cac7f5",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -7949,9 +7949,9 @@
           "comments": [
             {
               "originalPosition": 35,
-              "body": "```suggestion\nentity , which holds the Attestation key, which is used to sign Evidence for the\n```",
+              "body": "```suggestion\nentity which holds the Attestation key, which is used to sign Evidence for the\n```",
               "createdAt": "2026-09-02T08:20:36Z",
-              "updatedAt": "2026-09-02T08:20:36Z"
+              "updatedAt": "2026-09-09T14:32:08Z"
             }
           ]
         },
@@ -8152,6 +8152,166 @@
               "body": "> Ok, I'm listening! To try to reword this (mostly for my own benefit), you're worried that the appraisal policy contains no rule that says something along the lines of \"for the peer with network identity X, expect an attestation credential from one of the following platform profiles: [A, B, C...]\"?\r\n\r\nRight. Whether that rule maps identity X to platform classes like [A, B, C] or to specific software/workload measurements, that specificity depends entirely on what a given deployment defines as \"authorized\" (if they indeed care about enforcing that boundary at all).\r\n\r\nThe core point would be that, if an RP cares about preventing communication with an unauthorized system, that assurance hinges on having an explicit policy rule connecting the semantic concept of TLS 1.3 identity with the semantic concept of authenticity of the Target Environment, which the cryptography of aTLS cannot establish on its own. My guess is that most appraisal policies in the real world likely already do this cross-referencing incidentally. \r\n\r\nBut to reiterate my primary concern: implementers may otherwise conflate compound authentication with authorization, eroding what may be existing incidental checks in their appraisal policies, without a clear reminder that they do mean different things and are accomplished in separate steps, even with aTLS. \r\n",
               "createdAt": "2026-09-04T23:03:31Z",
               "updatedAt": "2026-09-04T23:03:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABM03jUg",
+          "commit": {
+            "abbreviatedOid": "48226b2"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-09-09T14:29:03Z",
+          "updatedAt": "2026-09-09T14:29:03Z",
+          "comments": [
+            {
+              "originalPosition": 324,
+              "body": "Ok, yeah, I understand and agree with your view.\r\n\r\n> But to reiterate my primary concern: implementers may otherwise conflate compound authentication with authorization, eroding what may be existing incidental checks in their appraisal policies, without a clear reminder that they do mean different things and are accomplished in separate steps, even with aTLS.\r\n\r\nHmmm, I agree, we need to provide this sort of guidance somewhere. However, an important note: this document in particular is not meant to be used by implementers, hence why publication is not expected. In my view, this draft is meant primarily for protocol designers and WG members looking to understand the context in which the protocols are expected to be used. Between those two views, I guess we need to figure out where and what to publish that is actually intended for implementers and users of these protocols. Maybe an architecture + threat model document is needed.",
+              "createdAt": "2026-09-09T14:29:03Z",
+              "updatedAt": "2026-09-09T14:29:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABM0_M-g",
+          "commit": {
+            "abbreviatedOid": "ddec044"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-09-09T14:38:25Z",
+          "updatedAt": "2026-09-09T14:38:26Z",
+          "comments": [
+            {
+              "originalPosition": 38,
+              "body": "Indeed, this is merely stating that, unless called out otherwise, the TLS protocol is expected to be performed correctly by the two endpoints. It is the TLS equivalent to the previous paragraph.",
+              "createdAt": "2026-09-09T14:38:25Z",
+              "updatedAt": "2026-09-09T14:38:26Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABM1AKRw",
+          "commit": {
+            "abbreviatedOid": "ddec044"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-09-09T14:39:34Z",
+          "updatedAt": "2026-09-09T14:39:34Z",
+          "comments": [
+            {
+              "originalPosition": 50,
+              "body": "I'll insert all the new lines in a single commit!",
+              "createdAt": "2026-09-09T14:39:34Z",
+              "updatedAt": "2026-09-09T14:39:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABM1C0zA",
+          "commit": {
+            "abbreviatedOid": "ddec044"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-09-09T14:43:11Z",
+          "updatedAt": "2026-09-09T14:43:12Z",
+          "comments": [
+            {
+              "originalPosition": 52,
+              "body": "> Why can't you say it without negation?\n\nThe negation must exist somewhere in the sentence, because it is trying to convey the fact that a malicious peer either:\n\n* is NOT running in a Target Environment at all (i.e., it cannot function as an attester itself), or\n* is running in a Target Environment, but its evidence or AR would NOT pass the RPs appraisal policy.\n\nI'll clarify the text with those two options in mind.",
+              "createdAt": "2026-09-09T14:43:11Z",
+              "updatedAt": "2026-09-09T14:43:12Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABM1GImg",
+          "commit": {
+            "abbreviatedOid": "ddec044"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-09-09T14:48:02Z",
+          "updatedAt": "2026-09-09T14:48:02Z",
+          "comments": [
+            {
+              "originalPosition": 56,
+              "body": "\"key establishment\" is more accurate here - this is about an attacker having the private keys used for ECDHE or whatever flavour of KEM is used for post-quantum.",
+              "createdAt": "2026-09-09T14:48:02Z",
+              "updatedAt": "2026-09-09T14:48:02Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABM1JJ7w",
+          "commit": {
+            "abbreviatedOid": "ddec044"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-09-09T14:52:12Z",
+          "updatedAt": "2026-09-09T14:52:13Z",
+          "comments": [
+            {
+              "originalPosition": 83,
+              "body": "Sorry, I don't think I understand the request. I think this could be simplified to remove `claim` and just keep `security property` in the wording, but I get the feeling that the comment is more about a specific attack than about the description of the template.",
+              "createdAt": "2026-09-09T14:52:12Z",
+              "updatedAt": "2026-09-09T14:52:13Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABM1LpvQ",
+          "commit": {
+            "abbreviatedOid": "ddec044"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-09-09T14:55:28Z",
+          "updatedAt": "2026-09-09T14:55:28Z",
+          "comments": [
+            {
+              "originalPosition": 244,
+              "body": "I'll change the wording, agree that `appraises` isn't accurate.",
+              "createdAt": "2026-09-09T14:55:28Z",
+              "updatedAt": "2026-09-09T14:55:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOP_9tTM8AAAABM1wgzQ",
+          "commit": {
+            "abbreviatedOid": "ddec044"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-09-09T15:47:46Z",
+          "updatedAt": "2026-09-09T15:47:46Z",
+          "comments": [
+            {
+              "originalPosition": 260,
+              "body": "Hmm, much like the appraisal policy discussion [here](https://github.com/ietf-wg-seat/draft-ietf-seat-use-cases/pull/59/changes#r3931320083), I agree with the fact that we need to spell that requirement out, but perhaps in a separate document that would get published for implementers and users to read.",
+              "createdAt": "2026-09-09T15:47:46Z",
+              "updatedAt": "2026-09-09T15:47:46Z"
             }
           ]
         }
